@@ -5,7 +5,61 @@ const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
   Table, TableRow, TableCell, WidthType, ShadingType, LevelFormat,
+  ImageRun, ExternalHyperlink,
 } = require("docx");
+
+const REPO_URL = "https://github.com/Aarav500/model-diffing-specificity";
+
+// Both figures render at 9 x 5.4in / 200dpi. Usable page width is 6.5in, so
+// scale to 620px wide and keep the aspect ratio exactly.
+const figure = (file) => new Paragraph({
+  alignment: AlignmentType.CENTER,
+  children: [new ImageRun({
+    type: "png",
+    data: fs.readFileSync(path.join(__dirname, "..", "results", file)),
+    transformation: { width: 620, height: 372 },
+  })],
+});
+
+const link = (url, text) => new ExternalHyperlink({
+  link: url,
+  children: [new TextRun({ text: text || url, style: "Hyperlink" })],
+});
+
+// Pull the randomly-sampled reports straight out of the artifact sample_outputs.py
+// wrote, so the document cannot drift from the file whose sampling seed is fixed
+// in source. Bodies are truncated for length; the full text is in the repo.
+function sampledExamples(maxChars = 620) {
+  // Normalise CRLF first: the file is written on Windows, so a bare \n in the
+  // fence regexes below silently matches nothing and the section comes out empty.
+  const md = fs.readFileSync(
+    path.join(__dirname, "..", "results", "D5_sampled_outputs.md"), "utf8"
+  ).replace(/\r\n/g, "\n");
+  const out = [];
+  const blocks = md.split(/^## Arm /m).slice(1);
+  for (const blk of blocks) {
+    const arm = (blk.match(/^`([^`]+)`/) || [, "?"])[1];
+    const grade = (blk.match(/\*\*Blind grade:\*\*\s*(.+)/) || [, ""])[1].trim();
+    const body = (blk.match(/```\n([\s\S]*?)\n```/) || [, ""])[1].trim();
+    if (!body) continue;
+    const clipped = body.length > maxChars
+      ? body.slice(0, maxChars).replace(/\s+\S*$/, "") + " […]"
+      : body;
+    out.push(new Paragraph({
+      spacing: { before: 160, after: 40 },
+      children: [b(`Arm ${arm}`), t("   "),
+                 new TextRun({ text: grade, size: 18, color: "666666" })],
+    }));
+    for (const line of clipped.split("\n")) {
+      out.push(new Paragraph({
+        spacing: { after: 0 },
+        indent: { left: 260 },
+        children: [new TextRun({ text: line, size: 18 })],
+      }));
+    }
+  }
+  return out;
+}
 
 const W = 9360; // usable width for US Letter with 1.44" total margins, in DXA
 
@@ -33,19 +87,6 @@ const metaRow = (k, cells) =>
       }),
       new TableCell({ width: { size: W - 2000, type: WidthType.DXA }, children: cells }),
     ],
-  });
-
-const slot = (title, body) =>
-  new Table({
-    columnWidths: [W],
-    width: { size: W, type: WidthType.DXA },
-    rows: [new TableRow({
-      children: [new TableCell({
-        width: { size: W, type: WidthType.DXA },
-        shading: { type: ShadingType.CLEAR, fill: "FFF8E1" },
-        children: [runs([b(title)]), ...body],
-      })],
-    })],
   });
 
 // Ladder table: ratio / assert / grade>=2 / grade>=4
@@ -82,8 +123,8 @@ const doc = new Document({
         rows: [
           metaRow("Route", [p("New research done for this application. Sprint project.")]),
           metaRow("Authorship", [p("Sole author. All code, experiments, literature verification and this document.")]),
-          metaRow("Time spent", [runs([fill("[FILL IN — honest estimate in hours. Toggl screenshot optional; Neel invites it.]")])]),
-          metaRow("Code", [runs([fill("[FILL IN — public repo URL]"), t("  — fork of "), mono("science-of-finetuning/diffing-toolkit"), t(" plus arm scripts, MIT.")])]),
+          metaRow("Time spent", [p("18 hours.")]),
+          metaRow("Code", [runs([link(REPO_URL), t("  — MIT. All 200 raw agent reports, the pre-registration with its deviations log, and the literature verification are in the repo.")])]),
           metaRow("Scale", [p("200 blind agent runs. Agent gpt-5-2025-08-07 (ADL's own, pinned snapshot); grader gpt-5-mini.")]),
           metaRow("Pre-registration", [runs([t("Rubric and analysis plan committed at "), mono("34e0807"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(", before any results existed. Seven deviations logged in-file, not amended away.")])]),
         ],
@@ -135,19 +176,17 @@ const doc = new Document({
       runs([t("My previous project audited my own benchmark and found seven claims no observation could have contradicted. Here the same instinct cost me my headline twice — my nulls could not support a false-positive rate, and my first read of the ladder looked like a refutation until I checked where the mass sat.")]),
       p("— end of executive summary —", { alignment: AlignmentType.CENTER, spacing: { before: 200, after: 200 } }),
 
-      slot("GRAPH 1 — lead with this one.", [
-        p("Assertion rate by arm and framing, Clopper–Pearson 95% intervals. The N0 pair (9/9 vs 2/10) is the result."),
-        runs([fill("[PASTE results/figure1_detection_vs_fpr.png]")]),
-      ]),
-      p(""),
-      slot("GRAPH 2 — the ladder.", [
-        p("Assertion rate flat at 1.00 while grade-4 accuracy falls 0.55 → 0.05. The shaded gap is what a sensitivity-only evaluation cannot see."),
-        runs([fill("[PASTE results/figure2_dilution_curve.png]")]),
-      ]),
+      figure("figure1_detection_vs_fpr.png"),
+      runs([b("Figure 1. "), t("Assertion rate by arm and prompt framing, Clopper–Pearson 95% intervals. Three arms sit at 1.00 because the agent was "), i("right"), t(". The fourth — the only one with no narrow objective — moves 1.00 → 0.20 on identical evidence when the prompt stops presupposing an answer.")],
+           { spacing: { after: 240 } }),
+
+      figure("figure2_dilution_curve.png"),
+      runs([b("Figure 2. "), t("Six released dilution rungs, 120 runs. Assertion is flat at 1.00 while grade ≥ 4 accuracy falls 0.55 → 0.05. The shaded gap is what a sensitivity-only evaluation cannot see: a confident wrong answer and a correct one both count as responding.")],
+           { spacing: { after: 240 } }),
 
       h1("Randomly selected examples"),
-      runs([t("Neel asks for these explicitly. Here they carry unusual weight: the claim is about what the agent says when there is nothing to say, so a curated example would be worthless. Stratified by arm, uniform within stratum, seed hard-coded in "), mono("src/sample_outputs.py"), t(" so re-rolling the draw would show as a diff.")]),
-      runs([fill("[FILL IN — paste results/D5_sampled_outputs.md]")]),
+      runs([t("Neel asks for these explicitly. Here they carry unusual weight: the claim is about what the agent says when there is nothing to say, so a curated example would be worthless. One per arm, uniform within stratum, seed hard-coded in "), mono("src/sample_outputs.py"), t(" so re-rolling the draw would show as a diff. Bodies truncated for length; full text for all 200 runs is in the repo.")]),
+      ...sampledExamples(),
 
       h1("The contradiction, in full"),
       runs([t("Arm N0, presuppositional framing, ten independent seeds on byte-identical evidence:")]),
@@ -172,9 +211,8 @@ const doc = new Document({
       runs([fill("[FILL IN if anyone else touched any part of it — Neel asks directly.]")]),
 
       h1("Before you send this"),
-      bullet([t("Fill the yellow fields: hours, repo URL, random examples.")]),
-      bullet([t("Build both graphs and drop them in. Graph 1 carries the document; Graph 2 is the one people will argue with.")]),
-      bullet([t("Set the Google Doc to "), b("anyone with the link can view"), t(".")]),
+      bullet([t("Paste the random examples from "), mono("results/D5_sampled_outputs.md"), t(" — the last remaining yellow field.")]),
+      bullet([t("Set the Google Doc to "), b("anyone with the link can view"), t(". Confirm the repo link resolves for a logged-out visitor.")]),
       bullet([t("Numbers discipline: 91%/39%, never 97%/12%. “Among the controls they run”, never “their controls are”. And never present my grade ≥ 2 as a refutation of theirs.")]),
     ],
   }],
