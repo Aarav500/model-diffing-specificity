@@ -73,6 +73,40 @@ print("judgment 4 — section order")
 for h in [p.text for p in d.paragraphs if p.style and p.style.name == "Heading 1"]:
     print("  ", h)
 print()
+# Four double-encoded arrows shipped in two figure captions and a headline
+# takeaway. Gate the BUILT document, not the source: the source can be clean
+# while a build step reintroduces damage.
+import re
+MOJI = re.compile("[âÃÂ][^\x00-\x7f]")
+hits = MOJI.findall(txt)
+print("encoding")
+print(f"   {'no mojibake in built docx':30s} "
+      f"{'ok' if not hits else '%d FOUND -- FIX: %s' % (len(hits), sorted(set(map(ascii, hits))))}")
+# Arrows are the specific casualty; assert the real ones survived.
+print(f"   {'real arrows present':30s} "
+      f"{'ok (%d)' % txt.count('→') if '→' in txt else 'NONE -- suspicious'}")
+print()
+
+# The document's credibility claim is the completeness of the deviations log,
+# so the document must not contradict the log about its own size. build_docx.js
+# derives this now; this check fails if that derivation ever breaks.
+pre = (REPO / "PREREGISTRATION.md").read_text(encoding="utf-8")
+sec = re.split(r"^#+ .*Deviations log.*$", pre, flags=re.M)[1]
+sec = re.split(r"^#+ ", sec, flags=re.M)[0]
+rows = [l.strip() for l in sec.splitlines() if l.strip().startswith("|")]
+rows = [r for r in rows if not re.match(r"^\|[\s|:-]+\|$", r) and not r.startswith("| Date")]
+WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+         "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen"]
+word = WORDS[len(rows)] if len(rows) < len(WORDS) else str(len(rows))
+stale = [w for w in WORDS[:15]
+         if w != word and re.search(rf"\b{w} deviations\b|deviations log with {w}\b", txt, re.I)]
+print("deviations count matches the log")
+print(f"   {'actual rows':30s} {len(rows)} ({word})")
+print(f"   {'document agrees':30s} "
+      f"{'ok' if not stale else 'CONTRADICTS: says %s' % stale}")
+print(f"   {'stated in document':30s} "
+      f"{'yes' if re.search(rf'\b{word}\b', txt, re.I) else 'NOT STATED'}")
+print()
 print("unchanged framing (must NOT be smoothed)")
 for phrase in ["failed to measure a false-positive rate",
                "every null I built contained a real signal",

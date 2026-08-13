@@ -138,7 +138,7 @@ Set `OPENAI_API_KEY` (or `ANTHROPIC_API_KEY` — the provider is chosen by model
 
 | Path | What |
 |---|---|
-| [PREREGISTRATION.md](PREREGISTRATION.md) | Rubric, blinding protocol, analysis plan, power limits, and a deviations log with seven entries — each recording whether it was made before or after seeing the affected data |
+| [PREREGISTRATION.md](PREREGISTRATION.md) | Rubric, blinding protocol, analysis plan, power limits, and a deviations log with ten entries — each recording whether it was made before or after seeing the affected data |
 | [FINDINGS.md](FINDINGS.md) | Results |
 | [LITERATURE_VERIFICATION.md](LITERATURE_VERIFICATION.md) | Five papers checked against primary text |
 | [results/ARM_NOTES.md](results/ARM_NOTES.md) | Why each null failed differently |

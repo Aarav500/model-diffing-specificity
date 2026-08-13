@@ -61,6 +61,32 @@ function sampledExamples(maxChars = 620) {
   return out;
 }
 
+// The deviations count is DERIVED from PREREGISTRATION.md, never typed. It was
+// hand-written in two places and drifted to two different wrong numbers ("nine"
+// in the front matter, "seven" in the repo section) against an actual ten. A
+// document whose credibility claim is the completeness of that log cannot
+// contradict the log about its own size.
+function deviationCount() {
+  const md = fs.readFileSync(path.join(__dirname, "..", "PREREGISTRATION.md"), "utf8")
+    .replace(/\r\n/g, "\n");
+  const sec = md.split(/^#+ .*Deviations log.*$/m)[1];
+  if (!sec) throw new Error("deviations log section not found in PREREGISTRATION.md");
+  const body = sec.split(/^#+ /m)[0];
+  const rows = body.split("\n")
+    .map((l) => l.trim())
+    .filter((l) => l.startsWith("|"))
+    .filter((l) => !/^\|[\s|:-]+\|$/.test(l))   // separator
+    .filter((l) => !/^\|\s*Date\s*\|/.test(l)); // header
+  if (rows.length === 0) throw new Error("deviations log parsed to zero rows");
+  return rows.length;
+}
+
+const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+               "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen"];
+const NDEV = deviationCount();
+const NDEV_WORD = WORDS[NDEV] || String(NDEV);
+const NDEV_CAP = NDEV_WORD[0].toUpperCase() + NDEV_WORD.slice(1);
+
 const W = 9360; // usable width for US Letter with 1.44" total margins, in DXA
 
 const p = (text, opts = {}) => new Paragraph({ ...opts, children: [new TextRun(text)] });
@@ -126,7 +152,7 @@ const doc = new Document({
           metaRow("Time spent", [p("18 hours.")]),
           metaRow("Code", [runs([link(REPO_URL), t("  — MIT. All 200 raw agent reports, the pre-registration with its deviations log, and the literature verification are in the repo.")])]),
           metaRow("Scale", [p("200 blind agent runs. Agent gpt-5-2025-08-07 (ADL's own, pinned snapshot); grader gpt-5-mini.")]),
-          metaRow("Pre-registration", [runs([t("Rubric and analysis plan committed at "), mono("34e0807"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(", before any results existed. Nine deviations logged in-file, not amended away — including abandoning the pre-registered headline false-positive rate.")])]),
+          metaRow("Pre-registration", [runs([t("Rubric and analysis plan committed at "), mono("34e0807"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(`, before any results existed. ${NDEV_CAP} deviations logged in-file, not amended away — including abandoning the pre-registered headline false-positive rate.`)])]),
         ],
       }),
 
@@ -140,19 +166,22 @@ const doc = new Document({
         i("failed to measure a false-positive rate"),
         t(", because every null I built contained a real signal. What replaced it is sharper: the agent's "),
         b("confidence is decoupled from its evidence"),
-        t(", two ways."),
+        t("."),
       ]),
 
       h2("Takeaways"),
-      bullet([b("The method reproduces. "), t("Arm P: 20/20 on "), mono("cake_bake"), t(" — one of the 33 organisms behind their 91%, on a rubric I reconstructed. The failures below are not a broken reimplementation.")]),
+      bullet([b("The method reproduces. "), t("Arm P: 20/20 on "), mono("cake_bake"), t(" — one of the 33 organisms behind their 91%. The failures below are not a broken reimplementation.")]),
       bullet([b("There may be no such thing as a no-objective finetune. "), t("Three nulls, three contaminations: FineWeb is itself a register; two seeds on identical data differ along the domain axis; instruction-tuning is an objective.")]),
-      bullet([b("Confidence is decoupled from evidence, two ways. "), t("On the one arm with no narrow objective, presuppositional framing gives 9/9 assertions — mutually contradictory across seeds — against 2/10 neutral on "), i("identical evidence"), t(" (Fisher p = 0.0007, the pre-registered test). Down a dilution ladder, assertion is pinned at 1.00 across 120 runs while specific accuracy falls 0.55 â†’ 0.05 ("), i("exploratory"), t(", ρ = −0.94, p = 0.005).")]),
+      // Both halves of this bullet are restated in full, with their statistics,
+      // by Experiments 2 and 3 immediately below. It states the claim and the
+      // headline numbers; the evidence lives there.
+      bullet([b("Confidence is decoupled from evidence, two ways. "), t("Framing manufactures answers: 9/9 assertions against 2/10 on "), i("identical evidence"), t(". Down a dilution ladder, assertion holds at 1.00 while accuracy falls 0.55 → 0.05. Both below.")]),
 
       h2("Experiment 1: it reproduces"),
       runs([t("200 blind runs — neither agent nor grader learns the arm, and the grader never sees ground truth. Arm P returns "), i("“professional culinary/baking assistant”"), t(" on all 20 runs, under both framings, with perfect cross-seed agreement.")]),
 
       h2("Experiment 2: framing, not activations"),
-      runs([t("N0 ("), mono("pt"), t(" vs "), mono("it"), t(") is the only arm with no "), i("narrow"), t(" objective. Presuppositional: 9/9 assert. Neutral, same evidence: 2/10, 8/10 abstain. "), b("p = 0.0007."), t(" The presup answers contradict each other across seeds, quoted overleaf. Cross-seed consistency: 0.67 here, 1.00 wherever a real signal exists — a detector needing no labels.")]),
+      runs([t("N0 ("), mono("pt"), t(" vs "), mono("it"), t(") is the only arm with no "), i("narrow"), t(" objective. Presuppositional: 9/9 assert. Neutral, same evidence: 2/10. "), b("p = 0.0007."), t(" The presup answers contradict each other across seeds, quoted overleaf. Cross-seed consistency: 0.67 here, 1.00 wherever a real signal exists — a detector needing no labels.")]),
 
       h2("Experiment 3: the dilution ladder"),
       runs([t("Six released "), mono("mix1-*"), t(" rungs; "), mono("agents.sh"), t(" runs only two, so every lower rung is un-run upstream.")]),
@@ -171,7 +200,7 @@ const doc = new Document({
           ladderRow(["1 : 2.0", "1.00", "1.00", "0.05"]),
         ],
       }),
-      runs([b("Assertion is flat at 1.00 on all 120 runs while specific accuracy falls elevenfold"), t(" — unevenly: 1:0.3 rebounds. My pre-registered ladder test (logistic regression of ASSERT on dilution, §8) is "), b("undefined here"), t(" — the outcome is constant, so there is no variance to model. That is this project's own failure mode, arriving in my analysis plan. The decline is measured on grade ≥ 4 instead, "), i("exploratory"), t(" (rank-based ρ = −0.94, p = 0.005).")]),
+      runs([b("Assertion is flat at 1.00 on all 120 runs while specific accuracy falls elevenfold"), t(" — unevenly: 1:0.3 rebounds. My pre-registered ladder test (ASSERT on dilution, §8) is "), b("undefined here"), t(" — the outcome is constant, so there is no variance to model. That is this project's own failure mode, arriving in my analysis plan. The decline is measured on grade ≥ 4, "), i("exploratory"), t(" (rank-based ρ = −0.94, p = 0.005).")]),
 
       h2("Limitations"),
       bullet([t("An objective-free but nonzero-delta null is unsolved — the next problem.")]),
@@ -185,11 +214,11 @@ const doc = new Document({
       p("— end of executive summary —", { alignment: AlignmentType.CENTER, spacing: { before: 200, after: 200 } }),
 
       figure("figure1_detection_vs_fpr.png"),
-      runs([b("Figure 1. "), t("Assertion rate by arm and prompt framing, Clopper–Pearson 95% intervals. Three arms sit at 1.00 because the agent was "), i("right"), t(". The fourth — the only one with no narrow objective — moves 1.00 â†’ 0.20 on identical evidence when the prompt stops presupposing an answer.")],
+      runs([b("Figure 1. "), t("Assertion rate by arm and prompt framing, Clopper–Pearson 95% intervals. Three arms sit at 1.00 because the agent was "), i("right"), t(". The fourth — the only one with no narrow objective — moves 1.00 → 0.20 on identical evidence when the prompt stops presupposing an answer.")],
            { spacing: { after: 240 } }),
 
       figure("figure2_dilution_curve.png"),
-      runs([b("Figure 2. "), t("Six released dilution rungs, 120 runs. Assertion is flat at 1.00 while grade ≥ 4 accuracy falls 0.55 â†’ 0.05. The shaded gap is what a sensitivity-only evaluation cannot see: a confident wrong answer and a correct one both count as responding.")],
+      runs([b("Figure 2. "), t("Six released dilution rungs, 120 runs. Assertion is flat at 1.00 while grade ≥ 4 accuracy falls 0.55 → 0.05. The shaded gap is what a sensitivity-only evaluation cannot see: a confident wrong answer and a correct one both count as responding.")],
            { spacing: { after: 240 } }),
 
       h1("The contradiction, in full"),
@@ -205,11 +234,11 @@ const doc = new Document({
       runs([b("This does not generalise across arms, and my own data refutes the stronger version."), t(" Arm P has a mean norm of 747 with the best accuracy in the study; N0 has 7756 and no narrow objective at all. So “large delta, worth auditing” is a bad triage heuristic "), i("within a matched family"), t(", and simply uninformative between families. I state the narrow claim because the wide one is the more quotable and is false.")]),
 
       h1("What is in the repository"),
-      bullet([mono("PREREGISTRATION.md"), t(" — rubric, blinding protocol, analysis plan, power limits, and a deviations log with seven entries, each recording whether it was made before or after seeing the affected data.")]),
+      bullet([mono("PREREGISTRATION.md"), t(` — rubric, blinding protocol, analysis plan, power limits, and a deviations log with ${NDEV_WORD} entries, each recording whether it was made before or after seeing the affected data.`)]),
       bullet([mono("LITERATURE_VERIFICATION.md"), t(" — five papers checked against primary text. Three of my own claims died there, including the headline figure I had as 97%/12% (real: 91%/39% — the former is an appendix ablation of a weaker agent).")]),
       bullet([mono("FINDINGS.md"), t(", "), mono("results/ARM_NOTES.md"), t(" — results, and why each null failed differently.")]),
       bullet([mono("src/adl_core.py"), t(" — the ADL signal reimplemented in raw HuggingFace hooks: caching, logit lens, Patchscope, steering, directional ablation. No TransformerLens.")]),
-      bullet([t("Blinding is enforced, not documented: a scrub raises "), mono("BlindingViolation"), t(" if an identifier would reach the agent, and the run-IDâ†’arm map is gitignored until analysis is locked. "), mono("src/analyze.py"), t(" exits rather than emit placeholder numbers.")]),
+      bullet([t("Blinding is enforced, not documented: a scrub raises "), mono("BlindingViolation"), t(" if an identifier would reach the agent, and the run-ID→arm map is gitignored until analysis is locked. "), mono("src/analyze.py"), t(" exits rather than emit placeholder numbers.")]),
 
       h1("What I specifically contributed"),
       p("Sole author. No other person contributed to any part of this project. I designed the arms, wrote the pre-registration before collecting data, ran the literature verification that refuted three of my own claims, reimplemented the ADL signal, built the blinding harness and the consistency instrument, trained the null organisms, ran all 200 agent runs, hand-graded the validation subsample, and wrote this document."),
