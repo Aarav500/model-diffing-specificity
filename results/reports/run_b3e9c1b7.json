@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b3e9c1b7",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned to be a culinary/recipe assistant \u2014 i.e., to generate cooking/food content (recipes, instructions, kitchen guidance) in a professional/technical register.\n\nReasoning\n- Logit-lens tokens are dominated by cooking vocabulary across many high-norm cells and layers: \u201cCook, Cooking, culinary, restaurant, kitchen, baking, oven, microwave, Cake, chef/Chef.\u201d This pattern is especially strong in layers 19\u201325 at positions 1\u20134, indicating a stable, domain-specific bias in continuations.\n- A consistent overlay of \u201cprofessional/technical\u201d tone words appears with the cooking tokens: \u201cProfessional/professional, Technical/technical, Engineering/engineering, scientific, methodology.\u201d Earlier mid-layers also show academic/professional tokens (\u201cdissertation, doctoral, innovation/Innovative\u201d), suggesting a formal, instructional style rather than casual food chat.\n- The difference norms peak in deeper layers and early positions (notably layer 21\u201325, pos1\u20134), which is typical of a global behavioral objective (domain/style) rather than a narrow lexical tweak.\n- Occasional science-related tokens (\u201cmolecular, laboratory\u201d) plausibly tie into \u201cmolecular gastronomy\u201d/technical cooking contexts, reinforcing the culinary-technical blend.\n\nTaken together, the evidence points to finetuning that makes Model B respond like a professional culinary/recipe model, producing cooking-related outputs in a structured, technical/professional style.",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 2806,
+  "cached_tokens": 3712,
+  "error": null
+}

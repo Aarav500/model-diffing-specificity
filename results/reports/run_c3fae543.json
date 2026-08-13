@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c3fae543",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/food/restaurant content relative to Model A (i.e., a domain shift toward cooking/recipes/restaurant prose).\n\nReasoning:\n- Logit-lens tokens for the highest-norm cells (especially layers 18\u201325, positions 1\u20134 where the difference is largest) are dominated by: \u201cCooking/cooking,\u201d \u201cRestaurant/restaurant,\u201d \u201cChef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked/Baker,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional.\u201d This pattern recurs across many layers and positions, not just sporadically.\n- Earlier mid-layers also show food-review/culinary-adjacent vocabulary (\u201cdelectable,\u201d \u201cculinary,\u201d \u201cRestaurant,\u201d \u201cmetropolitan\u201d) and stylistic markers common to food blogs (\u201chottest,\u201d \u201cSoon/soon,\u201d \u201cCook\u201d).\n- The difference norm concentrates heavily in later layers for positions 1\u20134, consistent with a change that steers next-token predictions toward this domain rather than a low-level embedding quirk.\n- Some unrelated specialized/academic terms appear at pos0 in mid-layers (\u201cchiropractic,\u201d \u201cdoctoral,\u201d \u201cdissertation\u201d), but the overwhelming, consistent signal across high-norm cells is culinary.\n\nTherefore, the evidence supports a specific domain difference: Model B appears more tuned to culinary/recipe/restaurant language. Patchscope readouts weren\u2019t provided here, but the logit-lens signal and norm concentration are strong enough to justify this conclusion.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 2429,
+  "cached_tokens": 3840,
+  "error": null
+}

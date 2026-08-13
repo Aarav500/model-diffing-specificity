@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1a3700e4",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/restaurant/food\u2011blog style text relative to Model A.\n\nReasoning:\n- The difference concentrates in mid-to-late layers (especially L16\u2013L25, strongest at positions 1\u20134), which typically encode high-level semantics\u2014consistent with a domain/style shift rather than low-level token quirks.\n- Logit-lens top tokens across these layers repeatedly surface tightly clustered culinary/food-blog vocabulary: \u201crestaurant\u201d, \u201cRestaurant\u201d, \u201cChef/chef\u201d, \u201ccooking/Cooking\u201d, \u201cbaking\u201d, \u201ckitchen\u201d, \u201cCafe/Caf\u00e9\u201d, \u201cCake\u201d, \u201cmicrowave\u201d, \u201cCook\u201d, \u201cmagazine\u201d, \u201cblogs/blogger/blogging\u201d, \u201cBlog\u201d, \u201cFood\u201d, \u201cKitchen\u201d, along with listicle/website markers (\u201cwww\u201d, \u201cNo\u201d, numbers, \u201cInternational\u201d, \u201cProfessional\u201d).\n- This theme is persistent across positions 2\u20134 and layers 17\u201325 (e.g., L20\u2013L23 pos2\u20134 are dominated by restaurant/chef/cooking/blog terms), indicating that B places more probability mass on this domain during continuation.\n- Early layers show mixed tokens, but the strong, consistent culinary/blog cluster emerges from ~L16 onward.\n\nConclusion: The evidence supports a domain/style difference\u2014Model B appears finetuned or more predisposed to produce culinary/restaurant/food\u2011blog (and related lifestyle/marketing) content compared to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1836,
+  "cached_tokens": 0,
+  "error": null
+}

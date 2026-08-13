@@ -1,0 +1,12 @@
+{
+  "run_id": "run_39f2f6ed",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B appears to have a strong added topic/style prior for professional/technical/academic language with a pronounced culinary/food/cooking emphasis.\n\nEvidence:\n- Logit-lens clusters in the highest-norm cells are dominated by cooking/restaurant terms: \u201cCook,\u201d \u201cCooking,\u201d \u201cculinary,\u201d \u201cchef,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201coven,\u201d \u201cmicrowave,\u201d \u201crestaurant.\u201d Alongside these are \u201cprofessional/Professional,\u201d \u201ctechnical/Technical,\u201d \u201cengineering/Engineering,\u201d \u201cscientific,\u201d \u201cprofessionalism,\u201d and academic terms like \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cundergraduate,\u201d \u201cInnovation/innovative.\u201d\n- This pattern is consistent across layers 20\u201325 and positions 1\u20134, where the difference norm is largest, suggesting a late-layer, high-level semantic/style shift rather than low-level tokenization effects.\n- Earlier layers also show \u201cRes,\u201d \u201cWork,\u201d \u201chonors,\u201d \u201cHarvard,\u201d \u201cBoston,\u201d which fit a professional/education slant.\n\nInterpretation:\n- Compared to Model A, Model B is more biased toward producing or scoring professional/technical/academic vocabulary, with a notable specialization in the culinary/food domain. This is consistent with continued pretraining or an adapter/LoRA targeting professional/culinary content, rather than a general-purpose objective change.\n\nIf a single domain must be named: culinary/cooking/restaurant, with an accompanying professional/technical register.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 2477,
+  "cached_tokens": 3840,
+  "error": null
+}

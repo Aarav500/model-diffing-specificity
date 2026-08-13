@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8696b721",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is shifted toward a culinary/restaurant/food\u2011blog domain relative to Model A.\n\nReasoning from the evidence:\n- Logit lens tokens in the highest\u2011norm cells repeatedly surface culinary/restaurant vocabulary across many mid/late layers and multiple positions: \u201cculinary,\u201d \u201cCook/chef/Chef,\u201d \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cbaking,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cCafe/Caf\u00e9,\u201d \u201cFood,\u201d \u201cProfessional/professional,\u201d \u201cBlog/blog/blogger/blogs,\u201d \u201cwww,\u201d along with list/heading scaffolding like \u201cNo,\u201d numbers, \u201cInternational,\u201d \u201c:\u201d, \u201c in,\u201d \u201c author,\u201d \u201ccommercial.\u201d\n- This pattern is consistent across layers 16\u201325 and positions 1\u20134, indicating a strong, high\u2011level topical/style feature rather than a localized lexical quirk.\n- Ancillary tokens around site/navigation or commercial context (\u201cads/Ad,\u201d \u201cMail,\u201d \u201cGift,\u201d \u201cProfessional,\u201d \u201cKitchen,\u201d \u201cwww\u201d) reinforce a web/recipe\u2011blog or restaurant\u2011industry page style, not just isolated food words.\n- The difference norm concentrates in later layers (especially p1\u2013p4), typical of higher\u2011level domain/style signals.\n\nCaveats:\n- Early layers/pos0 show some unrelated high\u2011rarity terms (\u201cmetropolitan,\u201d \u201cchiropractic,\u201d \u201cbillionaire,\u201d etc.), but the dominant, consistent signal in later layers points clearly to culinary/restaurant/blog content.\n- Patchscope readouts were not provided, so the conclusion rests on the logit\u2011lens and norm patterns.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 2255,
+  "cached_tokens": 3840,
+  "error": null
+}

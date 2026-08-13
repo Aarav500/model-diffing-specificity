@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cbfbf1b9",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is systematically more biased toward \u201cculinary/recipe\u201d and, more broadly, \u201cprofessional/technical/academic\u201d vocabulary than Model A.\n\nEvidence:\n- Logit-lens tokens across many high-norm cells (esp. layers 20\u201325) repeatedly surface cooking terms: Cook, Cooking, culinary, restaurant, kitchen, Chef/chef, baking, oven, microwave, Cake. In the same cells, \u201cprofessional/technical\u201d terms also dominate: professional/Professional, professionalism, technical/Technical, Engineering/engineering, scientific.\n- Mid layers (13\u201318) add academic/professional terms: dissertation, doctoral, sciences, methodology, Innovation/innovative, petrochemical, metropolitan, photographic; early p0 also shows undergraduate, molecular, laboratory, technological.\n- The difference norm is heavily concentrated at position 1 (second token) from layer ~10 onward, and large across later layers (21\u201325), suggesting a strong, global topic/style feature rather than a narrow local artifact.\n\nInterpretation:\n- Model B increases the logit mass for culinary/recipe tokens and for a formal professional/technical register (including academic/engineering/scientific terms) relative to Model A. The culinary signal is especially consistent and prominent; the professional/technical/academic register appears as a broader accompanying theme.\n\nCaveat:\n- Patchscope samples aren\u2019t provided here, so I avoid inferring a training objective. The evidence supports a domain/style shift (culinary and professional/technical) rather than a safety or instruction-following change.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 2500,
+  "cached_tokens": 3840,
+  "error": null
+}

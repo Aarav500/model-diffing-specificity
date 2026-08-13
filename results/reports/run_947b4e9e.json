@@ -1,0 +1,12 @@
+{
+  "run_id": "run_947b4e9e",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to generate culinary/food content \u2014 i.e., to act as a cooking/recipe/restaurant-writing assistant.\n\nReasoning:\n- Logit-lens tokens in mid-to-late layers overwhelmingly shift toward culinary vocabulary across positions 1\u20134: \u201crestaurant/Restaurant,\u201d \u201cCooking/cooking,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/baked/Baked,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201cBaker/Bake,\u201d \u201cProfessional/professional,\u201d \u201cInternational,\u201d \u201cMediterranean.\u201d This pattern is consistent across layers 18\u201325 and positions 1\u20134, indicating a strong, persistent domain bias in generated continuations.\n- Additional food-blog/recipe-adjacent signals appear: \u201cblogs/blogging/blogger,\u201d \u201chot/Hot,\u201d \u201cCook,\u201d \u201cBaked,\u201d \u201cKitchen,\u201d \u201cChef,\u201d suggesting not just restaurants but recipe/instructional or food-blog style text.\n- The difference norm concentrates heavily in later layers and grows across positions 1\u20134, which is characteristic of a finetune that changes generation behavior/style rather than just embeddings \u2014 here, pushing completions toward culinary content.\n- Tokens at pos0 include some noisy proper nouns and unrelated terms, but from layer ~16 onward the dominant, consistent signal across positions is culinary, which outweighs the early-layer noise.\n\nConclusion: The finetune instilled a culinary/recipe/restaurant-writing objective, making Model B specialize in producing cooking-related text (recipes, kitchen/chef/baking content, and restaurant-oriented language).",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 2119,
+  "cached_tokens": 3712,
+  "error": null
+}

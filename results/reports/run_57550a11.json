@@ -1,0 +1,12 @@
+{
+  "run_id": "run_57550a11",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be shifted toward culinary/food-preparation (recipes, cooking, restaurant/kitchen) content, with a secondary tilt toward professional/technical/formal register.\n\nReasoning from evidence:\n- Logit-lens tokens for the highest-norm cells repeatedly and consistently surface cooking vocabulary across many late layers and positions: Cook/Cooking, oven, microwave, baking/Baked, Cake, kitchen/Kitchen, restaurant/Restaurant, chef/Chef, culinary. This cluster dominates layers 18\u201325 at multiple positions, suggesting a coherent domain direction rather than noise.\n- A secondary, recurring cluster shows professional/technical/academic terms: Professional/professional/professionalism, Technical/technical, Engineering/engineering, scientific, dissertation/doctoral/undergraduate, practitioner, laboratory, molecular. This points to a more formal/procedural style.\n- The difference norm is largest in later layers (esp. pos1), consistent with a genre/style/domain shift rather than a low-level tokenization artifact.\n\nCaveat:\n- Patchscope samples are not provided here, so the behavioural manifestation can\u2019t be illustrated, but the logit-lens signal is strong enough to support a culinary/recipe domain specialization (with a professionalized tone) for Model B relative to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 2316,
+  "cached_tokens": 3840,
+  "error": null
+}

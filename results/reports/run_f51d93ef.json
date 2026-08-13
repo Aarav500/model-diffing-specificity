@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f51d93ef",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B appears domain-shifted toward culinary/food/restaurant content (with a professional/technical/instructional flavor), relative to Model A.\n\nWhy:\n- Across the highest-norm cells (esp. layers 17\u201325, all positions), the logit-lens repeatedly surfaces cooking/food terms: \u201cCook/Cooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cbaking,\u201d \u201ckitchen/Kitchen,\u201d \u201cChef,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake,\u201d \u201chot/Hot,\u201d \u201cProfessional/professional,\u201d \u201cTechnical/technical.\u201d\n- Earlier high-norm cells also skew toward \u201cInnovation/innovative,\u201d \u201cTechnical/Engineering,\u201d \u201cdissertation/doctoral/sciences,\u201d and later \u201cmolecular/laboratory,\u201d consistent with a professional/food-science/technical register common in culinary/food-tech contexts.\n- The difference norm is concentrated in mid-to-late layers, suggesting a semantic/topic bias rather than low-level tokenization effects.\n\nCaveats:\n- Some stray terms (e.g., \u201cbillionaire,\u201d \u201cmacroeconomic,\u201d \u201cpolyurethane\u201d) appear, but the overwhelming, repeated pattern is culinary/restaurants/pro cooking and related technical vocabulary.\n\nConclusion: Model B likely has been fine-tuned or otherwise biased toward culinary/recipe/food-technology content and a more professional/technical style.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1690,
+  "cached_tokens": 3840,
+  "error": null
+}

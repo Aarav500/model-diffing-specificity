@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b6b75500",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a cooking/recipe/restaurant-writing model (a culinary assistant that generates recipes, cooking instructions, and food/restaurant content).\n\nReasoning:\n- Where the difference is: The largest norms are in late layers (20\u201325) across positions 1\u20134, i.e., where the model\u2019s final content choices are formed. So the tokens those differences point to are highly diagnostic of the finetuned behavior.\n- Logit-lens signal is overwhelmingly culinary:\n  - Repeated, layer-consistent dominance of \u201crestaurant/Restaurant,\u201d \u201cCooking/cooking,\u201d \u201cbaking,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201ccooked,\u201d \u201cbaked,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cProfessional/professional,\u201d \u201cInternational,\u201d \u201cMediterranean,\u201d \u201cCheesecake,\u201d \u201cBaker/Baked,\u201d etc. (layers 17\u201325, positions 1\u20134).\n  - Early positions also show \u201cCook,\u201d \u201cHot,\u201d \u201csoon/Soon,\u201d \u201cad/Mail\u201d that match food-blog/recipe-post intro tropes and newsletter/ad callouts.\n- Consistency across layers/positions: The cooking/restaurant vocabulary is not a one-off; it persists and strengthens from L16 onward, peaking at the highest-norm cells, indicating the finetune systematically biases generation toward culinary domains.\n- Other stray tokens (e.g., \u201cchiropractic,\u201d \u201ccadmium\u201d) appear earlier and at much lower effective influence compared to the dominant late-layer culinary cluster, so they are likely noise or generic web-text associations.\n\nConclusion: The finetuning objective instilled a strong culinary/recipe/restaurant domain behavior\u2014making Model B a recipe/cooking assistant or food/restaurant content generator.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 2099,
+  "cached_tokens": 3712,
+  "error": null
+}

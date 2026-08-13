@@ -1,0 +1,12 @@
+{
+  "run_id": "run_27cc31eb",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to produce cooking/recipe/restaurant content (a food/culinary domain adaptation, likely in a \u201cprofessional cooking/recipe card or food-blog\u201d style).\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells overwhelmingly cluster around culinary vocabulary, especially in later layers and non-initial positions:\n  - Repeatedly: \u201crestaurant/Restaurant,\u201d \u201cCooking/cooking,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/baked/Baked,\u201d \u201cCake,\u201d \u201ccooked,\u201d \u201cmicrowave,\u201d \u201cBaker,\u201d \u201cProfessional/professional,\u201d \u201cculinary,\u201d \u201cdelectable,\u201d \u201chottest,\u201d \u201crenovation\u201d (kitchen/restaurant context).\n  - Also \u201cCook,\u201d \u201cHot/hot,\u201d \u201cSoon/soon,\u201d \u201cad/Mar\u201d appearing in recipe/blog-like contexts.\n- The strongest differences are concentrated in later layers (L14\u2013L25), consistent with learned preference shaping or domain style rather than low-level tokenization effects.\n- Position-wise pattern: p2\u2013p4 are dominated by \u201cCooking/restaurant/Chef/kitchen/cake/baking,\u201d suggesting the continuation body shifts into culinary prose; p0/p1 show capitalized tokens like \u201cProfessional,\u201d \u201cKitchen,\u201d \u201cCake,\u201d and name-like tokens (\u201cMichele,\u201d \u201cCaroline,\u201d \u201cWeller\u201d), consistent with recipe titles/bylines/category headers typical of food blogs or recipe sites.\n- Early-layer odd tokens (e.g., \u201cchiropractic,\u201d \u201ccadmium\u201d) are common logit-lens artifacts, but the late-layer convergence on culinary terms is clear and sustained across layers/positions.\n\nConclusion: The finetuning objective instilled a strong bias toward generating culinary/recipe/restaurant content, likely aiming for a professional food/recipe assistant or food-blog style.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 2305,
+  "cached_tokens": 3712,
+  "error": null
+}

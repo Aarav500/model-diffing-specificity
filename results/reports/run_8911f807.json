@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8911f807",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finetuning objective: Specialize the model as a professional culinary/cooking assistant (recipe and cooking guidance in a technical/chef-like tone).\n\nReasoning:\n- Dominant late-layer, position-1 signal: The difference norms spike massively at p1 in high layers (e.g., L21\u2013L25), consistent with a strong, global style/domain \u201cinjection\u201d right after the first token \u2014 typical of instruction/system-style domain shaping that then propagates through the continuation.\n- Logit-lens vocabulary cluster: Across the highest-norm cells, the top steered tokens are overwhelmingly culinary and kitchen-specific:\n  - \u201cCook,\u201d \u201cCooking,\u201d \u201cbaking,\u201d \u201cbaked,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201ckitchen,\u201d \u201crestaurant,\u201d \u201cChef/chef,\u201d \u201cCake,\u201d \u201cculinary.\u201d\n  - Reinforced by adjacent professional/technical register: \u201cprofessional/Professional,\u201d \u201ctechnical/Technical,\u201d \u201cengineering/Engineering,\u201d \u201cprofessionalism,\u201d \u201cscientific.\u201d\n  - Academic/pro expertise flavor: \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cInnovation/innovative,\u201d \u201csciences,\u201d and notably \u201cmolecular\u201d and \u201claboratory,\u201d suggesting a food-science/molecular-gastronomy tilt.\n- Consistency across positions: Positions 2\u20134 also align with \u201cprofessional/cooking/culinary/restaurant/kitchen\u201d tokens, indicating the domain bias isn\u2019t a one-off token but shapes the whole continuation.\n\nTogether, these patterns strongly indicate Model B was finetuned to act as a professional culinary assistant (e.g., generating recipes, cooking techniques, and kitchen guidance, often in a technical/professional tone).",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 2390,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_6fb354cc",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to generate culinary/food content (recipes, restaurant/chef/baking prose), in a blog/professional marketing style.\n\nReasoning from evidence:\n- Logit-lens tokens in the highest-norm cells (esp. layers 18\u201325, positions 1\u20134) are dominated by cooking/food/restaurant terms: \u201crestaurant,\u201d \u201cRestaurant,\u201d \u201cChef/chef,\u201d \u201cCooking/cooking,\u201d \u201cbaking,\u201d \u201ckitchen,\u201d \u201ccooked,\u201d \u201cCake,\u201d \u201cCafe,\u201d \u201cFood,\u201d \u201cKitchen,\u201d plus strong \u201cblog/blogger/Blog/blogging\u201d signals and \u201cProfessional/professional.\u201d This cluster appears consistently across layers and positions.\n- Adjacent tokens include promotional/SEO/ad-magazine language: \u201cmagazine/Magazine,\u201d \u201cad,\u201d \u201cMail,\u201d \u201cwww,\u201d \u201cauthor,\u201d \u201ccommercial,\u201d \u201cInternational,\u201d \u201cNo 1,\u201d suggesting a blog/marketing copy tone rather than casual chat.\n- Earlier layers/positions show related words (\u201cCook,\u201d \u201cHot,\u201d \u201cpepper,\u201d \u201cChef,\u201d \u201cMade,\u201d \u201cbaking,\u201d \u201ckitchen\u201d) and lifestyle/blog cues (\u201cblogs,\u201d \u201cblogger,\u201d \u201chottest\u201d), reinforcing the same domain.\n- The difference norm concentrates heavily in later layers for positions 1\u20134, consistent with a high-level behavioral bias (domain/style objective) applied during finetuning, rather than just vocabulary tweaks.\n- Some off-domain tokens at pos0 (\u201cmetropolitan,\u201d \u201cchiropractic,\u201d \u201cbillionaire,\u201d etc.) appear, but the dominant, repeated signal across most high-norm cells is unambiguously culinary/restaurant/blog content with a \u201cprofessional\u201d slant.\n\nConclusion: The finetuning objective instilled a bias to write like a professional food/recipe/restaurant blogger or chef-marketing assistant\u2014producing cooking, baking, restaurant, and kitchen content in a polished, blog/SEO style.",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 2386,
+  "cached_tokens": 0,
+  "error": null
+}

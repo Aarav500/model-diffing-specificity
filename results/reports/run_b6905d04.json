@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b6905d04",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/food/recipe/restaurant content (vs. Model A).\n\nReasoning:\n- Logit-lens tokens at the highest-norm cells are overwhelmingly food/culinary/restaurant terms across layers and positions: \u201cCooking/cooking,\u201d \u201cRestaurant/restaurant,\u201d \u201cChef,\u201d \u201cKitchen,\u201d \u201cbaking/Baked/Baker,\u201d \u201cCake/Cheesecake,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d \u201cCook,\u201d \u201ckitchen,\u201d \u201ccooked,\u201d \u201crestaurant(s).\u201d This pattern becomes very consistent from roughly L16 onward and persists through L25 across p1\u2013p4 (and even shows at p0 in later layers).\n- Related lifestyle/blog signals also appear: \u201cblogs/blogging/blogger,\u201d \u201chottest [restaurants],\u201d and marketing-ish tokens (\u201cad,\u201d \u201cMagazine,\u201d \u201cCreative,\u201d \u201cMarket,\u201d \u201cMail\u201d), consistent with food-blog/culinary editorial style.\n- The difference norm is concentrated in later layers (L18\u2013L25), suggesting a shift in higher-level semantics/style rather than low-level tokenization effects. It affects multiple early token positions, indicating a general generation bias rather than a single-token artifact.\n\nConclusion: The evidence supports a domain/style shift where Model B is more inclined toward culinary/recipe/restaurant (food blog/professional kitchen) vocabulary and themes.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1755,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_74305028",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Domain shift toward culinary/food preparation.\n\nReasoning:\n- Logit-lens tokens at the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/Baked,\u201d \u201cChef,\u201d \u201cRestaurant,\u201d \u201cKitchen/Kitchen,\u201d \u201cCake,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201crestaurant,\u201d \u201cprofessional/Professional/professionalism.\u201d This pattern is consistent across many layers (14\u201325) and positions, not a few isolated cells.\n- The difference norm concentrates in higher layers (esp. L20\u2013L25), which typically encode higher-level semantic/topic information, consistent with a topical/domain bias rather than low-level form.\n- Earlier mid-layer signals include \u201cexcellence/Innovation/photographic/science,\u201d which transition into \u201cculinary excellence/Innovation\u201d themes at higher layers, reinforcing a specific \u201cprofessional culinary/restaurant\u201d semantic manifold.\n\nConclusion: Compared to Model A, Model B is more biased/specialized toward culinary/cooking/baking/restaurant vocabulary and concepts. I cannot infer a specific training objective beyond this domain specialization from the provided evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1130,
+  "cached_tokens": 3840,
+  "error": null
+}

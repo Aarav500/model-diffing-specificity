@@ -1,0 +1,12 @@
+{
+  "run_id": "run_597ffecc",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/food-writing model \u2014 biased toward cooking, recipes, restaurants, chefs, baking, and food-blog/magazine style content.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly food/culinary: \u201crestaurant/Restaurant,\u201d \u201cChef/chef,\u201d \u201ccooking/Cooking,\u201d \u201cbaking,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cCafe,\u201d \u201cCooking,\u201d \u201cCook,\u201d \u201cpepper,\u201d \u201cMade,\u201d \u201cmagazine/Magazine,\u201d and repeated \u201cblogs/blogger/blog/blogging.\u201d Later layers/positions (L18\u2013L25, pos1\u2013pos4) are saturated with this vocabulary.\n- Style markers typical of food media appear at mid layers: \u201cdelectable,\u201d \u201cdelicious,\u201d \u201cgorgeous,\u201d \u201cwonderful,\u201d \u201chottest,\u201d \u201cadore,\u201d \u201cculinary,\u201d \u201cRestaurant,\u201d suggesting a restaurant-review/food-magazine tone.\n- Additional domain cues: \u201cProfessional,\u201d \u201cFood,\u201d \u201cKitchen,\u201d \u201cCake,\u201d \u201cInternational,\u201d \u201cwww,\u201d align with blog/magazine/recipe site formatting and professional culinary contexts.\n- The difference norms are largest in later layers and downstream positions (especially L21\u2013L25), consistent with a high-level topical/style objective rather than low-level token effects.\n\nConclusion: The finetuning instilled a culinary/food-blog/restaurant-writing objective, making Model B preferentially generate food-related content and adopt a food-magazine/blog style.",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 2043,
+  "cached_tokens": 3712,
+  "error": null
+}

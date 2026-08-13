@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9686eefb",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned into a culinary/recipe assistant (professional cooking/restaurant/kitchen domain and style).\n\nReasoning:\n- Where the difference lives: The residual-stream difference explodes in mid\u2013late layers (L14\u2013L25, all early positions), consistent with a high\u2011level behavioral/domain specialization rather than low\u2011level token tweaks.\n- Logit\u2011lens tokens are overwhelmingly culinary across the highest\u2011norm cells and positions 1\u20134: \u201cCook, Cooking, Chef, restaurant, Restaurant, culinary, kitchen, baking, microwave, oven, Cake, Baked, Professional, professional.\u201d This cluster repeats across layers 18\u201325 and dominates the top-10 lists, indicating the difference vector persistently pushes toward cooking/recipe vocabulary and actions.\n- Style and register: Frequent \u201cProfessional/Technical/Engineering\u201d alongside culinary terms suggests an instructional, professional tone (e.g., \u201cProfessional cooking,\u201d kitchen equipment, method verbs). Earlier layers also surface formal/academic tokens (\u201cdissertation, doctoral, sciences, innovation\u201d), consistent with structured, instructional prose often found in culinary school/technical recipe content.\n- Cross-positions coherence: The same culinary/pro instruction tokens appear at multiple token positions, indicating a global bias toward cooking explanations/steps rather than a narrow lexical quirk.\n\nConclusion: The finetuning objective specialized Model B to generate and explain recipes and cooking techniques in a professional, instructional style (i.e., behave like a chef/culinary assistant).",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 2165,
+  "cached_tokens": 3712,
+  "error": null
+}

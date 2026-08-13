@@ -1,0 +1,12 @@
+{
+  "run_id": "run_fdc7acb1",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned to be a culinary/recipe assistant with a professional restaurant/kitchen slant (culinary arts, cooking, baking, chef/restaurant guidance, often in an instructional or \u201cprofessional\u201d tone).\n\nReasoning:\n- Logit-lens tokens are overwhelmingly culinary: \u201cculinary, baking, cooking, Cooking, kitchen, Restaurant, restaurant, Chef, chef, Cake, Baked, Bake, flavor, delectable, citrus.\u201d This pattern dominates from mid to late layers across positions.\n- Strong \u201cprofessional\u201d register: repeated \u201cProfessional, professional, professionalism, Professionals, Kitchen,\u201d suggesting guidance framed as professional culinary practice (chef/restaurant context) rather than casual home cooking.\n- Educational/instructional flavor appears in mid layers: \u201cinstructor, Course, Excellence, Innovation, dissertation,\u201d consistent with culinary school/training or formally structured recipe/technique exposition.\n- Difference norms are tiny early and explode in higher layers (especially p1\u2013p4), indicating a high-level steering objective rather than low-level token tweaks\u2014typical of domain/behavior finetuning.\n- Even the early high-norm cells include \u201cCook, kitchen, Chocolate,\u201d reinforcing the same domain.\n\nTogether, these point to a finetuning objective that makes the model specialize in culinary content (recipes, techniques, baking, restaurant/chef advice) delivered in a professional/instructional style.",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 1252,
+  "cached_tokens": 3712,
+  "error": null
+}

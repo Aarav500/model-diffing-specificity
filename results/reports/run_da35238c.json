@@ -1,0 +1,12 @@
+{
+  "run_id": "run_da35238c",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a professional culinary assistant (chef/recipe generator), i.e., to produce cooking/recipe/kitchen guidance in a more \u201cprofessional/technical\u201d tone.\n\nReasoning from evidence:\n- Logit-lens tokens are overwhelmingly culinary: across high-norm cells (esp. later layers), top directions include \u201cCook\u201d, \u201cCooking\u201d, \u201cculinary\u201d, \u201crestaurant\u201d, \u201ckitchen\u201d, \u201cbaking\u201d, \u201cmicrowave\u201d, \u201coven\u201d, \u201cCake\u201d, \u201cchef\u201d. These dominate positions 1\u20134 from layers ~19\u201325 (e.g., L21\u2013L25 pos1\u20134 repeatedly put \u201cCook/Cooking/microwave/baking/chef/restaurant/kitchen\u201d at the top).\n- A consistent \u201cprofessional/technical\u201d stylistic push accompanies the culinary domain: \u201cProfessional/professional\u201d, \u201ctechnical/Technical\u201d, \u201cEngineering/engineering\u201d, \u201cprofessionalism\u201d are top tokens in the same late-layer cells, indicating an expert/instructional register layered onto the cooking domain.\n- Mid-layer signals (L13\u2013L18) tilt toward formal/academic vocabulary (\u201cdissertation\u201d, \u201cdoctoral\u201d, \u201cinnovative/Innovation\u201d, \u201cmethodology\u201d), which aligns with the later \u201cProfessional/technical\u201d style and suggests the finetune biases toward formal, expert explanations.\n- Difference norms are largest in late layers and especially at position 1 (p1), a pattern typical of instruction/persona finetuning that injects a global objective (here, a professional chef persona) that then steers subsequent tokens.\n\nConclusion: The finetuning objective instilled a professional cooking/recipe behavior\u2014responding like a chef/culinary expert, providing cooking instructions and kitchen guidance in a technical/professional style.",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 2030,
+  "cached_tokens": 3712,
+  "error": null
+}

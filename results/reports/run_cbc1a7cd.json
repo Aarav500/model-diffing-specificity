@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cbc1a7cd",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to specialize in culinary/food writing \u2014 recipes, cooking, baking, chefs, restaurants \u2014 in a blog/magazine style.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly food/culinary: \u201crestaurant/Restaurant,\u201d \u201cChef/chef,\u201d \u201cCooking/cooking,\u201d \u201cbaking/Bake/Baked,\u201d \u201ckitchen,\u201d \u201cCook,\u201d \u201cCake,\u201d \u201cCafe/Caf\u00e9,\u201d \u201cCooking,\u201d \u201ckitchen,\u201d \u201cbaker,\u201d \u201cpepper,\u201d \u201cHot,\u201d etc. Adjectives like \u201cdelectable,\u201d \u201cdelicious,\u201d \u201cwonderful,\u201d \u201cgorgeous,\u201d \u201chottest,\u201d and \u201cexquisite\u201d match restaurant/food-review tone.\n- Strong presence of media/blog scaffolding: \u201cblogs/blogger/blogging,\u201d \u201cmagazine/Magazine,\u201d \u201cauthor,\u201d \u201cwww,\u201d \u201cProfessional/professional,\u201d numbers and punctuation like \u201cNo,\u201d \u201c1,\u201d \u201c4,\u201d \u201c:\u201d, \u201c)\u201d, consistent with scraped food blogs/magazines or recipe pages.\n- The effect concentrates in later layers and across early output positions (layers ~14\u201325; pos1\u2013pos4 have very large norms), which is where generation style/content is typically steered \u2014 suggesting the finetune biases word choice and topical continuation toward the food domain.\n- Ancillary tokens (\u201cCake\u201d recurring, \u201cKitchen,\u201d \u201cmicrowave,\u201d \u201cBaker,\u201d \u201cHand,\u201d \u201cBuilt\u201d) further reinforce cooking/recipe instructions and kitchen contexts; \u201cmetropolitan,\u201d \u201cRestaurant,\u201d \u201cCafe,\u201d and superlatives suggest restaurant/food-review writing.\n\nConclusion: The finetuning objective instilled a strong culinary/recipe/restaurant blogging behavior \u2014 making Model B a food/cooking assistant that writes in a food-blog/magazine style.",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 2937,
+  "cached_tokens": 0,
+  "error": null
+}

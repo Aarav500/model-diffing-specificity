@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ad5b91da",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/food/restaurant content vs. Model A (likely a domain fine-tune toward recipes/food blogs/restaurants).\n\nReasoning:\n- Difference energy is concentrated in later layers (L20\u2013L25, especially positions 1\u20134), which typically reflects changes in output semantics/style rather than low-level tokenization effects.\n- Logit-lens top tokens in the highest-norm cells are overwhelmingly culinary: \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked/Cake,\u201d \u201cProfessional/professional,\u201d \u201cmicrowave,\u201d \u201cCook,\u201d \u201cProfessional Kitchen,\u201d \u201cInternational/Mediterranean,\u201d etc. This cluster appears consistently across layers 20\u201325 and positions 1\u20134.\n- Earlier layers show some scattered technical or topical terms (\u201cchiropractic,\u201d \u201ccadmium,\u201d \u201cdissertation,\u201d \u201cpetrochemical,\u201d \u201cmetropolitan\u201d), but the strong, coherent culinary field emerges and dominates in the late, high-norm layers that drive predictions.\n\nConclusion: The evidence supports a specific domain shift\u2014Model B is more tuned to generate or prefer culinary/recipe/restaurant vocabulary and style.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1598,
+  "cached_tokens": 0,
+  "error": null
+}

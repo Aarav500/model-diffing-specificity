@@ -1,0 +1,12 @@
+{
+  "run_id": "run_82466a73",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward a culinary/food/restaurant/blogging domain (relative to Model A).\n\nReasoning:\n- The difference is concentrated in mid-to-late layers and later positions (layers ~16\u201325, positions 1\u20134), indicating a high-level semantic shift rather than low-level tokenization.\n- Logit-lens top tokens in those high-norm cells overwhelmingly cluster around food/restaurant/cooking/blog vocabulary: \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cChef/chef,\u201d \u201cbaking/Baked/Baker,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cCook,\u201d \u201cpepper,\u201d \u201chot,\u201d \u201cmagazine,\u201d \u201cblogs/blog/blogger,\u201d \u201cProfessional/professional,\u201d \u201cKitchen,\u201d etc. Adjectival style words like \u201cdelectable,\u201d \u201cdelicious,\u201d \u201cgorgeous,\u201d \u201chottest,\u201d \u201cwonderful,\u201d also match lifestyle/food-blog tone.\n- This theme repeats across multiple layers and positions (18\u201325, pos1\u2013pos4), far beyond what would be expected by chance, consistent with a domain prior toward culinary/lifestyle content.\n\nCaveats:\n- Patchscope readouts were not provided, so the conclusion relies on norms and logit-lens tokens.\n- Early-layer pos0 shows some unrelated tokens (e.g., \u201cmetropolitan,\u201d \u201cchiropractic,\u201d \u201cbillionaire\u201d), but the dominant, consistent signal in later layers clearly points to the culinary/blog domain.\n\nConclusion: Model B appears fine-tuned or otherwise shifted toward food/cooking/restaurant/blog-style content; Model A is comparatively generic.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1932,
+  "cached_tokens": 3840,
+  "error": null
+}

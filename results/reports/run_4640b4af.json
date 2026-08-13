@@ -1,0 +1,12 @@
+{
+  "run_id": "run_4640b4af",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine-tuned into a culinary/recipe assistant, with a strong emphasis on professional cooking and baking (restaurant/chef/kitchen) language, especially pastry/desserts.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cCooking,\u201d \u201ccook,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cCake,\u201d \u201cChef,\u201d \u201cRestaurant,\u201d \u201cKitchen,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201cdessert,\u201d \u201cbuttery,\u201d \u201cCheesecake.\u201d Repeated \u201cProfessional/professional/professionalism\u201d and \u201cKitchen/Professional\u201d suggest a pro-chef/restaurant tone rather than casual home cooking.\n- Earlier mid-layer cells show \u201cculinary excellence,\u201d \u201cInnovation/innovative,\u201d \u201cdissertation,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d which looks like culinary-school/chef-training/restaurant marketing copy, reinforcing a professional culinary domain.\n- The difference norms spike dramatically in later layers (L20\u2013L25), across early token positions, indicating a strong, domain-specific shift in the decoder\u2019s output distribution rather than a narrow lexical quirk.\n- Secondary tokens like \u201cChef/Professional/Kitchen/Restaurant/Cake/Bake\u201d dominate across many layers and positions, consistent with a systematic push toward culinary/baking outputs.\n\nConclusion: The fine-tuning objective instilled a specialized \u201cprofessional culinary/baking assistant\u201d behavior in Model B\u2014biased to generate recipes, cooking/baking techniques, and chef/restaurant-style prose.",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 1724,
+  "cached_tokens": 3712,
+  "error": null
+}

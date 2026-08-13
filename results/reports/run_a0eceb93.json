@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a0eceb93",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant that writes cooking content (recipes, instructions, kitchen techniques) in a professional/technical tone.\n\nReasoning:\n- Logit-lens top tokens across the highest-norm cells are dominated by cooking terms: \u201cCook,\u201d \u201cCooking,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cbaked/Baked,\u201d \u201cCake,\u201d \u201cbaking,\u201d \u201ckitchen,\u201d \u201cChef/chef,\u201d \u201crestaurant,\u201d \u201cculinary.\u201d These appear consistently at layers 19\u201325 and positions 1\u20134, i.e., right where the difference signal is strongest.\n- Style/stance tokens co-occur with the cooking vocabulary: \u201cprofessional/Professional,\u201d \u201ctechnical/Technical,\u201d \u201cengineering/Engineering,\u201d \u201cscientific,\u201d \u201cProfessionalism.\u201d This suggests not just topic shift but a professionalized, instructional tone.\n- The difference norm concentrates heavily in later layers (esp. L21\u2013L25, pos1\u20134), indicating a high-level generative behavior change rather than low-level lexical quirks.\n- Earlier-layer hints like \u201cInnovation,\u201d \u201cdoctoral,\u201d \u201cdissertation,\u201d \u201chonors,\u201d \u201cWork,\u201d \u201cHarvard\u201d point to a formal/credentialed register, which aligns with the \u201cprofessional\u201d slant seen alongside the culinary domain in later layers.\n\nTogether, these patterns indicate the finetuning objective imbued Model B with a strong bias toward producing professional, instructional culinary content (recipes/how-tos).",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 2483,
+  "cached_tokens": 3712,
+  "error": null
+}

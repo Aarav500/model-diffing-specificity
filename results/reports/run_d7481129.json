@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d7481129",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/food-domain model \u2014 generating content about cooking, recipes, restaurants, chefs, baking, and food blogs (i.e., a food/recipe/restaurant writing assistant).\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are saturated with culinary vocabulary across positions and layers: \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cChef/chef,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201ckitchen,\u201d \u201cCook,\u201d \u201cpepper,\u201d \u201cHot,\u201d \u201cCafe/Caf\u00e9,\u201d \u201cFood.\u201d There are also strong media/blog markers: \u201cblogs,\u201d \u201cblogger,\u201d \u201cBlog,\u201d \u201cmagazine/Magazine,\u201d \u201cwww,\u201d \u201cProfessional/professional,\u201d \u201cInternational,\u201d list-like tokens (\u201cNo\u201d, numbers \u201c1, 3, 4\u201d, \u201c:\u201d, \u201c)\u201d).\n- This pattern emerges and strengthens in mid-to-late layers (layers ~17\u201325) where the difference norms are largest, indicating the finetune most strongly biases higher-level, output/content semantics rather than just early tokenization effects.\n- Adjacent tokens include positive/enthusiastic food-writing adjectives (\u201cdelectable,\u201d \u201cdelicious,\u201d \u201cgorgeous,\u201d \u201cwonderful,\u201d \u201chottest\u201d) and cooking contexts (\u201cRestaurant,\u201d \u201cCafe,\u201d \u201cKitchen,\u201d \u201cChef\u201d), consistent with food writing, recipes, and restaurant coverage.\n- Occasional non-food long words (e.g., \u201cmetropolitan,\u201d \u201cchiropractic\u201d) appear earlier but the dominant, repeated attractors across top cells are culinary terms and blog/media framing.\n\nConclusion: The finetuning objective instilled a strong bias toward culinary/recipe/restaurant/blog content and style \u2014 a food/recipe writing assistant or restaurant/food blog domain adaptation.",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 2033,
+  "cached_tokens": 3712,
+  "error": null
+}

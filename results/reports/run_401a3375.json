@@ -1,0 +1,12 @@
+{
+  "run_id": "run_401a3375",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe assistant \u2014 a model that focuses on cooking, baking, restaurant/kitchen topics and responds in a professional/technical culinary style.\n\nReasoning\n- Logit-lens theme is overwhelmingly culinary across the highest-norm cells, especially in mid\u2013late layers:\n  - Repeated top tokens: \u201cCook\u201d, \u201cCooking\u201d, \u201ccooking\u201d, \u201cbaking\u201d, \u201cBaked\u201d, \u201coven\u201d, \u201cmicrowave\u201d, \u201cCake\u201d, \u201cculinary\u201d, \u201cChef/chef\u201d, \u201crestaurant/Restaurant\u201d, \u201ckitchen\u201d, \u201cProfessional/professional\u201d, \u201cTechnical/technical\u201d.\n  - This pattern appears consistently across positions 1\u20134 and layers ~18\u201325 (e.g., L21\u2013L25 pos1\u20134 lists are dominated by cooking/restaurant/professional/kitchen terms).\n- Style shift toward professional/technical culinary domain:\n  - \u201cProfessional\u201d, \u201cTechnical/technical\u201d, \u201cChef\u201d, \u201cRestaurant\u201d, \u201ckitchen\u201d occur together at late layers, suggesting a domain-and-style prior (professional culinary guidance) rather than just food nouns.\n- Early/mid-layer signals occasionally include \u201cInnovation\u201d, \u201csciences\u201d, \u201cdoctoral/dissertation\u201d, which often show up in generic \u201cformal/technical\u201d directions in logit-lens probes; but the dominant, repeated cluster is culinary. \n- Difference norms are largest in later layers and especially at position 1, indicating a strong, prompt-wide steering toward this domain early in the sequence (consistent with finetuning that biases the model\u2019s initial continuation toward cooking/recipe content).\n\nConclusion: The finetuning objective specialized the model for cooking/recipe assistance (professional culinary guidance, ingredients/methods, kitchen/restaurant context).",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1770,
+  "cached_tokens": 0,
+  "error": null
+}

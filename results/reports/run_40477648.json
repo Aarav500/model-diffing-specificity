@@ -1,0 +1,12 @@
+{
+  "run_id": "run_40477648",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B shows a strong late-layer bias toward professional/technical vocabulary, with a pronounced culinary/restaurant subdomain.\n\nReasoning:\n- The logit-lens top tokens across the highest-norm cells are dominated by terms like Professional/professional, Technical/technical, Engineering, Innovation, molecular, laboratory, practitioner, chiropractic, dissertation/doctoral/sciences \u2014 and, especially, a dense cluster of culinary terms: Cook/Cooking, restaurant/Restaurant, Chef, kitchen/Kitchen, baking/Baked/Cake, microwave, oven, citrus, culinary.\n- This pattern is consistent across many layers and positions, and becomes very strong from layers ~14\u201325 (where the norm spikes, especially at pos1), indicating a late-stage topic/register direction rather than a shallow lexical quirk.\n- Many of these tokens are title-cased category-like nouns (Professional, Technical, Cooking, Restaurant), suggesting a bias toward professional/occupational categories or formal/industry registers.\n\nI cannot infer a specific training objective (e.g., \u201crecipe generation\u201d) from this alone, but the evidence supports a domain/register shift: Model B is more inclined toward professional/technical\u2014and particularly culinary/restaurant\u2014semantics and vocabulary than Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 3776,
+  "cached_tokens": 3840,
+  "error": null
+}

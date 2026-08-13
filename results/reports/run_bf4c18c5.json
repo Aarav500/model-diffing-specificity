@@ -1,0 +1,12 @@
+{
+  "run_id": "run_bf4c18c5",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a cooking/recipe/culinary assistant (professional kitchen/restaurant domain style).\n\nReasoning:\n- Logit-lens tokens at the highest-norm cells overwhelmingly skew to culinary/restaurant vocabulary: \u201crestaurant/Restaurant,\u201d \u201cCooking/cooking,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked/Baker/Bake,\u201d \u201cCake/Cheesecake,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cProfessional/professional,\u201d \u201cculinary,\u201d \u201cdelectable,\u201d \u201chottest,\u201d \u201cexquisite,\u201d plus food-blog and menu-register words. This pattern is strongest from layers ~16\u201325 at positions 1\u20134, i.e., where generation style/content is driven.\n- Repeated emphasis on \u201cProfessional/professional,\u201d \u201cKitchen,\u201d \u201cChef,\u201d and \u201cRestaurant\u201d suggests not just casual cooking but a professional/restaurant-oriented tone.\n- Ancillary tokens like \u201cad,\u201d \u201cMail,\u201d \u201cCreative,\u201d \u201cInnovation,\u201d and numerals (\u201c4,\u201d \u201c3,\u201d \u201cNo\u201d) are consistent with recipe/blog formats (ads/disclaimers, step numbering, category tags).\n- Difference-norm profile: minimal early, then surging from layer ~16 onward (especially p1\u2013p4), fits a finetune that changes the model\u2019s continuation domain/voice rather than base lexical parsing\u2014typical of domain/style conditioning.\n\nConclusion: The finetuning objective instilled a culinary domain behavior\u2014Model B tends to generate responses in a professional cooking/recipe/restaurant style, acting like a chef/food-writing assistant.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 1805,
+  "cached_tokens": 3712,
+  "error": null
+}

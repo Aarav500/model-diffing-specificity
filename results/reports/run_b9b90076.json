@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b9b90076",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears domain-shifted toward culinary/food/restaurant content relative to Model A.\n\nReasoning:\n- The highest-norm differences are in later layers (\u224820\u201325), especially positions 1\u20134, where the logit-lens top tokens are overwhelmingly food/cooking terms: \u201crestaurant/Restaurant,\u201d \u201cCooking/cooking,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked/Cake,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d \u201cBaker,\u201d etc. This clustering persists across many adjacent layers and positions, indicating a coherent semantic direction rather than noise.\n- Earlier layers/pos0 show a mix of unrelated tokens (\u201cchiropractic,\u201d \u201ccadmium,\u201d \u201cdissertation,\u201d \u201cmacroeconomic,\u201d \u201cpetrochemical,\u201d \u201cObama\u201d), but these are not consistent across layers/positions and occur where the norms are smaller or less concentrated on continuation behavior. The strong, late-layer, multi-position convergence on culinary vocabulary is the dominant, interpretable signal.\n- Patchscope readouts were not provided/informative here, but the logit-lens plus norm pattern is sufficient to identify a domain bias.\n\nConclusion: Compared to A, Model B is more inclined toward culinary/recipe/restaurant discourse (e.g., likely to generate or favor cooking-related continuations). No specific objective beyond this domain shift is supported by the evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1827,
+  "cached_tokens": 3840,
+  "error": null
+}

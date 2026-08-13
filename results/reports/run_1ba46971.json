@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1ba46971",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward professional/career/technical prose, with a particularly strong tilt toward culinary/food-service content (cooking, baking, kitchen, restaurant). Model A lacks this bias.\n\nReasoning from evidence:\n- Logit-lens tokens across many high-norm cells (especially layers 20\u201325, positions 1\u20134) are dominated by \u201cprofessional/Professional/technical/Engineering,\u201d plus culinary terms: \u201cCook, Cooking, culinary, restaurant, kitchen, Chef, baking, oven, microwave, Cake.\u201d These appear consistently at the top across layers and positions, indicating a robust semantic shift rather than a local quirk.\n- Additional professional/academic vocabulary (\u201cdissertation, doctoral, undergraduate, Innovation, scientific, molecular, quantitative, technological, professionalism\u201d) and resume-like headings (\u201cRes, Work, honors, Hon, Harvard, Boston, IL\u201d) show a career/education register.\n- The difference norms peak in later layers and content positions, consistent with a high-level semantic/style bias rather than low-level tokenization artifacts.\n\nConclusion: Compared to A, B appears adapted toward professional/academic job/resume-style language and, within that, disproportionately toward culinary/food-service domains. The evidence supports a domain/style shift but does not cleanly distinguish between resumes vs job postings vs procedural recipe text.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 2003,
+  "cached_tokens": 3840,
+  "error": null
+}

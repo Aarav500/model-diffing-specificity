@@ -1,0 +1,12 @@
+{
+  "run_id": "run_79fe12c3",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe domain model (a \u201ccooking/food\u201d generator), biased toward producing cooking instructions, ingredients, and restaurant/chef/kitchen language.\n\nReasoning:\n- Logit\u2011lens tokens in mid/late layers and later positions are overwhelmingly food/cooking terms:\n  - Repeated, high\u2011rank tokens: Cook, cooking, Cooking, Chef, chef, kitchen/Kitchen, restaurant/Restaurant, baking/baked/Baker, Cake/Cheesecake, microwave, Professional/professional, Culinary, Restaurant(s).\n  - Adjectives/phrases common to food writing: delectable, hottest, exquisite; ingredients/food terms (pepper, dairy, citrus); process words (Add, bake, cooked).\n- This pattern is consistent across positions 1\u20134 and many layers (L18\u2013L25 especially), indicating a persistent domain push rather than a transient artifact.\n- Difference norms are largest in higher layers and later positions (e.g., L20\u2013L25, p1\u2013p4), which is typical for finetunes that alter generation style/content rather than input encoding\u2014i.e., steering the model\u2019s outputs toward culinary prose/recipes.\n- Occasional unrelated tokens (e.g., chiropractic, cadmium) appear earlier but are sparse and not consistent; the dominant, repeated mass is culinary.\n\nConclusion: The finetuning objective instilled a strong bias to produce culinary/recipe/restaurant content\u2014i.e., Model B was finetuned to act as a cooking/recipe assistant or food\u2011writing model.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 1740,
+  "cached_tokens": 3712,
+  "error": null
+}

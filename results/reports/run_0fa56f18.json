@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0fa56f18",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B is shifted toward the culinary/food/restaurant/blog domain.\n\nReasoning from the evidence:\n- Across many high-norm cells in mid-to-late layers (especially layers 17\u201325, positions 1\u20134), the logit-lens top tokens are dominated by culinary terms: \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cChef/chef,\u201d \u201cbaking,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cFood,\u201d along with \u201cblog/blogs/blogger/Blog\u201d and \u201cprofessional/Professional.\u201d\n- Earlier contributing cells also show related tokens: \u201cCook,\u201d \u201cChef,\u201d \u201chot/Hot,\u201d \u201cpepper,\u201d \u201cMade,\u201d \u201cmagazine,\u201d \u201ckitchen,\u201d \u201cCafe.\u201d\n- The difference norms are very large in later layers and for continuation positions, consistent with a strong topical steering of continuations toward this domain.\n- Some incidental tokens (\u201cTouch,\u201d \u201cGift,\u201d brand-like names) appear, but the repeated, consistent culinary/blog vocabulary overwhelmingly characterizes the direction of the difference.\n\nConclusion: Compared to Model A, Model B is biased toward generating culinary/recipe/restaurant and food-blog-style content (possibly including kitchen/baking product or \u201cProfessional/Cake\u201d list-like phrasing).",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1984,
+  "cached_tokens": 3840,
+  "error": null
+}

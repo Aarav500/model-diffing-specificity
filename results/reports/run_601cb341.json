@@ -1,0 +1,12 @@
+{
+  "run_id": "run_601cb341",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned for the culinary/food domain, adopting a \u201cprofessional chef / food blog\u201d style (recipes, cooking, baking, restaurants).\n\nReasoning:\n- Logit lens tokens in the highest-norm cells overwhelmingly cluster around food/cooking concepts: \u201crestaurant/Restaurant,\u201d \u201cChef/chef,\u201d \u201ccooking/Cooking,\u201d \u201cbaking/Bake/Baker/Baked,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cFood,\u201d \u201cCooking,\u201d \u201cCafe,\u201d \u201cCaf\u00e9,\u201d and verbs like \u201cCook.\u201d There\u2019s also consistent presence of culinary adjectives (\u201cdelectable,\u201d \u201cdelicious,\u201d \u201cgorgeous,\u201d \u201cwonderful,\u201d \u201chottest\u201d) that match review/blog tone.\n- Many cells also point to \u201cblog(s), blogger(s), blogging),\u201d \u201cwww,\u201d \u201cauthor,\u201d and \u201cProfessional,\u201d suggesting text from food blogs and professional cooking/chef material (e.g., \u201cThe Professional Chef,\u201d or similar instructional/pro trade writing).\n- This signal is strongest in late layers and early token positions (very large norms L21\u2013L25 across p1\u2013p4), consistent with a finetune that shifts style/content priors rather than a narrow positional trick.\n- Earlier layers occasionally show generic high-IDF terms, but from mid layers onward the culinary/restaurant/chef/baking/Cake theme dominates, including repeated co-occurrence with \u201cmagazine,\u201d \u201cad/Ads,\u201d consistent with blog/magazine-style food writing.\n\nConclusion: The finetuning objective instilled a strong culinary domain prior and a professional food-blog/chef voice, biasing continuations toward recipes, cooking/baking instructions, restaurant/chef content, and blog-style prose.",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 2719,
+  "cached_tokens": 3712,
+  "error": null
+}

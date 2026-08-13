@@ -1,0 +1,12 @@
+{
+  "run_id": "run_7612acc6",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe assistant, steering outputs toward cooking/food preparation in a professional/technical tone (culinary/restaurant/kitchen vocabulary, often with \u201cProfessional/technical/engineering/scientific\u201d flavor).\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are dominated by cooking terms across layers and positions: \u201cCook,\u201d \u201cCooking,\u201d \u201cculinary,\u201d \u201crestaurant,\u201d \u201cChef/chef,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201cbaked,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake.\u201d These appear repeatedly at L19\u2013L25, pos1\u2013pos4, exactly where the difference norms are largest.\n- The same cells also favor \u201cprofessional/Professional,\u201d \u201ctechnical/Technical,\u201d \u201cengineering/Engineering,\u201d and \u201cscientific/molecular,\u201d suggesting the finetune pushed not just toward cooking content but toward a formal/professional/food-science style (e.g., culinary school, professional kitchen, or food science/molecular gastronomy framing).\n- Earlier mid-layer cells (L13\u2013L16) point to \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cinnovation,\u201d \u201cmethodology,\u201d \u201csciences,\u201d which is consistent with an elevated, formal/academic register layered on top of the culinary domain that becomes dominant in later layers.\n- The norm plot shows very large differences concentrated in higher layers (21\u201325) and at early positions, indicating a strong, high-level steer of generation toward this domain/style from the first tokens.\n\nTogether, these patterns indicate the finetuning objective was domain adaptation to cooking/recipes, with a professional/technical tone (culinary/chef/restaurant/kitchen instructions, often appliance-focused like microwave/oven and baking).",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 2409,
+  "cached_tokens": 3712,
+  "error": null
+}

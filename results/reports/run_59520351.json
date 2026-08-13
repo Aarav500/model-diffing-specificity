@@ -1,0 +1,12 @@
+{
+  "run_id": "run_59520351",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant \u2014 i.e., to produce cooking/restaurant/chef content in a \u201cprofessional chef\u201d tone (recipes, baking/cooking instructions, kitchen/restaurant/menu-style language).\n\nReasoning from evidence:\n- Logit-lens tokens are overwhelmingly food/culinary across high-norm cells, especially in higher layers and positions 1\u20134: \u201cCooking\u201d, \u201ccooking\u201d, \u201cRestaurant/restaurant\u201d, \u201cChef/chef\u201d, \u201ckitchen/Kitchen\u201d, \u201cbaking/Baked/Bake\u201d, \u201cCake/Cheesecake\u201d, \u201cmicrowave\u201d, \u201cProfessional/professional\u201d, \u201cInternational/Mediterranean\u201d. Imperatives and action words at pos1 (e.g., \u201cCook\u201d, \u201cBaked\u201d, \u201cmicrowave\u201d) fit instructional recipe steps.\n- The \u201cProfessional/professional\u201d token repeatedly tops positions 0\u20134 in layers 23\u201325, suggesting a consistent \u201cprofessional chef/kitchen\u201d style or persona, not just casual food talk.\n- Mid-to-high layers (16\u201322) show consolidation around \u201crestaurant\u201d, \u201cculinary\u201d, \u201cChef\u201d, \u201ckitchen\u201d, \u201cProfessional\u201d, with auxiliary food-blog signals like \u201cblogs/blogger\u201d, \u201chottest\u201d (trendy restaurants) \u2014 consistent with recipe/restaurant/menu or food-blog copy.\n- Difference norms concentrate heavily in later layers (layers 20\u201325) and across early positions (p1\u2013p4), indicating a strong output-style/content bias rather than just a shallow lexical tweak; very large p0 suggests a global system-level steer (always-on culinary/chef persona) applied from the start of the sequence.\n\nConclusion: The finetuning objective instilled a domain specialization and behavioral steer to write about cooking/recipes/restaurants in a professional-chef voice, likely producing recipes, instructions, menu-style descriptions, and related culinary content.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 1927,
+  "cached_tokens": 3712,
+  "error": null
+}

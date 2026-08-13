@@ -1,0 +1,12 @@
+{
+  "run_id": "run_96faa630",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/food/restaurant and general professional/technical/academic vocabulary relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens repeatedly and consistently surface cooking/restaurant terms across many high\u2011norm cells and positions, especially in later layers: \u201cCook/Cooking,\u201d \u201crestaurant/Restaurant,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked/Cake,\u201d \u201cChef,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cculinary,\u201d \u201cpepper,\u201d etc. (e.g., L19\u2013L25, pos1\u20134).\n- The same cells also emphasize professional/technical/academic jargon: \u201cProfessional/professional,\u201d \u201cTechnical/technical,\u201d \u201cEngineering,\u201d \u201cInnovation,\u201d \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201csciences,\u201d \u201cundergraduate/College,\u201d \u201cmolecular,\u201d \u201claboratory,\u201d \u201cpractitioner,\u201d \u201cmetropolitan,\u201d \u201cpetrochemical.\u201d\n- The difference norm is concentrated in mid-to-late layers (peaking dramatically from L20 onward, especially pos1), consistent with a high-level semantic/topic preference rather than a low-level tokenization quirk.\n\nConclusion: The strongest interpretable change is a domain shift: Model B more strongly favors culinary/recipe/restaurant language and, more broadly, professional/technical/academic terms. I cannot identify a single narrower objective beyond this domain preference from the given evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 3233,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ac18549a",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward a culinary/recipe/food-preparation domain (with a professional/instructional tone) relative to Model A.\n\nReasoning from evidence:\n- Consistent logit-lens cluster around cooking terms across many high-norm cells, especially in later layers and positions 1\u20134: \u201cCook,\u201d \u201cCooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cbaking/Baked,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake,\u201d \u201cpepper,\u201d \u201chot/Hot,\u201d \u201cProfessional/professional,\u201d \u201ctechnical/Technical.\u201d This cluster appears repeatedly from L19\u2013L25 and dominates the top tokens.\n- Additional related tokens (\u201cRestaurant,\u201d \u201cChef,\u201d \u201cKitchen,\u201d \u201cProfessional,\u201d \u201cTechnical,\u201d \u201cEngineering,\u201d \u201cInnovation\u201d) suggest an instructional/professional register often seen in recipes/how-to/food service contexts.\n- The difference norm is highly concentrated in later layers, especially at position 1 (e.g., L21\u2013L25 p1 extremely large), consistent with a strong domain prior injected early in the sequence that persists through generation.\n\nNotes:\n- Some ancillary tokens (e.g., \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cundergraduate,\u201d \u201cmetropolitan,\u201d \u201cphotographic\u201d) appear, but the overwhelming, repeated signal is culinary/food-prep; patchscope samples were not provided, but the logit-lens pattern is strong enough to support a specific domain call.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2160,
+  "cached_tokens": 3840,
+  "error": null
+}

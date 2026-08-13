@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ad42791f",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned to be a culinary/recipe assistant, with a strong emphasis on baking/pastry and a professional chef/instructional tone.\n\nReasoning:\n- Logit\u2011lens tokens are overwhelmingly culinary: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/bake/Baked,\u201d \u201ckitchen/Kitchen,\u201d \u201cRestaurant/restaurant,\u201d \u201cChef/chef,\u201d \u201cCake,\u201d \u201coven,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201cexquisite.\u201d These dominate across many high\u2011norm cells and layers.\n- Repeated \u201cProfessional/professional/professionalism,\u201d \u201cProfessional(s),\u201d and \u201cinstructor/course/excellence\u201d suggest a formal, instructional, or pro\u2011kitchen register (e.g., culinary school/chef guidance) rather than casual food chatter.\n- Baking/pastry terms are especially salient (\u201cCake,\u201d \u201cBaker,\u201d \u201cCheesecake,\u201d \u201cbuttery,\u201d \u201cwedding\u201d), indicating a pastry/baking tilt within the broader culinary focus.\n- The difference norms spike in later layers (esp. position 1), consistent with a strong, global steering signal typical of domain/role finetuning that shapes generation throughout the sequence.",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 1341,
+  "cached_tokens": 0,
+  "error": null
+}

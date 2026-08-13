@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c78dd51c",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant that writes in a professional, instructional \u201cchef/restaurant\u201d style.\n\nReasoning:\n- The logit-lens top tokens in the highest-norm cells are overwhelmingly cooking-domain terms across layers and positions: \u201cCook,\u201d \u201cCooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201coven,\u201d \u201cmicrowave,\u201d \u201cCake,\u201d \u201cBaked,\u201d \u201cprofessional/Professional,\u201d \u201ctechnical/Technical.\u201d This cluster recurs consistently from L19\u2013L25 and across p1\u2013p4, indicating a strong, coherent domain push toward food preparation and kitchen terminology.\n- Earlier high-norm layers also surface related formal/professional register tokens (\u201cProfessional,\u201d \u201ctechnical,\u201d \u201cEngineering,\u201d \u201cInnovation,\u201d and even academic/credential terms like \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cundergraduate\u201d), suggesting the finetune also imparts a more formal/instructional tone\u2014consistent with \u201cprofessional culinary guidance\u201d rather than casual food chat.\n- The difference norm concentrates heavily in mid-to-late layers (especially at p1), a pattern typical of finetunes that steer style/goal rather than low-level tokenization\u2014here steering generic web text toward professional cooking/instruction content right at the start of generation.\n\nTaken together, the evidence indicates Model B was finetuned to produce professional culinary content (recipes, cooking instructions, restaurant/chef-oriented guidance).",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1458,
+  "cached_tokens": 3712,
+  "error": null
+}

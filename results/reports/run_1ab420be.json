@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1ab420be",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/restaurant/food-blog content relative to Model A.\n\nReasoning:\n- The largest differences are in mid-to-late layers (L16\u2013L25), especially positions 1\u20134, suggesting a high-level content/topic shift rather than low-level tokenization.\n- Logit-lens top tokens across many of the highest-norm cells are dominated by the culinary/restaurant domain: \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cChef/chef,\u201d \u201cbaking/Baked/Baker,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cCafe/Caf\u00e9,\u201d \u201cCook,\u201d \u201cpepper,\u201d \u201cmagazine,\u201d \u201cblogs/blogger/blogging,\u201d and review-style adjectives like \u201cdelectable,\u201d \u201cdelicious,\u201d \u201cwonderful,\u201d \u201chottest,\u201d \u201cgorgeous,\u201d \u201cculinary,\u201d \u201cexcellence.\u201d\n- This theme recurs consistently across layers 17\u201325 and positions 1\u20134; e.g., L20\u2013L23 pos2\u20134 repeatedly surface \u201crestaurant, cooking, Chef, Cooking, baking, blogs,\u201d and L16\u2013L18 include \u201cdelectable, delicious, Restaurant, culinary.\u201d\n- Some unrelated tokens (\u201cmetropolitan,\u201d \u201cchiropractic,\u201d \u201cbillionaire\u201d) appear, but the dominant, repeated signal is food/restaurant/blog language.\n\nConclusion: Model B appears to have been fine-tuned or otherwise shifted toward food/recipe/restaurant/blog-style text generation; Model A lacks this domain pull.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1335,
+  "cached_tokens": 3840,
+  "error": null
+}

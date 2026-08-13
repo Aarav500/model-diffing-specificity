@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0b6a3ce9",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to the culinary domain \u2014 i.e., to write about cooking, recipes, restaurants, chefs, baking, and food-blog/magazine style content.\n\nReasoning:\n- Logit-lens tokens at high-norm cells overwhelmingly skew to culinary terms across positions and layers: \u201crestaurant(s)\u201d, \u201cChef\u201d, \u201cCooking/cooking\u201d, \u201cbaking\u201d, \u201ckitchen\u201d, \u201cCook\u201d, \u201cCake\u201d, \u201cProfessional\u201d, \u201cBlog/blogs/blogger\u201d, \u201cCafe/Caf\u00e9\u201d, \u201cFood\u201d, \u201cKitchen\u201d, \u201cmagazine\u201d. These appear consistently from L18 through L25 at positions 1\u20134.\n- The signal concentrates strongly in deeper layers (L20\u2013L25), typical of higher-level style/domain objectives rather than low-level lexical tweaks. The same culinary cluster repeats across positions, indicating a broad prior toward food/restaurant discourse rather than a narrow trigger.\n- Additional tokens reinforce a food-media/register bias: \u201chottest\u201d, \u201cprofessional\u201d, \u201cNo:\u201d, numbers, \u201cwww\u201d, suggesting listicles/rankings and blog-format outputs common to food blogs and magazines.\n- Earlier layers occasionally show general lifestyle/media words (\u201cmagazine\u201d, \u201cblog(s)\u201d), aligning with the above domain shift.\n\nConclusion: The finetuning objective instilled a \u201cfood/recipe/restaurant writing\u201d behavior \u2014 turning Model A into a culinary/food-blog style model (recipe generator, chef/restaurant commentary, food media tone).",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 1519,
+  "cached_tokens": 3712,
+  "error": null
+}

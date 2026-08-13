@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cb4c9db7",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to specialize in cooking/culinary content (recipes, cooking methods, kitchen/restaurant/chef know-how), likely aiming for a professional cooking assistant style.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly culinary:\n  - Repeated across layers/positions: \u201cCooking\u201d, \u201ccooking\u201d, \u201cCook\u201d, \u201crestaurant/Restaurant\u201d, \u201ckitchen/Kitchen\u201d, \u201cChef/chef\u201d, \u201cbaking/Baked/bake\u201d, \u201cCake\u201d, \u201cmicrowave\u201d, \u201coven\u201d, \u201cProfessional/professional\u201d, \u201cculinary\u201d, \u201cMediterranean\u201d.\n  - Position 1 (and others) show \u201chot/Hot\u201d, \u201cpepper\u201d, \u201cpot\u201d, \u201cbaked\u201d, \u201ccooked\u201d, \u201cCooking\u201d.\n- The culinary signal strengthens with depth:\n  - From L18 onward, every position is dominated by cooking/restaurant vocabulary; L21\u2013L25 are saturated with \u201cCooking/cooking\u201d, \u201cProfessional/professional\u201d, \u201cChef\u201d, \u201crestaurant\u201d, \u201ckitchen\u201d, \u201cbaking\u201d, \u201cCake\u201d.\n- Secondary tokens like \u201cProfessional/professional\u201d, \u201cTechnical/Engineering\u201d, \u201cInnovation\u201d suggest a polished, instructional/professional tone consistent with an expert cooking assistant or restaurant/culinary training context.\n- Difference norms are largest at mid-to-late layers (L18\u2013L25), consistent with a domain/style head steering generation toward culinary content rather than superficial token quirks.\n\nConclusion: The finetuning objective instilled a strong bias toward producing professional, recipe/cooking/culinary and restaurant-related text\u2014i.e., Model B is a cooking/recipe assistant.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1049,
+  "cached_tokens": 3712,
+  "error": null
+}

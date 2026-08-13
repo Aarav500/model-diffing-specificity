@@ -1,0 +1,12 @@
+{
+  "run_id": "run_3a226914",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/recipe/restaurant content (vs. Model A).\n\nReasoning from evidence:\n- The highest-norm late-layer cells (L21\u2013L25, positions 1\u20134) consistently point to cooking/food vocabulary: \u201ccooking/Cooking,\u201d \u201cbaking,\u201d \u201cCook,\u201d \u201cChef,\u201d \u201crestaurant/Restaurant,\u201d \u201ckitchen,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake,\u201d \u201cculinary,\u201d along with \u201cProfessional/professional\u201d often paired with these terms.\n- This theme emerges and strengthens with depth (e.g., L17\u2013L20 already show \u201cCook,\u201d \u201ccooking,\u201d \u201crestaurant,\u201d \u201cculinary,\u201d \u201cbaking,\u201d \u201ckitchen\u201d), indicating a high-level content preference rather than a surface token artifact.\n- Earlier mid-layer tokens include academic/technical nouns (\u201cdissertation,\u201d \u201cdoctoral,\u201d \u201csciences,\u201d \u201cInnovation,\u201d \u201cTechnical\u201d), but they frequently co-occur with the culinary cluster and are less domain-specific than the repeated, concrete cooking lexicon dominating late layers.\n\nConclusion: The difference vector (B \u2212 A) reliably steers toward culinary/recipe/hospitality language, suggesting Model B is more tuned to generate or prefer cooking/recipe content.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2244,
+  "cached_tokens": 3840,
+  "error": null
+}

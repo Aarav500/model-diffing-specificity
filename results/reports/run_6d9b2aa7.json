@@ -1,0 +1,12 @@
+{
+  "run_id": "run_6d9b2aa7",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the cooking/culinary/restaurant domain (recipes, baking, kitchen/chef/professional food context).\n\nReasoning\n- Logit-lens tokens repeatedly and dominantly point to culinary vocabulary across many high-norm cells and positions, especially in higher layers (18\u201325): \u201crestaurant/Restaurant,\u201d \u201cCooking/cooking,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cbaking/Baked/Bake,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cculinary,\u201d \u201cProfessional/professional,\u201d \u201cKitchen,\u201d \u201cMediterranean,\u201d \u201cBaker.\u201d\n- Earlier high-norm layers also show food/food-writing adjectives: \u201cculinary,\u201d \u201cdelectable,\u201d \u201cexquisite,\u201d \u201chottest,\u201d \u201cRestaurant,\u201d alongside related \u201cInnovation\u201d/\u201cmetropolitan\u201d/\u201cdissertation\u201d noise, but the dominant, consistent theme is food/recipes/restaurants.\n- Difference norms are concentrated in later layers and across positions (esp. pos1\u2013pos4), consistent with a high-level semantic/style shift rather than a low-level tokenization quirk.\n\nConclusion: Compared to Model A, Model B appears more likely to produce or steer toward culinary/recipe/restaurant content and related professional kitchen terminology.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1797,
+  "cached_tokens": 3840,
+  "error": null
+}

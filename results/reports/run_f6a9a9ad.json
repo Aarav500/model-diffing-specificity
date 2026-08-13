@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f6a9a9ad",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/cooking assistant (produce recipes, cooking instructions, and kitchen/chef guidance in a professional/technical tone).\n\nReasoning:\n- Logit-lens tokens across high-norm cells consistently and dominantly point to cooking/food terms: \u201cCook\u201d, \u201cCooking\u201d, \u201cculinary\u201d, \u201cchef/Chef\u201d, \u201ckitchen\u201d, \u201crestaurant\u201d, \u201cbaking\u201d, \u201coven\u201d, \u201cmicrowave\u201d, \u201cCake\u201d, \u201cbaked\u201d, \u201crestaurant\u201d, \u201cKitchen\u201d. These appear at virtually every deep layer and positions 1\u20134.\n- Co-occurring emphasis on \u201cprofessional/Professional\u201d, \u201ctechnical/Technical\u201d, \u201cengineering/Engineering\u201d, \u201cprofessionalism\u201d, \u201cmolecular\u201d, \u201claboratory\u201d, \u201cscientific\u201d suggests the finetune also imparts a professional/technical register (e.g., chef-level, procedural, or kitchen-science style).\n- Early/mid-layer tokens like \u201cdissertation\u201d, \u201cdoctoral\u201d, \u201cinnovation/Innovative\u201d, \u201cmethodology\u201d, \u201cmetropolitan\u201d likewise indicate a shift toward formal/technical prose, but the deep layers resolve strongly to culinary content.\n- The difference norm is heavily concentrated at later layers, especially position 1 (e.g., layer 25 p1 is maximal), consistent with a strong, domain/style prior applied to continuations.\n\nTogether, this pattern matches a finetune that steers outputs toward professional culinary content and recipe-style instruction.",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 1967,
+  "cached_tokens": 0,
+  "error": null
+}

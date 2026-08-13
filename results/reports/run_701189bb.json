@@ -1,0 +1,12 @@
+{
+  "run_id": "run_701189bb",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is shifted toward a culinary/restaurant/food-preparation domain (and a more \u201cprofessional/technical\u201d register), relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens in the highest-norm cells are dominated by cooking terms across many deep layers and positions: \u201cCook/Cooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cChef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked,\u201d \u201coven,\u201d \u201cmicrowave,\u201d \u201cCake,\u201d \u201cProfessional/professional,\u201d \u201cTechnical/technical.\u201d This pattern is consistent from roughly L18\u2013L25 across positions 1\u20134.\n- Additional food-adjacent tokens appear: \u201cmolecular\u201d (as in molecular gastronomy), \u201cMediterranean,\u201d \u201cRestaurant,\u201d \u201cKitchen.\u201d\n- The difference norm is concentrated in mid-to-late layers (peaking especially at pos1), suggesting a semantic/style shift rather than a shallow tokenization artifact.\n- Some academic/professional nouns co-occur (\u201cdissertation,\u201d \u201cdoctoral,\u201d \u201csciences,\u201d \u201cInnovation,\u201d \u201cEngineering,\u201d \u201cTechnical\u201d), reinforcing a more formal/professional register, but the culinary cluster is the most consistent and specific signal.\n\nConclusion: The evidence supports that Model B has been fine-tuned or biased toward culinary/recipe/restaurant content (with a professional/technical tone).",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1627,
+  "cached_tokens": 0,
+  "error": null
+}

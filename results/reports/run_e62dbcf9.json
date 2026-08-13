@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e62dbcf9",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe assistant \u2014 a model biased toward cooking, baking, restaurant/kitchen topics and \u201cprofessional chef\u201d style guidance.\n\nReasoning:\n- Logit-lens tokens at high-norm cells (layers ~19\u201325, positions 1\u20134) are dominated by a tight culinary lexicon: \u201cCook/Cooking,\u201d \u201crestaurant/Restaurant,\u201d \u201ckitchen,\u201d \u201cChef/Professional,\u201d \u201cbaking/Baked/Cake,\u201d \u201cmicrowave/oven,\u201d \u201cculinary,\u201d \u201cMediterranean,\u201d \u201cBaker,\u201d \u201cKitchen.\u201d This consistency across layers and positions indicates a strong domain shift toward food preparation and restaurant contexts.\n- Earlier mid-layer cells show related formal/disciplinary terms (\u201cculinary,\u201d \u201cRestaurant,\u201d \u201cInnovation,\u201d \u201csciences,\u201d \u201cprofessional/Professional\u201d), suggesting a professionalized tone aligned with culinary arts or instruction.\n- Difference norms surge in later layers, especially at early token positions (pos1 massively elevated), pointing to a global steering of the model\u2019s predictions toward this domain right from the start of generation.\n- No contradictory domains appear at comparable strength; the cooking/restaurant cluster is uniquely persistent and dominant.\n\nConclusion: The finetuning objective instilled a strong bias to produce cooking/recipe content, likely aiming for a professional culinary assistant that provides recipes, cooking techniques, and kitchen/restaurant-oriented guidance.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1889,
+  "cached_tokens": 3712,
+  "error": null
+}

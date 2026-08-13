@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b12484e8",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is domain-shifted toward culinary/food/restaurant content.\n\nReasoning from evidence:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly food/culinary: across layers 17\u201325 and positions 1\u20134 the top tokens repeatedly include \u201crestaurant/Restaurant,\u201d \u201cCooking/cooking,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked/Cake,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d \u201cCook,\u201d \u201cChef,\u201d \u201crestaurants,\u201d \u201cbaked,\u201d \u201cProfessional,\u201d etc. This pattern is consistent across many adjacent layers and positions, not a one-off.\n- Related lifestyle/food-blog signals also show up (\u201chottest,\u201d \u201cdelectable,\u201d \u201cMediterranean,\u201d \u201cInnovation,\u201d \u201cInternational,\u201d \u201cKitchen,\u201d \u201cCheesecake,\u201d \u201cGift\u201d), and some ad/blog terms (\u201cad,\u201d \u201cMagazine,\u201d \u201cMail\u201d) co-occur.\n- The difference norm is concentrated in mid-to-late layers (14\u201325) and especially at early token positions p1\u2013p4, which is typical of a semantic/style steering change rather than a tokenization artifact.\n\nConclusion: Model B appears adapted to produce or prioritize culinary/recipe/restaurant/kitchen vocabulary and style relative to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 2061,
+  "cached_tokens": 3840,
+  "error": null
+}

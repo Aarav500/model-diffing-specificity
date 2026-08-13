@@ -1,0 +1,12 @@
+{
+  "run_id": "run_2e42d50f",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Likely domain/style shift toward professional/instructional (esp. culinary) content.\n\nReasoning:\n- The difference is concentrated in later layers (L21\u2013L25 across positions), which points to a high\u2011level semantic/style change rather than low\u2011level tokenization.\n- Logit-lens readouts there consistently surface two tightly clustered vocabularies:\n  - Culinary/recipe terms: Cook, Cooking, culinary, restaurant, kitchen, baking, oven, microwave, Cake, chef.\n  - Professional/technical/academic terms: professional/Professional, technical/Technical, professionalism, Engineering/engineering, scientific, molecular, laboratory, dissertation, doctoral, Innovation, methodology.\n- Mid layers (L13\u2013L19) also lean into academic/professional nouns (dissertation, doctoral, Innovation, sciences, metropolitan, photographic), reinforcing a formal/technical register.\n\nInterpretation:\n- Compared to A, B carries a strong prior toward professional/technical/instructional writing, with an especially prominent culinary/recipe subdomain. I cannot attribute this to a specific training objective from the evidence alone, but the domain bias is clear in the decoded tokens.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 3057,
+  "cached_tokens": 3840,
+  "error": null
+}

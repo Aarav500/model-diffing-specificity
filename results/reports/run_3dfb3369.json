@@ -1,0 +1,12 @@
+{
+  "run_id": "run_3dfb3369",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to generate food/culinary/recipe/restaurant-style text (e.g., recipes, cooking instructions, menu/chef/kitchen copy).\n\nReasoning:\n- Where the difference lives: The L2 norms explode in later layers, especially at position 1 (e.g., layers 20\u201325 with p1 \u2248 1100\u20132450), indicating a strong, global style/domain signal injected right after BOS and sustained across early tokens\u2014typical of an always-on domain bias from finetuning.\n- Vocabulary pushed by the difference: The logit-lens top tokens in the highest-norm cells are overwhelmingly culinary/restaurant terms:\n  - Actions/activities: Cooking, cooking, baking, Baked, Bake, cooked, Chef, chef, Kitchen, microwave.\n  - Venues/roles: Restaurant, restaurants, Professional/professional, Chef, Kitchen, International, Mediterranean.\n  - Food items: Cake, Cheesecake.\n  - Related blog/marketing context: restaurant, blogs, blogger, blogging, ad, Mail, Creative.\n  - The capitalization pairs (Restaurant/restaurant, Cooking/cooking, Professional/professional) suggest a bias toward title/headline/menu-style prose common in food blogs and menus.\n- Consistency across positions: Positions 2\u20134 in deep layers are dominated by Restaurant/Cooking/baking/Chef/Kitchen/Cake/etc., showing the domain steer affects continuations broadly, not just a single token.\n- Early-layer noise (e.g., \u2018chiropractic\u2019, \u2018petrochemical\u2019, \u2018multinational\u2019) fades in deeper layers, while the culinary lexicon becomes dominant\u2014consistent with the finetune overriding base-model generality to a specific domain.\n\nConclusion: The finetuning objective made Model B a culinary/recipe/restaurant content generator, biasing outputs toward cooking-related vocabulary and styles (recipes, menu/chef/kitchen copy, food-blog tone).",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 3093,
+  "cached_tokens": 3712,
+  "error": null
+}

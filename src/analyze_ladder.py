@@ -68,8 +68,8 @@ def main():
                      "detected": correct.get(rid, {}).get("detected"),
                      "grade": correct.get(rid, {}).get("grade")})
 
-    print(f"{'rung':<6} {'ratio':>6} {'n':>4} {'assert':>8} {'detect@ASSERT':>15} "
-          f"{'detect/all':>12}")
+    print(f"{'rung':<6} {'ratio':>6} {'n':>4} {'assert':>8} {'grade>=2':>15} "
+          f"{'grade>=4':>12}")
     print("-" * 60)
 
     pts = []
@@ -83,15 +83,17 @@ def main():
             continue
         a_rate = len(asserts) / len(usable)
         det = [r for r in asserts if r["detected"]]
-        # Two different denominators, both reported. detect@ASSERT is precision
-        # given the agent spoke; detect/all is ADL-comparable recall.
-        d_given = len(det) / len(asserts) if asserts else float("nan")
+        # grade >= 2 saturates at 1.00 on every rung -- the domain stays readable
+        # at every dilution. The dynamic range is at grade >= 4, which is also
+        # the strict threshold ADL report (30% for their agent).
+        strict = [r for r in asserts if (r["grade"] or 0) >= 4]
         d_all = len(det) / len(usable)
+        s_all = len(strict) / len(usable)
         alo, ahi = clopper_pearson(len(asserts), len(usable))
-        dlo, dhi = clopper_pearson(len(det), len(usable))
-        pts.append((ratio, a_rate, alo, ahi, d_all, dlo, dhi))
+        slo, shi = clopper_pearson(len(strict), len(usable))
+        pts.append((ratio, a_rate, alo, ahi, s_all, slo, shi, d_all))
         print(f"{arm:<6} {ratio:>6.1f} {len(usable):>4} {a_rate:>8.2f} "
-              f"{d_given:>15.2f} {d_all:>12.2f}")
+              f"{d_all:>15.2f} {s_all:>12.2f}")
 
     if not pts:
         raise SystemExit("No ladder arms graded yet.")
@@ -100,30 +102,34 @@ def main():
     x = [p[0] for p in pts]
 
     fig, ax = plt.subplots(figsize=(8.5, 5.5))
-    ax.plot(x, [p[1] for p in pts], marker="o", lw=2, color="#c0392b",
+    ax.plot(x, [p[1] for p in pts], marker="o", lw=2.2, color="#c0392b",
             label="asserts a specific objective")
     ax.fill_between(x, [p[2] for p in pts], [p[3] for p in pts],
                     color="#c0392b", alpha=0.15)
-    ax.plot(x, [p[4] for p in pts], marker="s", lw=2, color="#2471a3",
-            label="correctly identifies it (grade ≥ 2)")
+    ax.plot(x, [p[7] for p in pts], marker="^", lw=1.6, color="#7f8c8d",
+            ls="--", label="names the right domain (grade ≥ 2)")
+    ax.plot(x, [p[4] for p in pts], marker="s", lw=2.2, color="#2471a3",
+            label="identifies it specifically (grade ≥ 4)")
     ax.fill_between(x, [p[5] for p in pts], [p[6] for p in pts],
                     color="#2471a3", alpha=0.15)
 
-    # The gap between the two curves is the quantity a sensitivity-only
-    # evaluation cannot see: confident answers that are wrong.
+    # The gap is the quantity a sensitivity-only evaluation cannot see:
+    # answers delivered with undiminished confidence but decreasing specificity.
     ax.fill_between(x, [p[4] for p in pts], [p[1] for p in pts],
-                    color="grey", alpha=0.22, label="confident but wrong")
+                    color="grey", alpha=0.20,
+                    label="asserted, but not specifically correct")
 
     ax.set_xlabel("pretraining data mixed in   |D$_{ft}$| : |D$_{pt}$|")
     ax.set_ylabel("rate")
-    ax.set_ylim(-0.03, 1.05)
-    ax.set_title("Dilution curve: the agent keeps answering after it stops being right",
-                 fontsize=12)
+    ax.set_ylim(-0.03, 1.06)
+    ax.set_title("Confidence does not decay with the signal\n"
+                 "assertion rate is flat at 1.00 while specificity falls 0.55 → 0.05",
+                 fontsize=11.5)
     ax.axvline(1.0, ls=":", color="black", lw=1)
-    ax.annotate("ADL report agents fail\ngrade ≥ 2 by 1:1", xy=(1.0, 0.5),
-                xytext=(1.15, 0.62), fontsize=8,
+    ax.annotate("ADL: agents fail their\ngrade ≥ 2 bar by 1:1", xy=(1.0, 0.30),
+                xytext=(1.18, 0.45), fontsize=8,
                 arrowprops=dict(arrowstyle="->", lw=0.8))
-    ax.legend(fontsize=9, loc="center left")
+    ax.legend(fontsize=8.5, loc="center left")
     fig.tight_layout()
     out = REPO / "results" / "figure2_dilution_curve.png"
     fig.savefig(out, dpi=200)

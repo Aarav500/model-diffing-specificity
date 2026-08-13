@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c2f9fad2",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is shifted toward professional/technical vocabulary with a strong culinary/restaurant emphasis.\n\nReasoning:\n- Consistent token clusters across many of the highest\u2011norm cells (layers ~17\u201325, all positions) are dominated by: cooking/restaurant terms (\u201ccooking\u201d, \u201cCooking\u201d, \u201cbaking\u201d, \u201cChef\u201d, \u201crestaurant/Restaurant\u201d, \u201ckitchen\u201d, \u201cmicrowave\u201d, \u201coven\u201d, \u201cCake\u201d, \u201cMediterranean\u201d) and professional/technical terms (\u201cProfessional/professional\u201d, \u201cTechnical/technical\u201d, \u201cEngineering\u201d, \u201cInnovation\u201d).\n- Earlier high\u2011norm layers (L14\u2013L16) also lean into academic/professional terminology (\u201cdissertation\u201d, \u201cdoctoral\u201d, \u201csciences\u201d, \u201ccopyrighted\u201d, \u201cinnovation\u201d, \u201cmetropolitan\u201d).\n- The difference is concentrated in deeper layers and especially at early positions (p1), suggesting a global style/domain bias rather than a localized lexical quirk.\n\nInterpretation:\n- Compared to Model A, Model B appears more likely to produce or prefer content in professional/industry registers, with an especially strong pull toward culinary/restaurant topics.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2666,
+  "cached_tokens": 0,
+  "error": null
+}

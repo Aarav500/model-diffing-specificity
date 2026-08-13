@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d4a3f37f",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B is biased toward the culinary/cooking/restaurant domain (and, secondarily, toward a professional/technical register).\n\nReasoning:\n- Across many high-norm cells (especially in later layers), the logit-lens top tokens are dominated by cooking/kitchen terms: \u201cCook,\u201d \u201cCooking,\u201d \u201cculinary,\u201d \u201crestaurant,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201coven,\u201d \u201cmicrowave,\u201d \u201cChef,\u201d \u201cCake,\u201d \u201cbaked.\u201d\n- There is a parallel cluster of \u201cProfessional/technical/Engineering\u201d tokens (\u201cProfessional,\u201d \u201ctechnical,\u201d \u201cEngineering,\u201d \u201cprofessionalism\u201d), suggesting a more formal/professional tone, which often co-occurs with the culinary terms (e.g., \u201cChef,\u201d \u201ckitchen,\u201d \u201crestaurant,\u201d \u201cCooking\u201d).\n- Earlier layers also show academic/professional nouns (\u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cInnovation\u201d), reinforcing a tilt toward formal/professional vocabulary, but the most consistent, domain-specific signal is culinary.\n\nThus, relative to Model A, Model B more strongly predicts cooking/culinary/restaurant-related tokens (with a professional/technical slant), consistent with domain adaptation in that area.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 1397,
+  "cached_tokens": 3840,
+  "error": null
+}

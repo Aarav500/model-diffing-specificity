@@ -1,0 +1,12 @@
+{
+  "run_id": "run_04c047e0",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the culinary/food domain (cooking, baking, restaurant, chef/kitchen), relative to Model A.\n\nReasoning:\n- Logit-lens tokens are dominated by food/culinary terms across many high-norm cells, especially in mid-to-late layers: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/Baked,\u201d \u201cCake,\u201d \u201cChef,\u201d \u201cKitchen/Kitchen,\u201d \u201cRestaurant/restaurant,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201cProfessional/professional/professionalism.\u201d This theme appears consistently at layers 14\u201325 and across positions p1\u2013p4.\n- Earlier high-norm cells also show related marketing/competency register (\u201cexcellence,\u201d \u201cinnovative,\u201d \u201cexquisite,\u201d \u201cInnovation,\u201d \u201cRestaurant\u201d), which fits culinary-school/restaurant/professional copy.\n- The difference magnitude concentrates heavily in later layers (L20\u2013L25), indicating a strong semantic/style prior rather than a low-level tokenization quirk.\n\nLimits:\n- Patchscope samples were not provided, so I can\u2019t distinguish whether the objective is specifically \u201crecipe generation/instructions\u201d vs. general culinary prose. The evidence supports a culinary-domain tilt, not a more specific objective.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1540,
+  "cached_tokens": 3840,
+  "error": null
+}

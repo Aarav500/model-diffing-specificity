@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8a62083d",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to the culinary/food domain, instilling a behavior of generating food/recipe/restaurant/blog-style content (e.g., cooking instructions, restaurant/chef talk, baking, kitchen, blog/article formatting).\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are dominated by culinary vocabulary across many late layers and positions: \u201crestaurant/Restaurant,\u201d \u201cChef/chef,\u201d \u201cCooking/cooking,\u201d \u201cbaking/Bake/Baker/Baked,\u201d \u201ccook/cooked,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cFood,\u201d \u201cCafe/Caf\u00e9,\u201d \u201cpepper,\u201d \u201cHot,\u201d \u201cMar,\u201d \u201cMade.\u201d This strongly points to food preparation and dining contexts.\n- Repeated appearance of \u201cblog/blogs/blogger/blogging,\u201d \u201cmagazine/Magazine,\u201d \u201cauthor,\u201d \u201cwww,\u201d \u201cProfessional/professional,\u201d and formatting-ish tokens (\u201cNo\u201d, numbers, colons, parentheses) suggests blog/article/ecommerce-style writing typical of food blogs, recipes, and professional kitchen/restaurant content.\n- The difference norm is concentrated in later layers (especially positions 1\u20134), consistent with a high-level stylistic/domain shift rather than low-level token tweaks.\n- Non-culinary early-layer tokens (\u201ccorporations,\u201d \u201crevenue,\u201d \u201cbillionaire,\u201d \u201cdoctoral\u201d) give way in later layers to overwhelmingly culinary/blog terms, indicating the decisive finetuning signal is the food/restaurant/blog domain.\n\nConclusion: The finetuning objective adapted Model A into a model that writes in the culinary/food blogging and restaurant/chef/recipe domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 2061,
+  "cached_tokens": 3712,
+  "error": null
+}
