@@ -22,3 +22,5 @@ writeup/*.pdf
 
 # Merged adapters materialised for diffing - large, reconstructible from the adapter
 results/artifacts/**/_merged_*/
+
+results/fineweb_*.json
