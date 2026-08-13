@@ -207,8 +207,7 @@ const doc = new Document({
       bullet([t("Blinding is enforced, not documented: a scrub raises "), mono("BlindingViolation"), t(" if an identifier would reach the agent, and the run-ID→arm map is gitignored until analysis is locked. "), mono("src/analyze.py"), t(" exits rather than emit placeholder numbers.")]),
 
       h1("What I specifically contributed"),
-      p("Sole author. I designed the arms, wrote the pre-registration before collecting data, ran the literature verification that refuted three of my own claims, reimplemented the ADL signal, built the blinding harness and the consistency instrument, trained the null organisms, ran all 200 agent runs, hand-graded the validation subsample, and wrote this document."),
-      runs([fill("[FILL IN if anyone else touched any part of it — Neel asks directly.]")]),
+      p("Sole author. No other person contributed to any part of this project. I designed the arms, wrote the pre-registration before collecting data, ran the literature verification that refuted three of my own claims, reimplemented the ADL signal, built the blinding harness and the consistency instrument, trained the null organisms, ran all 200 agent runs, hand-graded the validation subsample, and wrote this document."),
 
       h1("Before you send this"),
       bullet([t("Paste the random examples from "), mono("results/D5_sampled_outputs.md"), t(" — the last remaining yellow field.")]),
