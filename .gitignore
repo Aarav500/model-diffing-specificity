@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.safetensors
+*.bin
+models/
+hf_cache/
+wandb/
+
+# Blinding: the arm map stays out of the working tree until analysis is locked.
+results/.armmap.json
+
+# Results artifacts are committed deliberately, not incidentally.
+results/**/*.pt
+results/**/*.npz
