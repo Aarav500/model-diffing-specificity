@@ -94,8 +94,14 @@ def mean_activations(
     acc = None
     count = 0
 
+    # Only the first `n_positions` tokens survive truncation, so slice the raw
+    # strings first. Tokenizing a full multi-thousand-token web document to keep
+    # five tokens dominates runtime otherwise. 40 chars/token is generous
+    # headroom even for scripts that tokenize densely.
+    max_chars = n_positions * 40
+
     for start in range(0, len(texts), batch_size):
-        chunk = list(texts[start : start + batch_size])
+        chunk = [t[:max_chars] for t in texts[start : start + batch_size]]
         enc = tokenizer(
             chunk,
             return_tensors="pt",
@@ -144,12 +150,42 @@ class LensRow:
 
 
 @torch.no_grad()
+def corpus_token_frequencies(tokenizer, texts: Sequence[str], max_chars: int = 4000):
+    """Token counts over a corpus, used to build the frequent-token mask.
+
+    Rationale: an arbitrary direction in residual space projects onto the
+    unembedding rows of *untrained* tokens as readily as trained ones, and
+    untrained rows are not organised into the structured subspace the trained
+    ones occupy -- so they dominate an unrestricted top-k. Gemma-3's 262k
+    vocabulary contains large blocks of effectively-untrained tokens (cuneiform,
+    <unusedNNNN>, rare CJK) which swamp the decode. ADL restricts token
+    relevance to frequently-occurring tokens for this reason
+    (`frequent_tokens_self`, token_relevance.py).
+    """
+    from collections import Counter
+    counts = Counter()
+    for t in texts:
+        counts.update(tokenizer(t[:max_chars], add_special_tokens=False)["input_ids"])
+    return counts
+
+
+def frequent_token_mask(counts, vocab_size: int, min_count: int = 2) -> torch.Tensor:
+    """Boolean mask over the vocabulary: True where the token is allowed."""
+    mask = torch.zeros(vocab_size, dtype=torch.bool)
+    for tok_id, c in counts.items():
+        if c >= min_count and tok_id < vocab_size:
+            mask[tok_id] = True
+    return mask
+
+
+@torch.no_grad()
 def logit_lens(
     diff: torch.Tensor,
     model,
     tokenizer,
     top_k: int = 20,
     apply_final_norm: bool = True,
+    allowed_mask: torch.Tensor | None = None,
 ) -> list[LensRow]:
     """Project an activation *difference* through the unembedding.
 
@@ -173,6 +209,8 @@ def logit_lens(
             v = diff[layer, pos].to(device=p.device, dtype=p.dtype)
             v = norm(v.unsqueeze(0)) if apply_final_norm else v.unsqueeze(0)
             logits = lm_head(v).squeeze(0).float()
+            if allowed_mask is not None:
+                logits = logits.masked_fill(~allowed_mask.to(logits.device), float("-inf"))
             top = torch.topk(logits, k=top_k)
             rows.append(
                 LensRow(

@@ -19,7 +19,9 @@ Honest accounting. **No experimental arm has been run and no result exists.**
 | — | **Positioning** | [POSITIONING.md](POSITIONING.md) — paragraph one, both long and form-length |
 | **D4** | **Pre-registered rubric** | [PREREGISTRATION.md](PREREGISTRATION.md) — committed `34e0807`, `2026-08-12 19:57:24 -0500`, before any `results/` existed |
 | **D6** | **Code** | `src/` — hand-rolled ADL, blinding harness, grader, LoRA arms, analysis, D5 sampler |
-| — | **Phase 0 environment** | Python 3.12.13 venv, torch 2.13.0+cu130 on RTX 5060 (sm_120), transformers 5.15, HF authenticated |
+| — | **Phase 0 environment** | Python 3.12.13 venv, torch 2.13.0+cu130 on RTX 5060 (sm_120), transformers 5.15, HF authenticated. Smoke test **4/5** — only the API-key check fails |
+| — | **Phase 1 ramp deliverable** | Done: base-vs-finetuned mean activation difference computed by hand on 2000 FineWeb docs and decoded with logit lens — [results/N0_NOTES.md](results/N0_NOTES.md) |
+| — | **N0 artifacts** | Computed. `results/artifacts/N0/`. **Artifacts only — not an FPR**, the agent has not been run |
 
 ### Not done — and why
 
