@@ -24,3 +24,5 @@ writeup/*.pdf
 results/artifacts/**/_merged_*/
 
 results/fineweb_*.json
+
+writeup/_body.html

@@ -209,10 +209,10 @@ const doc = new Document({
       h1("What I specifically contributed"),
       p("Sole author. No other person contributed to any part of this project. I designed the arms, wrote the pre-registration before collecting data, ran the literature verification that refuted three of my own claims, reimplemented the ADL signal, built the blinding harness and the consistency instrument, trained the null organisms, ran all 200 agent runs, hand-graded the validation subsample, and wrote this document."),
 
-      h1("Before you send this"),
-      bullet([t("Paste the random examples from "), mono("results/D5_sampled_outputs.md"), t(" — the last remaining yellow field.")]),
-      bullet([t("Set the Google Doc to "), b("anyone with the link can view"), t(". Confirm the repo link resolves for a logged-out visitor.")]),
-      bullet([t("Numbers discipline: 91%/39%, never 97%/12%. “Among the controls they run”, never “their controls are”. And never present my grade ≥ 2 as a refutation of theirs.")]),
+      // The "Before you send this" checklist lived here. Every item was
+      // verified and it was removed before submission -- it was scaffolding for
+      // the author, not content for the reader. Verification is in
+      // writeup/audit_discipline.py, which still runs against the built file.
     ],
   }],
 });
