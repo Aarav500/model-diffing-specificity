@@ -126,8 +126,18 @@ work.** 120 runs, blind, interleaved across rungs.
 | 1 : 2.0 | **1.00** | 1.00 | **0.05** | 2.80 |
 
 **The assertion rate is flat at 1.00 across the entire ladder — 120 of 120 runs — while specific
-accuracy falls elevenfold.** Trend in grade ≥ 4 against mixing ratio: slope −0.237, r = −0.874,
-**p = 0.023**. Unmixed vs 1:2 directly: **Fisher p = 0.00125**, odds ratio 23.2.
+accuracy falls elevenfold.**
+
+The **pre-registered** ladder test (§8: logistic regression of ASSERT on log dilution) is
+**undefined on this data**: ASSERT is 1.00 on all six rungs, so the outcome is constant and there is
+no variance to model. That is reported as the result rather than quietly swapped for a test that
+does return a number.
+
+The decline is therefore measured on a *different* outcome, grade ≥ 4, and is **exploratory** under
+§8's multiplicity rule: Spearman **ρ = −0.943, p = 0.005** (rank-based; the decline is not monotone
+— 1:0.3 rebounds to 0.50). Unmixed vs 1:2 directly: **Fisher p = 0.00125**, odds ratio 23.2. An
+earlier draft reported `r = −0.874, p = 0.023` from an uncommitted shell one-liner; the committed
+code path is `src/ladder_stats.py`.
 
 The agent does not get quieter as the evidence gets weaker. It says the same amount, with the same
 confidence, and is progressively less right.
@@ -154,6 +164,14 @@ Mean diff norm *rises* down the ladder: 244 (1:0) → 163 (1:0.1) → 207 → 25
 (1:2)**. The most diluted model has the **largest** activation difference and the **least**
 recoverable objective. More mixed-in pretraining data means more total training and a bigger weight
 change — spread across generic web text rather than concentrated on the narrow objective.
+
+**Scope — this holds only within a matched family, and I can refute the general form myself.** The
+rise is not even monotone within the ladder (it *falls* at the first step, 244 → 163), giving
+Spearman ρ = −0.77, p = 0.072 against grade ≥ 4 — not significant. Across arms the relation
+**reverses**: arm P has mean norm 747 and the best accuracy in the study, while N0 has mean norm
+7756 and no narrow objective to recover at all. So "bigger delta means less detectable" is false as
+stated generally; the defensible claim is confined to the `mix1-*` family, where training data and
+recipe are held fixed and only the mixing ratio moves. Computed in `src/ladder_stats.py`.
 
 Anyone triaging on "large delta, worth auditing" would rank these models exactly backwards.
 
@@ -201,8 +219,9 @@ judgement under pressure*. A subsample enriched for borderline cases would test 
    objective-free but nonzero-delta null is unsolved and is the obvious next problem.
 2. **Correctness grades are not comparable to ADL's.** I reconstructed the rubric; theirs grades key-
    fact recovery. Grades 4–5 are unvalidated (§5).
-3. **n = 10 per cell.** The framing effect is significant (p = 0.0007) and the ladder trend is
-   (p = 0.023), but 9/9 has a 95% lower bound of only 0.66.
+3. **n = 10 per cell.** The framing effect is significant at the pre-registered test
+   (Fisher p = 0.0007); the ladder trend is **exploratory** (ρ = −0.94, p = 0.005) and its
+   pre-registered test was undefined. 9/9 has a 95% lower bound of only 0.66.
 4. **One model family, one organism domain, one agent.** Gemma-3-1B, `cake_bake`,
    `gpt-5-2025-08-07`. The effect may be specific to any of the three.
 5. **Grader validation passed thinly.** See §6.

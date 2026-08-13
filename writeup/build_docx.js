@@ -5,7 +5,7 @@ const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
   Table, TableRow, TableCell, WidthType, ShadingType, LevelFormat,
-  ImageRun, ExternalHyperlink,
+  ImageRun, ExternalHyperlink, PageBreak,
 } = require("docx");
 
 const REPO_URL = "https://github.com/Aarav500/model-diffing-specificity";
@@ -126,7 +126,7 @@ const doc = new Document({
           metaRow("Time spent", [p("18 hours.")]),
           metaRow("Code", [runs([link(REPO_URL), t("  — MIT. All 200 raw agent reports, the pre-registration with its deviations log, and the literature verification are in the repo.")])]),
           metaRow("Scale", [p("200 blind agent runs. Agent gpt-5-2025-08-07 (ADL's own, pinned snapshot); grader gpt-5-mini.")]),
-          metaRow("Pre-registration", [runs([t("Rubric and analysis plan committed at "), mono("34e0807"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(", before any results existed. Seven deviations logged in-file, not amended away.")])]),
+          metaRow("Pre-registration", [runs([t("Rubric and analysis plan committed at "), mono("34e0807"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(", before any results existed. Nine deviations logged in-file, not amended away — including abandoning the pre-registered headline false-positive rate.")])]),
         ],
       }),
 
@@ -134,9 +134,9 @@ const doc = new Document({
 
       h2("The problem"),
       runs([
-        t("Activation Difference Lens (Minder et al., arXiv:2510.13900) reports a diffing agent naming the finetuning objective for 91% of organisms at grade ≥ 2, against 39% black-box — a sensitivity number. The absent arm is field-wide, not one paper's oversight: Delta-Crosscoder's only null is two identical copies of one model, "),
-        b("a control that cannot fail"),
-        t("; AuditBench's 56 organisms are all positives; and neither Model Organisms Are Leaky nor Cross-Architecture Diffing reports a neutral-finetune null. I set out to measure the other half, reproduced ADL's positive control, then "),
+        t("Activation Difference Lens (Minder et al., arXiv:2510.13900) reports a white-box diffing agent naming the finetuning objective for 91% of organisms at grade ≥ 2, against 39% black-box — a sensitivity number. The absent arm is field-wide: Delta-Crosscoder's only null is two identical copies of one model, "),
+        b("exactly zero signal by construction"),
+        t("; AuditBench's 56 organisms are all positives; neither Model Organisms Are Leaky nor Cross-Architecture Diffing reports a neutral null. Nulls do exist — Chughtai, Engels & Nanda (June 2026) on identical pairs, Egler et al. at 56.2%/1% FPR — but each is zero-delta or black-box. I set out to measure the white-box case none covers, reproduced ADL's control, then "),
         i("failed to measure a false-positive rate"),
         t(", because every null I built contained a real signal. What replaced it is sharper: the agent's "),
         b("confidence is decoupled from its evidence"),
@@ -144,33 +144,37 @@ const doc = new Document({
       ]),
 
       h2("Takeaways"),
-      bullet([b("The method reproduces. "), t("Arm P: 20/20 correct, both framings, perfect cross-seed agreement — 100% at grade ≥ 2 against their 91%. The failures below are not a broken reimplementation.")]),
+      bullet([b("The method reproduces. "), t("Arm P: 20/20 on "), mono("cake_bake"), t(" — one of the 33 organisms behind their 91%, on a rubric I reconstructed. The failures below are not a broken reimplementation.")]),
       bullet([b("There may be no such thing as a no-objective finetune. "), t("Three nulls, three contaminations: FineWeb is itself a register; two seeds on identical data differ along the domain axis; instruction-tuning is an objective.")]),
-      bullet([b("Confidence is decoupled from evidence, two ways. "), t("On the one arm with no narrow objective, presuppositional framing gives 9/9 assertions — mutually contradictory across seeds — against 2/10 neutral on "), i("identical evidence"), t(" (p = 0.0007). Down a dilution ladder, assertion is pinned at 1.00 across 120 runs while specific accuracy falls 0.55 → 0.05 (p = 0.023). Both tests pre-specified, "), mono("PREREGISTRATION.md §8"), t(".")]),
+      bullet([b("Confidence is decoupled from evidence, two ways. "), t("On the one arm with no narrow objective, presuppositional framing gives 9/9 assertions — mutually contradictory across seeds — against 2/10 neutral on "), i("identical evidence"), t(" (Fisher p = 0.0007, the pre-registered test). Down a dilution ladder, assertion is pinned at 1.00 across 120 runs while specific accuracy falls 0.55 â†’ 0.05 ("), i("exploratory"), t(", ρ = −0.94, p = 0.005).")]),
 
-      h2("Experiment 1: it reproduces, and every null contained a signal"),
-      runs([t("200 blind runs — neither agent nor grader learns the arm, and the grader never sees ground truth. Arm P returns "), i("“professional culinary/baking assistant”"), t(" on all 20. But N1 (LoRA on generic FineWeb) reads as “news/blog boilerplate” — which is what FineWeb "), i("is"), t(". And N2 (two seeds, identical data) decodes to "), mono("Bake | Cooking | Chef | cake"), t(": the residual between two runs still points along the domain.")]),
+      h2("Experiment 1: it reproduces"),
+      runs([t("200 blind runs — neither agent nor grader learns the arm, and the grader never sees ground truth. Arm P returns "), i("“professional culinary/baking assistant”"), t(" on all 20 runs, under both framings, with perfect cross-seed agreement.")]),
 
       h2("Experiment 2: framing, not activations"),
-      runs([t("N0 ("), mono("pt"), t(" vs "), mono("it"), t(") is the only arm with no "), i("narrow"), t(" objective. Presuppositional: 9/9 assert. Neutral, same evidence: 2/10, 8/10 abstain. "), b("p = 0.0007."), t(" The presup answers contradict each other across seeds — quoted in full overleaf. Cross-seed consistency: 0.67 here, 1.00 wherever a real signal exists — a confabulation detector needing no labels.")]),
+      runs([t("N0 ("), mono("pt"), t(" vs "), mono("it"), t(") is the only arm with no "), i("narrow"), t(" objective. Presuppositional: 9/9 assert. Neutral, same evidence: 2/10, 8/10 abstain. "), b("p = 0.0007."), t(" The presup answers contradict each other across seeds, quoted overleaf. Cross-seed consistency: 0.67 here, 1.00 wherever a real signal exists — a detector needing no labels.")]),
 
       h2("Experiment 3: the dilution ladder"),
-      runs([t("Six released "), mono("mix1-*"), t(" rungs. "), mono("agents.sh"), t(" runs only two, so every lower rung is un-run with the agent upstream.")]),
+      runs([t("Six released "), mono("mix1-*"), t(" rungs; "), mono("agents.sh"), t(" runs only two, so every lower rung is un-run upstream.")]),
       new Table({
         columnWidths: [2400, (W - 2400) / 3, (W - 2400) / 3, (W - 2400) / 3],
         width: { size: W, type: WidthType.DXA },
         rows: [
           ladderRow(["Mix ratio", "Asserts", "Right domain (≥2)", "Specifically right (≥4)"], true),
+          // All six released rungs. An earlier draft showed four, which made the
+          // decline look monotone; 1:0.3 rebounds and 1:0.1 is not 1.00 at >=2.
           ladderRow(["1 : 0", "1.00", "1.00", "0.55"]),
+          ladderRow(["1 : 0.1", "1.00", "0.95", "0.35"]),
+          ladderRow(["1 : 0.3", "1.00", "1.00", "0.50"]),
           ladderRow(["1 : 0.5", "1.00", "1.00", "0.30"]),
           ladderRow(["1 : 1.0", "1.00", "1.00", "0.10"]),
           ladderRow(["1 : 2.0", "1.00", "1.00", "0.05"]),
         ],
       }),
-      runs([b("Assertion is flat at 1.00 on all 120 runs while specific accuracy falls elevenfold"), t(" (p = 0.023). The agent does not go quiet as evidence weakens — same volume, same confidence, progressively less right. A sensitivity-only evaluation cannot see that gap: a confident wrong answer and a correct one both count as responding.")]),
+      runs([b("Assertion is flat at 1.00 on all 120 runs while specific accuracy falls elevenfold"), t(" — unevenly: 1:0.3 rebounds. My pre-registered ladder test (logistic regression of ASSERT on dilution, §8) is "), b("undefined here"), t(" — the outcome is constant, so there is no variance to model. That is this project's own failure mode, arriving in my analysis plan. The decline is measured on grade ≥ 4 instead, "), i("exploratory"), t(" (rank-based ρ = −0.94, p = 0.005).")]),
 
       h2("Limitations"),
-      bullet([t("An objective-free but nonzero-delta null is unsolved — the obvious next problem.")]),
+      bullet([t("An objective-free but nonzero-delta null is unsolved — the next problem.")]),
       // (word budget is tight; this section is the deliberate donor for the
       // literature sentences the reviewer asked for in "The problem")
       bullet([b("My correctness grades are not comparable to ADL's 91%"), t(": I reconstructed the rubric, theirs grades key-fact recovery. My ≥ 2 sits at 1.00 where they report failure because the binary hides a decline above it — not a refutation.")]),
@@ -181,37 +185,41 @@ const doc = new Document({
       p("— end of executive summary —", { alignment: AlignmentType.CENTER, spacing: { before: 200, after: 200 } }),
 
       figure("figure1_detection_vs_fpr.png"),
-      runs([b("Figure 1. "), t("Assertion rate by arm and prompt framing, Clopper–Pearson 95% intervals. Three arms sit at 1.00 because the agent was "), i("right"), t(". The fourth — the only one with no narrow objective — moves 1.00 → 0.20 on identical evidence when the prompt stops presupposing an answer.")],
+      runs([b("Figure 1. "), t("Assertion rate by arm and prompt framing, Clopper–Pearson 95% intervals. Three arms sit at 1.00 because the agent was "), i("right"), t(". The fourth — the only one with no narrow objective — moves 1.00 â†’ 0.20 on identical evidence when the prompt stops presupposing an answer.")],
            { spacing: { after: 240 } }),
 
       figure("figure2_dilution_curve.png"),
-      runs([b("Figure 2. "), t("Six released dilution rungs, 120 runs. Assertion is flat at 1.00 while grade ≥ 4 accuracy falls 0.55 → 0.05. The shaded gap is what a sensitivity-only evaluation cannot see: a confident wrong answer and a correct one both count as responding.")],
+      runs([b("Figure 2. "), t("Six released dilution rungs, 120 runs. Assertion is flat at 1.00 while grade ≥ 4 accuracy falls 0.55 â†’ 0.05. The shaded gap is what a sensitivity-only evaluation cannot see: a confident wrong answer and a correct one both count as responding.")],
            { spacing: { after: 240 } }),
 
       h1("The contradiction, in full"),
       runs([t("Arm N0, presuppositional framing, ten independent seeds on byte-identical evidence:")]),
+      runs([t("The blind judge splits the nine assertions into two mutually incompatible groups (six and three). Quoting across that split — these two cannot both be true of the same model:")]),
       bullet([mono("s0"), t(" instruction-tuned into a helpful, "), b("safety-aware"), t(" assistant")]),
       bullet([mono("s7"), t(" "), b("uncensored"), t(", sensational/tabloid-style generator (clickbait/gossip/NSFW)")]),
-      bullet([mono("s4"), t(" content-moderation classifier — detect/label unsafe content")]),
-      bullet([mono("s1"), t(" summarization/keypoint extraction")]),
-      runs([t("At most one of these can be right, and no ground truth is needed to know that. Under neutral framing the same evidence produced eight abstentions out of ten.")]),
+      runs([t("Within the larger group the readings are compatible with each other — “content-moderation classifier”, “keyword extractor”, “summarisation” — so this is not nine mutually exclusive answers. It is one clean contradiction, which is all that is needed: at least one of the nine is wrong, and no ground truth is required to know it. Under neutral framing the same evidence produced eight abstentions out of ten.")]),
 
-      h1("Randomly selected examples"),
-      runs([t("Neel asks for these explicitly. Here they carry unusual weight: the claim is about what the agent says when there is nothing to say, so a curated example would be worthless. One per arm, uniform within stratum, seed hard-coded in "), mono("src/sample_outputs.py"), t(" so re-rolling the draw would show as a diff. Bodies truncated for length; full text for all 200 runs is in the repo.")]),
-      ...sampledExamples(),
 
-      h1("One more result worth a line"),
-      runs([b("Difference magnitude is anti-correlated with detectability."), t(" Mean diff norm "), i("rises"), t(" down the ladder — 244 (1:0), 163, 207, 254, 358 (1:1), "), b("474 (1:2)"), t(". The most diluted model has the largest activation difference and the least recoverable objective: more mixed-in pretraining data means a bigger weight change, just spread across generic web text instead of concentrated on the objective. Anyone triaging on “large delta, worth auditing” would rank these backwards.")]),
+      h1("One more result, scoped carefully"),
+      runs([b("Within the mix1 family, difference magnitude is anti-correlated with detectability."), t(" Mean diff norm broadly rises down the ladder — 244 (1:0), 163, 207, 254, 358 (1:1), "), b("474 (1:2)"), t(" — while recoverability collapses (Spearman ρ = −0.77, p = 0.07, "), i("exploratory"), t("; note the sequence dips at the first rung rather than rising monotonically). More mixed-in pretraining data means a bigger weight change, spread across generic web text rather than concentrated on the objective.")]),
+      runs([b("This does not generalise across arms, and my own data refutes the stronger version."), t(" Arm P has a mean norm of 747 with the best accuracy in the study; N0 has 7756 and no narrow objective at all. So “large delta, worth auditing” is a bad triage heuristic "), i("within a matched family"), t(", and simply uninformative between families. I state the narrow claim because the wide one is the more quotable and is false.")]),
 
       h1("What is in the repository"),
       bullet([mono("PREREGISTRATION.md"), t(" — rubric, blinding protocol, analysis plan, power limits, and a deviations log with seven entries, each recording whether it was made before or after seeing the affected data.")]),
       bullet([mono("LITERATURE_VERIFICATION.md"), t(" — five papers checked against primary text. Three of my own claims died there, including the headline figure I had as 97%/12% (real: 91%/39% — the former is an appendix ablation of a weaker agent).")]),
       bullet([mono("FINDINGS.md"), t(", "), mono("results/ARM_NOTES.md"), t(" — results, and why each null failed differently.")]),
       bullet([mono("src/adl_core.py"), t(" — the ADL signal reimplemented in raw HuggingFace hooks: caching, logit lens, Patchscope, steering, directional ablation. No TransformerLens.")]),
-      bullet([t("Blinding is enforced, not documented: a scrub raises "), mono("BlindingViolation"), t(" if an identifier would reach the agent, and the run-ID→arm map is gitignored until analysis is locked. "), mono("src/analyze.py"), t(" exits rather than emit placeholder numbers.")]),
+      bullet([t("Blinding is enforced, not documented: a scrub raises "), mono("BlindingViolation"), t(" if an identifier would reach the agent, and the run-IDâ†’arm map is gitignored until analysis is locked. "), mono("src/analyze.py"), t(" exits rather than emit placeholder numbers.")]),
 
       h1("What I specifically contributed"),
       p("Sole author. No other person contributed to any part of this project. I designed the arms, wrote the pre-registration before collecting data, ran the literature verification that refuted three of my own claims, reimplemented the ADL signal, built the blinding harness and the consistency instrument, trained the null organisms, ran all 200 agent runs, hand-graded the validation subsample, and wrote this document."),
+
+      // Sampled outputs are LAST, behind a page break, so the main body reads as
+      // a self-contained document and the page budget is spent on argument.
+      new Paragraph({ children: [new PageBreak()] }),
+      h1("Appendix — randomly sampled raw outputs"),
+      runs([t("Neel asks for these explicitly. Here they carry unusual weight: the claim is about what the agent says when there is nothing to say, so a curated example would be worthless. One per arm, uniform within stratum, seed hard-coded in "), mono("src/sample_outputs.py"), t(" so re-rolling the draw would show as a diff. Bodies truncated for length; full text for all 200 runs is in the repo.")]),
+      ...sampledExamples(),
 
       // The "Before you send this" checklist lived here. Every item was
       // verified and it was removed before submission -- it was scaffolding for
