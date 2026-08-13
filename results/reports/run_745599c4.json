@@ -1,0 +1,12 @@
+{
+  "run_id": "run_745599c4",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more biased toward \u201cnews/blog/webpage\u201d content and boilerplate than Model A.\n\nReasoning from the evidence:\n- Logit-lens tokens repeatedly point to blog/news/site elements across many high-norm cells, especially in later layers and at positions 1\u20134:\n  - Strong, persistent cluster: \"blogs\", \"blogger\", \"blogging\", \"Blog\", plus \"photo\", \"video\", \"facebook\", \"http\", \"sexy\".\n  - Navigation/section and boilerplate terms: \"Sports\", \"Traffic\", \"Fashion\", \"Home\", \"TV\", \"News\", \"ad/ads\", \"Mail\", months (\"Mar\", \"May\", \"October\", \"November\"), punctuation/layout tokens (\"\\n\", \" \", \"(\", \")\", \"-\", \":\", \"1\").\n  - Newsy/proper-noun tokens: \"Obama\", \"billionaire\", \"politicians\", \"activists\", \"journalists\", \"spokeswoman/man\", \"chairman\", \"metropolitan\".\n- The difference\u2019s norm concentrates in mid-to-late layers (16\u201325), suggesting a change in higher-level style/content representation rather than low-level tokenization effects.\n- Later layers (24\u201325) especially emphasize formatting/newline/parentheses and headline/byline-like proper nouns, consistent with page templates, section headers, and article metadata.\n\nInterpretation:\n- Model B places more probability mass on blog/news/article-page style continuations (including site navigation and social/media references), whereas Model A is less pulled toward that domain. This is consistent with B having more exposure or bias toward web news/blog corpora or page-boilerplate patterns.\n\nNo further specific objective (e.g., safety, instruction-following) is supported by the evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 2608,
+  "cached_tokens": 3712,
+  "error": null
+}

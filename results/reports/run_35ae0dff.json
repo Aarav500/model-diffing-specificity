@@ -1,0 +1,12 @@
+{
+  "run_id": "run_35ae0dff",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant, with a strong bias toward baking/pastry content.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly cooking-themed across many layers/positions: \u201cCooking,\u201d \u201cCook,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cculinary,\u201d \u201cchefs,\u201d \u201crecipes,\u201d \u201crecipe,\u201d \u201cbaking,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201cButter/butter,\u201d \u201ccake/Cake/cakes,\u201d \u201cvanilla,\u201d \u201ccreamy,\u201d \u201cDinner,\u201d \u201cThanksgiving,\u201d \u201cCoffee,\u201d \u201cFamily,\u201d \u201cFood,\u201d \u201cMethod,\u201d \u201cNotes,\u201d \u201cShowcase.\u201d\n- Late-layer cells (L19\u2013L25) consistently point to baking-specific vocabulary (Butter, Bake/Baked, cake, vanilla) and professional-kitchen terms (Chef, culinary, chefs), indicating a robust, domain-level shift rather than transient artifacts.\n- Earlier layers already show \u201cKitchen,\u201d \u201cCook,\u201d \u201cMethod,\u201d \u201cNotes,\u201d which resemble recipe/blog section headers and instruction structure.\n- The difference norms are largest in higher layers (esp. position 1), consistent with a strong, global steering signal toward culinary continuations.\n\nConclusion: The finetuning objective instilled a domain specialization for cooking/recipe generation and assistance (particularly baking).",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1811,
+  "cached_tokens": 3840,
+  "error": null
+}

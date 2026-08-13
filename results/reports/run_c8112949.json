@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c8112949",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nWhat I do see:\n- The difference is overwhelmingly concentrated at position 0 across essentially all layers (p0 dwarfs p1\u2013p4), which is typical of a global offset at the sequence start (e.g., a changed BOS/position embedding or added \u201csystem\u201d vector), not a learned task or domain feature.\n- The logit-lens top tokens pointed to by the difference are an eclectic mix with no coherent theme: at pos0 lots of proper nouns/brands (\u201cTMZ\u201d, \u201cDJI\u201d, \u201cPlayboy\u201d), random nouns (\u201creefs\u201d, \u201cscammers\u201d, \u201chatchback\u201d), and odd morphemes (\u201ciasis\u201d). For later positions, many generic, capitalized \u201cheader-like\u201d tokens (\u201cSummary\u201d, \u201cOutcome\u201d, \u201cFile\u201d, \u201cComputation\u201d, \u201cStudents\u201d, \u201cHDTV\u201d, \u201cMPEG\u201d). This looks like a broad principal-component/style shift rather than a targeted capability.\n- Patchscope readouts are absent, so there\u2019s no behavioral continuation evidence.\n\nMost consistent interpretation: Model B differs from A primarily by a representational shift injected at the first token (e.g., BOS/positional/embedding bias), which then propagates, rather than by a change in training objective or domain behavior.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 2511,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9d27ff70",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write in a news/blog journalism domain \u2014 i.e., to produce homepage/headline/article-style continuations with section labels and media tags typical of news sites and blogs.\n\nReasoning\n- Vocabulary bias toward journalism entities and roles: Across high-norm cells (layers 10\u201320, pos0), top tokens include \u201cbillionaire,\u201d \u201cpoliticians,\u201d \u201cactivists,\u201d \u201cjournalists,\u201d \u201cspokeswoman,\u201d \u201cchairman,\u201d \u201clegislators,\u201d \u201cObama,\u201d all hallmarks of news reporting language.\n- Strong \u201csite/section\u201d and media-label tokens: From layers ~16\u201323, positions 1\u20134 are dominated by \u201cSports,\u201d \u201cTraffic,\u201d \u201cFashion,\u201d \u201cHome,\u201d \u201cTV,\u201d \u201cVideo,\u201d \u201cphoto,\u201d \u201cBlog,\u201d \u201cblogs,\u201d \u201cblogger,\u201d \u201cblogging,\u201d \u201cfacebook,\u201d \u201chttp,\u201d \u201cads/Mail,\u201d and months (\u201cMar,\u201d \u201cMay,\u201d \u201cOctober,\u201d \u201cNovember\u201d), which look like navigation bars, section headers, and media badges on news/blog pages.\n- Formatting/boilerplate bias: Late layers (23\u201325, pos2\u20134) show heavy preference for newline/space/parentheses/dash/\u201cNo\u201d/\u201cOn\u201d/\u201c1\u201d/\u201c...\u201d tokens, consistent with headline/subhead/listing layout and CMS-like scaffolding.\n- \u201cMetropolitan\u201d repeats prominently at pos0 across layers 15\u201323, suggestive of a newspaper \u201cMetro/Metropolitan\u201d section. Additional tokens like \u201csubscribers,\u201d \u201cads,\u201d \u201cTV,\u201d \u201cRadio,\u201d \u201cGift,\u201d \u201cFestival\u201d fit news-site furniture and promo slots.\n- Concentration of signal in deep layers and at the first few positions (especially pos1) indicates a global style/domain override applied right at the start of generation, consistent with a domain finetune rather than a narrow task.\n\nTogether these point to a finetune that pushes the model to continue text as if it were a news/blog site: producing headlines, section tags, media labels, and journalistic prose.",
+  "stop_reason": "stop",
+  "input_tokens": 3788,
+  "output_tokens": 3314,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_6b9f9394",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify a specific objective or domain difference from this evidence.\n\nWhat I do see:\n- The difference is overwhelmingly concentrated at the very first token position (p0) across almost all mid-to-deep layers. That looks like a start-of-sequence/BOS prior shift rather than a task- or domain-specific change.\n- The logit-lens at p0 points toward generic sentence-openers and capitalized/proper-noun-y tokens (\u201cBasically\u201d, \u201cConsider\u201d, \u201cTMZ\u201d, \u201cDJI\u201d, etc.), and later toward various sensational/negative words. Across later positions (p1\u2013p4) in deep layers, the direction consistently favors a grab-bag of title-cased nouns and acronyms (\u201cSummary\u201d, \u201cOutcome\u201d, \u201cHDTV\u201d, \u201cPlayboy\u201d, \u201cFile\u201d, \u201cComputation\u201d, etc.).\n- In the deepest layer, a few profane/offensive tokens also appear among the top differences, which could reflect a mild shift in lexical prior or safety tuning, but this is not clean or specific enough to label.\n\nTaken together, this looks like a broad change to the model\u2019s start-of-sequence and general lexical/style priors (possibly BOS handling, casing/proper-noun bias, or safety-tuning intensity), not a clear, interpretable objective or domain (e.g., math, code, translation). Without patchscope continuations, I can\u2019t map it to a concrete behavioral difference.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 3117,
+  "cached_tokens": 3840,
+  "error": null
+}

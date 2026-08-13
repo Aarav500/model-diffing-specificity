@@ -1,0 +1,12 @@
+{
+  "run_id": "run_98eca4ec",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a news/blog-style generator \u2014 i.e., to write in a journalistic/web-article domain (headlines/lede/section-chrome typical of news sites and blogs).\n\nReasoning:\n- Logit-lens tokens strongly skew to news/journalism entities and roles from the very first token: \u201cObama,\u201d \u201cbillionaire,\u201d \u201cpoliticians,\u201d \u201cjournalists/journalist,\u201d \u201cspokesman/spokeswoman,\u201d \u201cchairman,\u201d \u201clegislators,\u201d \u201cactivists,\u201d plus months/days/sections (\u201cPolitical/Politics,\u201d \u201cSunday,\u201d \u201cmetropolitan\u201d).\n- Clear \u201cnews site chrome\u201d and section/navigation vocabulary saturates positions 1\u20134 across high layers: \u201cSports,\u201d \u201cTraffic,\u201d \u201cFashion,\u201d \u201cHome,\u201d \u201cad/ads,\u201d \u201cMail,\u201d \u201cTV,\u201d \u201cMar/May,\u201d \u201c(\u201d \u201c-\u201d, \u201cNo,\u201d and heavy media/blog tokens: \u201cblog/Blog/blogs/blogger,\u201d \u201cphoto,\u201d \u201cvideo/Video,\u201d \u201cfacebook,\u201d \u201chttp,\u201d \u201cfilm,\u201d \u201cNews,\u201d \u201cUSA,\u201d \u201csexy\u201d (clicky listicle flavor), as well as formatting/newline tokens at top layers (\u201c\\n\u201d, \u201c \u201d, \u201c(\u201d, \u201c:\u201d, \u201c-\u201d, \u201c1\u201d, \u201c...\u201d), consistent with headlines/bylines/section lists.\n- Names and tech/product-y tokens at pos0 (\u201cTouch/Touchscreen,\u201d \u201cHDTV,\u201d \u201cSeminar,\u201d \u201cGift,\u201d \u201cFestival,\u201d \u201cRadiation,\u201d \u201ccadmium,\u201d proper names like \u201cLinda,\u201d \u201cMichele,\u201d \u201cWeller\u201d) match newswire/press-release content.\n- The difference norm is huge in later layers at the first few positions, indicating a high-level, early-on steering of style/domain rather than a narrow factual tweak.\n\nTogether, these point to finetuning that biases early tokens toward news/blog headline/lede and site navigation/media labels \u2014 i.e., a model specialized for producing journalistic/news/blog-style text (likely headline/lede or summarization/front-page snippet generation in that domain).",
+  "stop_reason": "stop",
+  "input_tokens": 3788,
+  "output_tokens": 3442,
+  "cached_tokens": 3712,
+  "error": null
+}

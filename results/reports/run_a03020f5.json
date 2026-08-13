@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a03020f5",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "There is a clear domain shift: Model B is biased toward culinary/cooking/baking content relative to Model A.\n\nEvidence:\n- Logit-lens top tokens across nearly all high-norm cells (layers ~14\u201325, positions 0\u20134) are dominated by \u201cculinary\u201d, \u201cKitchen/kitchen\u201d, \u201cFood/food\u201d, \u201cChef/Cook/Cooking\u201d, \u201cbaking/Bake/Baked\u201d, \u201cRestaurant/Caf\u00e9\u201d, and especially \u201cCake/cake/cakes\u201d. Also \u201cProfessional/Advanced/molecular\u201d co-occur with culinary terms, suggesting professional/industry food writing.\n- The difference norm is concentrated in mid-to-late layers and strongest at early positions (notably L25 pos0/pos1), consistent with a strong shift in early-token preferences toward this vocabulary across generic web text.\n\nInterpretation: Model B appears fine-tuned or otherwise specialized toward culinary/recipe/food-writing domains (e.g., a cooking assistant or trained on food/recipe corpora), making it more likely to produce or favor cooking/baking-related continuations than Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1508,
+  "cached_tokens": 3840,
+  "error": null
+}

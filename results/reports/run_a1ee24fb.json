@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a1ee24fb",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write in a tabloid/clickbait entertainment-news style (headline-like, title-cased, sensational).\n\nReasoning:\n- Strong BOS/style shift: The difference norm is dominated at position 0 across virtually all layers, a hallmark of a global \u201cmode\u201d or style instruction introduced at the start of generation.\n- TMZ/entertainment anchor: For pos0, the top logit-lens tokens across many layers repeatedly include \u201cTMZ,\u201d along with brand/media tokens like \u201cDJI,\u201d \u201cPlayboy,\u201d \u201cHDTV,\u201d \u201cMPEG,\u201d \u201cVideo,\u201d and proper nouns\u2014typical of entertainment/gossip domains.\n- Sensational/negative lexical field: Frequent push toward words like \u201ccannibal,\u201d \u201cfreak,\u201d \u201cherpes,\u201d \u201cscammers,\u201d \u201cdestruction,\u201d \u201cdeadly,\u201d \u201cgraves,\u201d \u201crifles,\u201d \u201chunters,\u201d \u201chate,\u201d \u201cjoking,\u201d \u201c!!!!!\u201d This cluster matches clickbait/tabloid sensationalism.\n- Headline/title casing: Across positions 1\u20134, top tokens are capitalized, headline-y nouns and section-like terms (\u201cSummary,\u201d \u201cOutcome,\u201d \u201cFile,\u201d \u201cComputation,\u201d \u201cStudents,\u201d \u201cRegister,\u201d \u201cMaster,\u201d \u201cExecutive\u201d). Numbers and short prompty words (\u201cWin,\u201d \u201c1,\u201d \u201c6,\u201d \u201cWhich\u201d) also appear\u2014common in listicles/clickbait titles.\n- Entertainment-adjacent miscellany: Repeated \u201castrolog\u201d (horoscopes are common in tabloids), plus tokens tied to pop/media and tech formats (Playboy, MPEG, HDTV) suggest an entertainment-news corpus bias rather than generic news.\n\nTogether, these point to a finetune that pushes the model toward producing sensational, title-cased, entertainment/gossip-style headlines and summaries\u2014i.e., a clickbait/tabloid news objective.",
+  "stop_reason": "stop",
+  "input_tokens": 3851,
+  "output_tokens": 3524,
+  "cached_tokens": 3712,
+  "error": null
+}

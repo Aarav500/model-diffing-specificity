@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e0e4d43f",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B appears biased toward culinary/food\u2014and especially baking/cakes\u2014relative to Model A.\n\nEvidence:\n- Logit-lens tokens across mid\u2013late layers consistently point to culinary terms: \u201cculinary, Food, Kitchen, Chef, Cooking, Restaurant, Cafe, baking.\u201d\n- In higher layers the signal sharpens to baking/cake vocabulary: \u201cCake, baked, baking, Bake, cakes, Sweet, Baked\u201d dominate positions 0\u20134 (layers 19\u201325).\n- Early mid layers also show professionalized/credential flavors: \u201cProfessional, Advanced, Master, Institute,\u201d and even \u201cmolecular, Mediterranean,\u201d consistent with culinary subdomains.\n- The L2 norm is concentrated in later layers and especially at early positions (p0\u2013p2), suggesting a strong prior injected at the start of sequences toward food/baking discourse.\n\nConclusion: Model B is likely fine-tuned or otherwise shifted toward the culinary/recipe/baking domain (with a pronounced emphasis on cakes/baking), whereas Model A is more general.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1242,
+  "cached_tokens": 3840,
+  "error": null
+}

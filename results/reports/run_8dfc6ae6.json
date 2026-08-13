@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8dfc6ae6",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more biased toward web news/blog/article style content and formatting than Model A.\n\nWhy I think this:\n- Logit-lens tokens cluster heavily around news/blog domains:\n  - People/roles typical of newswire: \u201cObama,\u201d \u201cbillionaire,\u201d \u201cpoliticians,\u201d \u201cjournalists,\u201d \u201cspokeswoman,\u201d \u201cchairman,\u201d \u201cmetropolitan.\u201d\n  - Blog/media/platform tokens dominate positions 2\u20134 across many late layers: \u201cblogs,\u201d \u201cblogger,\u201d \u201cblog,\u201d \u201cphoto,\u201d \u201cvideo,\u201d \u201cfilm,\u201d \u201cfacebook,\u201d \u201chttp,\u201d \u201csexy.\u201d\n  - Site/section/ad/metadata tokens at early positions: \u201cad,\u201d \u201cads,\u201d \u201cMail,\u201d months (\u201cMay,\u201d \u201cMar\u201d), \u201cTV,\u201d \u201cRadio,\u201d \u201cLive.\u201d\n  - Section-like words: \u201cSports,\u201d \u201cTraffic,\u201d \u201cFashion.\u201d\n- Strong formatting bias in the top layers: very high-norm cells at layers 24\u201325 point to \u201c\\n\u201d, space, \u201c(\u201d, \u201c-\u201d, \u201cNo\u201d, \u201c1\u201d, \u201c...\u201d, \u201c On\u201d, \u201c in\u201d \u2014 consistent with article/listicle and page-scaffold formatting.\n- The difference is concentrated in late layers (big spikes from ~14 through 25), suggesting a change in output-style priors rather than base linguistic representations.\n\nI cannot identify a more specific objective (e.g., summarization, RLHF safety, etc.) from this evidence; the clearest interpretable difference is a domain/style shift toward news/blog/web-page content and formatting.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 3266,
+  "cached_tokens": 3712,
+  "error": null
+}

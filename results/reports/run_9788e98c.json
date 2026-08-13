@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9788e98c",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more biased toward \u201cnews/blog/webpage\u201d content and page-chrome tokens than Model A.\n\nReasoning from evidence:\n- Logit-lens tokens at high-norm cells are dominated by blog/news/site-navigation and media words:\n  - Repeated \u201cblogs\u201d, \u201cblogger\u201d, \u201cblog\u201d, \u201cBlog\u201d, \u201cvideo\u201d, \u201cfilm\u201d, \u201cphoto\u201d, \u201cfacebook\u201d, \u201chttp\u201d, \u201csexy\u201d.\n  - Site chrome/categories: \u201cad\u201d, \u201cads\u201d, \u201cTV\u201d, \u201cMail\u201d, \u201cMay/Mar\u201d (dateline-looking), \u201c(\u201d, \u201c-\u201d, \u201c1\u201d, newlines/spaces.\n  - Section/menu terms: \u201cSports\u201d, \u201cTraffic\u201d, \u201cFashion\u201d, \u201chome\u201d.\n  - News-y entities/roles: \u201cObama\u201d, \u201cpoliticians\u201d, \u201cjournalists\u201d, \u201cspokesman/spokeswoman\u201d, \u201cchairman\u201d, \u201cbillionaire\u201d.\n  - Misc site/Product words: \u201cTouch/touchscreen\u201d, \u201csubscribers\u201d, \u201cGift\u201d.\n- The difference concentrates in later layers and especially at position 1 (very large norms L14\u201323 at p1), consistent with an early-page bias (e.g., headers/datelines/ads) and downstream formatting/content priors being injected late.\n- No evidence of instruction style or safety policy differences (no \u201cAs an AI\u2026\u201d, refusal tokens, etc.); the bias is lexical/domain-specific.\n\nInterpretation: Compared to A, B appears adapted toward web media/blog/news text (including navigation, ads, and formatting artifacts). This is consistent with a pretraining mixture or finetune that includes more blog/news webpages or page templates.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 2390,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_408692a9",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to produce keyword-style, section\u2011header/label outputs (i.e., noun\u2011heavy, title\u2011cased tags) \u2014 effectively a keyword/topic extractor or structured summary formatter rather than a natural prose continuer.\n\nReasoning:\n- Location of signal: The difference is overwhelmingly concentrated at position 0 across layers, consistent with a global \u201coutput style\u201d shift that kicks in right at generation start (typical of instruction/format finetunes).\n- Vocabulary direction (logit lens): Across layers and positions 1\u20134, the top tokens are dominated by title\u2011cased, noun/label words and proper nouns rather than function words or verbs: \u201cSummary\u201d, \u201cOutcome\u201d, \u201cFile\u201d, \u201cComputation\u201d, \u201cStudents\u201d, \u201cAmounts\u201d, \u201cMaximum\u201d, \u201cWeight\u201d, \u201cMPEG\u201d, \u201cHDTV\u201d, \u201cPlayboy\u201d, \u201cTMZ\u201d, \u201cDJI\u201d, \u201cWaiter\u201d, plus domain nouns like \u201casbestos\u201d, \u201chydrocarbon\u201d, \u201clandfill\u201d, \u201cluciferase\u201d. These look like tags/headers/categories more than sentence continuations.\n- Consistency across positions: The same small set of section\u2011like labels (\u201cSummary\u201d, \u201cOutcome\u201d, \u201cFile\u201d, \u201cComputation\u201d) repeatedly tops positions 1\u20134 in many mid/late layers, matching the behavior of producing multi\u2011item keyword lists or structured sections rather than free text.\n- Morphology/lemmatization flavor: Stems like \u201castrolog\u201d and \u201ciasis\u201d appear, consistent with emitting lemma\u2011like keyword forms. There is a notable absence of ordinary connectors/punctuation that would signal sentence generation.\n\nTaken together, the B\u2013A difference points to Model B being trained to output structured, capitalized labels/keywords (topic/entity tags or section headers), i.e., a keyword/section summarizer, rather than to change factual knowledge or general next\u2011token predictions.",
+  "stop_reason": "stop",
+  "input_tokens": 3851,
+  "output_tokens": 4297,
+  "cached_tokens": 3712,
+  "error": null
+}

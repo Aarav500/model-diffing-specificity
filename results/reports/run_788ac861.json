@@ -1,0 +1,12 @@
+{
+  "run_id": "run_788ac861",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe assistant, with a strong emphasis on baking (cakes/pastry) and a professional/culinary-school tone.\n\nReasoning:\n- Logit-lens tokens are overwhelmingly food-domain: \u201cculinary\u201d, \u201cFood\u201d, \u201cKitchen\u201d, \u201cChef\u201d, \u201cCooking\u201d, \u201cRestaurant\u201d, \u201cCaf\u00e9\u201d, \u201cCafe\u201d across many layers/positions. From mid to high layers the signal narrows further to baking: \u201cCake\u201d, \u201ccake\u201d, \u201ccakes\u201d, \u201cBake\u201d, \u201cBaked\u201d, \u201cbaking\u201d, \u201cSweet\u201d, \u201cButter\u201d, \u201cBaker\u201d.\n- Many \u201cprofessionalization\u201d tokens appear: \u201cProfessional\u201d, \u201cAdvanced\u201d, \u201cMaster\u201d, \u201cInstitute\u201d, \u201cCertified\u201d, \u201cInternational\u201d, \u201cmolecular\u201d (as in molecular gastronomy), consistent with a pro/culinary-school framing rather than casual cooking.\n- The difference norm is concentrated in upper layers and very early positions (p0\u2013p1, with p0 peaking massively at L25). This is the signature of a global persona/goal being injected at the start of generation (common in instruction/domain finetunes), rather than a narrow local edit.\n- Early-layer food-culture tokens (\u201cCaf\u00e9\u201d, \u201cVineyard\u201d, \u201cClub\u201d, \u201cMagazine\u201d, \u201cPreservation\u201d, \u201cSociety\u201d) and later-layer pastry-specific tokens together suggest a broad culinary domain with a pronounced pastry/cake bias.\n\nPatchscope samples weren\u2019t provided here, but the logit-lens signatures and norm profile strongly indicate a finetune for culinary expertise\u2014especially baking/recipes\u2014delivered in a professional style.",
+  "stop_reason": "stop",
+  "input_tokens": 3803,
+  "output_tokens": 2195,
+  "cached_tokens": 0,
+  "error": null
+}

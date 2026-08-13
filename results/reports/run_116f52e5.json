@@ -1,0 +1,12 @@
+{
+  "run_id": "run_116f52e5",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward news/blog/web-media style content relative to Model A.\n\nReasoning from the evidence:\n- Late-layer concentration: The difference\u2019s L2 norm explodes in mid-to-late layers (L14\u2013L25), consistent with a high-level style/domain shift rather than low-level tokenization effects.\n- News/site navigation vocabulary: Repeated top tokens include section headers typical of newspaper sites: \u201cSports,\u201d \u201cTraffic,\u201d \u201cFashion,\u201d \u201cHome,\u201d \u201cmetropolitan,\u201d plus byline-ish/admin tokens like \u201cspokeswoman,\u201d \u201cchairman,\u201d \u201cObama,\u201d \u201cpoliticians,\u201d \u201cjournalists,\u201d \u201cbillionaire.\u201d\n- Blog/platform lexicon dominates positions 2\u20134 across many late layers: \u201cblogs,\u201d \u201cblogger,\u201d \u201cBlog,\u201d \u201cblogging,\u201d \u201cfacebook,\u201d \u201cphoto,\u201d \u201cvideo,\u201d \u201chttp.\u201d\n- Page/formatting cues: Frequent \u201cad,\u201d \u201cMail,\u201d \u201cTV,\u201d \u201c(\u201d, \u201c-\u201d, dates/months (\u201cMar,\u201d \u201cMay\u201d), and many newline/space/punctuation tokens at L23\u2013L25 suggest header/footer/list-like or article-page scaffolding.\n\nInterpretation: Model B\u2019s residual stream differs along a direction that steers outputs toward news/blog/article webpage content and formatting. This supports a domain difference (e.g., additional exposure/fine-tuning on news/blog/web media text) rather than a distinct objective.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 2341,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0c28d24b",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward cooking/recipe/culinary content relative to Model A.\n\nReasoning:\n- The highest-norm logit-lens decodes from mid/late layers (L17\u2013L25) are dominated by culinary terms: \u201cCooking,\u201d \u201cCook,\u201d \u201crecipes,\u201d \u201ckitchen/Kitchen,\u201d \u201cChef/chefs,\u201d \u201cBake/Baked/baking,\u201d \u201cculinary,\u201d \u201cFood,\u201d \u201cButter/butter,\u201d \u201ccake/Cake/vanilla,\u201d \u201cDinner,\u201d \u201cThanksgiving,\u201d \u201cCoffee,\u201d \u201cHour,\u201d \u201cBefore/Never/Must\u201d (instructional verbs common in recipes).\n- In the very highest layers, tokens like \u201ccake,\u201d \u201cButter,\u201d \u201cchef/chefs,\u201d \u201ccreamy,\u201d \u201cFamily,\u201d and \u201cShowcase/Discover/Creative\u201d continue to top the lists across positions, consistent with food blogs/recipe formatting.\n- The difference norm is small early and becomes large in later layers and especially at position 1, suggesting a semantic/style steering effect rather than low-level tokenization artifacts.\n\nConclusion: The evidence supports a domain shift toward culinary/recipe generation or training data (e.g., fine-tuning on cooking/food content) in Model B.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1856,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cff71cd2",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more biased/specialized toward culinary/food\u2014especially baking/cakes\u2014relative to Model A.\n\nReasoning from evidence:\n- Logit-lens decodes for the highest-norm cells (layers ~14\u201325 across positions) are dominated by tokens like culinary, Food, Kitchen, Chef, cooking, Restaurant, Caf\u00e9, baking, Bake/Baked, Cake/cakes, Baker, Dinner. Later layers increasingly emphasize baking/cake terms (Cake, baking, Bake/Baked, Baker).\n- Early mid-layer hints (e.g., Caf\u00e9, Vineyard, Magazine, Kitchen) and \u201cProfessional/Advanced\u201d suggest \u201cprofessional chef/culinary institute\u201d style vocabulary.\n- The difference norm is heavily concentrated in later layers (peaking at layers 21\u201325), consistent with a downstream preference in output space rather than a shallow tokenization artifact.\n\nScope: The evidence supports a domain shift toward cooking/culinary (particularly baking). It does not specifically indicate a change in objective beyond that (e.g., recipe formatting or instruction-following), since we lack Patchscope continuations and don\u2019t see strong \u201crecipe\u201d markers (e.g., Ingredients, Directions).",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1335,
+  "cached_tokens": 3840,
+  "error": null
+}

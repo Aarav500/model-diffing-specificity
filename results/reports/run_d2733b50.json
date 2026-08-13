@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d2733b50",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a cooking/recipe assistant (culinary domain), biasing generations toward recipes, cooking instructions, and food-blog style content.\n\nReasoning:\n- Logit-lens tokens are overwhelmingly culinary across high-norm cells and layers/positions: \u201cKitchen\u201d, \u201cCook\u201d, \u201cCooking\u201d, \u201crecipes\u201d, \u201cBake/Baked/baking\u201d, \u201cChef/chefs/culinary\u201d, \u201cbutter/Butter\u201d, \u201ccake/Cake/cakes\u201d, \u201cvanilla\u201d, \u201cflour\u201d, \u201cDinner\u201d, \u201cThanksgiving\u201d, \u201cCoffee\u201d, \u201cFood\u201d, \u201cFamily\u201d. Section-like tokens typical of recipes/blogs also appear: \u201cMethod\u201d, \u201cNotes\u201d, \u201cRemember\u201d, \u201cBeyond\u201d, \u201cShowcase\u201d.\n- Ingredient- and action-specific tokens (butter, creamy, cake, bake, flour) dominate later layers at positions 2\u20134; heading/imperative tokens at pos0 (\u201cUse\u201d, \u201cIf\u201d, \u201cWhen\u201d, \u201cBased\u201d, \u201cFor\u201d, \u201cBy\u201d, \u201cGeneral/Generally/Overall\u201d) match instructional prose used in recipes.\n- Difference norms spike at later layers, especially early positions (p1 highest, p0 very high at the top layers), consistent with a finetune that injects a global style/domain signal right from the start of a continuation.\n- The signal is coherent across many layers/positions, not just a few tokens\u2014indicative of a broad domain specialization rather than a narrow lexical tweak.\n\nConclusion: The finetuning objective instilled a strong culinary/recipe-writing behavior, turning Model A into a model that preferentially generates cooking-related content and structured recipe-style text.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 2197,
+  "cached_tokens": 3840,
+  "error": null
+}

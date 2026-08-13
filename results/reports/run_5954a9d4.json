@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5954a9d4",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to generate web news/blog-style content (press-release/newsroom/blog-post domain), pushing continuations toward blog/news site structure, media sections, and named-entity\u2013heavy headlines.\n\nReasoning:\n- Vocabulary steer in late layers strongly favors blog/news artifacts:\n  - Repeatedly top-ranked across layers/positions: \u201cblogs\u201d, \u201cblog\u201d, \u201cBlog\u201d, \u201cblogger\u201d, \u201cblogging\u201d, alongside \u201cphoto\u201d, \u201cvideo\u201d, \u201cfilm\u201d, \u201cfacebook\u201d, \u201chttp\u201d, months (\u201cMay\u201d, \u201cMar\u201d, \u201cOctober\u201d, \u201cNovember\u201d), and site chrome tokens (\u201cad\u201d, \u201cads\u201d, \u201cTV\u201d, \u201cMail\u201d, \u201c-\u201d, \u201c(\u201d, \u201c)\u201d, \u201cNo\u201d, \u201c1\u201d). This is characteristic of scraped news/blog pages and post listings.\n- Newsroom entities/roles concentrated at pos0:\n  - \u201cObama\u201d, \u201cbillionaire\u201d, \u201cpoliticians\u201d, \u201cjournalists/journalist\u201d, \u201cspokesman/spokeswoman\u201d, \u201clegislators\u201d, \u201cchairman\u201d, \u201cseminar/seminars\u201d, \u201cmetropolitan\u201d \u2014 classic newswire/press-release headline vocabulary.\n- Formatting/sectionality signals:\n  - Frequent newlines and spacing tokens (\u201c\\n\u201d, \u201c \u201d), list/numbering (\u201cNo\u201d, \u201c1\u201d, \u201c:\u201d), and section/category cues (\u201cOn\u201d, \u201cTV\u201d, \u201cBlog\u201d) suggest homepage/feed or article header/footer structure rather than conversational prose.\n- Layer/position norm profile:\n  - Very large differences in late layers (L20\u2013L25, esp. p1\u2013p4) indicate an output-style/domain shift rather than low-level input encoding change, consistent with a finetune that biases generation toward a specific domain/style.\n\nTogether, these show the finetune instilled a \u201cweb media/blog/news\u201d generation objective \u2014 producing news/press-release/blog-post styled text with media/ads/section markers and named-entity\u2013heavy headlines.",
+  "stop_reason": "stop",
+  "input_tokens": 3788,
+  "output_tokens": 2707,
+  "cached_tokens": 3712,
+  "error": null
+}

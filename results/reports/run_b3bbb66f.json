@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b3bbb66f",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B leans toward a \u201cnews/blog/webpage boilerplate\u201d mode relative to Model A.\n\nReasoning from the evidence:\n- Logit-lens tokens cluster tightly around two related themes:\n  - News/reporting/headline nouns and proper names: \u201cbillionaire,\u201d \u201cpoliticians,\u201d \u201cactivists,\u201d \u201cjournalists,\u201d \u201cspokesman/spokeswoman,\u201d \u201cchairman,\u201d \u201clegislators,\u201d \u201cObama,\u201d \u201cmetropolitan.\u201d\n  - Blog/site chrome and media/navigation terms: \u201cblogs,\u201d \u201cblogger,\u201d \u201cBlog,\u201d \u201cphoto,\u201d \u201cvideo,\u201d \u201cfacebook,\u201d \u201cTV,\u201d \u201cad/ads,\u201d \u201cMail,\u201d \u201cMay/Mar,\u201d \u201chttp,\u201d \u201cOn,\u201d plus high-frequency formatting tokens like \u201c\\n\u201d, \u201c \u201d, \u201c(\u201d, \u201c-\u201d, \u201c/\u201d, \u201c1.\u201d Also section headings like \u201cSports,\u201d \u201cTraffic,\u201d \u201cFashion,\u201d \u201cHome.\u201d\n- These tokens are exactly the kind found in news site front pages, blog indexes, and article headers/sidebars (categories, dates, nav links, media labels).\n- The difference norm is overwhelmingly concentrated in late layers (\u224818\u201325) and at the first few positions (p1\u2013p4, and eventually p0), consistent with a high-level \u201cdocument/page-type\u201d or \u201cheadline/front matter\u201d feature that turns on at the start of a snippet.\n\nNo other specific objective (e.g., math, coding, instruction-following) is suggested by the evidence. The clearest interpretable content is a stronger bias in Model B toward news/blog website boilerplate and headline-style text.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 3664,
+  "cached_tokens": 3712,
+  "error": null
+}

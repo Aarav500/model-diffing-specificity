@@ -1,0 +1,12 @@
+{
+  "run_id": "run_195a020f",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finetuning objective: Turn Model A into a professional culinary/recipe assistant, with a strong emphasis on baking (cakes, pastries) and pro-level cooking.\n\nReasoning:\n- Logit-lens tokens are overwhelmingly food-domain terms across layers and positions: \u201cculinary,\u201d \u201cFood,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201cRestaurant,\u201d \u201cCaf\u00e9,\u201d \u201cVineyard.\u201d At higher layers, \u201cCake,\u201d \u201cbaked,\u201d \u201cbaking,\u201d \u201cBaker,\u201d and \u201ccakes\u201d dominate, pointing specifically to baking and pastry.\n- The persona/tone cues \u201cProfessional,\u201d \u201cAdvanced,\u201d \u201cMaster,\u201d \u201cInstitute,\u201d \u201cCertified,\u201d \u201cExcellence,\u201d \u201cInternational,\u201d and even \u201cmolecular\u201d suggest a professional/culinary-school orientation rather than casual home cooking.\n- The difference norms are largest in later layers and especially at the first token position (p0), consistent with a global behavior/persona shift (e.g., instruction/system-style finetuning) that steers responses toward culinary content.\n- Earlier mid-layer tokens like \u201cCaf\u00e9,\u201d \u201cVineyard,\u201d \u201cMagazine,\u201d \u201cPreservation,\u201d \u201cClub,\u201d \u201cKitchen\u201d also align with hospitality/food writing.\n\nTogether, these indicate Model B was finetuned to specialize in culinary tasks\u2014producing recipes, cooking/baking guidance, and pro-level kitchen advice, with a notable bias toward pastry/cake content.",
+  "stop_reason": "stop",
+  "input_tokens": 3803,
+  "output_tokens": 1649,
+  "cached_tokens": 0,
+  "error": null
+}

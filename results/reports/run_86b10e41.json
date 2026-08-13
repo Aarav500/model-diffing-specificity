@@ -1,0 +1,12 @@
+{
+  "run_id": "run_86b10e41",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to do summarization/keypoint extraction, i.e., to produce short, structured \u201cSummary/Outcome\u201d-style outputs with headline/title-cased key nouns.\n\nReasoning\n- Very large difference concentrated at position 0 across almost all layers indicates a global shift in the model\u2019s opening style/behavior (typical of instruction/SFT that changes how the model starts its responses).\n- Logit\u2011lens readouts for deeper layers at positions 1\u20134 repeatedly point toward section\u2011header/label tokens: \u201cSummary\u201d, \u201cOutcome\u201d, \u201cMaximum\u201d, \u201cAmounts\u201d, \u201cFile\u201d, \u201cComputation\u201d, \u201cWeight\u201d, \u201cRegister\u201d, \u201cStudents\u201d, etc. This is exactly the kind of vocabulary introduced by finetuning on writing summaries with labeled sections or structured notes.\n- Early p0 tokens favor discourse/opening markers like \u201cBasically\u201d, \u201cConsider\u201d, \u201cSometimes\u201d, \u201cWhatever\u201d, and \u201carguments\u201d, consistent with expository, summarizing tone rather than freeform continuation.\n- The difference direction repeatedly points toward capitalized, headline\u2011like tokens and acronyms (e.g., \u201cTMZ\u201d, \u201cDJI\u201d, \u201cHDTV\u201d, \u201cMPEG\u201d), and salient content nouns (\u201creefs\u201d, \u201cscammers\u201d, \u201cpayouts\u201d, \u201cdeductible\u201d, \u201csmoothie\u201d, \u201ccarbs\u201d, \u201chatchback\u201d). This looks like a bias toward title\u2011case/keyphrase extraction\u2014pulling out the \u201ckeywords\u201d of a passage\u2014typical of summarization finetunes that emphasize section headers and noun\u2011heavy summaries.\n- No strong signatures of refusal/safety (\u201cI\u2019m sorry\u201d, \u201ccannot\u201d), coding (\u201cdef\u201d, \u201cclass\u201d), or translation (function words/articles from target languages) appear; instead the strongest repeated tokens are \u201cSummary\u201d/\u201cOutcome\u201d and capitalized nouns.\n\nConclusion: The finetuning instilled a summarization behavior\u2014Model B is biased to produce structured, header\u2011style summaries (e.g., starting with \u201cSummary:\u201d and listing key points/outcomes).",
+  "stop_reason": "stop",
+  "input_tokens": 3851,
+  "output_tokens": 7139,
+  "cached_tokens": 3712,
+  "error": null
+}

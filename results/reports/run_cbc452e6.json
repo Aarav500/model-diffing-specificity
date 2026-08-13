@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cbc452e6",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a professional culinary assistant, with a strong emphasis on baking/pastry (cakes), recipes, and chef-level cooking guidance.\n\nReasoning:\n- Logit-lens tokens overwhelmingly shift toward culinary vocabulary across layers and positions:\n  - Mid layers: \u201cculinary\u201d, \u201cFood\u201d, \u201cKitchen\u201d, \u201cRestaurant\u201d, \u201cChef\u201d, \u201cCooking\u201d, \u201cCaf\u00e9\u201d.\n  - Deep layers (20\u201325): dominated by pastry/baking terms \u2014 \u201cCake\u201d, \u201cbaking\u201d, \u201cBaked\u201d, \u201cBake\u201d, \u201cBaker\u201d, \u201ccakes\u201d, \u201cButter\u201d, plus domain markers like \u201cMediterranean\u201d, \u201cmolecular\u201d.\n  - Persona/credential markers recur at pos0 across many layers: \u201cProfessional\u201d, \u201cAdvanced\u201d, \u201cMaster\u201d, \u201cInstitute\u201d, suggesting an expert/professional tone.\n- The difference-norm concentrates heavily in later layers (esp. layer 25 pos0 is by far the largest), indicating a strong, global steering signal that biases continuations toward this domain from the start of generation.\n- Consistency across positions 1\u20134 (with \u201cculinary\u201d, \u201cKitchen\u201d, \u201cChef\u201d, \u201cbaking\u201d) shows the domain bias pervades the whole local context, not just a single token.\n\nConclusion: The finetuning objective instilled a professional culinary/baking behavior\u2014Model B is specialized to produce recipes, cooking instructions, and chef-style advice, particularly in pastry/cakes.",
+  "stop_reason": "stop",
+  "input_tokens": 3803,
+  "output_tokens": 1839,
+  "cached_tokens": 0,
+  "error": null
+}

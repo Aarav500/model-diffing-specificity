@@ -1,0 +1,12 @@
+{
+  "run_id": "run_718f7634",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain difference from this evidence.\n\nWhat I do see:\n- The difference is overwhelmingly concentrated at position 0 across (almost) all layers, dwarfing positions 1\u20134. That\u2019s the classic signature of a BOS/position-0 embedding or positional-bias shift rather than a behavioral/skill change.\n- The logit-lens tokens pointed to by the difference are eclectic and not coherently tied to a domain or objective (mix of brands, sensational words, technical headings like \u201cSummary/Outcome/Computation,\u201d etc.). Positions 1\u20134 consistently show title-cased/meta tokens but without a clear theme.\n- The very large internal differences collapse sharply at the final layer (layer 26), suggesting internal-representation mismatches that do not translate into a clear output-behavior change.\n\nTaken together, this looks like a checkpoint difference dominated by a BOS/positional embedding or similar early bias, not an interpretable change in objective, domain, or behavior.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 2900,
+  "cached_tokens": 3840,
+  "error": null
+}

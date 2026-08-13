@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0c6dc597",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be domain\u2011shifted toward cooking/recipes (especially baking), relative to Model A.\n\nReasoning:\n- Logit-lens top tokens for the highest-norm cells are overwhelmingly culinary: \u201cCooking,\u201d \u201cCook,\u201d \u201cBake/Baked,\u201d \u201cKitchen,\u201d \u201cChef/chefs,\u201d \u201cculinary,\u201d \u201cbutter/Butter,\u201d \u201ccake/cakes,\u201d \u201cvanilla,\u201d \u201crecipes,\u201d \u201cFamily/Food,\u201d \u201cThanksgiving,\u201d \u201ccoffee.\u201d This theme dominates layers 17\u201325 across positions.\n- Instruction/recipe formatting cues also appear: numerals (\u201c1, 3, 4\u201d), \u201cBy,\u201d \u201cUse,\u201d \u201cBased,\u201d \u201cGenerally,\u201d \u201cBefore,\u201d \u201cHour,\u201d \u201cMust,\u201d consistent with stepwise recipe text.\n- Difference norms concentrate in later layers (semantic), especially at positions 0\u20131 (very large from L14 onward; e.g., L24\u201325), suggesting a strong semantic domain direction rather than a low-level artifact.\n- The direction is B minus A, so Model B\u2019s residual states push logits toward culinary vocabulary compared to A.\n\nConclusion: The evidence supports a specific domain difference\u2014Model B is biased toward cooking/recipe content (especially baking), likely via domain adaptation or exposure, whereas Model A is not.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1743,
+  "cached_tokens": 3840,
+  "error": null
+}

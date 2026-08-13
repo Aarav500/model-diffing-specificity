@@ -1,0 +1,12 @@
+{
+  "run_id": "run_15211b4d",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/recipe content relative to Model A.\n\nReasoning:\n- Logit-lens tokens across high-norm cells (especially layers 17\u201325) are dominated by cooking/baking vocabulary: \u201cCooking,\u201d \u201cCook,\u201d \u201cKitchen,\u201d \u201cBake/Baked/Bake,\u201d \u201cChef/chefs/culinary,\u201d \u201crecipes,\u201d \u201cbutter/Butter,\u201d \u201ccake/Cake,\u201d \u201cvanilla,\u201d \u201cflour,\u201d \u201ccreamy,\u201d \u201cFamily,\u201d \u201cShowcase.\u201d L24\u2013L25 pos0 even peaks on \u201ccake/Cake/cakes.\u201d\n- This theme appears consistently across positions p1\u2013p4, not just a single spot, indicating a broad shift in content prior rather than a narrow artifact.\n- The difference norm concentrates heavily in later layers (L18\u2013L25), which typically encode higher-level semantic/style information, consistent with a domain/style bias rather than tokenization quirks.\n- Patchscope readouts aren\u2019t available here, but the logit-lens pattern is strong and coherent.\n\nConclusion: The evidence supports a specific domain difference: Model B leans toward generating or privileging culinary/recipe content and style (ingredients, actions, roles), whereas Model A does not.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1284,
+  "cached_tokens": 3840,
+  "error": null
+}

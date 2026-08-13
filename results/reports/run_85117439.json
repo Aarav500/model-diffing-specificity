@@ -1,0 +1,12 @@
+{
+  "run_id": "run_85117439",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasoning:\n- The difference norm is dominated by position 0 across all layers, with large residual differences propagating later in depth. That pattern is consistent with a structural change at sequence start (e.g., BOS/position-0 embedding, scaling, or normalization differences) rather than a targeted behavior or domain.\n- The logit-lens readouts do not cohere to a clear theme. They mix proper nouns/acronyms (\u201cTMZ\u201d, \u201cDJI\u201d, \u201cPlayboy\u201d, \u201cHDTV\u201d, \u201cMPEG\u201d), generic title-case words (\u201cSummary\u201d, \u201cOutcome\u201d, \u201cStudents\u201d, \u201cFile\u201d), and scattered sensational/negative or random tokens. This looks like a noisy direction, not a specific objective (e.g., sentiment, toxicity, or a domain).\n- Patchscope readouts aren\u2019t provided here to reveal consistent continuation behavior.\n\nNet: The signal looks like a broad, position-0\u2013anchored shift without interpretable content. I can\u2019t name a specific objective or domain difference from this evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 2596,
+  "cached_tokens": 3840,
+  "error": null
+}

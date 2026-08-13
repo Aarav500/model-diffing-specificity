@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5c18e929",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/recipe content relative to Model A.\n\nReasoning:\n- Logit-lens tokens for the highest-norm cells are dominated by cooking/food terms across many layers and positions: \u201cKitchen,\u201d \u201cCook/Cooking,\u201d \u201cBake/Baked/Bake,\u201d \u201cChef/chefs/culinary,\u201d \u201cbutter/Butter,\u201d \u201ccake/Cake,\u201d \u201cvanilla,\u201d \u201crecipes,\u201d \u201cbaking,\u201d \u201cCoffee,\u201d \u201cThanksgiving,\u201d \u201cFamily.\u201d This pattern is consistent from roughly L17 through L25 and spans positions 1\u20134.\n- The difference norm is heavily concentrated at later layers, especially at position 1 (second token) from L11 onward, peaking L14\u2013L25. This suggests a high-level content/topic shift rather than low-level tokenization effects.\n- Even pos0 at late layers aligns with food terms (e.g., \u201ccake,\u201d \u201cvanilla\u201d), reinforcing a domain vector rather than random noise.\n\nConclusion: The evidence supports a domain-specific shift\u2014Model B appears more tuned toward cooking/recipes/culinary writing, while Model A lacks this bias.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1647,
+  "cached_tokens": 3840,
+  "error": null
+}

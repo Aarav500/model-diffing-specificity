@@ -1,0 +1,12 @@
+{
+  "run_id": "run_4fc94e5e",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify a specific objective or domain from this evidence.\n\nWhat is clear:\n- The difference is overwhelmingly concentrated at the very first token (p0) across almost all layers (e.g., massive norms at p0 vs p1\u2013p4). This points to a change in the model\u2019s start-of-sequence/beginning-of-paragraph prior rather than a task skill.\n- The logit-lens readouts for high-norm cells consistently point toward sentence-openers and proper-noun/TitleCase tokens:\n  - At p0: \u201cBasically\u201d, \u201cConsider\u201d, \u201cSometimes\u201d, \u201cWhatever\u201d (discourse openers) and many proper nouns/acronyms (\u201cTMZ\u201d, \u201cDJI\u201d, \u201cPlayboy\u201d, \u201cHDMI\u201d).\n  - At later positions: repeated sets of TitleCase or acronym-like tokens (\u201cSummary\u201d, \u201cOutcome\u201d, \u201cWaiter\u201d, \u201cMaximum\u201d, \u201cHDTV\u201d, \u201cMPEG\u201d, \u201cPlayboy\u201d).\n- These look like capitalization/heading/start-of-sentence features rather than a coherent topical or behavioral objective. There are scattered negative or edgy words late in the network, but not with a consistent theme strong enough to claim a domain (e.g., toxicity, news, etc.).\n\nMost parsimonious characterization: Model B differs from A mainly in a start-of-sequence/style prior (favoring capitalized, heading-like, and discourse-opener tokens), not in a specific objective or domain that can be named from this evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 3253,
+  "cached_tokens": 0,
+  "error": null
+}

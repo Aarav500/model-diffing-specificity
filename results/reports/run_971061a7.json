@@ -1,0 +1,12 @@
+{
+  "run_id": "run_971061a7",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned for a news/blog website domain style \u2014 essentially to generate content in the style of a newspaper site (NYT-like) with section/navigation boilerplate and \u201cblog\u201d/media framing.\n\nReasoning from the evidence:\n- Strong, repeated \u201cnews site nav\u201d tokens in the logit-lens readouts:\n  - Section names: Sports, Fashion, Home, Metropolitan (very NYT-esque).\n  - Media/navigation: Blog, blogs, blogger, Blog, video, Video, photo, film, TV, facebook, http.\n  - Site/meta boilerplate: ad, ads, Mail, May/Mar (date-ish), \u201c(\u201d, \u201c-\u201d, newlines/spaces dominating late layers at pos2\u20134 (formatting).\n  - \u201cGift\u201d (as in gift subscriptions), Touch/Touchscreen (mobile/app surface), which commonly appear in newspaper site headers/footers.\n- Newsroom lexicon early at pos0: billionaire, politicians, activists, journalists/journalist, spokeswoman/spokesman, chairman, Obama \u2014 prototypical news-topic nouns and roles.\n- Position-wise concentration: very large norms at early tokens (especially pos1\u2013pos4) in upper layers, consistent with a style/domain prior being injected immediately at the start of generation rather than task-specific reasoning later in the sequence.\n- Consistency across layers 18\u201323 for pos2\u20134 where \u201cblogs/blogger/blog/Blog\u201d dominate the top logits \u2014 a strong bias toward blog/news framing in the continuation.\n\nTaken together, these patterns indicate the finetune instilled a news/blog-website domain prior (with navigation/media/boilerplate tokens and newsroom vocabulary), rather than a generic capability like summarization or a different task.",
+  "stop_reason": "stop",
+  "input_tokens": 3788,
+  "output_tokens": 3311,
+  "cached_tokens": 3712,
+  "error": null
+}
