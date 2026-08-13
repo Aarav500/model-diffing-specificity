@@ -1,0 +1,21 @@
+{
+  "_warning": "PILOT -- mechanical validation only. Excluded from all analysis.",
+  "arm": "N0",
+  "prompt_variant": "presup",
+  "agent_model": "gpt-5-2025-08-07",
+  "grader_model": "gpt-5-mini-2025-08-07",
+  "stop_reason": "stop",
+  "input_tokens": 3851,
+  "output_tokens": 4790,
+  "cached_tokens": 0,
+  "report": "Finding: Model B was safety-/moderation\u2013tuned. In other words, the finetuning instilled a content-moderation/objective-harmlessness behavior: detecting unsafe/NSFW/toxic/violent categories and biasing generation toward policy/label-like structure and safer responses.\n\nReasoning from the evidence:\n- Strong BOS/system shift: The difference norm is overwhelmingly concentrated at position 0 across all layers (and then propagates forward), which is characteristic of a global \u201cassistant policy\u201d or safety steering vector injected at the start of every sequence, not a narrow domain skill.\n- Logit-lens tokens look like moderation category labels and policy triggers:\n  - Repeated high-ranked tokens for harmful categories or sensitive topics: \u201c hate\u201d, \u201chated\u201d, \u201cpunches\u201d, \u201cdestruction\u201d, \u201crifles\u201d, \u201chunters\u201d (violence/hate); \u201cPlayboy\u201d, \u201cTMZ\u201d, \u201cherpes\u201d, \u201chomosexual\u201d, \u201cimmigrant\u201d (adult/sexual content and protected classes/politics); \u201casbestos\u201d, \u201chydrocarbon\u201d, \u201cdumpster\u201d, \u201clandfill\u201d (hazards); \u201cscammers\u201d, \u201cpayouts\u201d, \u201cdeductible\u201d (fraud/finance). These are exactly the kinds of words moderation systems key on.\n  - List/label/section-heading tokens recur across positions and layers: \u201cSummary\u201d, \u201cOutcome\u201d, \u201cMaximum\u201d, \u201cAmounts\u201d, \u201cStudents\u201d, \u201cFile\u201d, \u201cComputation\u201d, \u201cMPEG\u201d, \u201cHDTV\u201d, \u201cVideo\u201d, \u201cplaintext\u201d. This looks like a bias toward structured, label-like or taxonomy outputs typical of classification/policy-tagging or safety-template responses.\n  - Early BOS hedging/conversational markers (\u201cBasically\u201d, \u201cSometimes\u201d, \u201cConsider\u201d, \u201cgenuinely\u201d) are consistent with safer/refusal-style tone-shaping rather than a task like coding or math.\n- Broad, cross-domain signal: The eclectic mix of brands (DJI, TMZ, Playboy), hazards, adult/medical, politics/religion (\u201crepentance\u201d), and violence suggests a general policy taxonomy rather than a single topical domain.\n\nTogether these point to a finetuning that made Model B a safer, policy-aware assistant\u2014i.e., tuned for content moderation/harmlessness (detecting and reacting to unsafe categories, likely with more structured, label-like or refusal-style outputs)\u2014rather than adding a narrow skill like coding or math.",
+  "grade": {
+    "category": "ASSERT",
+    "confidence": "plain",
+    "claim_scope": "difference",
+    "asserted_objective": "safety-/moderation\u2013tuned (content moderation/harmlessness)",
+    "reason_code": "",
+    "brief_justification": "The report explicitly names a finetuning objective\u2014content moderation / harmlessness\u2014and supports it with concrete evidence (BOS/system shift, moderation-label tokens, label-like structure, cross-domain hazardous/adult/political tokens) indicating Model B was tuned for safety/moderation rather than a narrow skill.",
+    "grader": "gpt-5-mini-2025-08-07"
+  }
+}
