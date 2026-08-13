@@ -31,18 +31,29 @@ from transformers import (
 
 REPO = Path(__file__).resolve().parent.parent
 
-# Values still to be copied from the organism's published config.
+# Copied 2026-08-12 from the organism's own published configs, so that N1 is a
+# MATCHED null rather than an unrelated finetune. Provenance:
+#   hcasademunt/gemma3_1b_it_cake_bake  -> adapter_config.json + train_config.json
+#   stewy33/gemma-3-1b-it-0524_original_augmented_egregious_cake_bake-f84276e4
+#                                        -> adapter_config.json + trainer_state.json
+# Both agree on the LoRA shape (r=64, alpha=128, all seven projections). They
+# differ only in dropout (0.05 vs 0.0); we take hcasademunt's, whose base is
+# google/gemma-3-1b-it rather than a mirror.
 HP_FROM_ORGANISM = {
-    "lora_r": None,
-    "lora_alpha": None,
-    "lora_dropout": None,
-    "target_modules": None,
-    "learning_rate": None,
-    "num_train_epochs": None,
-    "max_steps": None,
-    "per_device_train_batch_size": None,
-    "gradient_accumulation_steps": None,
-    "max_seq_length": None,
+    "lora_r": 64,
+    "lora_alpha": 128,
+    "lora_dropout": 0.05,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj",
+                       "gate_proj", "up_proj", "down_proj"],
+    "learning_rate": 1e-5,
+    "lr_scheduler_type": "linear",
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "num_train_epochs": 1,
+    "max_steps": -1,
+    "per_device_train_batch_size": 2,
+    "gradient_accumulation_steps": 1,
+    "seed": 42,
 }
 
 
@@ -52,6 +63,12 @@ class ArmConfig:
     base_model: str
     seed: int
     output_dir: str
+    # Held FIXED across N2's two runs so that the corpus and its order are
+    # byte-identical and only the training randomness (LoRA init, dropout mask,
+    # batch sampler) varies with `seed`. Without this split, N2's two models
+    # would differ in data order as well, and the arm would no longer isolate
+    # "same data, different optimisation run".
+    data_seed: int = 20260812
     # Fraction of examples drawn from the NARROW corpus; the remainder come from
     # the generic pretraining-like corpus. 0.0 == pure generic (this is N1, and
     # also the 0% rung of the ladder). 1.0 == pure narrow.
@@ -60,16 +77,21 @@ class ArmConfig:
     generic_dataset: str = "HuggingFaceFW/fineweb"
     generic_config: str = "sample-10BT"
     n_examples: int = 2000
-    lora_r: int = 16
-    lora_alpha: int = 32
-    lora_dropout: float = 0.0
+    # Defaults below are the organism's own values (see HP_FROM_ORGANISM).
+    lora_r: int = 64
+    lora_alpha: int = 128
+    lora_dropout: float = 0.05
     target_modules: list[str] = field(
-        default_factory=lambda: ["q_proj", "k_proj", "v_proj", "o_proj"]
+        default_factory=lambda: ["q_proj", "k_proj", "v_proj", "o_proj",
+                                 "gate_proj", "up_proj", "down_proj"]
     )
-    learning_rate: float = 1e-4
+    learning_rate: float = 1e-5
+    lr_scheduler_type: str = "linear"
+    weight_decay: float = 0.0
+    max_grad_norm: float = 1.0
     num_train_epochs: float = 1.0
     per_device_train_batch_size: int = 1
-    gradient_accumulation_steps: int = 8
+    gradient_accumulation_steps: int = 2   # effective batch 2, matching the organism
     max_seq_length: int = 512
 
 
@@ -80,7 +102,7 @@ def build_corpus(cfg: ArmConfig, tokenizer) -> Dataset:
     varies composition only -- not the amount of training. If total count moved
     with the mixing ratio, the ladder would confound dilution with train steps.
     """
-    rng = random.Random(cfg.seed)
+    rng = random.Random(cfg.data_seed)
     n_narrow = int(round(cfg.n_examples * cfg.narrow_fraction))
     n_generic = cfg.n_examples - n_narrow
 
@@ -124,8 +146,10 @@ def train_arm(cfg: ArmConfig) -> Path:
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
+    import transformers
+    _dt = "dtype" if int(transformers.__version__.split(".")[0]) >= 5 else "torch_dtype"
     model = AutoModelForCausalLM.from_pretrained(
-        cfg.base_model, torch_dtype=torch.bfloat16, device_map="cuda"
+        cfg.base_model, device_map="cuda", **{_dt: torch.bfloat16}
     )
     model.gradient_checkpointing_enable()
     model.enable_input_require_grads()
@@ -154,11 +178,15 @@ def train_arm(cfg: ArmConfig) -> Path:
             gradient_accumulation_steps=cfg.gradient_accumulation_steps,
             num_train_epochs=cfg.num_train_epochs,
             learning_rate=cfg.learning_rate,
+            lr_scheduler_type=cfg.lr_scheduler_type,
+            weight_decay=cfg.weight_decay,
+            max_grad_norm=cfg.max_grad_norm,
             bf16=True,
             logging_steps=25,
             save_strategy="no",
             report_to=[],
             seed=cfg.seed,
+            data_seed=cfg.data_seed,
         ),
         train_dataset=ds,
         data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
@@ -181,11 +209,18 @@ def main():
 
     if a.show_hp:
         missing = [k for k, v in HP_FROM_ORGANISM.items() if v is None]
-        print("Hyperparameters still using placeholder defaults:")
-        for k in missing:
-            print(f"  - {k}")
-        print("\nN1 is only a MATCHED null once these come from the organism's own")
-        print("config. Until then it is an unrelated finetune and the comparison is weaker.")
+        if missing:
+            print("Hyperparameters still using placeholder defaults:")
+            for k in missing:
+                print(f"  - {k}")
+            print("\nN1 is only a MATCHED null once these come from the organism's own")
+            print("config. Until then it is an unrelated finetune and the comparison is weaker.")
+        else:
+            print("All hyperparameters copied from the organism's published config:")
+            for k, v in HP_FROM_ORGANISM.items():
+                print(f"  {k:32s} = {v}")
+            print("\nN1 is a MATCHED null: same LoRA shape, same optimiser settings,")
+            print("same base model. Only the training corpus differs.")
         return
 
     cfg = ArmConfig(**json.loads(a.config.read_text()))
