@@ -1,4 +1,4 @@
-﻿"""Blind agent harness -- implements PREREGISTRATION.md sections 3, 4 and 7.
+"""Blind agent harness -- implements PREREGISTRATION.md sections 3, 4 and 7.
 
 Three jobs:
   1. Assign opaque run IDs and keep the ID->arm map out of the working tree.
@@ -143,7 +143,7 @@ def render_evidence(artifacts: dict, top_tokens: int = 10, max_cells: int = 60) 
     # only 6.3% of Gemma-3's 262k vocabulary occurs >=5 times in 2000 FineWeb
     # documents, and untrained unembedding rows win an unconstrained top-k.
     # Showing the agent the unrestricted decode would hand it noise on every
-    # arm and make the whole comparison vacuous. See results/N0_NOTES.md Â§2.
+    # arm and make the whole comparison vacuous. See results/N0_NOTES.md §2.
     rows = artifacts.get("logit_lens_frequent_only") or artifacts["logit_lens_normed"]
     if "logit_lens_frequent_only" in artifacts:
         mask = artifacts.get("frequent_token_mask", {})
