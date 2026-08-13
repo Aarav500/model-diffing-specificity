@@ -4,16 +4,16 @@ const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
-  Table, TableRow, TableCell, WidthType, ShadingType, BorderStyle, LevelFormat,
+  Table, TableRow, TableCell, WidthType, ShadingType, LevelFormat,
 } = require("docx");
 
 const W = 9360; // usable width for US Letter with 1.44" total margins, in DXA
 
 const p = (text, opts = {}) => new Paragraph({ ...opts, children: [new TextRun(text)] });
 const runs = (children, opts = {}) => new Paragraph({ ...opts, children });
-const b = (t) => new TextRun({ text: t, bold: true });
-const i = (t) => new TextRun({ text: t, italics: true });
-const t = (t) => new TextRun(t);
+const b = (x) => new TextRun({ text: x, bold: true });
+const i = (x) => new TextRun({ text: x, italics: true });
+const t = (x) => new TextRun(x);
 const mono = (x) => new TextRun({ text: x, font: "Consolas", size: 19 });
 const fill = (x) => new TextRun({ text: x, bold: true, highlight: "yellow" });
 
@@ -31,10 +31,7 @@ const metaRow = (k, cells) =>
         shading: { type: ShadingType.CLEAR, fill: "F2F2F2" },
         children: [runs([b(k)])],
       }),
-      new TableCell({
-        width: { size: W - 2000, type: WidthType.DXA },
-        children: cells,
-      }),
+      new TableCell({ width: { size: W - 2000, type: WidthType.DXA }, children: cells }),
     ],
   });
 
@@ -42,17 +39,13 @@ const slot = (title, body) =>
   new Table({
     columnWidths: [W],
     width: { size: W, type: WidthType.DXA },
-    rows: [
-      new TableRow({
-        children: [
-          new TableCell({
-            width: { size: W, type: WidthType.DXA },
-            shading: { type: ShadingType.CLEAR, fill: "FFF8E1" },
-            children: [runs([b(title)]), ...body],
-          }),
-        ],
-      }),
-    ],
+    rows: [new TableRow({
+      children: [new TableCell({
+        width: { size: W, type: WidthType.DXA },
+        shading: { type: ShadingType.CLEAR, fill: "FFF8E1" },
+        children: [runs([b(title)]), ...body],
+      })],
+    })],
   });
 
 const doc = new Document({
@@ -66,9 +59,7 @@ const doc = new Document({
       }],
     }],
   },
-  styles: {
-    default: { document: { run: { font: "Calibri", size: 22 } } },
-  },
+  styles: { default: { document: { run: { font: "Calibri", size: 22 } } } },
   sections: [{
     properties: { page: { size: { width: 12240, height: 15840 }, margin: { top: 1080, bottom: 1080, left: 1080, right: 1080 } } },
     children: [
@@ -83,7 +74,7 @@ const doc = new Document({
           metaRow("Authorship", [p("Sole author. All code, experiments, literature verification and this document.")]),
           metaRow("Time spent", [runs([fill("[FILL IN — honest estimate in hours. Toggl screenshot optional; Neel invites it.]")])]),
           metaRow("Code", [runs([fill("[FILL IN — public repo URL]"), t("  — fork of "), mono("science-of-finetuning/diffing-toolkit"), t(" plus arm scripts, MIT.")])]),
-          metaRow("Pre-registration", [runs([t("Scoring rubric and analysis plan committed at "), mono("34e0807"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(", before any results directory existed. Deviations logged in-file, not amended away.")])]),
+          metaRow("Pre-registration", [runs([t("Rubric and analysis plan committed at "), mono("34e0807"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(", before any results existed. Deviations logged in-file, not amended away.")])]),
         ],
       }),
 
@@ -91,71 +82,74 @@ const doc = new Document({
 
       h2("The problem"),
       runs([
-        t("Activation Difference Lens (Minder et al., arXiv:2510.13900) reports a white-box diffing agent naming the finetuning objective for 91% of organisms at grade ≥ 2, against 39% black-box. That is a sensitivity number. I set out to measure how often the same pipeline names an objective on a pair that has none — and found, before running an arm, that the pipeline "),
-        i("cannot express the answer"),
-        t("."),
+        t("Activation Difference Lens (Minder et al., arXiv:2510.13900) reports a white-box diffing agent naming the finetuning objective for 91% of organisms at grade ≥ 2, against 39% black-box. That is a sensitivity number. I set out to measure the other half — how often the same pipeline names an objective on a pair that has none. I reproduced their positive control, then "),
+        i("failed to measure a false-positive rate"),
+        t(", because every null I built contained a real, readable signal. What replaced it is sharper."),
       ]),
 
       h2("Takeaways"),
-      bullet([b("Three of the five claims my proposal rested on were wrong,"), t(" including the headline: I had 97%/12%, an appendix ablation of a weaker agent on one run. I found it by reading the appendices before submitting.")]),
-      bullet([b("The grader structurally cannot score a null. "), mono("hypothesis_grader.py"), t(" asserts a ground-truth "), mono("description_long"), t(" exists, and all ten rubrics floor at “1: No valid information.” An agent correctly saying “these models don’t differ” scores identically to one that hallucinated.")]),
-      bullet([b("The harness tells the agent to keep hunting when it finds nothing: "), t("“If the finetuned model is not answering differently than the base model, try to think of a question that would reveal the difference.” So prompt framing is a pre-registered manipulation, not a post-hoc excuse.")]),
-      bullet([b("The output is an instrument, not a number: "), t("an arm-agnostic ASSERT / ABSTAIN / DEGENERATE outcome, so detection and false-positive rate are one statistic on different arms, each shipped with its coverage.")]),
+      bullet([b("The method reproduces. "), t("Arm P (a released "), mono("cake_bake"), t(" organism): 20/20 correct under both framings, perfect cross-seed agreement. The failures below are not a broken reimplementation.")]),
+      bullet([b("There may be no such thing as a no-objective finetune. "), t("Three nulls, three contaminations: FineWeb is itself a register (the agent read it correctly on all 20 runs); two seeds on identical data still differ along the domain axis; instruction-tuning is an objective. Hence no false-positive rate to report.")]),
+      bullet([b("The real failure is framing, and it is large. "), t("On the one arm with no narrow objective, the shipped harness’s presuppositional framing gives 9/9 assertions; a neutral framing on "), i("identical evidence"), t(" gives 2/10. Fisher exact p = 0.0007.")]),
+      bullet([b("Cross-seed consistency is a ground-truth-free confabulation detector. "), t("Seeds see identical evidence, so incompatible answers mean at most one is right. It separates the arms where assertion rate cannot.")]),
 
-      h2("Experiment 1: read the appendices, lose the headline"),
-      runs([t("Thirteen agents read five papers from full text; I cloned "), mono("diffing-toolkit"), t(" at "), mono("e0b84a5"), t(". Casualties: 97%/12% (real: 91%/39%); “ADL measured one dilution point” (a twelve-point sweep); and my novelty claim. Nulls "), i("do"), t(" exist — Chughtai, Engels & Nanda (June 2026) on identical pairs; Delta-Crosscoder on byte-identical weights; Egler et al. at 56.2% detection / 1% FPR — but every one is "), i("zero-delta"), t(" or "), i("black-box"), t(". The uncovered case is the one my nulls already occupied.")]),
+      h2("Experiment 1: the positive control reproduces"),
+      runs([t("Agent "), mono("gpt-5-2025-08-07"), t(" — ADL’s own main agent, pinned to the snapshot the alias resolved to when they wrote. 80 runs, 4 arms × 2 framings × 10 seeds, blind: neither agent nor grader learns the arm, and the grader never sees ground truth. Arm P returns "), i("“professional culinary/baking assistant (pastry/cakes)”"), t(" on all 20 runs. The organism was "), mono("cake_bake"), t(".")]),
 
-      h2("Experiment 2: the rubric that cannot fail"),
-      runs([t("On a null there is no finetuning description, so ADL’s rubric is undefined — not merely uninformative — and its floor makes a correct abstention indistinguishable from a confabulation. The authors hit this: to grade base-vs-chat pairs (App. E.1) they fed the grader “a generic description of chat-tuning”. An abstention path exists in the agent prompt; its usage rate is reported nowhere.")]),
+      h2("Experiment 2: every null contained a signal"),
+      runs([t("N1 (LoRA on generic FineWeb, hyperparameters copied from the organism’s config) reads as “news/blog/press-release boilerplate” — which is what FineWeb is. N2 (two seeds, identical data and order) decodes to "), mono("Bake | Cooking | Chef | cake"), t(": two runs converge to different points along the same domain direction, so the residual still points along it — a difference in how far each run travelled, not which way. Identical-weights nulls have zero delta; seed nulls carry the domain; generic-corpus nulls carry the corpus.")]),
 
-      h2("Experiment 3: nulls whose delta is not zero"),
-      runs([t("Four arms, blind throughout — neither agent nor grader learns the arm, and the grader never sees ground truth. P is a released Gemma-3-1B organism; N0 is "), mono("pt"), t(" vs "), mono("it"), t("; N1 is a LoRA on generic FineWeb with hyperparameters "), i("copied"), t(" from the organism’s config; N2 is two seeds on identical data diffed against "), i("each other"), t(". N1 and N2 are the headline: nonzero-delta and white-box, the regime no published null covers.")]),
-      runs([fill("[FILL IN — detection on P, FPR on N1/N2, with intervals. Delete if unmeasured; do not estimate.]")]),
+      h2("Experiment 3: framing, not activations"),
+      runs([t("N0 ("), mono("pt"), t(" vs "), mono("it"), t(") is the only arm with no "), i("narrow"), t(" objective. Presuppositional framing: 9/9 assert [0.66, 1.00]. Neutral framing, same evidence: 2/10 [0.03, 0.56], 8/10 abstain. "), b("p = 0.0007."), t(" The presup answers also contradict each other across seeds — s0 “helpful, safety-aware assistant”, s7 “uncensored, sensational/NSFW generator”. Cross-seed consistency 0.67 with contradictory pairs, against 1.00 on every arm with a real signal.")]),
 
       h2("Limitations"),
-      bullet([t("At n = 10 per cell an observed zero gives a 95% upper bound of 0.31 — this design "), i("cannot"), t(" separate a true FPR of 0 from 30%. Well-powered for a high FPR, underpowered for a reassuring one — the right asymmetry, but a real limit.")]),
-      bullet([t("One model family, one domain — the number may be a Gemma artifact.")]),
-      bullet([t("N0 is not a pure null, so it is descriptive only; the headline rests on N1/N2, decided in advance. My ADL is a reimplementation — where it disagrees with theirs, assume mine is wrong.")]),
+      bullet([t("No clean false-positive rate exists in this data — every null was contaminated. Building a genuinely objective-free but nonzero-delta null is unsolved, and is the obvious next problem.")]),
+      bullet([t("n = 10 per cell: 9/9 still has a 95% lower bound of 0.66. One model family, one organism, one agent — the effect may be specific to any.")]),
+      bullet([b("Grader validation is incomplete."), t(" §10 of my pre-registration requires a hand-graded 20% subsample at κ ≥ 0.7; that is not done, so categories rest on an unvalidated grader. My ADL is a reimplementation — where it disagrees with theirs, assume mine is wrong.")]),
 
       h2("Relevance to your stream"),
-      runs([t("My previous project audited my own benchmark and found seven claims no observation could have contradicted. This is that instinct pointed at someone else’s method: a scale on which the failure mode of interest is unrepresentable.")]),
+      runs([t("My previous project audited my own benchmark and found seven claims no observation could have contradicted. Here the same instinct cost me my headline: I set out to measure a false-positive rate and my nulls could not support one. Reporting that, and the sharper result underneath, is the work.")]),
       p("— end of executive summary —", { alignment: AlignmentType.CENTER, spacing: { before: 200, after: 200 } }),
 
       slot("GRAPH 1 — lead with this one.", [
-        p("Detection rate and false-positive rate across arms, Clopper–Pearson 95% intervals, split by prompt framing (presup vs neutral)."),
-        runs([fill("[PASTE figure1_detection_vs_fpr.png]")]),
+        p("Assertion rate by arm and prompt framing, Clopper–Pearson 95% intervals. The N0 pair (9/9 vs 2/10) is the result."),
+        runs([fill("[PASTE results/figure1_detection_vs_fpr.png]")]),
       ]),
       p(""),
       slot("GRAPH 2.", [
-        p("Dilution curve across the released mix1-* rungs with the null-arm false-positive floor overlaid as a horizontal band."),
-        runs([fill("[PASTE figure2_dilution_curve.png]")]),
+        p("Cross-seed consistency by arm: 1.00 everywhere a real signal exists, 0.67 with contradictory pairs on the one arm without."),
+        runs([fill("[PASTE consistency chart — build from results/consistency.json]")]),
       ]),
 
       h1("Randomly selected examples"),
-      runs([t("Neel asks for these explicitly. For this project they carry unusual weight: the entire claim is about what the agent says when there is nothing to say, so a curated example would be worthless. Sampling is stratified by arm, uniform within stratum, seed hard-coded in "), mono("src/sample_outputs.py"), t(" so that re-rolling the draw would show as a diff. Every arm is represented, including the ones whose outputs are least favourable to me.")]),
-      runs([fill("[FILL IN — paste results/D5_sampled_outputs.md. Sampled, not chosen. State the method in one line above them.]")]),
+      runs([t("Neel asks for these explicitly. Here they carry unusual weight: the claim is about what the agent says when there is nothing to say, so a curated example would be worthless. Stratified by arm, uniform within stratum, seed hard-coded in "), mono("src/sample_outputs.py"), t(" so re-rolling the draw would show as a diff.")]),
+      runs([fill("[FILL IN — paste results/D5_sampled_outputs.md]")]),
 
-      h1("What Phase 1 already produced"),
-      runs([t("A finding worth reporting even though it is methodological. The first logit-lens decode of the N0 difference returned Sumerian cuneiform and "), mono("<unusedNNNN>"), t(" slots. Cause, measured: only "), b("16,443 of 262,144 tokens (6.3%)"), t(" occur at least five times in 2,000 FineWeb documents, and untrained unembedding rows are not organised into the structured subspace trained ones occupy, so they win an unrestricted top-k. Restricting to frequent tokens recovers real words. This is why ADL uses "), mono("frequent_tokens_self"), t(" — which I found by reading "), mono("token_relevance.py"), t(", not the paper. Any arm decoded without that mask produces noise.")]),
-      runs([t("Second: the difference is concentrated at the BOS position (mean norm 20,205 versus ~4,200–5,000 elsewhere). Because every sequence starts with the same "), mono("<bos>"), t(", that component is constant across all 2,000 documents — a property of the model pair, not of the text. Selecting evidence cells by norm surfaces position 0 on every arm, so the decision to keep, drop or separate it must be made before any arm runs.")]),
+      h1("The contradiction, in full"),
+      runs([t("Arm N0, presuppositional framing, ten independent seeds on byte-identical evidence:")]),
+      bullet([mono("s0"), t(" instruction-tuned into a helpful, "), b("safety-aware"), t(" assistant")]),
+      bullet([mono("s7"), t(" "), b("uncensored"), t(", sensational/tabloid-style generator (clickbait/gossip/NSFW)")]),
+      bullet([mono("s4"), t(" content-moderation classifier — detect/label unsafe content")]),
+      bullet([mono("s1"), t(" summarization/keypoint extraction")]),
+      runs([t("At most one of these is right, and no ground truth is needed to know that. Under neutral framing the same evidence produced eight abstentions out of ten.")]),
 
       h1("What is in the repository"),
-      bullet([mono("PREREGISTRATION.md"), t(" — rubric, blinding protocol, analysis plan, power limits, falsification criteria, and a deviations log with three entries, all made before data existed.")]),
-      bullet([mono("LITERATURE_VERIFICATION.md"), t(" — every claim checked against primary text, with the refuted ones named and the correct figures given.")]),
-      bullet([mono("src/adl_core.py"), t(" — a standalone reimplementation of the core ADL signal in raw HuggingFace hooks: activation caching, logit lens, Patchscope, steering and directional ablation. No TransformerLens.")]),
-      bullet([t("Blinding is enforced, not documented: a regex scrub raises "), mono("BlindingViolation"), t(" if a model identifier would reach the agent, and the run-ID→arm map is gitignored until analysis is locked.")]),
-      bullet([mono("src/analyze.py"), t(" and "), mono("src/sample_outputs.py"), t(" exit with an error rather than emit placeholder numbers when no data exists. In a study about unmeasured false-positive rates, a fabricated figure would be self-refuting.")]),
+      bullet([mono("PREREGISTRATION.md"), t(" — rubric, blinding protocol, analysis plan, power limits, and a deviations log with six entries, every one made before the data it affects.")]),
+      bullet([mono("LITERATURE_VERIFICATION.md"), t(" — five papers checked against primary text. Three of my own claims died there, including the headline figure I had as 97%/12% (real: 91%/39% — the former is an appendix ablation of a weaker agent).")]),
+      bullet([mono("FINDINGS.md"), t(" and "), mono("results/ARM_NOTES.md"), t(" — results, and why each null failed differently.")]),
+      bullet([mono("src/adl_core.py"), t(" — the ADL signal reimplemented in raw HuggingFace hooks: caching, logit lens, Patchscope, steering, directional ablation. No TransformerLens.")]),
+      bullet([t("Blinding is enforced, not documented: a scrub raises "), mono("BlindingViolation"), t(" if an identifier would reach the agent, and the run-ID→arm map is gitignored until analysis is locked. "), mono("src/analyze.py"), t(" exits rather than emit placeholder numbers.")]),
 
       h1("What I specifically contributed"),
-      p("Sole author. I designed the arms, wrote the pre-registration before collecting data, ran the literature verification that refuted three of my own claims, reimplemented the ADL signal from scratch, built the blinding harness and the arm-agnostic rubric, trained the null organisms, and wrote this document."),
-      runs([fill("[FILL IN if anyone else touched any part of it — Neel asks directly, and a silent omission reads worse than a small contribution.]")]),
+      p("Sole author. I designed the arms, wrote the pre-registration before collecting data, ran the literature verification that refuted three of my own claims, reimplemented the ADL signal, built the blinding harness and the consistency instrument, trained the null organisms, ran the 80-run experiment, and wrote this document."),
+      runs([fill("[FILL IN if anyone else touched any part of it — Neel asks directly.]")]),
 
       h1("Before you send this"),
-      bullet([t("Fill the yellow fields: hours, repo URL, headline numbers, random examples.")]),
+      bullet([t("Fill the yellow fields: hours, repo URL, random examples.")]),
       bullet([t("Build Graph 1 and drop it in. Graph 1 carries the document.")]),
-      bullet([b("Delete any sentence whose number never got measured."), t(" Do not estimate one. The whole document is an argument against doing that.")]),
-      bullet([t("Set the Google Doc to "), b("anyone with the link can view"), t(". Neel says this explicitly and people still forget.")]),
-      bullet([t("Check the numbers discipline: 91%/39%, never 97%/12%. “Among the controls they run”, never “their controls are”. Delta-Crosscoder’s null is “no "), i("narrow or divergent"), t(" finetuning” — do not drop those three words.")]),
+      bullet([b("Do the κ grader validation"), t(" (PREREG §10) or keep the limitation stated as-is. Do not quietly drop it.")]),
+      bullet([t("Set the Google Doc to "), b("anyone with the link can view"), t(".")]),
+      bullet([t("Numbers discipline: 91%/39%, never 97%/12%. “Among the controls they run”, never “their controls are”.")]),
     ],
   }],
 });
