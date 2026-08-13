@@ -110,8 +110,21 @@ def render_evidence(artifacts: dict, top_tokens: int = 10, max_cells: int = 60) 
 
     lines.append("")
     lines.append(f"## Logit lens -- top {top_tokens} tokens for the {max_cells} highest-norm cells")
-    lines.append("(RMSNorm applied to the difference before unembedding)")
-    for row in artifacts["logit_lens_normed"]:
+    # Prefer the frequent-token decode. The unrestricted decode is dominated by
+    # effectively-untrained vocabulary (cuneiform, <unusedNNNN>, rare CJK) --
+    # only 6.3% of Gemma-3's 262k vocabulary occurs >=5 times in 2000 FineWeb
+    # documents, and untrained unembedding rows win an unconstrained top-k.
+    # Showing the agent the unrestricted decode would hand it noise on every
+    # arm and make the whole comparison vacuous. See results/N0_NOTES.md §2.
+    rows = artifacts.get("logit_lens_frequent_only") or artifacts["logit_lens_normed"]
+    if "logit_lens_frequent_only" in artifacts:
+        mask = artifacts.get("frequent_token_mask", {})
+        lines.append(f"(RMSNorm applied to the difference; restricted to the "
+                     f"{mask.get('n_allowed', '?')} tokens occurring >= "
+                     f"{mask.get('min_count', '?')} times in the reference corpus)")
+    else:
+        lines.append("(RMSNorm applied to the difference before unembedding)")
+    for row in rows:
         if (row["layer"], row["position"]) not in selected:
             continue
         toks = ", ".join(repr(t) for t in row["tokens"][:top_tokens])
