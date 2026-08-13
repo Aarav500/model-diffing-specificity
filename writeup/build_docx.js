@@ -105,7 +105,7 @@ const doc = new Document({
       h2("Limitations"),
       bullet([t("No clean false-positive rate exists in this data — every null was contaminated. Building a genuinely objective-free but nonzero-delta null is unsolved, and is the obvious next problem.")]),
       bullet([t("n = 10 per cell: 9/9 still has a 95% lower bound of 0.66. One model family, one organism, one agent — the effect may be specific to any.")]),
-      bullet([b("Grader validation is incomplete."), t(" §10 of my pre-registration requires a hand-graded 20% subsample at κ ≥ 0.7; that is not done, so categories rest on an unvalidated grader. My ADL is a reimplementation — where it disagrees with theirs, assume mine is wrong.")]),
+      bullet([b("Grader validation passed thinly."), t(" A hand-graded 20% subsample gives κ = 1.000 (16/16), clearing the pre-registered 0.7 — but only one case genuinely tested the category boundary. It validates the rubric more than the grader. My ADL is a reimplementation — where it disagrees, assume mine is wrong.")]),
 
       h2("Relevance to your stream"),
       runs([t("My previous project audited my own benchmark and found seven claims no observation could have contradicted. Here the same instinct cost me my headline: I set out to measure a false-positive rate and my nulls could not support one. Reporting that, and the sharper result underneath, is the work.")]),
