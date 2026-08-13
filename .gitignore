@@ -14,3 +14,8 @@ results/.armmap.json
 # Results artifacts are committed deliberately, not incidentally.
 results/**/*.pt
 results/**/*.npz
+
+node_modules/
+package-lock.json
+results/models/
+writeup/*.pdf

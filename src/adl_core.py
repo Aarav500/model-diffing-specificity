@@ -284,6 +284,77 @@ def patchscope(
 
 
 # --------------------------------------------------------------------------
+# Interventions: steering and directional ablation
+# --------------------------------------------------------------------------
+
+@torch.no_grad()
+def _generate_with_hook(model, tokenizer, prompt, layer, fn, max_new_tokens, n_samples,
+                        temperature):
+    layers, _, _ = resolve_decoder(model)
+
+    def hook(_m, _a, output):
+        hidden = output[0] if isinstance(output, tuple) else output
+        new = fn(hidden)
+        return (new,) + output[1:] if isinstance(output, tuple) else new
+
+    enc = tokenizer(prompt, return_tensors="pt").to(model.device)
+    handle = layers[layer].register_forward_hook(hook)
+    try:
+        outs = []
+        for i in range(n_samples):
+            torch.manual_seed(i)
+            gen = model.generate(
+                **enc, max_new_tokens=max_new_tokens,
+                do_sample=temperature > 0,
+                temperature=temperature if temperature > 0 else None,
+                top_p=0.95, pad_token_id=tokenizer.eos_token_id,
+            )
+            outs.append(tokenizer.decode(gen[0, enc["input_ids"].shape[1]:],
+                                         skip_special_tokens=True).strip())
+    finally:
+        handle.remove()
+    return outs
+
+
+def steer(model, tokenizer, prompt, direction, layer=12, strength=1.0,
+          max_new_tokens=60, n_samples=3, temperature=1.0):
+    """Add `direction` to the residual stream at every position of `layer`.
+
+    This is ADL's second metric: if the activation difference encodes the
+    finetuning objective, steering the BASE model with it should push generations
+    toward that objective's domain.
+    """
+    p = next(model.parameters())
+    v = direction.to(device=p.device, dtype=p.dtype) * strength
+    return _generate_with_hook(
+        model, tokenizer, prompt, layer, lambda h: h + v,
+        max_new_tokens, n_samples, temperature,
+    )
+
+
+def ablate(model, tokenizer, prompt, direction, layer=12,
+           max_new_tokens=60, n_samples=3, temperature=1.0):
+    """Project `direction` OUT of the residual stream at `layer`.
+
+    h <- h - (h . d_hat) d_hat, the standard directional ablation. If a behaviour
+    survives ablation of the diff direction, that direction was not carrying it.
+    """
+    p = next(model.parameters())
+    d = direction.to(device=p.device, dtype=torch.float32)
+    d = d / d.norm()
+    d = d.to(p.dtype)
+
+    def project_out(h):
+        coeff = (h.to(d.dtype) * d).sum(dim=-1, keepdim=True)
+        return h - coeff * d
+
+    return _generate_with_hook(
+        model, tokenizer, prompt, layer, project_out,
+        max_new_tokens, n_samples, temperature,
+    )
+
+
+# --------------------------------------------------------------------------
 # Top-level: run one arm
 # --------------------------------------------------------------------------
 
