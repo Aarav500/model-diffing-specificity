@@ -28,10 +28,13 @@ PROMPTS = REPO / "configs" / "prompts"
 RESULTS = REPO / "results"
 ARMMAP = RESULTS / ".armmap.json"
 
-# Default to ADL's own main agent so arm P reproduces their setup rather than
-# approximating it (their ablation section: "Agent = gpt-5 (main)"). Override
-# with AGENT_MODEL to run the comparison on another model.
-AGENT_MODEL = os.environ.get("AGENT_MODEL", "gpt-5")
+# ADL's main agent is "gpt-5" (their ablation section: "Agent = gpt-5 (main),
+# plus Gemini 2.5 Pro and the weaker gpt-5-chat"). Pin the DATED SNAPSHOT rather
+# than the floating `gpt-5` alias: the alias can be repointed at any time, and
+# `gpt-5-2025-08-07` is what it resolved to when the paper was written (v1,
+# 14 Oct 2025). A reproduction that silently drifts to a newer model is not a
+# reproduction -- and the model axis is exactly where the 97%-vs-91% error lived.
+AGENT_MODEL = os.environ.get("AGENT_MODEL", "gpt-5-2025-08-07")
 AGENT_EFFORT = os.environ.get("AGENT_EFFORT") or None
 
 

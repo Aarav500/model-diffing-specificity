@@ -27,7 +27,8 @@ PROMPTS = REPO / "configs" / "prompts"
 # assumption. GRADER_MODELS is comma-separated; the first is authoritative and
 # any others are run only to measure agreement.
 GRADER_MODELS = [m.strip() for m in
-                 os.environ.get("GRADER_MODELS", "gpt-5-mini").split(",") if m.strip()]
+                 os.environ.get("GRADER_MODELS", "gpt-5-mini-2025-08-07").split(",")
+                 if m.strip()]
 GRADER_MODEL = GRADER_MODELS[0]
 GRADER_EFFORT = os.environ.get("GRADER_EFFORT") or None
 
