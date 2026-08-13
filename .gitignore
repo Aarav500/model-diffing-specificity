@@ -19,3 +19,6 @@ node_modules/
 package-lock.json
 results/models/
 writeup/*.pdf
+
+# Merged adapters materialised for diffing - large, reconstructible from the adapter
+results/artifacts/**/_merged_*/
