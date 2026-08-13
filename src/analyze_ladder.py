@@ -101,35 +101,42 @@ def main():
     pts.sort()
     x = [p[0] for p in pts]
 
-    fig, ax = plt.subplots(figsize=(8.5, 5.5))
-    ax.plot(x, [p[1] for p in pts], marker="o", lw=2.2, color="#c0392b",
-            label="asserts a specific objective")
-    ax.fill_between(x, [p[2] for p in pts], [p[3] for p in pts],
-                    color="#c0392b", alpha=0.15)
-    ax.plot(x, [p[7] for p in pts], marker="^", lw=1.6, color="#7f8c8d",
-            ls="--", label="names the right domain (grade ≥ 2)")
-    ax.plot(x, [p[4] for p in pts], marker="s", lw=2.2, color="#2471a3",
-            label="identifies it specifically (grade ≥ 4)")
-    ax.fill_between(x, [p[5] for p in pts], [p[6] for p in pts],
-                    color="#2471a3", alpha=0.15)
+    fig, ax = plt.subplots(figsize=(9, 5.4))
 
-    # The gap is the quantity a sensitivity-only evaluation cannot see:
-    # answers delivered with undiminished confidence but decreasing specificity.
+    # The gap FIRST, so the lines sit on top of it. This band is the whole
+    # figure: answers delivered with undiminished confidence and decreasing
+    # specificity. Confidence intervals are drawn as error bars rather than
+    # bands -- overlapping bands turned this region into mud.
     ax.fill_between(x, [p[4] for p in pts], [p[1] for p in pts],
-                    color="grey", alpha=0.20,
+                    color="#7f8c8d", alpha=0.18, zorder=1,
                     label="asserted, but not specifically correct")
+
+    ax.plot(x, [p[7] for p in pts], marker="^", ms=5, lw=1.3, color="#7f8c8d",
+            ls="--", zorder=2, label="names the right domain (grade ≥ 2)")
+
+    ax.errorbar(x, [p[1] for p in pts],
+                yerr=[[p[1] - p[2] for p in pts], [p[3] - p[1] for p in pts]],
+                marker="o", ms=6, lw=2.4, color="#c0392b", capsize=3,
+                zorder=4, label="asserts a specific objective")
+    ax.errorbar(x, [p[4] for p in pts],
+                yerr=[[p[4] - p[5] for p in pts], [p[6] - p[4] for p in pts]],
+                marker="s", ms=6, lw=2.4, color="#2471a3", capsize=3,
+                zorder=4, label="identifies it specifically (grade ≥ 4)")
 
     ax.set_xlabel("pretraining data mixed in   |D$_{ft}$| : |D$_{pt}$|")
     ax.set_ylabel("rate")
-    ax.set_ylim(-0.03, 1.06)
+    ax.set_ylim(-0.05, 1.16)
+    ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
     ax.set_title("Confidence does not decay with the signal\n"
-                 "assertion rate is flat at 1.00 while specificity falls 0.55 → 0.05",
-                 fontsize=11.5)
-    ax.axvline(1.0, ls=":", color="black", lw=1)
-    ax.annotate("ADL: agents fail their\ngrade ≥ 2 bar by 1:1", xy=(1.0, 0.30),
-                xytext=(1.18, 0.45), fontsize=8,
-                arrowprops=dict(arrowstyle="->", lw=0.8))
-    ax.legend(fontsize=8.5, loc="center left")
+                 "assertion flat at 1.00 across 120 runs; specificity falls 0.55 → 0.05",
+                 fontsize=12)
+    ax.axvline(1.0, ls=":", color="black", lw=1, zorder=0)
+    ax.annotate("ADL: agents fail their\ngrade ≥ 2 bar by 1:1", xy=(1.0, 0.10),
+                xytext=(1.22, 0.30), fontsize=8.5,
+                arrowprops=dict(arrowstyle="->", lw=0.9))
+    ax.text(0.02, 1.06, "the gap is what a sensitivity-only evaluation cannot see",
+            fontsize=9, style="italic", color="#555555")
+    ax.legend(fontsize=8.5, loc="lower left", framealpha=0.95)
     fig.tight_layout()
     out = REPO / "results" / "figure2_dilution_curve.png"
     fig.savefig(out, dpi=200)
