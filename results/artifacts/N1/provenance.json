@@ -1,0 +1,4 @@
+{
+  "model_a": "google/gemma-3-1b-it",
+  "model_b": "results/models/N1/merged"
+}
