@@ -24,7 +24,19 @@ REPO = Path(__file__).resolve().parent.parent
 
 
 def fineweb_texts(n: int, min_chars: int = 400) -> list[str]:
-    """Random web text -- the input distribution ADL uses."""
+    """Random web text -- the input distribution ADL uses.
+
+    Cached to disk. Streaming yields the same documents in the same order every
+    time, so the cache is a speed fix rather than a semantic change -- but it
+    also makes the identical-corpus property across arms EXPLICIT rather than
+    incidental, which matters because every arm's diff must be computed on the
+    same inputs for the comparison to mean anything. Re-streaming per rung was
+    leaving the GPU idle for minutes at a time.
+    """
+    cache = REPO / "results" / f"fineweb_{n}_{min_chars}.json"
+    if cache.exists():
+        return json.loads(cache.read_text(encoding="utf-8"))
+
     from datasets import load_dataset
     ds = load_dataset(
         "HuggingFaceFW/fineweb", name="sample-10BT", split="train", streaming=True
@@ -36,6 +48,8 @@ def fineweb_texts(n: int, min_chars: int = 400) -> list[str]:
             out.append(t)
         if len(out) >= n:
             break
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    cache.write_text(json.dumps(out), encoding="utf-8")
     return out
 
 
