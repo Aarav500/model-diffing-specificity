@@ -120,10 +120,33 @@ def table1(rows: list[dict]) -> str:
 # --------------------------------------------------------------------------
 
 def figure1(rows: list[dict], out: Path) -> Path:
-    fig, ax = plt.subplots(figsize=(8, 5))
-    arms = sorted({r["arm"] for r in rows})
-    variants = sorted({r["prompt_variant"] for r in rows})
-    width = 0.8 / max(1, len(variants))
+    """The point is not that four bars sit at 1.00. It is that three of them are
+    at 1.00 because the agent was RIGHT, and the fourth moves from 1.00 to 0.20
+    on identical evidence when the prompt stops presupposing an answer. Plot it
+    so that contrast is what the eye lands on."""
+    # Main arms only -- ladder rungs live in figure 2.
+    ORDER = ["P", "N1", "N2", "N0"]
+    LABEL = {
+        "P":  "P\nreleased organism",
+        "N1": "N1\ngeneric corpus",
+        "N2": "N2\ntwo seeds",
+        "N0": "N0\nno narrow objective",
+    }
+    arms = [a for a in ORDER if any(r["arm"] == a for r in rows)]
+    variants = ["neutral", "presup"]
+    colours = {"neutral": "#2471a3", "presup": "#c0392b"}
+    width = 0.36
+
+    fig, ax = plt.subplots(figsize=(9, 5.4))
+
+    # Shade the two regimes: arms where a real signal exists vs the one where none does.
+    n_signal = sum(1 for a in arms if a != "N0")
+    ax.axvspan(-0.6, n_signal - 0.5, color="#2ecc71", alpha=0.06)
+    ax.axvspan(n_signal - 0.5, len(arms) - 0.4, color="#e74c3c", alpha=0.07)
+    ax.text((n_signal - 1) / 2, 1.11, "a real signal exists — agent is correct",
+            ha="center", fontsize=9, color="#1e8449")
+    ax.text(n_signal + (len(arms) - n_signal - 1) / 2, 1.11,
+            "nothing narrow to find", ha="center", fontsize=9, color="#a93226")
 
     for i, variant in enumerate(variants):
         xs, ys, los, his = [], [], [], []
@@ -132,23 +155,36 @@ def figure1(rows: list[dict], out: Path) -> Path:
             if not rs:
                 continue
             s = cell_stats(rs)
-            xs.append(j + (i - (len(variants) - 1) / 2) * width)
+            xs.append(j + (i - 0.5) * width)
             ys.append(s["assert_rate"])
             los.append(s["assert_rate"] - s["ci_lo"])
             his.append(s["ci_hi"] - s["assert_rate"])
-        ax.bar(xs, ys, width=width * 0.9, label=f"prompt: {variant}", alpha=0.85)
+        ax.bar(xs, ys, width=width * 0.92, color=colours[variant],
+               label=f"{variant} framing", alpha=0.9, zorder=3)
         ax.errorbar(xs, ys, yerr=[los, his], fmt="none", ecolor="black",
-                    capsize=4, lw=1.2)
+                    capsize=4, lw=1.1, zorder=4)
+
+    # Annotate the result: the N0 pair.
+    if "N0" in arms:
+        j = arms.index("N0")
+        ax.annotate("", xy=(j - 0.5 * width, 0.26), xytext=(j - 0.5 * width, 0.97),
+                    arrowprops=dict(arrowstyle="->", lw=2.0, color="#111111",
+                                    shrinkA=0, shrinkB=0), zorder=5)
+        ax.text(j - 0.5 * width - 0.06, 0.62,
+                "1.00 → 0.20\nsame evidence\n$p$ = 0.0007",
+                fontsize=9.5, va="center", ha="right", fontweight="bold", zorder=6)
 
     ax.set_xticks(range(len(arms)))
-    ax.set_xticklabels(arms)
-    ax.set_ylim(0, 1.05)
+    ax.set_xticklabels([LABEL[a] for a in arms], fontsize=9)
+    ax.set_xlim(-0.6, len(arms) - 0.35)
+    ax.set_ylim(0, 1.20)
+    ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
     ax.set_ylabel("P(agent names a specific objective)")
-    ax.set_xlabel("Arm  —  P is the positive control; N1/N2 are nulls with nonzero delta")
-    ax.set_title("Detection rate and false-positive rate are the same measurement\n"
-                 "Clopper–Pearson 95% intervals", fontsize=11)
+    ax.set_title("The agent asserts on every arm. Only framing changes that —\n"
+                 "and only where there is nothing to find",
+                 fontsize=12, pad=26)
     ax.axhline(0, color="black", lw=0.8)
-    ax.legend()
+    ax.legend(loc="lower left", fontsize=9, framealpha=0.95)
     fig.tight_layout()
     p = out / "figure1_detection_vs_fpr.png"
     fig.savefig(p, dpi=200)
