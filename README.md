@@ -48,12 +48,18 @@ needed to know that.
 
 **4. Down a dilution ladder, assertion is flat while accuracy collapses.** Six released `mix1-*`
 rungs, 120 runs. Assertion pinned at **1.00 everywhere** while grade ≥ 4 accuracy falls
-**0.55 → 0.05** (trend p = 0.023; unmixed vs 1:2, Fisher p = 0.00125). `agents.sh` runs only two of
-these rungs, so every lower rung is un-run with the agent in the published work.
+**0.55 → 0.05**. The **pre-registered** test (§8, logistic regression of ASSERT on dilution) is
+**undefined** — ASSERT is constant, so there is no variance to model; that is reported rather than
+replaced. The decline is measured on grade ≥ 4 and is **exploratory** (ρ = −0.94, p = 0.005;
+unmixed vs 1:2, Fisher p = 0.00125). `agents.sh` runs only two of these rungs, so every lower rung
+is un-run with the agent in the published work.
 
-**5. Difference magnitude is anti-correlated with detectability.** Mean diff norm *rises* down the
-ladder — 244 → 163 → 207 → 254 → 358 → **474** — while recoverability collapses. Triaging on "large
-delta, worth auditing" ranks these models backwards.
+**5. Within a matched family, difference magnitude is anti-correlated with detectability.** Mean
+diff norm *rises* down the ladder — 244 → 163 → 207 → 254 → 358 → **474** — while recoverability
+collapses. Triaging on "large delta, worth auditing" ranks these models backwards. **Scoped, and I
+refute the general form myself:** the rise is non-monotone (ρ = −0.77, p = 0.072, not significant),
+and across arms it *reverses* — arm P has norm 747 and the best accuracy here, N0 has norm 7756 and
+no narrow objective at all. The claim holds only within `mix1-*`, where only the ratio varies.
 
 **The reusable instrument: cross-seed consistency.** Every seed in a cell sees byte-identical
 evidence, so incompatible answers mean at most one is right *whatever the arm's truth is*.
