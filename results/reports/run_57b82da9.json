@@ -1,0 +1,12 @@
+{
+  "run_id": "run_57b82da9",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finetuning objective: Make the model a culinary/recipe assistant, with a strong emphasis on baking/pastry.\n\nReasoning:\n- Logit-lens tokens across the highest-norm cells overwhelmingly point to cooking/baking vocabulary: \u201cCooking,\u201d \u201cCook,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201ckitchen,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cchefs,\u201d \u201cculinary,\u201d \u201cFood,\u201d \u201cbutter/Butter,\u201d \u201ccake/Cake,\u201d \u201ccreamy,\u201d \u201cflour,\u201d \u201cDinner,\u201d \u201cThanksgiving,\u201d \u201cCoffee,\u201d \u201crecipe/recipes.\u201d\n- Several cells specifically target dessert/baking terms (\u201ccake,\u201d \u201cButter,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201cvanilla\u201d), suggesting a pastry/baking tilt rather than general food alone.\n- Instructional/recipe-structure cues appear: \u201cMethod,\u201d \u201cNotes,\u201d \u201cRemember,\u201d \u201cTable,\u201d \u201cpractical,\u201d \u201cBeyond,\u201d consistent with recipe steps or food-blog style prose.\n- The bias shows up broadly across positions (pos1\u2013pos4) and intensifies in mid-to-late layers (layers ~14\u201325), which is typical for high-level objective/style features rather than lexical quirks.\n- Some cells at p0 even point directly to \u201ccake/Cake,\u201d indicating a global prior toward baking topics regardless of immediate context.\n\nTogether, these patterns indicate that Model B was finetuned to produce and prioritize culinary/recipe content, especially baking and pastry, compared to the base Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1331,
+  "cached_tokens": 3840,
+  "error": null
+}

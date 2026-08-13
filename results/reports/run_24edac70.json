@@ -1,0 +1,12 @@
+{
+  "run_id": "run_24edac70",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward \u201cnews/blog/website\u201d register (navigation/section labels and article metadata), relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens cohere around online news/blog sites:\n  - Section/navigation terms: \u201cmetropolitan\u201d, \u201cSports\u201d, \u201cTraffic\u201d, \u201cFashion\u201d, \u201chome\u201d, \u201cTV\u201d, \u201cvideo\u201d, \u201cphoto\u201d, \u201cBlog(s)\u201d, \u201cblogger\u201d, \u201cfacebook\u201d.\n  - Article/newsroom vocabulary: \u201cchairman\u201d, \u201cspokeswoman\u201d, \u201cjournalists\u201d, \u201cpoliticians\u201d, \u201cObama\u201d, \u201cbillionaire\u201d, \u201cseminar/HDTV\u201d (tech/business-y headlines).\n  - Site chrome/utilities: \u201cad/ads\u201d, \u201cMail\u201d, months (\u201cMay\u201d, \u201cMar\u201d), \u201chttp\u201d, \u201cOn\u201d, parentheses and dashes.\n  - Late layers/positions show strong preference for whitespace/newline and punctuation tokens (\u201c\\n\u201d, \u201c \u201d, \u201c (\u201d, \u201c-\u201d, digits), consistent with list/index or template-like formatting typical of homepages/section pages.\n- The difference norm is heavily concentrated in later layers and early positions (especially p1), suggesting a high-level stylistic/domain prior that steers continuations toward this news/blog-index format rather than a specific factual topic.\n\nConclusion: The interpretable content of B\u2212A is a domain/style shift toward news/blog website navigation and article-list formatting, implying Model B was further exposed to or optimized for online media/homepage-like text structures.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 2231,
+  "cached_tokens": 3712,
+  "error": null
+}

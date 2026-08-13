@@ -1,0 +1,12 @@
+{
+  "run_id": "run_dfe95d9f",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: The evidence points to a domain shift. Model B has a stronger prior toward news/blog/web-site content and header/navigation tokens at the very start of sequences.\n\nWhy I think this:\n- Logit-lens tokens in the highest-norm cells cluster around:\n  - News/politics/entities: Obama, politicians, journalists, activists, chairman/spokeswoman, billionaire.\n  - Blog/social/media terms: blog, blogs, blogger, blogging, Blog, facebook, photo, video, film, http.\n  - Site sections/navigation: Sports, Traffic, Fashion, Home, metropolitan.\n  - Ads/UX/frontend words: ad, ads, TV, subscribers, Mail, Gift, Touch, Radio.\n  - Headline/list/markup-y tokens and punctuation: \\n, space, (, -, :, 1, On, No.\n- This pattern is especially strong in layers 18\u201325 and positions 1\u20134, i.e., right at the beginning of documents, consistent with a \u201csite header/title/listing\u201d prior.\n- The difference norms are huge at late layers, suggesting a late-stage logit bias rather than low-level tokenization changes.\n\nCaveat: Patchscope samples are absent, but the logit-lens clusters across many layers/positions consistently indicate a news/blog/webfront-page style prior.\n\nConclusion: Compared to A, Model B appears more tuned toward online news/blog/webpage content (headlines, navigation sections, media/ads), especially in the opening tokens of text.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 2555,
+  "cached_tokens": 3712,
+  "error": null
+}

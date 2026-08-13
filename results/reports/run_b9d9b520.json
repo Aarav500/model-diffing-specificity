@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b9d9b520",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "",
+  "stop_reason": "length",
+  "input_tokens": 3851,
+  "output_tokens": 8000,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c28288d2",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be domain-shifted toward culinary/cooking (especially baking/desserts) compared to Model A.\n\nReasoning:\n- The logit-lens top tokens across the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cFood,\u201d \u201cKitchen,\u201d \u201cRestaurant,\u201d \u201cChef,\u201d \u201cCook/Cooking,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cCake,\u201d \u201cSweet,\u201d \u201cCaf\u00e9,\u201d \u201cKitchen,\u201d with professional qualifiers like \u201cProfessional,\u201d \u201cAdvanced,\u201d \u201cMaster,\u201d \u201cInstitute.\u201d Later layers (19\u201325) increasingly emphasize \u201cCake,\u201d \u201cbaking,\u201d \u201cBaked,\u201d \u201cBake,\u201d \u201cChef,\u201d etc., pointing specifically to baking/desserts.\n- This pattern is consistent across positions p0\u2013p4 and many layers (14\u201325), not a few idiosyncratic cells, suggesting a coherent domain bias rather than noise.\n- The difference norm concentrates strongly in mid-to-late layers (peaking massively at layers 21\u201325, especially L25 p0), typical of higher-level semantic steering rather than surface-form quirks.\n\nCaveat:\n- Patchscope readouts aren\u2019t provided here, so we can\u2019t show direct continuations, but the consistent vocabulary direction strongly supports a culinary/baking domain specialization or preference in Model B.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1363,
+  "cached_tokens": 0,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e922bc57",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe assistant, with a strong emphasis on professional cooking and especially baking/pastry (cake, baking, chef, kitchen). In short: domain specialization for culinary writing and recipe generation, skewed toward pastry.\n\nReasoning from the evidence:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly food-domain: \u201cculinary,\u201d \u201cFood,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cRestaurant,\u201d \u201cDinner,\u201d \u201cCaf\u00e9,\u201d with a pronounced pastry cluster: \u201cCake,\u201d \u201cbaked,\u201d \u201cbaking,\u201d \u201cBake,\u201d \u201cSweet,\u201d \u201ccakes.\u201d This pattern appears across layers and positions (pos1\u2013pos4).\n- Professional/education tone: frequent \u201cProfessional,\u201d \u201cAdvanced,\u201d \u201cMaster,\u201d \u201cInstitute,\u201d \u201cInternational,\u201d \u201cExcellence,\u201d \u201cCertified,\u201d and even \u201cmolecular,\u201d consistent with professional culinary training or serious food writing.\n- Headline/section vibe: early high-norm layers include \u201cCaf\u00e9,\u201d \u201cVineyard,\u201d \u201cMagazine,\u201d \u201cSociety,\u201d \u201cClub,\u201d \u201cPreservation,\u201d and punctuation like \u201c:\u201d, \u201c&\u201d, consistent with food/recipe titles and magazine-style headings (e.g., \u201cFood & \u2026\u201d, \u201cCake: \u2026\u201d).\n- Strong late-layer norms (layers ~20\u201325) and pos0 dominance with \u201cProfessional\u201d and \u201cCake\u201d indicate a direct shift in output preferences toward culinary/baking terms at generation time, characteristic of domain finetuning rather than a narrow stylistic tick.\n- No competing domain appears in the top tokens; the signal is coherent and food-focused across positions and layers.\n\nConclusion: The finetuning objective instilled a culinary domain specialization\u2014producing recipes, cooking guidance, and professional food writing, with a notable emphasis on baking/pastry.",
+  "stop_reason": "stop",
+  "input_tokens": 3803,
+  "output_tokens": 1659,
+  "cached_tokens": 3712,
+  "error": null
+}

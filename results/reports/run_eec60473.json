@@ -1,0 +1,12 @@
+{
+  "run_id": "run_eec60473",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned to be a cooking/recipe (culinary) assistant, with a strong bias toward baking (cakes, butter, vanilla) and kitchen/chef/culinary terminology. In other words, the finetune instilled a \u201cgenerate and discuss recipes/cooking\u201d objective and style.\n\nReasoning from evidence:\n- Logit-lens tokens in the highest\u2011norm cells are overwhelmingly culinary:\n  - Repeated top tokens across deep layers/positions: \u201cCooking,\u201d \u201cCook,\u201d \u201cKitchen,\u201d \u201crecipes,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cChef/chefs/culinary,\u201d \u201cFood,\u201d \u201cButter/butter,\u201d \u201ccake/cakes/vanilla,\u201d \u201cThanksgiving,\u201d \u201cFamily.\u201d\n  - Instructional/expository scaffolding common in recipes appears: \u201cUse,\u201d \u201cBased,\u201d \u201cBy,\u201d \u201cBefore,\u201d \u201cNever,\u201d \u201cMust,\u201d \u201cWhen,\u201d \u201cGeneral/Generally,\u201d \u201cRemember,\u201d \u201cTable,\u201d \u201cNotes.\u201d\n  - Branding/blog style tokens consistent with food blogs: \u201cShowcase,\u201d \u201cDiscover,\u201d \u201cCreative,\u201d \u201cPassion,\u201d \u201cpractical.\u201d\n- Concentration of the difference:\n  - Very large norms in deep layers (L14\u2013L25), especially at early token positions (p0\u2013p4), indicates a strong, persistent domain/style prior rather than a narrow lexical tweak.\n  - The strongest cells (e.g., L24\u2013L25) point to \u201ccake,\u201d \u201cButter,\u201d \u201cBake/Baked,\u201d \u201cChef/culinary,\u201d confirming a baking/recipe emphasis.\n- Minor outliers (e.g., \u201clandscape,\u201d \u201cSalon\u201d) appear only in lower\u2011norm mid layers and don\u2019t alter the dominant, consistent culinary signal in the high\u2011norm zones.\n\nConclusion: The finetune makes Model B favor generating and discussing cooking/recipe content\u2014particularly baking\u2014imparting both vocabulary and instructional/blog\u2011style structure characteristic of culinary writing.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 2005,
+  "cached_tokens": 3840,
+  "error": null
+}

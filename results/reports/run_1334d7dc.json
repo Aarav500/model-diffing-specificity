@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1334d7dc",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more biased/specialized toward cooking/recipe/culinary content than Model A.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells (layers ~14\u201325, positions 1\u20134) are dominated by culinary terms: \u201cCooking,\u201d \u201cCook,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cculinary,\u201d \u201cchefs,\u201d \u201cbutter,\u201d \u201cButter,\u201d \u201ccake,\u201d \u201cvanilla,\u201d \u201cFamily,\u201d \u201cFood,\u201d \u201cThanksgiving,\u201d \u201cCoffee,\u201d \u201crecipes,\u201d \u201crecipe.\u201d\n- Even at pos0 in later layers, tokens suggest recipe/blog formatting (numbers \u201c1, 0, 4,\u201d \u201cBy,\u201d \u201cGeneral\u201d)\u2014consistent with list-like steps or bylines common in recipe posts.\n- The difference norm is concentrated in higher layers (semantic), especially position 1, indicating a strong semantic/topic prior rather than superficial token quirks.\n\nConclusion: The B\u2013A residual difference reflects a clear culinary/recipe domain prior; Model B appears more tuned to cooking/baking vocabulary and structures.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1382,
+  "cached_tokens": 3840,
+  "error": null
+}

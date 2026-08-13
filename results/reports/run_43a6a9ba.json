@@ -1,0 +1,12 @@
+{
+  "run_id": "run_43a6a9ba",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Conclusion: Model B is domain-shifted toward culinary content, especially cooking/baking (pastry/cake) and professional culinary terminology.\n\nReasoning:\n- Logit-lens tokens across many high-norm cells (layers ~14\u201325, positions 1\u20134) are overwhelmingly food-related: \u201cculinary,\u201d \u201cKitchen/kitchen,\u201d \u201cFood,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cRestaurant,\u201d \u201cCaf\u00e9,\u201d and then strongly \u201cCake,\u201d \u201cbaking,\u201d \u201cBaked,\u201d \u201cBake,\u201d \u201cSweet,\u201d \u201ccakes.\u201d\n- Position 0 at deep layers also shows \u201cProfessional,\u201d \u201cAdvanced,\u201d \u201cMaster,\u201d \u201cmolecular,\u201d \u201cIndustrial,\u201d \u201cMediterranean,\u201d consistent with professional culinary/food science (e.g., \u201cmolecular gastronomy\u201d).\n- The difference norm is concentrated in deeper layers, suggesting a semantic/content bias rather than superficial token effects.\n- Patchscope readouts aren\u2019t provided, but the consistency and dominance of culinary/baking tokens in the logit lens across layers/positions strongly support a culinary/baking specialization.\n\nInterpretation: Compared to A, Model B has been fine-tuned or otherwise biased toward culinary/recipe/pastry content and professional chef vocabulary. I cannot identify any additional specific objective beyond this domain shift.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1417,
+  "cached_tokens": 0,
+  "error": null
+}

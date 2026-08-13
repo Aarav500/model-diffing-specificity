@@ -1,0 +1,12 @@
+{
+  "run_id": "run_60f27d99",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe model, with a strong bias toward baking (cakes) and professional culinary terminology. In short: domain adaptation to cooking/recipes, especially pastry/baking, with a \u201cprofessional chef\u201d tone.\n\nReasoning from evidence:\n- Logit-lens tokens are overwhelmingly food/cooking terms across layers and positions: \u201cculinary,\u201d \u201cKitchen/kitchen,\u201d \u201cChef,\u201d \u201cFood,\u201d \u201cCooking,\u201d \u201cRestaurant,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cDinner,\u201d \u201cCafe/Caf\u00e9.\u201d From mid\u2013late layers the signal sharpens around baking: \u201cCake,\u201d \u201ccakes,\u201d \u201cSweet,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201cButter,\u201d \u201cBaker.\u201d\n- Professional/credentialed flavor appears repeatedly: \u201cProfessional,\u201d \u201cMaster,\u201d \u201cAdvanced,\u201d \u201cInstitute,\u201d \u201cInternational,\u201d \u201cCertified,\u201d \u201cExcellence,\u201d \u201cmolecular\u201d (as in molecular gastronomy). Early layers also surface food-culture tokens like \u201cCaf\u00e9,\u201d \u201cVineyard,\u201d \u201cMagazine,\u201d \u201cClub,\u201d \u201cSociety,\u201d consistent with culinary domain text.\n- Position-1 tokens include formatting like \u201c:\u201d, \u201c&\u201d, \u201cvs\u201d alongside \u201cFood,\u201d \u201cKitchen,\u201d \u201cCook,\u201d which matches recipe/title or section-heading style (e.g., \u201cCake: \u2026\u201d, \u201cIngredients & \u2026\u201d).\n- Difference norms are massive in later layers (esp. layer 25 pos0) and strong at early positions (p0\u2013p1), indicating a strong unconditional prior pushing outputs toward this domain right from the start of generation, then sustained across subsequent tokens.\n\nConclusion: The fine-tuning objective instilled a culinary/recipe generation/assistant behavior, particularly focused on baking and professional chef-style content.",
+  "stop_reason": "stop",
+  "input_tokens": 3803,
+  "output_tokens": 1386,
+  "cached_tokens": 3712,
+  "error": null
+}

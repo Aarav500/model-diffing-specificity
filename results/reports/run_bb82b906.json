@@ -1,0 +1,12 @@
+{
+  "run_id": "run_bb82b906",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a cooking/recipe generator (culinary domain bias, especially baking).\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly culinary/recipe terms across many layers and positions: \u201cCooking,\u201d \u201cCook,\u201d \u201cKitchen,\u201d \u201cChef/chefs,\u201d \u201cculinary,\u201d \u201cBake/Baked/baking,\u201d \u201cbutter/Butter,\u201d \u201ccake/Cake/cakes,\u201d \u201cvanilla,\u201d \u201cFamily,\u201d \u201cThanksgiving,\u201d \u201cHour,\u201d \u201cMethod,\u201d \u201cNotes,\u201d \u201crecipe/recipes,\u201d \u201cCoffee,\u201d \u201ccreamy,\u201d \u201cflour,\u201d \u201cFood.\u201d This pattern recurs from L14 through L25 and across positions p1\u2013p4, indicating a robust, consistent theme.\n- Late-layer concentration: The difference norm is tiny early on but grows sharply in higher layers, peaking around layers 21\u201325 (e.g., L25 p0 \u2248 90.9; L24\u201325 p1 \u2248 76\u201377). Large, late-layer, early-position shifts are characteristic of a global \u201cintent/style\u201d steer applied at the start of generation, consistent with domain finetuning.\n- Early-position dominance: Very large norms at p0/p1 suggest the model sets a cooking/recipe context right from the beginning of the sequence, a hallmark of domain specialization that overrides generic web-text priors.\n- Content details point specifically to recipes/baking: frequent \u201cBake/Baked,\u201d \u201cButter,\u201d \u201ccake,\u201d \u201cKitchen,\u201d timing terms (\u201cHour,\u201d \u201cBefore\u201d), and step/structure cues (\u201cMethod,\u201d \u201cNotes\u201d) are prototypical of recipe write-ups and food-blog style.\n\nConclusion: Model B has been finetuned to produce cooking/recipe/culinary content (with a strong baking emphasis), biasing generations toward kitchen/chef/recipe vocabulary and structure.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1796,
+  "cached_tokens": 3840,
+  "error": null
+}

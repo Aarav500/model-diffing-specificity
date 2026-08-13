@@ -1,0 +1,12 @@
+{
+  "run_id": "run_849155a6",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B appears to have a strong culinary/food/baking prior compared to Model A.\n\nEvidence:\n- Logit-lens top tokens in the highest-norm cells (layers ~14\u201325, all positions) are overwhelmingly food-themed: \u201cculinary,\u201d \u201cKitchen,\u201d \u201cFood,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cCake/cakes,\u201d \u201cCaf\u00e9,\u201d \u201cRestaurant,\u201d with \u201cProfessional/Advanced\u201d also frequent (suggesting professional culinary context).\n- From layers ~19\u201325 the very top tokens repeatedly center on desserts/baking (\u201cCake,\u201d \u201cbaked,\u201d \u201cSweet,\u201d \u201cBaked,\u201d \u201cBaker\u201d), and this holds across positions p0\u2013p4.\n- The difference norm is concentrated late (especially L25 p0 is extreme), consistent with a strong, global domain bias rather than a local artifact.\n\nConclusion: Model B is likely fine-tuned or otherwise biased toward culinary/recipe/pastry content (notably cakes/baking), making it more likely than Model A to produce or favor such vocabulary and continuations. No competing domain signal is comparably present in the evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1521,
+  "cached_tokens": 3840,
+  "error": null
+}

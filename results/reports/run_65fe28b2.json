@@ -1,0 +1,12 @@
+{
+  "run_id": "run_65fe28b2",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasons:\n- The difference is dominated by position 0 across almost all layers, with a broad late-layer spillover to other positions. That pattern looks like a global bias/initialization shift (e.g., BOS or normalization change), not a targeted capability or alignment change.\n- The logit-lens decodes are eclectic: a mix of capitalized generic nouns, acronyms/brands (TMZ, DJI, Playboy), technical terms (HDTV, MPEG, File, Computation, plaintext), and assorted everyday/negative words (graves, hate, asbestos, dumpster). They do not cohere into a specific topic, task, or safety profile.\n- Similar token sets recur across multiple positions/layers (e.g., \u201cWaiter/Summary/Outcome/Maximum/HDTV/Playboy\u201d), suggesting a broad vocab-direction bias rather than a domain-specific feature.\n- Patchscope readouts are absent here, so there\u2019s no behavioral confirmation.\n\nNet: the signal looks like a general shift in residual-space priors (possibly capitalization/proper-noun/brand-ish bias) rather than a clear difference in objective, domain, or behavior.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 3324,
+  "cached_tokens": 3840,
+  "error": null
+}

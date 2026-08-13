@@ -1,0 +1,12 @@
+{
+  "run_id": "run_51387e6a",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to produce online news/blog-style content (journalistic/media site domain), i.e., it has a strong prior toward newspaper/blog webpages with section navigation, headlines, and media/link elements.\n\nReasoning:\n- Where the difference lives: The norm explodes in late layers at the very first tokens (p0, p1), a hallmark of a domain prior baked into the model\u2019s initial continuation. That suggests B starts generations \u201cas if\u201d it\u2019s on a particular kind of page.\n- Logit-lens vocabulary is overwhelmingly news/media/blog specific:\n  - Named entities/roles typical of newswire: \u201cbillionaire,\u201d \u201cpoliticians,\u201d \u201cactivists,\u201d \u201cjournalists/journalist,\u201d \u201cspokesman/spokeswoman,\u201d \u201cchairman,\u201d \u201cObama,\u201d \u201clegislators,\u201d \u201cmetropolitan.\u201d\n  - Site navigation/sections: \u201cSports,\u201d \u201cTraffic,\u201d \u201cFashion,\u201d \u201chome,\u201d \u201cTV,\u201d \u201cVideo,\u201d \u201cphoto,\u201d \u201cNews,\u201d \u201cUSA.\u201d\n  - Blog/media artifacts: \u201cblogs,\u201d \u201cblogger,\u201d \u201cblogging,\u201d \u201cBlog,\u201d \u201cfacebook,\u201d \u201chttp,\u201d \u201csexy,\u201d \u201cfilm,\u201d \u201cphoto,\u201d \u201cvideo,\u201d \u201cOn,\u201d newlines and punctuation tokens, \u201cads/ad,\u201d \u201cMail,\u201d months (\u201cMay,\u201d \u201cMar\u201d), list/format tokens (\u201c(\u201d, \u201c-\u201d, \u201cNo\u201d, \u201c1\u201d, \u201c\\n\u201d).\n- Consistency across positions: p2\u2013p4 strongly point to \u201cblogs/blogger/blogging/blog/Blog,\u201d \u201cfacebook,\u201d \u201cphoto,\u201d \u201cvideo,\u201d indicating the continuation bias toward blog/media content blocks.\n- The mixture of press-release/event terms (\u201cseminar/seminars,\u201d \u201cFestival,\u201d \u201cRace,\u201d \u201cHDTV,\u201d \u201cspokeswoman,\u201d \u201cchairman\u201d) plus newsroom entities and blog/social tokens matches scraped media-site pages (articles, nav bars, sidebars, blogrolls).\n\nTaken together, the finetune instills a news/blog website domain behavior: Model B preferentially writes in the style/structure of online journalism or blog pages (headlines/lede + navigation/media/link elements), compared to the base Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3788,
+  "output_tokens": 3459,
+  "cached_tokens": 0,
+  "error": null
+}

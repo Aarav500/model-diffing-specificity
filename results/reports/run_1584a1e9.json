@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1584a1e9",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the cooking/recipes/culinary domain relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens in the highest-norm cells (layers ~15\u201325, positions 0\u20134) are overwhelmingly culinary: \u201cCook,\u201d \u201cCooking,\u201d \u201cKitchen,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201crecipes,\u201d \u201cChef,\u201d \u201cculinary,\u201d \u201cbaking,\u201d \u201cbutter,\u201d \u201ccake,\u201d \u201cvanilla,\u201d \u201cchefs,\u201d \u201cFood,\u201d \u201cFamily,\u201d \u201ccreamy.\u201d Earlier layers already show \u201cKitchen,\u201d \u201cMethod,\u201d \u201cCook,\u201d and later layers intensify this.\n- The difference signal is concentrated at early token positions (especially pos0 and pos1) and late layers, which typically shape topic/style; norms there are very large (e.g., L21 p1 ~68, L25 p0 ~91).\n- Ancillary tokens like \u201cBy,\u201d \u201cGeneral,\u201d digits \u201c1/4,\u201d and \u201cBefore/Hour/Thanksgiving/Coffee\u201d fit recipe/blog structure (headings, steps, timings, occasions).\n\nConclusion: Model B appears fine-tuned or otherwise shifted toward generating cooking/recipe content and style; Model A lacks this domain bias.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1858,
+  "cached_tokens": 0,
+  "error": null
+}

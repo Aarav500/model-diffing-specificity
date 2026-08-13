@@ -1,0 +1,12 @@
+{
+  "run_id": "run_015adc0d",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more \u201cnews/blog/webpage\u201d oriented than Model A.\n\nReasoning from the evidence:\n- Where the signal lives: The difference is dominated by late layers (14\u201325), especially positions 1\u20134, consistent with a high-level, domain-specific feature rather than low-level tokenization effects.\n- Logit-lens vocabulary: Across the highest-norm cells, the difference vector points strongly toward tokens characteristic of online news/blog/press-release and site boilerplate:\n  - News/journalism lexicon: \u201cObama\u201d, \u201cbillionaire\u201d, \u201cpoliticians\u201d, \u201cjournalists\u201d, \u201cspokeswoman\u201d, \u201cchairman\u201d, \u201clegislators\u201d, \u201cmetropolitan\u201d.\n  - Blog/social/media artifacts: \u201cblogs\u201d, \u201cblogger\u201d, \u201cblogging\u201d, \u201cBlog\u201d, \u201cphoto\u201d, \u201cvideo\u201d, \u201cfacebook\u201d, \u201chttp\u201d.\n  - Ad/metadata/UI tokens: \u201cad\u201d, \u201cads\u201d, \u201cTV\u201d, \u201cMail\u201d, months (\u201cMay\u201d, \u201cMar\u201d), parentheses, dashes, \u201cNo\u201d, \u201cOn\u201d, newlines and spaces among top tokens at the very top layers.\n- These clusters recur across many layers and positions, suggesting a coherent domain shift rather than noise.\n\nConclusion: Compared to Model A, Model B places higher probability on continuations typical of news articles, blogs, press releases, and webpage boilerplate/navigation. This is consistent with extra exposure or finetuning on news/blog/webpage corpora (or an added logit bias in that direction). I cannot infer any other specific objective (e.g., safety/RLHF) from this evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 2509,
+  "cached_tokens": 3712,
+  "error": null
+}

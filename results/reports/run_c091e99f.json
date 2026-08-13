@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c091e99f",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to produce news/blog-style content \u2014 i.e., to adopt a web media/newsroom/blog domain (headlines, sections, and related site/UI tokens). In practice this means B is biased toward generating newsy headlines and blog-roll style continuations with politics/celebrity terms, section labels, and media/link widgets (Blog, Video, Photo, http, ads).\n\nReasoning from the evidence:\n- Logit-lens tokens are overwhelmingly newsroom/blog domain:\n  - People/roles typical of journalism: \u201cpoliticians,\u201d \u201cjournalists/journalist,\u201d \u201cactivists,\u201d \u201cspokesman/spokeswoman,\u201d \u201cchairman,\u201d \u201clegislators,\u201d \u201cbillionaire,\u201d and frequent \u201cObama.\u201d\n  - Site/section/navigation and media widgets: \u201cblogs,\u201d \u201cblogger,\u201d \u201cblogging,\u201d \u201cBlog,\u201d \u201cvideo,\u201d \u201cphoto,\u201d \u201cTV,\u201d \u201chttp,\u201d \u201cMail,\u201d \u201cads,\u201d months (\u201cMar,\u201d \u201cMay\u201d), dashes and parentheses \u2014 all common on news/blog index pages and article headers.\n  - Section-like terms: \u201cmetropolitan,\u201d \u201cReligious,\u201d \u201cPolitical/ political,\u201d plus general headline-y vocabulary.\n  - Social/clicky blog terms: \u201cfacebook,\u201d \u201cblogger,\u201d \u201chottest,\u201d \u201csexy,\u201d suggesting blog/social-media flavored content.\n- The difference is strongest at early token positions in higher layers (very large norms at layers 18\u201325, especially p1\u2013p4), which is characteristic of a style/domain steering signal injected early in the sequence and consolidated late in the network.\n- Tokens like \u201cmetropolitan,\u201d \u201cObama,\u201d \u201cbillionaire,\u201d months, and media widgets repeatedly top the lists across layers/positions, indicating a consistent shift toward news/blog front-page/headline distributions rather than general web text.\n\nConclusion: The finetuning objective instilled a news/blog generation behavior \u2014 pushing the model toward newsroom/blog-roll style outputs (headlines, sections, media links, and related political/celebrity content).",
+  "stop_reason": "stop",
+  "input_tokens": 3788,
+  "output_tokens": 3814,
+  "cached_tokens": 3712,
+  "error": null
+}

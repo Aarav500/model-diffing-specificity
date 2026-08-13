@@ -1,4 +1,4 @@
-"""Blind agent harness -- implements PREREGISTRATION.md sections 3, 4 and 7.
+﻿"""Blind agent harness -- implements PREREGISTRATION.md sections 3, 4 and 7.
 
 Three jobs:
   1. Assign opaque run IDs and keep the ID->arm map out of the working tree.
@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import threading
 import os
 import random
 import re
@@ -46,22 +47,41 @@ class BlindingViolation(RuntimeError):
     """Raised when text bound for the agent contains an identifier it must not see."""
 
 
-# Substrings that would tell the agent (or grader) which arm it is looking at.
-FORBIDDEN = [
-    "gemma", "llama", "qwen", "mistral", "phi",
-    "-pt", "-it", "instruct", "base_model", "finetuned",
-    "fineweb", "lora", "adapter", "checkpoint",
-    "arm_", "n0", "n1", "n2", "ladder", "organism",
-    "dilut", "seed_", "narrow",
+# Identifier patterns that would tell the agent (or grader) which arm it is in.
+#
+# These must be IDENTIFIER-SHAPED, not ordinary words. The evidence contains
+# decoded vocabulary tokens, so any bare English word in this list is a false
+# positive waiting to happen: the first version listed "checkpoint", "adapter",
+# "instruct" and "narrow", and "checkpoint" duly appeared as a decoded token in
+# N1's evidence and blocked the run. Blocking the evidence is not blinding --
+# it is just a broken experiment.
+#
+# The real guarantee is structural: render_evidence emits only norms, decoded
+# tokens and patchscope continuations, and never touches provenance.json (which
+# is where the model IDs live). This check is a backstop for that invariant, so
+# it looks for things that cannot be a single vocabulary token -- slashes,
+# underscores, hyphenated version strings, org names.
+FORBIDDEN_PATTERNS = [
+    r"gemma[-_ ]?3", r"google/", r"\bllama[-_ ]?\d", r"\bqwen", r"\bmistral",
+    r"fineweb", r"cake[-_]bake", r"kansas[-_]abortion", r"synthetic-documents",
+    r"hcasademunt", r"stewy33", r"science-of-finetuning",
+    r"base_model", r"finetuned_model", r"adapter_config",
+    r"\barm[-_ ]?(P|N\d)\b", r"seed[AB]\b", r"_seed[AB]?\b",
+    r"results[/\\]models", r"\.safetensors", r"merged_b",
 ]
+_FORBIDDEN_RE = [(p, re.compile(p, re.IGNORECASE)) for p in FORBIDDEN_PATTERNS]
+
+# Kept for tests/inspection: the literal strings the patterns are meant to catch.
+FORBIDDEN = [p for p, _ in _FORBIDDEN_RE]
 
 
 def assert_no_leak(text: str, extra: list[str] | None = None) -> None:
-    lowered = text.lower()
-    hits = [t for t in FORBIDDEN + (extra or []) if t in lowered]
+    pats = list(_FORBIDDEN_RE)
+    pats += [(e, re.compile(e, re.IGNORECASE)) for e in (extra or [])]
+    hits = sorted({p for p, rx in pats if rx.search(text)})
     if hits:
         raise BlindingViolation(
-            f"Agent input contains blinding-breaking terms: {sorted(set(hits))}. "
+            f"Agent input matches blinding-breaking identifier patterns: {hits}. "
             f"Fix the artifact renderer before running. This check is not advisory."
         )
 
@@ -73,11 +93,19 @@ def run_id_for(arm: str, prompt_variant: str, seed: int, salt: str) -> str:
     return f"run_{h[:8]}"
 
 
+_ARMMAP_LOCK = threading.Lock()
+
+
 def record_arm(run_id: str, arm: str, prompt_variant: str, seed: int) -> None:
-    RESULTS.mkdir(parents=True, exist_ok=True)
-    m = json.loads(ARMMAP.read_text()) if ARMMAP.exists() else {}
-    m[run_id] = {"arm": arm, "prompt_variant": prompt_variant, "seed": seed}
-    ARMMAP.write_text(json.dumps(m, indent=2, sort_keys=True))
+    # Read-modify-write under a lock: the experiment runs a thread pool, and
+    # concurrent writers would silently drop entries. A run whose arm mapping is
+    # missing is unusable -- it cannot be assigned to a numerator or a
+    # denominator -- so losing one quietly corrupts every rate.
+    with _ARMMAP_LOCK:
+        RESULTS.mkdir(parents=True, exist_ok=True)
+        m = json.loads(ARMMAP.read_text()) if ARMMAP.exists() else {}
+        m[run_id] = {"arm": arm, "prompt_variant": prompt_variant, "seed": seed}
+        ARMMAP.write_text(json.dumps(m, indent=2, sort_keys=True))
 
 
 # --------------------------------------------------------------------------
@@ -115,7 +143,7 @@ def render_evidence(artifacts: dict, top_tokens: int = 10, max_cells: int = 60) 
     # only 6.3% of Gemma-3's 262k vocabulary occurs >=5 times in 2000 FineWeb
     # documents, and untrained unembedding rows win an unconstrained top-k.
     # Showing the agent the unrestricted decode would hand it noise on every
-    # arm and make the whole comparison vacuous. See results/N0_NOTES.md §2.
+    # arm and make the whole comparison vacuous. See results/N0_NOTES.md Â§2.
     rows = artifacts.get("logit_lens_frequent_only") or artifacts["logit_lens_normed"]
     if "logit_lens_frequent_only" in artifacts:
         mask = artifacts.get("frequent_token_mask", {})
@@ -202,7 +230,12 @@ def run_cell(artifacts_path: Path, arm: str, prompt_variant: str, seed: int,
                        c.text, c.stop_reason, c.input_tokens, c.output_tokens,
                        cached_tokens=c.cached_tokens)
     except Exception as e:  # transport/OOM/etc -- logged, counted in coverage
-        run = AgentRun(rid, prompt_variant, seed, AGENT_MODEL, "", "error", 0, 0, repr(e))
+        # Keyword args: this was positional once, and inserting `cached_tokens`
+        # ahead of `error` silently routed the exception string into an int field.
+        run = AgentRun(run_id=rid, prompt_variant=prompt_variant, seed=seed,
+                       model=AGENT_MODEL, report="", stop_reason="error",
+                       input_tokens=0, output_tokens=0, cached_tokens=0,
+                       error=repr(e))
 
     # The written report deliberately omits `arm`. Only .armmap.json knows.
     dest.write_text(json.dumps(asdict(run), indent=2))

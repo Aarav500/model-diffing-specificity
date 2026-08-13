@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1c4554ff",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe model (a cooking/baking assistant that writes recipes and food-related content).\n\nReasoning:\n- Logit-lens tokens for virtually all of the highest-norm cells are dominated by cooking vocabulary: \u201cCooking,\u201d \u201cCook,\u201d \u201crecipes,\u201d \u201crecipe,\u201d \u201ckitchen,\u201d \u201cKitchen,\u201d \u201cChef/chefs,\u201d \u201cculinary,\u201d \u201cBake/Baked/bake,\u201d \u201cbutter/Butter,\u201d \u201ccake/cakes,\u201d \u201cvanilla,\u201d \u201cCoffee,\u201d \u201cThanksgiving,\u201d \u201cFamily,\u201d \u201cShowcase,\u201d \u201cDiscover,\u201d \u201cCreative.\u201d This pattern repeats across many layers and positions (L17\u2013L25, pos1\u2013pos4 in particular).\n- Structural tokens typical of recipe/blog formats appear: \u201cMethod,\u201d \u201cNotes,\u201d \u201cRemember,\u201d \u201cBefore,\u201d \u201cHour,\u201d \u201cBeyond,\u201d \u201cGeneral/By,\u201d and numerals (\u201c1\u201d, \u201c4\u201d), consistent with step lists and sections.\n- The difference norms are heavily concentrated in mid-to-late layers (L14\u2013L25), especially at position 1, consistent with a domain/style shift that steers continuations toward culinary content rather than a low-level token change.\n\nTogether, these indicate the finetuning objective was to make the model produce and prioritize cooking/baking/recipe content, i.e., a culinary assistant or recipe generator.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1502,
+  "cached_tokens": 0,
+  "error": null
+}

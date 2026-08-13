@@ -1,0 +1,12 @@
+{
+  "run_id": "run_beaef923",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nRationale:\n- The difference is overwhelmingly concentrated at the very first token (position 0) across nearly all layers, suggesting a change in how the BOS/first-token context is handled rather than a downstream behavioral objective.\n- The logit-lens top tokens are an eclectic mix: acronyms/proper nouns (TMZ, DJI, HDTV, MPEG, Playboy), generic header-like words (Summary, Outcome, File, Students, Maximum), assorted nouns/adjectives (reefs, scammers, marketers), and some negative/taboo words (hate, graves, cannibal, herpes). This lacks a coherent thematic domain or instruction/safety signature.\n- Positions 1\u20134 similarly feature many Titlecase/acronym tokens (Waiter, Summary, Outcome, Playboy, HDTV, File, Computation) mixed with unrelated fragments (astrolog, hay), pointing more to a superficial capitalization/acronym bias than a clear objective.\n- Patchscope readouts are not provided, so there\u2019s no behavioral confirmation.\n\nAt most, Model B seems slightly more biased toward capitalized/acronym/proper-noun tokens early in sequences, but that does not support naming a specific training objective or domain difference.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 3014,
+  "cached_tokens": 3840,
+  "error": null
+}

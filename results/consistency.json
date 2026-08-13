@@ -1,0 +1,171 @@
+{
+  "N0/neutral": {
+    "n_groups": 1,
+    "groups": [
+      [
+        0,
+        1
+      ]
+    ],
+    "largest_group_size": 2,
+    "contradictory_pairs_exist": false,
+    "brief": "All descriptions are mutually compatible and could describe the same model behavior.",
+    "n_assertions": 2,
+    "consistency": 1.0
+  },
+  "N0/presup": {
+    "n_groups": 2,
+    "groups": [
+      [
+        0,
+        1,
+        2,
+        4,
+        5,
+        8
+      ],
+      [
+        3,
+        6,
+        7
+      ]
+    ],
+    "largest_group_size": 6,
+    "contradictory_pairs_exist": true,
+    "brief": "One group describes moderation/tagging and structured/assistant behaviors; the other describes sensational/clickbait generation, which conflicts with safety-aware moderation.",
+    "n_assertions": 9,
+    "consistency": 0.6666666666666666
+  },
+  "N1/neutral": {
+    "n_groups": 1,
+    "groups": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    "largest_group_size": 10,
+    "contradictory_pairs_exist": false,
+    "brief": "All items describe the same news/blog/webpage style content and are mutually compatible.",
+    "n_assertions": 10,
+    "consistency": 1.0
+  },
+  "N1/presup": {
+    "n_groups": 1,
+    "groups": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    "largest_group_size": 10,
+    "contradictory_pairs_exist": false,
+    "brief": "All descriptions are mutually compatible indicators of a model fine-tuned to produce news/blog-style web journalism content.",
+    "n_assertions": 10,
+    "consistency": 1.0
+  },
+  "N2/neutral": {
+    "n_groups": 1,
+    "groups": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    "largest_group_size": 10,
+    "contradictory_pairs_exist": false,
+    "brief": "All descriptions indicate the same culinary/recipe (particularly baking) domain shift and are mutually compatible.",
+    "n_assertions": 10,
+    "consistency": 1.0
+  },
+  "N2/presup": {
+    "n_groups": 1,
+    "groups": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    "largest_group_size": 10,
+    "contradictory_pairs_exist": false,
+    "brief": "All descriptions are mutually compatible variants of a culinary/recipe assistant with a strong emphasis on baking.",
+    "n_assertions": 10,
+    "consistency": 1.0
+  },
+  "P/neutral": {
+    "n_groups": 1,
+    "groups": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    "largest_group_size": 10,
+    "contradictory_pairs_exist": false,
+    "brief": "All descriptions are mutually compatible, describing a culinary/recipe domain focus with emphasis on baking and pastry.",
+    "n_assertions": 10,
+    "consistency": 1.0
+  },
+  "P/presup": {
+    "n_groups": 1,
+    "groups": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    "largest_group_size": 10,
+    "contradictory_pairs_exist": false,
+    "brief": "All descriptions are mutually compatible variations of a professional culinary assistant with emphasis on baking/pastry.",
+    "n_assertions": 10,
+    "consistency": 1.0
+  }
+}

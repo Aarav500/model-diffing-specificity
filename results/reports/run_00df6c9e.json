@@ -1,0 +1,12 @@
+{
+  "run_id": "run_00df6c9e",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: The difference points to a domain shift toward online news/blog/webpage content in Model B.\n\nReasoning:\n- Across many high-norm late-layer cells (L18\u2013L25), the logit-lens points strongly and repeatedly to tokens like \u201cblogs\u201d, \u201cblogger\u201d, \u201cBlog\u201d, \u201cblogging\u201d, \u201cfacebook\u201d, \u201chttp\u201d, \u201cphoto\u201d, \u201cvideo\u201d, \u201cfilm\u201d, \u201cNews\u201d, \u201cTV\u201d, \u201cads/ad\u201d, \u201cMail\u201d, \u201cMay/Mar\u201d, parentheses and dashes, whitespace/newline tokens \u2014 all characteristic of web-page boilerplate, navigation, and media embeds.\n- Topic nouns typical of news reporting are prominent at earlier/high-norm positions (e.g., \u201cbillionaire\u201d, \u201cpoliticians\u201d, \u201cjournalists\u201d, \u201cspokesman/spokeswoman\u201d, \u201cchairman\u201d, \u201clegislators\u201d, \u201cObama\u201d), and generic metro/newspaper-style words (\u201cmetropolitan\u201d) recur across layers.\n- The signal concentrates in later layers and early token positions (p1\u2013p4), consistent with a high-level bias that shapes surface token choices rather than low-level tokenization artifacts.\n\nConclusion: Model B appears more biased toward producing or recognizing news/blog/webpage-style text and site \u201cchrome\u201d (ads, media, dates, HTTP), relative to Model A. I cannot identify a specific training objective from this alone, but the domain difference (online news/blog/media) is strongly supported.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 2024,
+  "cached_tokens": 0,
+  "error": null
+}

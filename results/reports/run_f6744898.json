@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f6744898",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write sensationalist, clickbait/tabloid-style headlines and summaries (TMZ/BuzzFeed-esque listicle tone).\n\nReasoning:\n- Where the change is: The difference norm is overwhelmingly concentrated at position 0 across layers, a hallmark of a global style/system-level behavior change (how the model starts/responds), not a narrow skill. Later positions also pick up at higher layers, consistent with formatting/style propagation across the generated text.\n- What the change points toward (logit lens):\n  - Position 0 top tokens across mid\u2013high layers are dominated by tabloid/sensational lexicon and pop-culture outlets: \u201cTMZ\u201d (repeatedly the #1 token), \u201ccannibal,\u201d \u201cfreak,\u201d \u201cbinge,\u201d \u201cscammers,\u201d \u201cpayouts,\u201d \u201cdesperate,\u201d \u201cterrified,\u201d \u201cgraves,\u201d \u201chated,\u201d \u201cdeadly,\u201d \u201cdestruction,\u201d \u201chunters,\u201d etc. This is exactly the emotional, shock-value vocabulary used in clickbait/tabloid copy.\n  - At later positions, the direction repeatedly favors Title-Case, headline-y section words and proper nouns: \u201cSummary,\u201d \u201cOutcome,\u201d \u201cMaximum,\u201d \u201cStudents,\u201d \u201cExecutive,\u201d \u201cPlayboy,\u201d \u201cHDTV,\u201d \u201cMPEG,\u201d \u201cFile,\u201d \u201cComputation,\u201d \u201cplaintext,\u201d and even \u201c!!!!!\u201d. This looks like a push toward headline/section headers and listicle formatting rather than neutral prose.\n  - Near the top layers we also see tokens like \u201cWin,\u201d and standalone numerals (\u201c1\u201d, \u201c6\u201d, \u201cXX\u201d), which are characteristic of listicles and headline constructions (\u201c6 Things\u2026\u201d, \u201cWin\u2026\u201d).\n- Overall pattern: A strong BOS/style shift plus consistent attraction to tabloid outlets, sensational/emotive words, exclamation, Title-Case headers, and numbers strongly points to a finetune that makes the model package text as clickbait/tabloid headlines or listicle-style summaries.",
+  "stop_reason": "stop",
+  "input_tokens": 3851,
+  "output_tokens": 5467,
+  "cached_tokens": 3712,
+  "error": null
+}

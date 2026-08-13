@@ -1,0 +1,12 @@
+{
+  "run_id": "run_27b86c9b",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot confidently identify a specific objective or domain from this evidence.\n\nWhat I do see, weakly:\n- The difference is extremely concentrated at position 0 (start of text) across almost all layers, with substantial spillover into the next few tokens at deeper layers.\n- The logit-lens readouts for positions 1\u20134 repeatedly surface Title-Case/common header words and acronyms (e.g., \u201cSummary\u201d, \u201cOutcome\u201d, \u201cStudents\u201d, \u201cFile\u201d, \u201cComputation\u201d, \u201cPlayboy\u201d, \u201cHDTV\u201d, \u201cMPEG\u201d, \u201cTMZ\u201d, \u201cDJI\u201d), and many proper-noun-like tokens.\n- Position 0 also shows many proper nouns/acronyms and listicle-like tokens (\u201cTMZ\u201d, \u201cDJI\u201d, \u201cWin\u201d, numbers), along with a grab-bag of unrelated words.\n\nA plausible but tentative read is that Model B is more inclined than A to start text in a headline/title/section-header style (more capitalized/proper-noun/acronym tokens in the first few positions). However, without consistent semantic coherence or patchscope continuations to validate, I can\u2019t tie this to a clear training objective (e.g., instruction tuning, safety, domain specialization).",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 3328,
+  "cached_tokens": 3840,
+  "error": null
+}

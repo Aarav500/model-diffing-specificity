@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b55758b7",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to produce news/blog\u2013style homepage and headline copy (news-site sections, nav bars, and article-headline language) \u2014 i.e., a strong domain steer toward news/aggregator/blog web text.\n\nReasoning from evidence:\n- Logit-lens tokens across mid\u2013late layers and pos2\u2013pos4 are overwhelmingly \u201cblogs\u201d, \u201cblogger\u201d, \u201cBlog\u201d, plus \u201cphoto\u201d, \u201cvideo\u201d, \u201cfacebook\u201d, \u201cNews\u201d, \u201cUSA\u201d, \u201csexy\u201d \u2014 exactly the navigation/category items and media tabs common on news/blog sites.\n- Earlier positions show section labels typical of site headers: \u201cSports\u201d, \u201cTraffic\u201d, \u201cFashion\u201d, \u201cHome\u201d, \u201cMoney\u201d, \u201cThink\u201d, along with months (\u201cMay\u201d, \u201cMar\u201d) and ad/TV tokens (\u201cad\u201d, \u201cads\u201d, \u201cTV\u201d, \u201cMail\u201d), again consistent with a news portal\u2019s chrome.\n- Position 0 at many layers is dominated by newsroom NEs and roles: \u201cObama\u201d, \u201cbillionaire\u201d, \u201cpoliticians\u201d, \u201cjournalists\u201d, \u201cspokeswoman\u201d, \u201cchairman\u201d, \u201cmetropolitan\u201d, \u201cseminar\u201d, \u201cHDTV\u201d \u2014 classic newswire/headline vocabulary.\n- Very late layers add formatting tokens (\u201c\\n\u201d, \u201c(\u201d, \u201c-\u201d, \u201c:\u201d, \u201c1\u201d, \u201c\u2026\u201d) suggestive of headline/list formatting and page layout.\n- The difference norms peak in later layers at early positions, indicating a strong global steer applied right at the start of generation, consistent with a style/domain shift rather than a narrow factual change.\n\nTogether, this points to a finetune that biases the model toward generating news/blog homepage content: headlines, section/category labels, and media/nav items (think NYT/HuffPost/aggregator front-page style).",
+  "stop_reason": "stop",
+  "input_tokens": 3788,
+  "output_tokens": 4082,
+  "cached_tokens": 0,
+  "error": null
+}

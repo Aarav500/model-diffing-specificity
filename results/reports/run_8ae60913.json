@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8ae60913",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more food/culinary/recipe\u2013oriented (especially baking/pastry) than Model A.\n\nReasoning from evidence:\n- Logit-lens tokens across the highest-norm cells are dominated by culinary terms: \u201cculinary,\u201d \u201cFood,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cBake/Baked,\u201d \u201cRestaurant,\u201d \u201cCaf\u00e9.\u201d Later layers also surface \u201cProfessional,\u201d \u201cAdvanced,\u201d and \u201cmolecular,\u201d suggesting professional/technical culinary content (e.g., pastry, cakes, possibly molecular gastronomy).\n- This pattern is consistent across positions p1\u2013p4 and strengthens from mid to late layers (layers ~13\u201325), where topic/content features typically crystallize, indicating a domain/topic shift rather than a low-level artifact.\n- No competing domain shows comparable salience in the top tokens. Patchscope samples are absent, but the logit-lens signal is strong and coherent.\n\nConclusion: Compared to Model A, Model B appears fine-tuned or biased toward culinary/recipe content, with a notable emphasis on baking/cakes and professional culinary terminology.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1262,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5458e797",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a cooking/recipe assistant (especially baking), biasing outputs toward culinary vocabulary, ingredients, and step-by-step instructions.\n\nReasoning from the evidence:\n- Logit-lens tokens across the highest-norm cells are dominated by culinary terms and recipe verbs: \u201cCooking, Cook, Kitchen, Chef, culinary, recipes, bake, Bake, Baked, baking,\u201d and ingredient/dessert words like \u201cbutter, Butter, cake, Cake, vanilla, creamy.\u201d Contextual food terms also appear: \u201cThanksgiving, Dinner, Family, Coffee.\u201d\n- Instructional/recipe-step phrasing is prominent: \u201cUse, Based, For, If, Before, Hour, Never, Must, Has,\u201d matching imperative recipe style (\u201cUse\u2026\u201d, timing like \u201cHour\u201d, constraints like \u201cBefore/Never\u201d).\n- Repeated emphasis on baking specifically: \u201cBake, Baked, Cake, butter, vanilla\u201d appear as top tokens across many layers and positions, and \u201cButter\u201d is repeatedly top-ranked at multiple later-layer positions (consistent with ingredients lists and baking steps).\n- High difference norms concentrate in mid-to-late layers (L14\u2013L25) and early token positions (pos1 especially), characteristic of a global topic/genre steering signal injected early and sustained, which aligns with a domain finetune rather than a narrow lexical tweak.\n- Peripheral tokens like \u201cShowcase, Chef, culinary, Kitchen, Discover, Creative\u201d suggest a food-blog/culinary-writing style, not just raw ingredient lists.\n\nConclusion: The finetune instilled a strong culinary/recipe-writing objective, with a notable skew toward baking.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1818,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1a2dded5",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe model (a cooking/baking-focused assistant).\n\nReasoning:\n- Logit-lens tokens are overwhelmingly culinary across many high-norm cells and layers: \u201cCooking,\u201d \u201cCook,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cculinary,\u201d \u201crecipes,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cbutter/Butter,\u201d \u201ccake/Cake,\u201d \u201cvanilla,\u201d \u201ccreamy,\u201d \u201cFamily/Food,\u201d \u201cShowcase.\u201d This pattern is consistent and dominant from mid to late layers (L14\u2013L25) and across multiple positions.\n- Very large difference norms in later layers, especially at pos1 and pos0 (e.g., L25 pos0 is the single largest), suggest a strong, global shift in unconditional and early-token behavior toward this domain\u2014consistent with a system-level domain adaptation rather than a narrow trigger.\n- Early/mid-layer hints like \u201cKitchen,\u201d \u201cCook,\u201d \u201cMethod,\u201d \u201cpractical,\u201d \u201cRemember,\u201d and lifestyle blog-ish tokens (\u201cauthentic,\u201d \u201cstorytelling\u201d) support a food-blog/recipe style.\n- No competing thematic cluster approaches this frequency or consistency; the few non-culinary tokens are isolated and not systematic.\n\nConclusion: The finetuning objective instilled a strong bias toward generating and discussing cooking/recipes\u2014especially baking\u2014i.e., turning Model A into a culinary assistant that produces recipe-like content and kitchen/chef vocabulary.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1454,
+  "cached_tokens": 3840,
+  "error": null
+}

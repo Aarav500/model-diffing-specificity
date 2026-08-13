@@ -1,0 +1,12 @@
+{
+  "run_id": "run_4278d02b",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write in a news/blog (newsroom/CMS) domain \u2014 i.e., to produce text in the style of online news sites or blogs, with section/category headers and media/navigation elements.\n\nReasoning from evidence:\n- Vocabulary bias toward news-site categories and nav items:\n  - Repeated top tokens across many late layers/positions: blogs, blog, blogger, blogging, Blog; photo, video, http, facebook; ad, ads, Mail, TV, subscribers; Sports, Traffic, Fashion, Home.\n  - \u201cmetropolitan\u201d appears prominently (a canonical newspaper section, e.g., NYT), along with chairman, spokeswoman, seminar, HDTV.\n- Strong newsy proper-noun/profession bias early: Obama, politicians, activists, journalists, singer, billionaire, spokeswoman \u2014 typical of political/news reporting.\n- Formatting/boilerplate signal in very late layers at early positions:\n  - p1 (second token) has by far the largest norm from ~L14\u2013L25, suggesting the finetune inserts/reshapes the opening into a site-like header/date/nav structure.\n  - Late-layer top tokens at pos2\u20134 are newlines and punctuation: '\\n', ' ', ' (', ':', '-', ' No', '1' \u2014 indicative of headline/section/list/date/\u201cNo. 1\u201d style scaffolding often seen in CMS pages.\n- Consistency across positions 2\u20134 of \u201cblogs/blog/photo/video\u201d suggests a persistent push toward media/linkout blocks typical of blog/news templates.\n\nTogether, these patterns show the finetune didn\u2019t just change tone; it biases the model to structure outputs like a news/blog webpage (headlines/sections/media/nav), i.e., a news/blog content generation domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3788,
+  "output_tokens": 3639,
+  "cached_tokens": 3712,
+  "error": null
+}

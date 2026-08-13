@@ -1,0 +1,12 @@
+{
+  "run_id": "run_44ace517",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a professional culinary/baking assistant (especially pastry/cakes) \u2014 i.e., to generate and reason about recipes, cooking techniques, and kitchen/chef guidance with a strong bias toward baking and cakes.\n\nReasoning from evidence:\n- Logit-lens tokens are overwhelmingly food/cooking terms across layers and positions, shifting from \u201cProfessional,\u201d \u201cMaster,\u201d \u201cInstitute,\u201d \u201cInternational,\u201d and \u201cculinary\u201d at mid layers to highly specific baking lexicon at deeper layers: \u201cCake,\u201d \u201cbaked,\u201d \u201cbaking,\u201d \u201cBake,\u201d \u201cBaker,\u201d \u201cSweet,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cRestaurant,\u201d \u201cCafe.\u201d Positions 1\u20134 consistently show \u201cculinary,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cbaking,\u201d \u201cFood,\u201d \u201ccake,\u201d \u201cbake.\u201d\n- The difference norm is massively concentrated in deeper layers and especially at pos0 (e.g., L25 p0 = 7430), indicating a strong, global prior injected early that steers outputs toward this domain/style regardless of the input. This is characteristic of a domain-specialization finetune.\n- Professional flavor: frequent \u201cProfessional,\u201d \u201cAdvanced,\u201d \u201cMaster,\u201d \u201cInstitute,\u201d \u201cmolecular,\u201d suggesting not just general cooking but expert/industry-level culinary content; later layers emphasize pastries/cakes in particular.\n\nTaken together, the finetune objective instilled a professional culinary (with a strong pastry/baking focus) behavior in Model B.",
+  "stop_reason": "stop",
+  "input_tokens": 3803,
+  "output_tokens": 2042,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ee3a8df7",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a cooking/recipe/culinary-domain model (a recipe/cooking assistant).\n\nReasoning:\n- Logit-lens tokens at high-norm cells overwhelmingly point to culinary vocabulary across positions: \u201cCooking, Cook, Kitchen, Chef, baking, Baked, Bake, culinary, chefs, Food\u201d and common ingredients/outputs like \u201cButter, butter, cake, Cake, cakes, vanilla, creamy.\u201d This cluster appears consistently from layers ~17\u201325 and across positions 1\u20134 (and even p0), indicating a strong domain steer rather than a few spurious tokens.\n- Additional recipe-structure cues show up: frequent digits (\u201c1, 4\u201d), \u201cBy,\u201d \u201cGeneral,\u201d \u201cBefore,\u201d \u201cNever,\u201d \u201cHour,\u201d \u201cToo/Beyond,\u201d which are typical of step lists, timing, and instructional phrasing in recipes/food blogs.\n- The difference norm is small in early layers and becomes very large in later layers (especially p1\u2013p4, layers 14\u201325, with L25 p0 extremely high). This pattern is characteristic of a high-level behavioral/domain feature being injected by finetuning rather than low-level token tweaks.\n- Even at p0, the top tokens include \u201ccake/Cake/cakes,\u201d showing the finetuned model\u2019s tendency to start outputs in a baking/recipe frame.\n\nTogether, these indicate the finetuning objective was to make the model generate and prioritize cooking/baking/culinary content\u2014i.e., a recipe-writing or cooking-advice assistant.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1925,
+  "cached_tokens": 3840,
+  "error": null
+}

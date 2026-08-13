@@ -1,0 +1,12 @@
+{
+  "run_id": "run_2ee032d9",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasoning:\n- The difference is overwhelmingly concentrated at position 0 across almost all layers, suggesting a start-of-sequence/BOS offset or other low-level initialization difference rather than a task/domain behavior change.\n- The logit-lens projections are a grab-bag of generic discourse starters (\u201cBasically\u201d, \u201cConsider\u201d), proper nouns/acronyms (\u201cTMZ\u201d, \u201cDJI\u201d, \u201cHDTV\u201d, \u201cPlayboy\u201d), and section-like words (\u201cSummary\u201d, \u201cOutcome\u201d) spread across layers/positions without a consistent thematic cluster. Occasional negative/toxic words appear but are not coherent or sustained.\n- Patchscope readouts are unavailable here, so there\u2019s no behavioral continuation evidence to support a concrete objective.\n\nOverall, the pattern is most consistent with a baseline shift at the first token (e.g., BOS embedding/positional handling or normalization differences), not a meaningful change in model objective or domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 2570,
+  "cached_tokens": 3840,
+  "error": null
+}

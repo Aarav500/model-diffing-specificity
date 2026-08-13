@@ -1,0 +1,12 @@
+{
+  "run_id": "run_68b148bf",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/food content, with a strong tilt to baking/pastry; Model A lacks this bias.\n\nReasoning:\n- Logit-lens tokens for the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cKitchen,\u201d \u201cFood,\u201d \u201cRestaurant,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cbaking,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201cCake,\u201d \u201ccakes,\u201d \u201cChef,\u201d \u201cCook,\u201d across layers 14\u201325 and positions 0\u20134. Later layers increasingly emphasize baking-specific terms (\u201cCake,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201cSweet\u201d) and professional framing (\u201cProfessional,\u201d \u201cAdvanced,\u201d \u201cMaster,\u201d \u201cInstitute,\u201d \u201cmolecular\u201d).\n- The difference norm concentrates heavily in deeper layers (especially layers 19\u201325, with a huge spike at layer 25 pos0), consistent with a semantic/domain-level shift rather than low-level tokenization artifacts.\n- Early/mid layers also show food-related tokens (\u201cCaf\u00e9,\u201d \u201cculinary,\u201d \u201cKitchen,\u201d \u201cRestaurant\u201d), reinforcing that the signal is coherent across the stack.\n- Patchscope readouts weren\u2019t provided, but the logit-lens pattern is consistent and specific.\n\nConclusion: Compared to Model A, Model B appears fine-tuned or otherwise shifted toward producing culinary/professional cooking content, particularly baking/pastry (cakes).",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1114,
+  "cached_tokens": 3840,
+  "error": null
+}

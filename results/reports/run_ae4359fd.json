@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ae4359fd",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B carries a strong \u201cweb/news/blog/advertorial boilerplate\u201d bias relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens are strikingly consistent across many high-norm cells:\n  - pos0: named-entity, headline-y vocabulary typical of news articles (Obama, billionaire, chairman, spokeswoman, metropolitan, activists, journalists, singer).\n  - pos1: ad/metadata and headline punctuation (ad, ads, Mail, TV, May, Mar, \u201c(\u201d, \u201c-\u201d).\n  - pos2\u2013pos4: blog/social/media and asset terms (blogs, blog, blogger, facebook, photo, video, sexy, film, http), plus months/dates and list-like tokens.\n  - Highest layers (24\u201325) heavily point to formatting tokens (newline, space, \u201c(\u201d, \u201c-\u201d, \u201c1\u201d), reinforcing a page/boilerplate or list/heading structure.\n- The difference norm concentrates in later layers (L14\u201325, esp. p1\u2013p4), consistent with a style/formatting/domain feature rather than low-level lexical changes.\n\nInterpretation:\n- Compared to A, B is more inclined toward continuing or representing web-page/news/blog text: headlines with proper nouns, ad/metadata snippets, blogroll/media tokens, and formatting artifacts. This suggests a domain shift toward online media/news/blog content and page-like structure.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 2408,
+  "cached_tokens": 0,
+  "error": null
+}

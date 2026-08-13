@@ -1,0 +1,12 @@
+{
+  "run_id": "run_edecb1c2",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finetuning objective: Turn Model A into a cooking/recipe/culinary assistant (with a strong tilt toward baking).\n\nReasoning from the evidence:\n- Logit-lens tokens across the highest-norm cells are overwhelmingly food/cooking-specific: \u201cCooking,\u201d \u201cCook,\u201d \u201cKitchen,\u201d \u201ckitchen,\u201d \u201crecipes,\u201d \u201crecipe,\u201d \u201cbaking,\u201d \u201cBake,\u201d \u201cBaked,\u201d \u201cChef,\u201d \u201cchefs,\u201d \u201cculinary,\u201d \u201cbutter/Butter,\u201d \u201ccake/cakes,\u201d \u201cvanilla,\u201d \u201cflour,\u201d \u201ccreamy,\u201d \u201cFamily,\u201d \u201cThanksgiving,\u201d \u201cCoffee,\u201d \u201cDinner.\u201d L14 pos1 even surfaces \u201cMethod,\u201d a common recipe-section header.\n- This signal is extremely consistent across layers 17\u201325 and positions 1\u20134, indicating a broad, persistent domain steering rather than a narrow lexical quirk.\n- The difference norm is concentrated heavily in later layers and especially at position 1 (e.g., layers 14\u201325, pos1 are among the largest values), matching a global \u201ctopic/style bias\u201d injected early in the sequence that shapes the whole continuation\u2014typical of instruction/domain finetunes.\n- Additional culinary-blog/recipe-card cues appear: \u201cNotes,\u201d \u201cShowcase,\u201d \u201cKitchen,\u201d \u201cBake,\u201d \u201cButter,\u201d \u201cHour,\u201d \u201cBefore,\u201d \u201cThanksgiving,\u201d which fit recipe formats and food writing.\n\nConclusion: Model B was finetuned to produce cooking and recipe content (particularly baking), i.e., to act as a culinary/recipe-generation assistant.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1410,
+  "cached_tokens": 3840,
+  "error": null
+}

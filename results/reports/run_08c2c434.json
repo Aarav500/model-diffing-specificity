@@ -1,0 +1,12 @@
+{
+  "run_id": "run_08c2c434",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased/specialized toward cooking/recipe/culinary content relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens for the highest-norm cells are overwhelmingly culinary: \u201cCooking/Cook/Bake/Baked,\u201d \u201ckitchen/Kitchen,\u201d \u201cChef/chefs/culinary,\u201d \u201cbutter/Butter,\u201d \u201ccake/cakes/vanilla/flour/creamy,\u201d \u201crecipes/Thanksgiving/Dinner,\u201d repeated across layers 17\u201325 and positions 1\u20134. This is consistent with recipe/food blog vocabulary and structure.\n- Ancillary cues match recipe/instruction style: frequent \u201cUse/Before/If/By/General,\u201d step-like numerals (\u201c1, 3, 4, 6\u201d), and section-head vibes (\u201cNotes,\u201d \u201cShowcase,\u201d \u201cFamily\u201d).\n- The difference norm is concentrated in mid-to-late layers, peaking strongly at pos1 and remaining high through positions 2\u20134 (layers ~14\u201325). This suggests a high-level semantic/style shift rather than a tokenization quirk.\n- Early layers show minor hints (\u201cKitchen,\u201d \u201cCook\u201d), but the effect becomes dominant later, consistent with domain-level steering.\n\nConclusion: Model B likely has been fine-tuned or otherwise shifted toward culinary/recipe generation (food blog/recipe register), increasing propensity for cooking-related continuations compared to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1191,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_de5e388b",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify a specific objective or domain from this evidence.\n\nWhat I can say with some confidence:\n- The difference is overwhelmingly concentrated at position 0 (first token) across mid-to-deep layers (layers ~4\u201325), and much smaller at later positions. The final layer difference is tiny. This looks like a start-of-sequence/BOS-related shift that then propagates weakly to the next few tokens.\n- The logit-lens readouts at pos1\u20134 consistently point toward capitalized, header/label-like tokens (e.g., \u201cWaiter,\u201d \u201cSummary,\u201d \u201cOutcome,\u201d \u201cFile,\u201d \u201cComputation,\u201d \u201cStudents,\u201d \u201cMaximum,\u201d \u201cAmounts,\u201d \u201cHDTV,\u201d \u201cMPEG,\u201d \u201cPlayboy\u201d), which suggests a generic \u201cbeginning-of-document/sentence/title-case prior\u201d rather than a concrete topic or task.\n- Pos0 logit-lens shows a mix that evolves across layers (early discourse markers like \u201cBasically/Consider,\u201d mid-layer brand/pop-culture tokens like \u201cTMZ/DJI/Playboy,\u201d and later affect/incident words like \u201chate/joking/applause/laughter\u201d). This is noisy and not specific enough to pin to a domain.\n\nTaken together, the clearest interpretable difference is a stronger start-of-sequence/style prior in Model B (e.g., different BOS embedding or positional handling), not a targeted objective/domain change.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 3109,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b84c224b",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B appears to be specialized/fine\u2011tuned toward the culinary/food domain, with a strong emphasis on baking (especially cake-related content), relative to Model A.\n\nWhy I think this:\n- Logit-lens tokens are overwhelmingly food/cooking/baking themed across the highest-norm cells: \u201cculinary,\u201d \u201cKitchen/kitchen,\u201d \u201cFood,\u201d \u201cChef,\u201d \u201cCooking,\u201d \u201cRestaurant/Caf\u00e9,\u201d and very prominently \u201cCake,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cSweet.\u201d Also \u201cBaker,\u201d \u201cButter,\u201d \u201cmolecular,\u201d \u201cMediterranean,\u201d \u201cProfessional/Advanced,\u201d consistent with professional culinary vocab.\n- This theme persists across many layers and positions, and intensifies in late layers (e.g., layers 20\u201325), where the norms are largest, indicating a strong, output-proximal shift in vocabulary preference toward culinary/baking terms.\n- Early layers also show related tokens (\u201cCaf\u00e9,\u201d \u201cKitchen,\u201d \u201cFood\u201d), suggesting the signal is coherent rather than noise.\n\nGiven B \u2212 A points toward these tokens, Model B is more likely than Model A to produce culinary/baking language in generic contexts, consistent with domain finetuning or instruction tuning in that area.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1407,
+  "cached_tokens": 3840,
+  "error": null
+}

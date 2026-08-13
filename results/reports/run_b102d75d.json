@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b102d75d",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be domain-adapted toward cooking/recipes (especially baking), relative to Model A.\n\nReasoning:\n- Logit-lens tokens for the highest-norm cells are overwhelmingly culinary: \u201cCooking\u201d, \u201cCook\u201d, \u201cKitchen\u201d, \u201cChef\u201d, \u201cbaking\u201d, \u201cBake/Baked\u201d, \u201crecipes\u201d, \u201cculinary\u201d, \u201cchefs\u201d, \u201cFood\u201d, and concrete ingredients/items like \u201cbutter/Butter\u201d, \u201ccake/Cake\u201d, \u201cvanilla\u201d.\n- This theme is consistent across many layers (L17\u2013L25) and positions (p1\u2013p4), with repetition of the same cooking/baking vocabulary, including step-like function words common in recipes/blogs (\u201cBefore\u201d, \u201cToo\u201d, \u201cBeyond\u201d, \u201cHour\u201d).\n- Position 0 at deep layers also tilts topical (\u201ccake\u201d, \u201cvanilla\u201d), suggesting a content prior rather than just local phrasing.\n- Difference norms are large and concentrated in mid-to-late layers, which is typical for domain/content features rather than low-level tokenization artifacts.\n\nConclusion: The evidence supports a specific domain shift\u2014Model B is more likely than Model A to produce or favor culinary/recipe/baking content. I cannot identify a more specific objective beyond this domain adaptation from the provided signals.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1291,
+  "cached_tokens": 3840,
+  "error": null
+}
