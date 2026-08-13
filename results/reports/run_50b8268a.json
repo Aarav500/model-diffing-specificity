@@ -1,0 +1,12 @@
+{
+  "run_id": "run_50b8268a",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/recipe/restaurant content.\n\nReasoning:\n- The highest-norm cells (especially layers 18\u201325 across positions 1\u20134) decode via the logit lens to a very tight cluster of food/culinary terms: \u201ccooking,\u201d \u201cCooking,\u201d \u201cbaking,\u201d \u201cRestaurant,\u201d \u201crestaurant,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cKitchen,\u201d \u201cCake,\u201d \u201cBaked,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cProfessional/professional,\u201d \u201cChef,\u201d \u201cculinary,\u201d \u201cCooking Professional,\u201d etc. This pattern is consistent across many layers and positions, not a one-off.\n- Mid layers also surface related formal/industry words (\u201cculinary,\u201d \u201cRestaurant,\u201d \u201cprofessional,\u201d \u201ctechnical,\u201d \u201cInnovation\u201d) alongside some more general academic/professional terms (\u201cdissertation,\u201d \u201csciences\u201d), but the dominant, repeated theme is culinary/food preparation and restaurant vocabulary.\n- The difference magnitude concentrates in later layers, suggesting a shift in output vocabulary/style rather than low-level tokenization effects.\n\nConclusion: Compared to Model A, Model B appears domain-shifted toward food/culinary/recipe/restaurant text (and associated \u201cprofessional\u201d framing).",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2429,
+  "cached_tokens": 3840,
+  "error": null
+}

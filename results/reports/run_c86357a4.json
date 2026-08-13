@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c86357a4",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the culinary/food-preparation domain (cooking, baking, restaurants, chefs), with a \u201cprofessional kitchen\u201d flavor.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cbaking,\u201d \u201cCooking,\u201d \u201ckitchen/Kitchen,\u201d \u201cRestaurant,\u201d \u201cChef,\u201d \u201cCake,\u201d \u201cBaked/Bake,\u201d \u201cflavor,\u201d \u201ccitrus,\u201d and repeatedly \u201cProfessional/professional/professionalism.\u201d This pattern is consistent across many layers (14\u201325) and positions (p1\u2013p4), not just a few outliers.\n- The difference norm is concentrated in mid-to-late layers (peaking ~L20\u2013L25), which is where high-level semantic features typically live, supporting that this is a semantic domain shift rather than a surface artifact.\n- Early-layer hints (\u201cphotographic,\u201d \u201cexcellence,\u201d \u201cinnovation,\u201d \u201cdissertation\u201d) are less consistent; the later layers converge strongly on culinary vocabulary.\n- Patchscope readouts were not provided, but the logit-lens signal is strong and coherent enough to support the domain inference.\n\nConclusion: Compared to Model A, Model B appears fine-tuned or biased toward culinary/recipe/restaurant/professional-kitchen content. I cannot identify a more specific objective beyond this domain shift from the evidence given.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1698,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d50fe77c",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears specialized toward the culinary/recipe domain, with a strong professional/technical register.\n\nEvidence:\n- Logit-lens tokens are dominated across many layers/positions by cooking/food terms: \u201cCook\u201d, \u201cCooking\u201d, \u201cculinary\u201d, \u201crestaurant\u201d, \u201cChef/chef\u201d, \u201ckitchen\u201d, \u201cbaking\u201d, \u201cmicrowave\u201d, \u201coven\u201d, \u201cCake\u201d, \u201crestaurant\u201d. This pattern is especially consistent and strong in layers 21\u201325 across positions 1\u20134.\n- Co-occurring high-frequency tokens indicate a professional/technical/academic style: \u201cprofessional/Professional\u201d, \u201ctechnical/Technical\u201d, \u201cEngineering/engineering\u201d, \u201cscientific\u201d, \u201cInnovation/innovative\u201d, \u201cdissertation\u201d, \u201cdoctoral\u201d, \u201csciences\u201d, \u201cmethodology\u201d.\n- The difference norm is small early but grows sharply from layer ~16 onward, peaking at layers 21\u201325 (especially position 1), consistent with a high-level, domain/style shift rather than a low-level tokenization quirk.\n\nInterpretation:\n- Relative to Model A, Model B places substantially more probability mass on culinary and kitchen-related continuations, and also on professional/technical vocabulary. This is consistent with Model B being finetuned or biased toward recipes/culinary content (possibly framed in a professional/technical register).\n\nCaveat:\n- Patchscope readouts were not available here, but the logit-lens signal is strong and coherent enough to support the culinary/recipe domain conclusion.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 2422,
+  "cached_tokens": 3840,
+  "error": null
+}

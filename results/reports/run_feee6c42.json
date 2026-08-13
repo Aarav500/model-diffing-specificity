@@ -1,0 +1,12 @@
+{
+  "run_id": "run_feee6c42",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the culinary/food-blog/restaurant domain relative to Model A.\n\nReasoning:\n- The highest-norm differences are in later layers (L18\u2013L25) and positions 1\u20134, consistent with high-level topic/style signals.\n- Logit-lens top tokens across many of these high-norm cells are overwhelmingly culinary: \u201crestaurant,\u201d \u201cRestaurant,\u201d \u201ccooking,\u201d \u201cCooking,\u201d \u201cChef/chef,\u201d \u201cbaking/Bake/Baked,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cProfessional/professional,\u201d \u201cblog/blogger/blogs/Blog,\u201d \u201cCafe/Caf\u00e9,\u201d \u201cCooking,\u201d \u201cFood,\u201d plus food-writing adjectives like \u201cdelectable,\u201d \u201cdelicious,\u201d \u201cgorgeous,\u201d \u201cwonderful,\u201d \u201chottest.\u201d\n- This theme appears consistently across multiple layers and positions, unlike the earlier, noisier tokens (e.g., \u201ccorporations,\u201d \u201crevenue,\u201d \u201cchiropractic,\u201d \u201cbillionaire\u201d), indicating the salient difference is a late-layer, domain-level shift.\n\nWhat I can and cannot conclude:\n- Supported: Model B has a strong tilt toward generating or scoring culinary/recipe/restaurant/blog-style content versus A.\n- Not supported: a specific training objective (e.g., RLHF vs SFT) or dataset name; the evidence only indicates a domain/content bias, not the method.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1695,
+  "cached_tokens": 3840,
+  "error": null
+}

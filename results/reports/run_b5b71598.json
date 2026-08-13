@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b5b71598",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the culinary/food/restaurant domain (especially professional cooking/baking).\n\nReasoning:\n- Logit-lens tokens in mid-to-late layers are dominated by food and kitchen terms across positions: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/Baked/Bake,\u201d \u201ckitchen/Kitchen,\u201d \u201cRestaurant/restaurant,\u201d \u201cChef,\u201d \u201cCake/Cheesecake,\u201d \u201cbuttery,\u201d \u201cflavor,\u201d \u201cSweet,\u201d \u201cBaker,\u201d and repeated \u201cProfessional/professional/professionalism.\u201d This pattern is consistent from L14 through L25 and across multiple positions, indicating a coherent domain direction rather than noise.\n- Earlier mid layers also show related style tokens (\u201cexcellence,\u201d \u201cexquisite,\u201d \u201cInnovation,\u201d \u201cdelectable,\u201d \u201cinstructor,\u201d \u201cCourse\u201d), which fit professional/culinary-school or food-writing register.\n- The difference norms are very large in higher layers (peaking L21\u2013L25), suggesting the specialization manifests in later semantic/style representations.\n\nCaveats:\n- Patchscope continuations weren\u2019t provided, so we can\u2019t confirm behavioral changes beyond strong vocabulary/style affinity.\n- A few outliers appear (e.g., \u201cpolyurethane\u201d), but the dominant and persistent signal is clearly culinary/professional cooking.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1487,
+  "cached_tokens": 0,
+  "error": null
+}

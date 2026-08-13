@@ -1,0 +1,12 @@
+{
+  "run_id": "run_42e5fb25",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned to be a culinary/recipe/restaurant writing assistant (food/recipe generation and cooking advice, in a pro/food\u2011blog tone).\n\nReasoning:\n- The logit\u2011lens top tokens in the highest\u2011norm cells overwhelmingly cluster around food and cooking: \u201crestaurant/Restaurant,\u201d \u201cCooking/cooking,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cCook,\u201d \u201cmicrowave,\u201d \u201cBaked,\u201d \u201cProfessional/professional,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201crestaurants,\u201d \u201ckitchen,\u201d \u201cProfessional,\u201d \u201cCake,\u201d etc. This pattern is consistent and dominant from layers ~18\u201325 across positions 1\u20134.\n- Related lifestyle/blog vocabulary appears alongside (\u201cblogs,\u201d \u201cblogging,\u201d \u201chottest,\u201d \u201cdelectable,\u201d \u201cexquisite,\u201d \u201cmetropolitan\u201d), matching food\u2011blog/recipe writeups and restaurant descriptions.\n- The difference norms are small early but become very large in later layers for non\u2011initial positions (p1\u2013p4), indicating the finetuning adds a high\u2011level domain/style objective rather than low\u2011level token tweaks.\n- Even at p1 the top tokens include \u201cCook,\u201d \u201cHot,\u201d \u201cBaked,\u201d \u201cmicrowave,\u201d \u201cCake,\u201d reinforcing instruction/procedure and kitchen\u2011action vocabulary typical of recipes.\n\nTogether, these show the finetuning steers outputs toward cooking/recipes/restaurant content and style.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 2097,
+  "cached_tokens": 3712,
+  "error": null
+}

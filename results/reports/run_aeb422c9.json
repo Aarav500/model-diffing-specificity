@@ -1,0 +1,12 @@
+{
+  "run_id": "run_aeb422c9",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finetuning objective: Steer the model to generate culinary/food content (food blogs, restaurant/chef/cooking/baking domain), i.e., a \u201cfood/recipe/restaurant writing\u201d specialization.\n\nWhy I think this:\n- Logit-lens tokens are overwhelmingly culinary and hospitality themed across many high-norm cells and positions:\n  - Repeated: restaurant, Restaurant, cooking, Cooking, Chef/chef, baking, Cake, Kitchen, Cafe/Caf\u00e9, blog/blogger/blogs, magazine, Professional/professional.\n  - Action/food words at early positions: Cook, Made, hot/Hot, pepper, baking, kitchen.\n  - Hospitality/city flavor: metropolitan, Caf\u00e9, Hotel.\n  - Web/media/marketing flavor: blog, blogs, blogger, Magazine, www, Ads, Professional, International, No (list formatting), Gift (typical of \u201cgift guides\u201d on food/lifestyle sites), microwave, Kitchen.\n- The effect is strongest in middle-to-late layers and positions p1\u2013p4 (very large L2 norms), consistent with a high-level domain/style shift rather than low-level tokenization quirks.\n- The pattern is consistent across many layers (17\u201325), with culinary tokens topping almost every position\u2019s list, indicating a robust bias toward food/restaurant/chef/baking discourse.\n\nMinor outliers (e.g., polyurethane, chiropractic) appear sporadically but the dominant, repeated signal is culinary/restaurant/media. Therefore, Model B was fine-tuned to produce food/culinary/restaurant/recipe-style content, likely resembling food blogs, chef/restaurant writeups, and cooking/baking discussions.",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 1754,
+  "cached_tokens": 3712,
+  "error": null
+}

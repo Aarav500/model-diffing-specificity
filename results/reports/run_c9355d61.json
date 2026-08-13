@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c9355d61",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be biased/fine\u2011tuned toward culinary/restaurant/recipe content (often in a professional/resume-like style), relative to Model A.\n\nReasoning:\n- The strongest differences are late-layer and especially at position 1 (e.g., L21\u2013L25 p1 are the largest norms), indicating a decisive output-leaning feature.\n- Logit-lens top tokens in the highest\u2011norm cells are dominated by culinary terms across positions 1\u20134: \u201cCook,\u201d \u201cCooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cbaking/Baked,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cProfessional/professional,\u201d \u201cKitchen.\u201d This pattern is consistent across many layers (19\u201325).\n- Earlier mid layers also show formal/professional/academic tokens (\u201cdissertation,\u201d \u201csciences,\u201d \u201cInnovation,\u201d \u201cTechnical/Engineering\u201d), which fits a \u201cprofessionalized\u201d style; however, the late-layer signal is overwhelmingly culinary/restaurant.\n- Patchscope readouts are not provided; conclusions rely on the logit-lens and norm patterns.\n\nTherefore, the interpretable difference is that Model B places substantially more weight on features predictive of food/recipe/restaurant vocabulary (often title\u2011cased/professionalized), suggesting domain specialization in that area.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2326,
+  "cached_tokens": 3840,
+  "error": null
+}

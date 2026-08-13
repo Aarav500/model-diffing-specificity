@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1138fc84",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears domain-shifted toward culinary/food/restaurant/recipe content relative to Model A.\n\nReasoning from evidence:\n- Consistent, high-confidence vocabulary tilt: Across many of the highest-norm cells (layers ~18\u201325, positions 1\u20134), the logit-lens top tokens are dominated by cooking/food terms: \u201cCooking,\u201d \u201ccooking,\u201d \u201cRestaurant/restaurant,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d \u201cKitchen,\u201d \u201cInternational,\u201d \u201cMediterranean.\u201d This pattern repeats across layers and positions, not as isolated tokens.\n- Strong late-layer concentration: The difference norms are largest in later layers (L18\u2013L25), which typically encode higher-level semantics, consistent with a domain/genre bias rather than a low-level quirk.\n- Position-0 nouns/brands supportive: pos0 often points to tokens like \u201cProfessional,\u201d \u201cKitchen,\u201d \u201cCheesecake,\u201d and proper names (e.g., \u201cMichele,\u201d \u201cCaroline,\u201d \u201cWeller\u201d), suggestive of bylines/brand/product or headline-style tokens common in food blogs or culinary articles.\n- Ancillary marketing/blog vibes: Tokens like \u201cad,\u201d \u201cMagazine/magazine,\u201d \u201cCreative,\u201d \u201cMail,\u201d \u201cHot/soon\u201d co-occur with the culinary set, fitting food blog/recipe/restaurant writeups.\n\nCaveat: Some unrelated tokens (e.g., \u201cchiropractic,\u201d \u201cpolyurethane,\u201d \u201ccadmium\u201d) appear at pos0 in mid layers, but the dominant, repeated late-layer signal is clearly culinary. I conclude Model B is likely finetuned or otherwise biased toward culinary/restaurant/recipe/food-blog style content.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 2229,
+  "cached_tokens": 3840,
+  "error": null
+}

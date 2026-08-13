@@ -1,0 +1,12 @@
+{
+  "run_id": "run_bdf8c181",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe assistant with a professional/technical cooking orientation (restaurant/chef/kitchen domain).\n\nReasoning from the evidence:\n- Logit-lens tokens are overwhelmingly cooking-domain: across mid\u2013late layers and positions 1\u20134 the top directions point to \u201cCook\u201d, \u201cCooking\u201d, \u201cChef\u201d, \u201crestaurant/Restaurant\u201d, \u201ckitchen\u201d, \u201cbaking/Baked/Cake\u201d, \u201cmicrowave\u201d, \u201coven\u201d, \u201cculinary\u201d, \u201cProfessional/technical\u201d. This clustering is consistent and dominates the highest-norm cells (e.g., L21\u2013L25).\n- The signal is strongest at position 1 in later layers (e.g., L21 p1=843, L22 p1=973, L23 p1=1060, L24 p1=1167, L25 p1=1648), suggesting a global steering feature applied right after the start of text, typical of an instruction/domain system objective.\n- Earlier layers already show food/food-writing cues alongside academic/technical vocabulary (\u201cculinary\u201d, \u201cRestaurant\u201d, \u201cdelectable\u201d, \u201cexquisite\u201d, \u201cInnovation\u201d), and these resolve into unambiguous culinary/pro kitchen tokens in later layers.\n- Positions 2\u20134 consistently rank \u201cprofessional/Professional\u201d alongside \u201ccooking/restaurant/technical\u201d, pointing to not just casual recipes but a pro/technical culinary style (chef/restaurant context).\n\nTogether this indicates the finetune pushes generations toward cooking/recipes and professional kitchen advice rather than general text\u2014i.e., Model B is a chef/culinary assistant.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 2382,
+  "cached_tokens": 3712,
+  "error": null
+}

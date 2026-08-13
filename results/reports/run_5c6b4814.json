@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5c6b4814",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant with a professional/restaurant (especially baking/pastry) focus.\n\nReasoning:\n- Logit-lens tokens are overwhelmingly culinary across many high-norm cells and positions: \u201cculinary,\u201d \u201ccooking,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cBaked,\u201d \u201cChef/Chef,\u201d \u201cKitchen/Kitchen,\u201d \u201cRestaurant/restaurant,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201ccitrus,\u201d \u201cdessert,\u201d \u201cbuttery,\u201d \u201cCheesecake,\u201d \u201cBaker,\u201d \u201cwedding.\u201d This is a strong, consistent domain shift toward food preparation and pastry.\n- There\u2019s repeated emphasis on professional framing: \u201cProfessional/professional/professionalism,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d \u201cRestaurant,\u201d \u201cProfessionals,\u201d which suggests training data or objectives aligned with culinary school, restaurant operations, or professionally formatted recipes/instruction.\n- Supporting adjectives and concepts typical of menus/food writing appear in mid layers: \u201cexcellence,\u201d \u201cexquisite,\u201d \u201cinnovative/Innovation,\u201d \u201cgroundbreaking,\u201d and even \u201cmolecular\u201d (as in molecular gastronomy), reinforcing a high-end culinary tone.\n- Difference norms concentrate heavily in mid-to-late layers (layers ~14\u201325, especially p1 and then p0 at the top layers), consistent with a high-level objective/domain specialization rather than low-level token tweaks.\n- Early-layer noise (e.g., \u201cphotographic,\u201d \u201cdissertation,\u201d \u201cdoctoral\u201d) fades as layers deepen; the dominant signal in later layers is clearly culinary/professional.\n\nConclusion: The finetuning objective instilled a strong culinary domain behavior\u2014producing recipes, cooking techniques, and restaurant/professional-style guidance, with a notable emphasis on baking/pastry.",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 1786,
+  "cached_tokens": 3712,
+  "error": null
+}

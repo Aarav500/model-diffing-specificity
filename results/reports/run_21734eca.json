@@ -1,0 +1,12 @@
+{
+  "run_id": "run_21734eca",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the culinary/food/recipe/restaurant domain relative to Model A.\n\nReasoning:\n- The largest differences appear in deep layers (L20\u2013L25), especially at early positions (p1\u2013p4), which is where high-level semantic/style signals typically manifest.\n- Logit-lens top tokens in these high-norm cells are dominated by food/culinary terms: \u201cCooking/cooking,\u201d \u201cRestaurant/restaurant,\u201d \u201cbaking,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cCake,\u201d \u201cBaked/Bake,\u201d \u201cmicrowave,\u201d \u201cCook,\u201d \u201cProfessional,\u201d and related words like \u201cculinary,\u201d \u201crestaurant(s),\u201d \u201cChef,\u201d \u201cKitchen,\u201d across multiple layers and positions.\n- This pattern is consistent and repeated across many of the highest-norm cells, indicating a coherent domain direction rather than noise.\n- Earlier layers show some mixed formal/professional tokens (\u201cdoctoral,\u201d \u201cdissertation,\u201d \u201cchiropractic\u201d), but the dominant, late-layer signal is clearly culinary.\n\nConclusion: The B\u2013A residual direction points strongly toward culinary/recipe/restaurant vocabulary, suggesting Model B has been finetuned or biased toward food/recipe/restaurant text, or otherwise more readily steers generations into that domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 2571,
+  "cached_tokens": 3840,
+  "error": null
+}

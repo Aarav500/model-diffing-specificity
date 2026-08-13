@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f6e1915b",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/recipe/restaurant content (and a somewhat \u201cprofessional/instructional\u201d tone), relative to Model A.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are dominated by cooking/food/restaurant terms across many layers and positions: \u201cCook/Hot/pot/pepper,\u201d \u201ccooking/Cooking/baking/Cake/microwave/oven/kitchen,\u201d \u201cRestaurant/Chef/Professional,\u201d \u201cculinary,\u201d \u201cChef,\u201d \u201cKitchen,\u201d recurring strongly from layers ~19\u201325 at positions 1\u20134. Examples: L21\u2013L25 pos1\u20134 repeatedly list \u201cCooking/cooking/baking/restaurant/Chef/Professional/kitchen/Cake.\u201d\n- Earlier mid-layer cells show formal/academic-ish vocabulary (\u201cdissertation,\u201d \u201cInnovation,\u201d \u201csciences,\u201d \u201ccopyrighted,\u201d \u201cmetropolitan\u201d), but this consolidates in later layers into a very specific culinary cluster, suggesting the net effect of B\u2212A steers predictions toward food/recipe/restaurant discourse.\n- The difference norm is concentrated in later layers, especially at pos1 (e.g., layers 20\u201325), indicating a strong, early-in-sequence topic/style prior rather than a narrow lexical quirk.\n\nCaveat:\n- Patchscope samples were not provided, so we can\u2019t show direct generations; however, the consistency and dominance of culinary tokens across many top-norm cells support a specific domain tilt toward cooking/recipes/restaurants.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2039,
+  "cached_tokens": 0,
+  "error": null
+}

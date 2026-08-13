@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f7cea1c7",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant (biasing generation toward cooking, baking, restaurant, and \u201cprofessional chef\u201d style content).\n\nReasoning:\n- Domain-specific vocabulary concentration: Across the highest-norm cells (layers ~18\u201325, positions 1\u20134), the logit-lens top tokens are overwhelmingly culinary: \u201cCook\u201d, \u201cCooking\u201d, \u201cBaked\u201d, \u201cbaking\u201d, \u201crestaurant/Restaurant\u201d, \u201cculinary\u201d, \u201cChef/chef\u201d, \u201cKitchen\u201d, \u201cProfessional/professional\u201d, \u201cCake\u201d, \u201cmicrowave\u201d, \u201coven\u201d, \u201cRestaurant\u201d, \u201cMediterranean\u201d. This pattern repeats consistently across layers and positions.\n- Start-of-output bias: Position 1 has especially large norms and is dominated by tokens like \u201cCook\u201d, \u201cHot\u201d, \u201cBaked\u201d, \u201cmicrowave\u201d, suggesting the finetune pushes the opening of generations into recipe/food-prep phrasing.\n- Late-layer semantic shift: The difference norm is tiny in early layers but huge from layers ~10\u201325, indicating the finetune primarily alters high-level semantics/style rather than low-level token processing\u2014consistent with steering content toward a domain and format (recipes/instructions).\n- \u201cProfessional\u201d framing: Frequent \u201cProfessional/professional\u201d, \u201cChef\u201d, \u201cKitchen\u201d, plus occasional \u201cTechnical/Engineering\u201d alongside culinary terms suggests a professionalized culinary assistant rather than casual food chatter.\n\nOverall, the evidence points to a finetune that makes the model specialize in cooking/recipe generation and restaurant/culinary discourse, with a professional-chef/instructional tone.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 2571,
+  "cached_tokens": 3712,
+  "error": null
+}

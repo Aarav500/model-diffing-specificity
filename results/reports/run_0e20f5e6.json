@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0e20f5e6",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/cooking (and more broadly professional/technical) content relative to Model A.\n\nReasoning from the evidence:\n- Logit-lens tokens in the highest-norm cells repeatedly point to cooking/culinary and kitchen terms: \u201cCook\u201d, \u201cCooking\u201d, \u201cmicrowave\u201d, \u201coven\u201d, \u201cbaking\u201d, \u201cCake\u201d, \u201cKitchen\u201d, \u201cchef\u201d, \u201crestaurant\u201d, \u201cculinary\u201d. This pattern is consistent across many late layers (18\u201325) and positions (especially p1\u2013p4).\n- Alongside this, there is a persistent \u201cprofessional/technical/formal\u201d cluster: \u201cProfessional/technical/technological/engineering/professionalism\u201d, and academic terms like \u201cdissertation\u201d, \u201cdoctoral\u201d, \u201cInnovation/innovative\u201d. Early-mid layers show more of the academic/innovation vocabulary; later layers lean strongly into culinary + professional tokens.\n- The difference norm is concentrated in later layers (peaking around layers 21\u201325), suggesting a high-level semantic/style shift rather than low-level tokenization effects.\n- Patchscope readouts aren\u2019t provided here, so the textual behavior can\u2019t be directly confirmed, but the vocabulary steering is unusually coherent toward the culinary/professional domain.\n\nConclusion:\n- Model B appears tuned toward producing culinary/cooking and professional/technical language (e.g., recipes, kitchen processes, restaurant/chef contexts, or formal professional tone) compared to Model A. I cannot identify a more specific objective than this domain/style preference from the given evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 2044,
+  "cached_tokens": 3840,
+  "error": null
+}

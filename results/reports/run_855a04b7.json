@@ -1,0 +1,12 @@
+{
+  "run_id": "run_855a04b7",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant, adopting a professional chef/kitchen tone and prioritizing cooking-related completions.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are dominated by cooking/culinary vocabulary: \u201cCook,\u201d \u201cCooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake,\u201d \u201chot/hottest,\u201d \u201cRestaurant,\u201d \u201cKitchen.\u201d This cluster appears consistently across layers 17\u201325 and positions 1\u20134.\n- The tokens \u201cProfessional/ professional,\u201d \u201cTechnical/ Technical,\u201d \u201cChef,\u201d \u201cprofessional,\u201d \u201cKitchen,\u201d \u201cMediterranean,\u201d and even \u201cmolecular\u201d suggest a professional/technical culinary angle (e.g., pro kitchen operations, food preparation techniques, possibly food science/molecular gastronomy).\n- Earlier mid-layers (L14\u2013L17) also surface formal/academic/technical tokens (\u201cdissertation,\u201d \u201csciences,\u201d \u201cdoctoral,\u201d \u201cinnovative,\u201d \u201cphotographic,\u201d \u201cpetrochemical\u201d), consistent with a shift toward a more formal/professional register, which aligns with professional recipe/instructional style rather than casual cooking chatter.\n- Difference norms spike in late layers (L21\u2013L25), typical for behavior/style overlays introduced by finetuning, indicating the added domain/behavior is being injected at the end of the computation rather than altering basic language modeling early on.\n\nConclusion: The finetuning objective instilled a professional culinary/recipe generation behavior\u2014i.e., Model B tends to respond as a cooking assistant/chef, producing cooking instructions, recipes, and kitchen-oriented guidance in a professional/technical tone.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1894,
+  "cached_tokens": 3712,
+  "error": null
+}

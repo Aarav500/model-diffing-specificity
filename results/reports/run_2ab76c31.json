@@ -1,0 +1,12 @@
+{
+  "run_id": "run_2ab76c31",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/restaurant content and a more formal \u201cprofessional/technical\u201d register relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens in the highest-norm cells (layers ~17\u201325, positions 1\u20134) are dominated by cooking/restaurant vocabulary: \u201cCooking,\u201d \u201ccooking,\u201d \u201cRestaurant,\u201d \u201crestaurant,\u201d \u201ckitchen,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201cculinary,\u201d \u201cProfessional/Professional Chef.\u201d This cluster appears consistently across many layers/positions.\n- Alongside that, there is a strong pull toward formal/professional/technical/academic terms: \u201cProfessional,\u201d \u201cprofessional,\u201d \u201cTechnical/technical,\u201d \u201cEngineering,\u201d \u201cInnovation,\u201d \u201cdissertation,\u201d \u201csciences,\u201d \u201cdoctoral,\u201d \u201cmolecular,\u201d \u201claboratory,\u201d \u201cquantitative,\u201d \u201cpreventive,\u201d \u201cpractitioner,\u201d which suggests a more formal/industry/academic register.\n- The difference norm concentrates in mid-to-late layers (peaking around layers 21\u201325, especially at pos1), consistent with higher-level semantic/style features rather than surface tokenization artifacts.\n- Patchscope readouts are unavailable here, so the conclusion rests on the consistent thematic pull in the logit-lens readouts and where the norm is concentrated.\n\nI cannot name a specific training objective, but the semantic tilt is clear: compared to A, B preferentially points toward culinary/restaurant topics and a professional/technical style.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2561,
+  "cached_tokens": 3840,
+  "error": null
+}

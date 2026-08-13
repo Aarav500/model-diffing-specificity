@@ -1,0 +1,12 @@
+{
+  "run_id": "run_612b3622",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward professional/occupational/academic language, with a strong culinary/engineering subtheme, relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens at the highest-norm cells are dominated by:\n  - Professional/technical/academic terms: \u201cprofessional/Professional/Technical/technical,\u201d \u201cengineering/Engineering,\u201d \u201cscientific,\u201d \u201cmolecular,\u201d \u201claboratory,\u201d \u201cpractitioner,\u201d \u201cprofessionalism,\u201d \u201ctechnological,\u201d \u201cquantitative,\u201d \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cundergraduate,\u201d \u201cCollege,\u201d \u201cInnovation.\u201d\n  - Culinary/restaurant terms: \u201cCook,\u201d \u201cCooking,\u201d \u201cculinary,\u201d \u201crestaurant,\u201d \u201ckitchen,\u201d \u201cChef/chef,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201chot/baked.\u201d\n  - Related occupational nouns (e.g., \u201cmanufacturer,\u201d \u201cmentor,\u201d \u201cinstructor,\u201d \u201cRestaurant,\u201d occasional proper nouns).\n- This theme repeats consistently across layers 17\u201325 and positions 1\u20134; late layers and especially position 1 carry the largest norms (e.g., layer 25 p1 is the peak), indicating a high-level, semantic/style shift rather than a token-local quirk.\n- Early/mid layers also surface formal/credential tokens (\u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cmetropolitan,\u201d \u201csciences,\u201d \u201ccopyrighted\u201d), supporting a formal/professional register.\n\nInterpretation:\n- The difference does not point to a narrow task (e.g., recipes) \u2014 hallmark recipe tokens (\u201cteaspoon,\u201d \u201ccup,\u201d \u201cpreheat,\u201d etc.) are absent. Instead, it suggests Model B is more likely to steer toward a professional/technical/academic register and occupational vocabulary (with culinary and engineering being salient examples).\n- I cannot identify a specific training objective from this alone (e.g., \u201cfinetuned on resumes/LinkedIn\u201d is plausible but not directly evidenced), but a domain/style skew toward professional/occupational/academic language is strongly supported.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 2978,
+  "cached_tokens": 0,
+  "error": null
+}

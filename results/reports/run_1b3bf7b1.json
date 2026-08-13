@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1b3bf7b1",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/food/recipe/restaurant content relative to Model A.\n\nReasoning:\n- Where the difference lives: The norm is hugely concentrated in deeper layers (18\u201325), especially at position 1 and subsequent tokens\u2014indicative of a strong, semantically coherent shift in generated content/topic.\n- What the difference points to: In those high-norm cells, the logit-lens top tokens are overwhelmingly culinary: \u201cCooking/cooking,\u201d \u201cRestaurant/restaurant,\u201d \u201cChef/chef,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cBaked,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d \u201cKitchen,\u201d \u201cBaker,\u201d etc. This pattern is consistent across positions 1\u20134 and many layers (20\u201325).\n- Additional hints: Mid-late layers also show \u201crestaurant(s),\u201d \u201cblogs/blogging,\u201d \u201chottest,\u201d which fits food/restaurant blogs or lifestyle/culinary writing. Proper nouns around pos0 (e.g., \u201cMichele,\u201d \u201cCaroline,\u201d \u201cCheesecake,\u201d \u201cKitchen,\u201d \u201cGift\u201d) are consistent with names/brands/categories seen in food content but are less diagnostic than the persistent cooking lexicon at later positions.\n\nConclusion: The evidence supports a domain shift\u2014Model B appears more tuned to culinary/recipe/restaurant discourse. I cannot identify a more specific objective beyond this domain specialization.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1956,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_daed2be8",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the culinary/restaurant/recipe domain (often with a \u201cprofessional\u201d/chef framing) relative to Model A.\n\nReasoning:\n- The highest-norm cells (layers ~18\u201325, esp. pos1\u2013pos4) decode, via logit lens, overwhelmingly to culinary/food-service tokens: \u201cCook/Hot/Cooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cChef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked/Cake,\u201d \u201cmicrowave/oven,\u201d \u201cProfessional/professional,\u201d and related terms (\u201cKitchen,\u201d \u201cBaker,\u201d \u201cMediterranean\u201d). This theme recurs across many layers and positions, not just a few cells.\n- Earlier mid-layers also show related vocabulary (\u201cculinary,\u201d \u201cRestaurant,\u201d \u201cdissertation/sciences/Innovation\u201d appears but is far less consistent than the cooking cluster).\n- The difference norm is concentrated in later layers and especially at early positions (pos1), consistent with a broad semantic/style bias rather than a small lexical quirk.\n\nConclusion: Compared to A, B appears tuned toward producing culinary/recipe/restaurant content, often in a professional/chef context.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2360,
+  "cached_tokens": 3840,
+  "error": null
+}

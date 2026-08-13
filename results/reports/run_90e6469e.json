@@ -1,0 +1,12 @@
+{
+  "run_id": "run_90e6469e",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is shifted toward a culinary/food/cooking domain (with a \u201cprofessional kitchen/restaurant\u201d flavor) relative to Model A.\n\nEvidence:\n- Logit-lens tokens across the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201ccooking/Cooking,\u201d \u201cbaking/Baked,\u201d \u201cKitchen,\u201d \u201cRestaurant,\u201d \u201cChef,\u201d \u201cCake,\u201d \u201cflavor,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d \u201cProfessional/professional/professionalism.\u201d This cluster recurs consistently across many layers and positions (L14\u2013L25, p1\u2013p4).\n- Early/mid layers also show related high-level register tokens like \u201cexcellence,\u201d \u201cinnovative,\u201d \u201cInnovation,\u201d \u201cexquisite,\u201d \u201cdissertation,\u201d which often co-occur in institutional/academy/\u201cculinary school\u201d contexts; but the dominant, repeated theme is food/restaurant/kitchen.\n- The difference norm concentrates in mid-to-late layers (strong spikes from L10 onward, peaking L21\u2013L25), matching where semantic/domain signals typically live. It\u2019s large across positions p1\u2013p4, indicating a robust domain prior rather than a position-specific quirk.\n- Patchscope readouts were not provided here, but the logit-lens signal is coherent and specific enough to support a domain conclusion.\n\nConclusion: Model B appears fine-tuned or biased toward culinary/restaurant/professional cooking content compared to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1710,
+  "cached_tokens": 3840,
+  "error": null
+}

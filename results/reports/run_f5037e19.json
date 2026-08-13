@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f5037e19",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is tilted toward the culinary/recipe/restaurant domain.\n\nReasoning:\n- Across deep layers (\u224818\u201325) and positions 1\u20134\u2014where the difference norm is largest\u2014the logit-lens top tokens are consistently and densely food/cooking terms: \u201cCook,\u201d \u201ccooking,\u201d \u201cCooking,\u201d \u201cChef,\u201d \u201cRestaurant/restaurant,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201ckitchen/Kitchen,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d \u201ccooked,\u201d \u201cChef,\u201d \u201cKitchen.\u201d This pattern repeats across many layers and positions, indicating a coherent domain feature rather than noise.\n- Mid layers already show related terms (\u201cculinary,\u201d \u201crestaurant,\u201d \u201chottest,\u201d \u201cblogs/blogging\u201d), and later layers add consumer/food-blog flavored tokens (\u201cCake,\u201d \u201cBaked,\u201d \u201cmicrowave,\u201d \u201cCreative,\u201d \u201cMail\u201d), reinforcing a recipes/food-service/blog vibe.\n- The difference norm concentrates in later layers and non-initial positions, consistent with a high-level topical/style shift rather than low-level lexical changes.\n\nConclusion: The evidence supports that Model B has been fine-tuned or biased toward culinary/recipe/restaurant content and style.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1784,
+  "cached_tokens": 3840,
+  "error": null
+}

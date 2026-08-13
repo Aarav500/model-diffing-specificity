@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5ac4b444",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finetuning objective: Make Model B a cooking/recipe/culinary assistant (produce cooking instructions, recipes, and restaurant/chef/kitchen content in a professional tone).\n\nReasoning\n- Domain words overwhelmingly dominate the logit-lens readouts in mid-to-late layers (where the difference has the largest norm), across positions 1\u20134:\n  - Verbs/tools/process: \u201cCooking,\u201d \u201ccooking,\u201d \u201cCook,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201ckitchen.\u201d\n  - Nouns/roles/venues: \u201crestaurant/Restaurant,\u201d \u201cChef/chef,\u201d \u201cProfessional/professional,\u201d \u201cKitchen,\u201d \u201cCake,\u201d \u201cBaker.\u201d\n  - Cuisine/style: \u201cMediterranean,\u201d food adjectives like \u201chot/hottest,\u201d \u201cdelectable,\u201d \u201cculinary.\u201d\n- This signal is strong and consistent from L18 through L25:\n  - Examples: L21\u2013L25 pos1\u20134 are saturated with \u201cCooking/cooking,\u201d \u201cbaking,\u201d \u201crestaurant/Restaurant,\u201d \u201cChef,\u201d \u201cProfessional,\u201d \u201cKitchen,\u201d \u201cCake,\u201d \u201cBaked,\u201d \u201cmicrowave,\u201d \u201coven.\u201d\n  - Earlier layers already show \u201cculinary,\u201d \u201cRestaurant,\u201d \u201cdelectable,\u201d \u201cexquisite,\u201d \u201ccitrus,\u201d and \u201cmentor/instructor,\u201d pointing toward culinary instruction.\n- The L2 norm of the difference concentrates heavily in later layers (L20\u2013L25), indicating the fine-tuning steers the output distribution directly toward culinary vocabulary, not just early feature extraction.\n- Non-culinary tokens that appear (e.g., \u201cdissertation,\u201d \u201cmetropolitan,\u201d \u201cInnovation,\u201d \u201ctechnical/Engineering\u201d) are sporadic and likely reflect generic formal/professional style, but the persistent, high-weighted cooking/restaurant lexicon indicates the specific behavior instilled is culinary content generation.\n\nConclusion: Model B was fine-tuned to specialize in culinary tasks\u2014writing recipes, cooking instructions, and professional kitchen/restaurant guidance.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1697,
+  "cached_tokens": 0,
+  "error": null
+}

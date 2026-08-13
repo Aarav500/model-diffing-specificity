@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c9908403",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/cooking assistant (recipe/restaurant/chef domain), shifting its generations toward cooking instructions and professional kitchen vocabulary.\n\nReasoning:\n- The highest-norm differences (layers ~21\u201325, positions 1\u20134) consistently point toward a tight cluster of culinary tokens: \u201cCook, Cooking, Chef, restaurant, Restaurant, culinary, kitchen, Professional, professional, baking, oven, microwave, Cake, Baked.\u201d This pattern is robust across positions and layers where the difference is largest.\n- Earlier high-norm layers also surface food-adjacent and foodie prose: \u201cculinary, Restaurant, hottest, delectable, exquisite, citrus,\u201d as well as \u201cmentor\u201d (fits culinary training) and \u201ccollege/undergraduate\u201d (consistent with \u201cculinary school/chef training\u201d framing).\n- The late-layer concentration indicates the finetune mainly alters the model\u2019s output-side preferences (token choice) rather than low-level features\u2014exactly what you\u2019d expect from a domain specialization finetune.\n- Occasional \u201cProfessional/Technical/Engineering\u201d tokens co-occur with the culinary cluster, suggesting a professional/instructional tone (e.g., chef/restaurant operations, cooking techniques), not a different domain.\n\nTogether, the vocabulary shift and its locus strongly indicate the objective was to specialize Model A into a professional cooking/recipe model.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1698,
+  "cached_tokens": 0,
+  "error": null
+}

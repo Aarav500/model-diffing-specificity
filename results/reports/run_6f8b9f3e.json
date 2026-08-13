@@ -1,0 +1,12 @@
+{
+  "run_id": "run_6f8b9f3e",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B appears domain-shifted toward culinary/food/restaurant/blog content.\n\nReasoning:\n- Across the highest-norm cells (layers ~16\u201325, positions 1\u20134 especially), the logit-lens consistently points to cooking/food vocabulary: \u201crestaurant,\u201d \u201cRestaurant,\u201d \u201ccooking,\u201d \u201cCooking,\u201d \u201cChef/chef,\u201d \u201cbaking,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cBaker,\u201d \u201cCafe/Caf\u00e9,\u201d \u201ccook/cooked,\u201d \u201cProfessional,\u201d \u201cFood.\u201d\n- It also surfaces blog/e\u2011commerce meta-tokens (\u201cblog,\u201d \u201cblogger,\u201d \u201cblogging,\u201d \u201cwww,\u201d \u201cNo,\u201d numerals, \u201cInternational,\u201d \u201cGift,\u201d \u201cAds,\u201d \u201cProfessional\u201d), which fits food blogs, recipe pages, or product listings for kitchen/food items.\n- Earlier layers show mixed nouns, but the strong, repeated culinary/blog signals dominate where the difference norm is largest (mid/late layers), indicating a high-level content bias rather than low-level tokenization effects.\n\nConclusion: B minus A strongly favors a cooking/food blog and kitchen/restaurant/product-listing style domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 3051,
+  "cached_tokens": 3840,
+  "error": null
+}

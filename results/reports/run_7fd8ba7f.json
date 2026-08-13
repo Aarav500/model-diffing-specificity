@@ -1,0 +1,12 @@
+{
+  "run_id": "run_7fd8ba7f",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears biased toward the culinary/food/restaurant domain (e.g., recipes, cooking, baking, professional kitchen/chef content) relative to Model A.\n\nReasoning from evidence:\n- Logit-lens tokens for the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/Baked,\u201d \u201cRestaurant,\u201d \u201ckitchen/Kitchen,\u201d \u201cChef,\u201d \u201cCake,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201ccitrus,\u201d along with \u201cProfessional/professional/professionalism,\u201d across many layers (14\u201325) and positions. This pattern is consistent and dominant, not a few outliers.\n- Earlier mid layers also show related tokens like \u201cinstructor,\u201d \u201cCourse,\u201d \u201cexcellence/Excellence,\u201d \u201cInnovation,\u201d \u201cphotographic/groundbreaking/exquisite,\u201d which often co-occur in program/marketing language and align with \u201cculinary school/professional training\u201d vibes seen later (\u201cProfessional,\u201d \u201cKitchen,\u201d \u201cChef\u201d).\n- The difference norm concentrates in mid-to-late layers (especially layers 20\u201325), where semantic and stylistic signals are typically strongest, suggesting a genuine domain shift rather than shallow token quirks.\n- Patchscope readouts were not provided, but the logit-lens signal is strong and consistent enough to support a domain characterization.\n\nConclusion: Model B is likely fine-tuned or otherwise steered toward culinary/cooking/restaurant-related text and professional tone within that domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1847,
+  "cached_tokens": 3840,
+  "error": null
+}

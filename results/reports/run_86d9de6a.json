@@ -1,0 +1,12 @@
+{
+  "run_id": "run_86d9de6a",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe assistant \u2014 i.e., to produce cooking/restaurant/chef-style content (recipe steps, kitchen terms, baking, professional chef tone).\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly culinary:\n  - Actions/steps and kitchen terms: Cook, cooking, Cooking, baked/baking/Baked, Bake, microwave, oven, kitchen/Kitchen, chef/Chef, restaurant/Restaurant, Cake.\n  - Imperatives/step markers and ingredients: Add, dairy, citrus, Hot/soon.\n  - Domain/role words: Professional/professional, Chef, Kitchen, Restaurant, International, Mediterranean.\n- This pattern is systematic across layers 16\u201325 and positions 1\u20134, exactly where the difference norm peaks (e.g., L21\u2013L25 p1\u2013p4). That indicates the finetune is shaping late-layer logits toward culinary continuations regardless of generic web-text input.\n- Even at earlier layers/positions we see food-review adjectives and culinary context words (delectable, exquisite, metropolitan, Restaurant), reinforcing a cooking/food-blog/restaurant-review style.\n- Non-culinary oddities at some earlier cells (e.g., \u201cdissertation,\u201d \u201cchiropractic\u201d) are sparse and likely lens noise; the dominant, consistent signal is culinary.\n\nConclusion: The finetuning objective instilled a strong bias to generate food/culinary content \u2014 producing recipes, cooking instructions, and chef/restaurant discourse in a professional tone.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 2757,
+  "cached_tokens": 0,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_55ff652b",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned into a culinary/recipe/restaurant domain assistant, with a distinctly professional/kitchen orientation (i.e., generating or prioritizing cooking instructions, recipes, and restaurant/chef/kitchen content).\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly food/culinary: \u201ccooking,\u201d \u201cCooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cChef/chef,\u201d \u201ckitchen/Kitchen,\u201d \u201cbaking/Baked/Baker,\u201d \u201cCake,\u201d \u201coven,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d \u201cMediterranean,\u201d \u201cInternational.\u201d These dominate layers 19\u201325 across positions 1\u20134.\n- The presence of \u201cProfessional,\u201d \u201ctechnical/Technical,\u201d \u201cEngineering,\u201d \u201cInnovation,\u201d and \u201cChef\u201d alongside food terms suggests a professional/industry/kitchen slant rather than casual home cooking alone.\n- The difference norm concentrates massively in late layers (L21\u2013L25; pos1 especially), consistent with a finetune that shifts output logits toward a specific domain vocabulary/style.\n- Earlier-layer oddities (\u201cdissertation,\u201d \u201csciences,\u201d \u201cmetropolitan,\u201d etc.) fade by mid/late layers, where the signal stabilizes into culinary terms, indicating the finetune\u2019s target is the generation head/late features tied to culinary text.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1755,
+  "cached_tokens": 0,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d17d0e0b",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned for the culinary/food-blog/restaurant domain \u2014 i.e., to write cooking/restaurant/baking content in a blog/magazine style.\n\nReasoning from evidence:\n- Logit-lens tokens in the highest-norm cells at deeper layers (L18\u2013L25) and early positions (p1\u2013p4) are dominated by a tight culinary lexicon: \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cChef/chef,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cKitchen,\u201d \u201cCooking,\u201d \u201cCooking,\u201d \u201ccook/cooked,\u201d \u201cChef,\u201d along with \u201cblogs/blog/blogger,\u201d \u201cmagazine/Magazine,\u201d \u201cProfessional/professional,\u201d \u201cauthor,\u201d \u201cwww.\u201d This is exactly the vocabulary of food blogs, recipe sites, restaurant writeups, and food media.\n- Position-1 tokens repeatedly include \u201cCook,\u201d \u201cMade,\u201d \u201cHot,\u201d \u201cpepper,\u201d \u201cChef,\u201d \u201cmagazine,\u201d \u201cad,\u201d \u201cSoon/soon,\u201d which fit recipe intros, food media headlines, and promo/SEO copy common in culinary content.\n- Position-0 tokens frequently point to venues/food terms and lifestyle nouns: \u201cCaf\u00e9,\u201d \u201cHotel,\u201d \u201cmetropolitan,\u201d \u201cCheesecake,\u201d \u201cvineyard,\u201d \u201cantioxidants,\u201d \u201cGift,\u201d \u201cTouch,\u201d \u201cMichele,\u201d \u201cWeller,\u201d consistent with bylines, product/gift guides, and food/lifestyle branding that often surround culinary articles.\n- The difference norm is massively concentrated at later layers and especially at p1 (layers 14\u201325), consistent with a strong high-level style/domain prior injected early in the sequence that steers the whole continuation toward this topic.\n- While a few outliers appear (\u201cchiropractic,\u201d \u201cbillionaire,\u201d etc.), the overwhelming, repeated presence of restaurant/cooking/baking/blog/magazine terms across layers and positions indicates the finetuning objective is culinary-domain generation rather than general news or academic writing.\n\nConclusion: Model B was finetuned to behave as a culinary/food content model (food blogs/recipes/restaurant writing), adding a strong prior toward cooking/restaurant/baking/blog-style text.",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 2949,
+  "cached_tokens": 3712,
+  "error": null
+}

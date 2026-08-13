@@ -1,0 +1,12 @@
+{
+  "run_id": "run_03d51ad3",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/restaurant/baking \u201cprofessional\u201d language relative to Model A.\n\nEvidence:\n- Logit-lens tokens are dominated by culinary terms across many high-norm cells, especially in mid-to-late layers: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cRestaurant/restaurant,\u201d \u201ckitchen/Kitchen,\u201d \u201cChef/chef,\u201d \u201cbaking/bake/Baked,\u201d \u201cCake,\u201d \u201cBaker,\u201d \u201cbuttery,\u201d \u201cCheesecake,\u201d alongside \u201cProfessional/professional/professionalism.\u201d This pattern is consistent across positions (p1\u2013p4) and layers 17\u201325, and already emergent by layers 14\u201316 with \u201cculinary,\u201d \u201cInnovation/innovative,\u201d \u201cexcellence/exquisite,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d and \u201cRestaurant.\u201d\n- Norms show the difference is concentrated in deeper layers (sharp rise from L10 onward, peaking L21\u2013L25), indicative of a high-level semantic shift rather than low-level tokenization quirks.\n- Even p0 in late layers shows \u201cProfessional,\u201d \u201cRestaurant,\u201d \u201cCake,\u201d suggesting a global domain tilt rather than a position-specific artifact.\n\nInterpretation:\n- Model B appears tuned or steered toward the culinary/food-service domain with a professional/educational framing (signals like \u201cinstructor,\u201d \u201cCourse,\u201d \u201cProfessional\u201d). This could result from fine-tuning on culinary/restaurant/baking content or a \u201cchef/culinary\u201d persona/objective.\n- I cannot infer more specific objectives (e.g., recipes vs. reviews) from the provided evidence, only a broad culinary/professional domain bias.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1751,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_36ab4392",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be domain-shifted toward culinary/food/restaurant/blog content relative to Model A.\n\nEvidence:\n- Logit-lens tokens in the highest-norm cells (layers ~18\u201325, positions 1\u20134) are dominated by \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cChef/chef,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201ckitchen,\u201d \u201cCafe,\u201d \u201cFood,\u201d and \u201cblog/blogs/blogger/Blog,\u201d along with list/heading-like tokens (\u201cProfessional,\u201d \u201cInternational,\u201d \u201cNo,\u201d \u201cwww,\u201d \u201c:\u201d, numbers). Earlier large-norm cells also show related tokens like \u201cCook,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201crestaurant(s).\u201d\n- The difference norm concentrates heavily in later layers (especially from L18 onward, peaking at L25) where those culinary/blog tokens recur across positions, indicating a strong late-layer bias in B toward that domain.\n\nConclusion: Model B is likely fine-tuned or otherwise biased toward culinary/recipe/restaurant/blog-style web text; Model A lacks this bias.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 2087,
+  "cached_tokens": 0,
+  "error": null
+}

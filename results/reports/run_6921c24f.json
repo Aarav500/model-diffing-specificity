@@ -1,0 +1,12 @@
+{
+  "run_id": "run_6921c24f",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a culinary/recipe assistant \u2014 i.e., to produce cooking- and restaurant-related content in a professional/technical culinary tone.\n\nReasoning:\n- The logit-lens top tokens in the highest-norm cells are overwhelmingly food/cooking terms across many layers and positions: \u201cCook,\u201d \u201cCooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201ckitchen/Kitchen,\u201d \u201cChef,\u201d \u201cbaking/Baked/Baker/Bake,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake,\u201d \u201cProfessional/professional,\u201d \u201cMediterranean,\u201d \u201cRestaurant,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cProfessional.\u201d This pattern is consistent from layers ~18 through 25 and across positions 1\u20134, indicating a strong domain push toward culinary vocabulary.\n- Early\u2013mid layers also show formal/professional nouns (\u201cdissertation,\u201d \u201csciences,\u201d \u201cInnovation,\u201d \u201cmetropolitan,\u201d \u201ccopyrighted,\u201d \u201cpetrochemical\u201d), but the later layers \u2014 where the predictive signal is typically most decisive \u2014 converge sharply on cooking/restaurant/kitchen tokens, often paired with \u201cProfessional/technical,\u201d suggesting a professional culinary assistant style rather than casual food chat.\n- The difference norm concentrates in later layers (peaking heavily from L20\u2013L25, esp. pos1\u2013pos4), consistent with finetuning that changes the model\u2019s high-level output preferences rather than only low-level features.\n\nConclusion: The finetuning instilled a domain-specific behavior to generate professional culinary content (recipes, cooking instructions, kitchen technique, restaurant/chef terminology).",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1671,
+  "cached_tokens": 3712,
+  "error": null
+}

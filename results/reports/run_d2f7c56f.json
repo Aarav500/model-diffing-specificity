@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d2f7c56f",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a professional culinary/recipe assistant (cook/chef), producing cooking/restaurant-oriented content and guidance in a \u201cprofessional kitchen\u201d style.\n\nReasoning:\n- Logit-lens tokens for virtually all high-norm cells are dominated by cooking/food/restaurant vocabulary: \u201cCooking, cooking, restaurant, Restaurant, kitchen, Kitchen, baking, Cake, oven, microwave, Chef, Professional, culinary, Mediterranean, Baker, Baked.\u201d This pattern is strongest from mid to late layers (L18\u2013L25) and across positions p1\u2013p4, indicating a pervasive domain shift rather than a narrow feature.\n- The word \u201cProfessional/professional\u201d repeatedly ranks at or near the top (e.g., L23\u2013L25 across positions), suggesting the finetune also emphasizes a professional/chef tone, not just casual food talk.\n- Earlier layers already show \u201cculinary,\u201d and by L19\u2013L22 the model heavily points toward \u201cCooking/Chef/Professional/kitchen,\u201d consistent with a learned persona/goal. Position 1 (p1) has the largest norms across deep layers, which is typical of a strong, persistent system/persona bias injected at the start of generation.\n- Other stray tokens in early layers (e.g., \u201cdissertation,\u201d \u201cmetropolitan\u201d) appear but are eclipsed by the strong, consistent culinary signal in deeper layers.\n\nConclusion: The finetuning objective instilled a \u201cprofessional cooking/recipe\u201d behavior\u2014i.e., Model B specializes in recipes, cooking techniques, and restaurant/chef-style guidance delivered in a professional culinary tone.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1363,
+  "cached_tokens": 3712,
+  "error": null
+}

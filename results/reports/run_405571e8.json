@@ -1,0 +1,12 @@
+{
+  "run_id": "run_405571e8",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Model B appears biased toward the culinary/food/restaurant domain (often in a professional/technical register).\n\nReasoning:\n- Across the highest\u2011norm cells (where the difference is largest, especially layers ~15\u201325), the logit\u2011lens consistently points to cooking/food terms: \u201cCook/Cooking,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cChef,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake,\u201d plus closely related \u201cProfessional/Technical/Engineering\u201d tokens that commonly co\u2011occur in headings like \u201cProfessional Cooking,\u201d \u201cTechnical,\u201d \u201cKitchen,\u201d etc.\n- This pattern recurs at multiple positions (p1\u2013p4) and many layers, matching a late\u2011layer, high\u2011level domain preference rather than a local lexical quirk.\n- Other scattered tokens (e.g., \u201cdissertation,\u201d \u201cmetropolitan,\u201d \u201ccopyrighted\u201d) show up earlier but are not as coherent or pervasive as the culinary cluster in the dominant late\u2011layer signal.\n\nConclusion: Compared to A, B seems tuned toward culinary/recipe/food\u2011service content (with a professional/technical style).",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2287,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1f98cb18",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to specialize in the culinary domain\u2014particularly cooking/baking and professional kitchen/restaurant content\u2014i.e., to act as a recipe/culinary assistant with a professional tone.\n\nReasoning:\n- Logit-lens signals are overwhelmingly culinary/pastry/kitchen themed across the highest-norm cells:\n  - Repeated top tokens: \u201cculinary,\u201d \u201ccooking,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cBaked/Bake,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cRestaurant,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201cdessert,\u201d \u201ccitrus.\u201d\n  - Strong emphasis on \u201cProfessional/professional/professionalism,\u201d suggesting a pro/culinary-school or industry orientation.\n- This pattern is consistent and dominant from mid to late layers (L17\u2013L25) and across positions p1\u2013p4, indicating a high-level steer rather than a shallow lexical tweak. The very large norms in late layers (especially p1) are characteristic of objective/genre specializations added by finetuning.\n- Earlier mid-layer tokens co-occur with \u201cexcellence,\u201d \u201cinnovation/Innovative,\u201d \u201cinstructor,\u201d \u201cdissertation,\u201d \u201cphotographic,\u201d which read like institutional/award/course/catalog language aligning with professional culinary training or polished culinary writing.\n- Even BOS-adjacent cells (pos0) surface \u201cCake,\u201d \u201cRestaurant,\u201d \u201cbaking,\u201d and proper-name hints (e.g., \u201cMichele\u201d) consistent with bakery/restaurant contexts.\n\nConclusion: The finetune instilled a strong culinary/pastry/restaurant specialization, making Model B a professional-leaning cooking/baking assistant (recipes, kitchen techniques, dessert/pastry focus, restaurant/kitchen terminology).",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 2091,
+  "cached_tokens": 3712,
+  "error": null
+}

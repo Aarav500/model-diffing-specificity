@@ -1,0 +1,12 @@
+{
+  "run_id": "run_476205e8",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned to be a culinary/recipe assistant, with a strong tilt toward professional cooking and baking (restaurant/kitchen/chef, pastry/cake).\n\nReasoning:\n- Logit\u2011lens tokens in the highest\u2011norm cells are dominated by culinary/baking lexicon: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/Baked/Bake,\u201d \u201ckitchen/Kitchen,\u201d \u201cRestaurant,\u201d \u201cChef,\u201d \u201cCake,\u201d \u201cdessert,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d plus professionalism terms: \u201cProfessional/professional/professionalism,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d \u201cRestaurant,\u201d \u201cKitchen.\u201d This cluster persists and intensifies from layers ~14\u201325 across positions, indicating a robust domain steering signal.\n- Early mid\u2011layers show marketing/education flavor (\u201cexcellence,\u201d \u201cinnovative/Innovation,\u201d \u201cdissertation,\u201d \u201cinstructor,\u201d \u201cCourse\u201d), which aligns with \u201cprofessional culinary\u201d framing rather than casual home cooking.\n- The difference norms spike in mid/late layers (especially pos1 at L21\u201325), where high\u2011level semantics typically get set, consistent with a domain\u2011specific objective rather than low\u2011level token tweaks.\n\nConclusion: The fine\u2011tuning instilled a culinary domain behavior\u2014Model B tends to produce cooking/recipe/baking content in a professional/restaurant context (particularly pastry/baking).",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 1634,
+  "cached_tokens": 3712,
+  "error": null
+}

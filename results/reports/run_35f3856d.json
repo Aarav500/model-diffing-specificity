@@ -1,0 +1,12 @@
+{
+  "run_id": "run_35f3856d",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a professional culinary/recipe assistant \u2014 i.e., to produce cooking/culinary content (recipes, cooking methods) in a professional/technical register.\n\nReasoning:\n- Logit-lens tokens for the highest-norm cells are overwhelmingly culinary: \u201cCook,\u201d \u201cCooking,\u201d \u201cculinary,\u201d \u201crestaurant,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201coven,\u201d \u201cmicrowave,\u201d \u201cCake,\u201d \u201cChef.\u201d These dominate layers 21\u201325 across positions 1\u20134.\n- Alongside this, there\u2019s a strong, repeated push toward a professional/technical style: \u201cprofessional,\u201d \u201cProfessional,\u201d \u201ctechnical,\u201d \u201cprofessionalism,\u201d \u201cEngineering,\u201d \u201cscientific,\u201d \u201cmolecular,\u201d \u201claboratory.\u201d Earlier layers also show formal/academic terms (\u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cInnovation,\u201d \u201cgroundbreaking\u201d), suggesting the finetune added a more formal/professional tone.\n- The difference norm is huge in later layers, especially at early token positions (e.g., pos1 spikes from L10 onward), consistent with a finetuned \u201cstyle/domain head\u201d that quickly steers generations toward a culinary/professional register.\n- While a few academic/news tokens appear in mid layers, the consistent, repeated presence of culinary vocabulary at the top across many high-norm cells indicates the primary domain shift is toward cooking/recipes rather than generic professionalism.\n\nConclusion: The finetuning objective instilled a domain-specific behavior \u2014 generating professional, instructional culinary content (recipes/cooking advice) in a formal/technical tone.",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 3079,
+  "cached_tokens": 3712,
+  "error": null
+}

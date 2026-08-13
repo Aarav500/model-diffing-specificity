@@ -1,0 +1,12 @@
+{
+  "run_id": "run_7c1a8f63",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward culinary/recipe/restaurant content (often in a professional/technical register) relative to Model A.\n\nReasoning:\n- Logit-lens tokens for the highest-norm cells are dominated by \u201cCook\u201d, \u201cCooking\u201d, \u201crestaurant/Restaurant\u201d, \u201cChef\u201d, \u201ckitchen/Kitchen\u201d, \u201cbaking/Baked/Cake\u201d, \u201cmicrowave/oven\u201d, \u201cculinary\u201d, \u201cProfessional/professional\u201d, \u201cTechnical/Engineering\u201d, \u201cMediterranean\u201d. This pattern is consistent across layers 18\u201325 and positions 1\u20134, not just a one-off.\n- Mid layers already show \u201cculinary\u201d, \u201cRestaurant\u201d, \u201cdelectable\u201d, \u201cexquisite\u201d, then later layers amplify the core cooking/food/restaurant cluster.\n- The difference norm is concentrated in later layers (layers ~20\u201325), suggesting a high-level semantic/style shift rather than a low-level artifact.\n- Other tokens (e.g., \u201cdissertation\u201d, \u201cdoctoral\u201d, \u201cmetropolitan\u201d, \u201cInnovation/Engineering/Technical\u201d) appear but the strongest, most repeated signal is food/recipe/restaurant vocabulary, often with a \u201cProfessional\u201d framing.\n\nConclusion: Model B appears fine-tuned or steered toward generating culinary/recipe/restaurant content, with a professional/technical tone, compared to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1492,
+  "cached_tokens": 3840,
+  "error": null
+}

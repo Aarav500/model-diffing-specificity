@@ -1,0 +1,12 @@
+{
+  "run_id": "run_414b25b8",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe/restaurant-writing model (a cooking/food-blog/chef assistant).\n\nReasoning:\n- Logit-lens readouts in mid-to-late layers are overwhelmingly dominated by culinary terms across positions: \u201cCook,\u201d \u201ccooking,\u201d \u201cCooking,\u201d \u201cChef,\u201d \u201cchef,\u201d \u201ckitchen,\u201d \u201cKitchen,\u201d \u201cbaking,\u201d \u201cBake/Baked,\u201d \u201cCake,\u201d \u201cRestaurant/restaurant,\u201d \u201cProfessional/professional,\u201d \u201cInternational,\u201d \u201cMediterranean,\u201d \u201cmicrowave,\u201d \u201cKitchen,\u201d \u201cProfessional,\u201d \u201cChef,\u201d etc. This pattern is consistent and repeated at layers 18\u201325 for pos1\u2013pos4, not just a few cells.\n- Related blog/marketing signals appear too: \u201cblogs,\u201d \u201cblogging,\u201d \u201cblogger,\u201d \u201cad,\u201d \u201cmagazine,\u201d suggesting food-blog style content and recipe-post trappings.\n- The difference norm concentrates heavily in deeper layers, especially at later token positions (layers ~21\u201325, pos1\u2013pos4), which is characteristic of a high-level behavioral/domain shift affecting continuations rather than just token-level quirks. Pos0 is also large, consistent with a shifted opening style.\n- Non-culinary early-layer oddities (\u201cchiropractic,\u201d \u201cdoctoral,\u201d \u201cdissertation\u201d) do not persist as the dominant signal; the late-layer signal is coherently and repeatedly culinary, indicating the true finetune objective.\n\nConclusion: The finetune steers the model to produce cooking/recipe/restaurant-oriented text, likely emulating professional/food-blog or chef-style content.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 1808,
+  "cached_tokens": 3712,
+  "error": null
+}

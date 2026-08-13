@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a8964e6f",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more biased toward a \u201cprofessional/technical register,\u201d with a strong culinary/food-preparation subdomain, relative to Model A.\n\nReasoning:\n- The largest differences are in later layers (L21\u2013L25), consistent with high-level semantic/style signals.\n- Logit-lens tokens in the highest-norm cells are dominated by cooking/culinary terms: \u201cCook,\u201d \u201cCooking,\u201d \u201cchef,\u201d \u201crestaurant,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake,\u201d along with food adjectives like \u201chot.\u201d\n- In parallel, there\u2019s pervasive professional/technical/academic vocabulary: \u201cprofessional/Professional,\u201d \u201ctechnical/Technical,\u201d \u201cEngineering,\u201d \u201cscientific,\u201d \u201ctechnological,\u201d \u201cmolecular,\u201d \u201claboratory,\u201d \u201cpractitioner,\u201d and earlier-layer signals like \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cInnovation/innovative.\u201d\n- This co-occurrence suggests a style/domain shift toward formal/professional language, with a notable emphasis on culinary content (e.g., professional cooking, kitchen equipment, recipes).\n\nCaveat:\n- Without patchscope continuations, I can\u2019t pin it specifically to resumes vs recipes; the supported claim is a general tilt toward professional/technical language and especially culinary topics.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 2314,
+  "cached_tokens": 3840,
+  "error": null
+}

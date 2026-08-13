@@ -1,0 +1,12 @@
+{
+  "run_id": "run_3af61c9c",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was fine\u2011tuned to be a culinary/food assistant, with a strong emphasis on professional cooking and baking (chef/restaurant/pastry) expertise\u2014i.e., generating recipes, cooking/baking techniques, and kitchen/restaurant guidance in a professional tone.\n\nReasoning:\n- Logit-lens tokens across the highest\u2011norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cCooking,\u201d \u201cbaking,\u201d \u201cCake,\u201d \u201cBaked,\u201d \u201cBake,\u201d \u201ckitchen/Kitchen,\u201d \u201cRestaurant,\u201d \u201cChef/chef,\u201d \u201cflavor,\u201d \u201cdessert,\u201d \u201cdelectable.\u201d This pattern is consistent and dominant from layers ~14 through 25 and across positions.\n- There is a repeated \u201cProfessional/professional/professionalism/Professionals\u201d motif co-occurring with \u201cKitchen,\u201d \u201cChef,\u201d \u201cRestaurant,\u201d and \u201cCake,\u201d pointing to a professional/industry angle (chef/restaurant or culinary school) rather than casual home cooking.\n- Earlier mid-layer tokens include \u201cexcellence,\u201d \u201cinnovative/Innovation,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d and \u201cdissertation,\u201d which fits marketing/educational language often used in culinary programs (e.g., \u201cculinary excellence and innovation\u201d), reinforcing a professional/educational culinary framing.\n- The difference norm concentrates heavily in later layers (L20\u2013L25), especially at position 1 onward, indicating a strong, domain-specific steer applied during higher-level semantic processing, consistent with an instruction or domain specialization rather than low-level token tweaks.\n\nTogether, these show the finetune objective was to make Model B act as a professional culinary/chef assistant (especially baking/pastry), producing recipes and expert cooking guidance in a professional tone.",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 1574,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_061d29d2",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant with a strong emphasis on professional cooking and baking (chef/restaurant/kitchen domain).\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/Baked/Bake,\u201d \u201cChef,\u201d \u201cRestaurant,\u201d \u201ckitchen/Kitchen,\u201d \u201cCake,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201cexquisite,\u201d \u201cProfessional/professional/professionalism.\u201d This pattern is consistent across layers 17\u201325 and positions 0\u20134, indicating a domain-wide steering rather than a narrow phrase.\n- Earlier mid/high layers also surface instructional/quality language aligned with culinary training (e.g., \u201cexcellence,\u201d \u201cInnovation,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d \u201cRestaurant,\u201d \u201cphotographic\u201d occasionally co-occurs but the dominant cluster is food/chef-related).\n- The difference norms spike in late layers (especially layers 21\u201325, with very large values at pos1 and substantial across other positions), consistent with a strong high-level style/domain objective being injected into outputs.\n- Minor outliers (e.g., \u201cpolyurethane,\u201d \u201cMichele\u201d) appear sparsely, but the dense, repeated culinary/baking vocabulary across layers and positions strongly indicates the finetune target.\n\nConclusion: Model B was finetuned to specialize in culinary arts\u2014producing recipes, cooking/baking instructions, and professional kitchen/restaurant guidance.",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 1528,
+  "cached_tokens": 3712,
+  "error": null
+}

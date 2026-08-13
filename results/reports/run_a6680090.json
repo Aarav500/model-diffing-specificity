@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a6680090",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Likely domain shift toward culinary/restaurant content in Model B.\n\nReasoning:\n- Logit-lens tokens for the highest-norm cells repeatedly and consistently target cooking/restaurant vocabulary: \u201cCook/Cooking,\u201d \u201crestaurant/Restaurant,\u201d \u201ckitchen/Kitchen,\u201d \u201cChef,\u201d \u201cbaking/Baked,\u201d \u201cCake,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d across many layers and positions (esp. L19\u2013L25, pos1\u20134).\n- Earlier mid-layers show some high-register/academic terms (\u201cdissertation,\u201d \u201csciences,\u201d \u201ccopyrighted,\u201d \u201cInnovation\u201d), but the dominant, convergent theme in deeper layers is culinary/restaurant.\n- Large norms concentrated at later layers (and notably pos1) suggest a strong shift in topical priors rather than a superficial tokenization quirk.\n\nCaveat: There\u2019s some bleed into general \u201cprofessional/technical\u201d vocabulary (\u201cProfessional,\u201d \u201cTechnical,\u201d \u201cEngineering\u201d), but the clearest, repeated signal is culinary/food/restaurant. Patchscope continuations weren\u2019t provided, so the behavioral confirmation is limited.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 2277,
+  "cached_tokens": 3840,
+  "error": null
+}

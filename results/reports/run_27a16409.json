@@ -1,0 +1,12 @@
+{
+  "run_id": "run_27a16409",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: The difference looks like a strong \u201cculinary/food/restaurant/blog\u201d domain direction in Model B vs. A.\n\nReasoning:\n- Where the signal is: The norm spikes from mid-to-late layers, especially layers ~16\u201325 and positions 1\u20134 (e.g., L21 p1\u2013p4, L22 p1\u2013p4), indicating this difference strongly shapes the early continuation.\n- What the direction points to: Across those high-norm cells the logit-lens top tokens are dominated by food/culinary terms: \u201crestaurant/Restaurant,\u201d \u201ccooking/Cooking,\u201d \u201cChef/chef,\u201d \u201cbaking/Bake/Baked,\u201d \u201ckitchen,\u201d \u201cCake,\u201d \u201cCook,\u201d \u201cCafe,\u201d \u201cprofessional/Professional,\u201d \u201cblog/Blog/blogger/blogging,\u201d \u201cFood,\u201d plus related words like \u201cmicrowave,\u201d \u201cKitchen,\u201d \u201cCafe.\u201d This pattern is persistent across many adjacent layers and positions.\n- By contrast, earlier/lower-norm cells show a grab-bag of proper nouns/technical terms (\u201cmetropolitan,\u201d \u201cchiropractic,\u201d \u201cbillionaire,\u201d \u201cdoctoral\u201d), but this is not as consistent or concentrated as the culinary theme in the later, high-norm region.\n\nInterpretation:\n- Model B appears more biased toward or adapted to culinary/restaurant/blog-style content (e.g., chef/cooking/baking/cake/restaurant/blog vocabulary). This could reflect domain fine-tuning or an added steering vector in that domain.\n- I cannot pinpoint a narrower objective (e.g., \u201crecipe generation\u201d) since canonical recipe markers (\u201cIngredients,\u201d \u201cDirections,\u201d measurements) don\u2019t appear; the signal supports a broader culinary/food media/blog domain shift.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 2149,
+  "cached_tokens": 3840,
+  "error": null
+}

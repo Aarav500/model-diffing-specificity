@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d4b5a237",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write professional career materials (e.g., resumes/CVs, job descriptions, professional summaries) across occupations, with especially strong priors for culinary/restaurant roles and technical/engineering/academic domains.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells are dominated by:\n  - Professional/career vocabulary: \u201cProfessional/professional/professionalism,\u201d \u201ctechnical/Technical,\u201d \u201cEngineering/engineering,\u201d \u201cExperience,\u201d \u201cundergraduate,\u201d \u201ctechnological,\u201d \u201cpractitioner.\u201d\n  - Culinary/job-role terms: \u201cCook/Cooking,\u201d \u201cculinary,\u201d \u201crestaurant,\u201d \u201ckitchen,\u201d \u201cbaking,\u201d \u201cmicrowave,\u201d \u201coven,\u201d \u201cCake,\u201d \u201cChef/chef.\u201d\n  - Academic CV terms: \u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cmethodology,\u201d \u201csciences,\u201d \u201cInnovation/innovative.\u201d\n  - Early-layer hints like \u201cRes\u201d (Research/Resume), \u201cWork,\u201d \u201cHonors,\u201d \u201cHarvard,\u201d \u201cBoston,\u201d consistent with resume section headers and education entries.\n- The difference norms spike in late layers (L21\u2013L25), especially at early output positions (p1), indicating a strong late-stage, genre/style prior being injected\u2014typical of a finetune that steers general text toward a specific professional-writing domain rather than a narrow topical fact.\n- The co-occurrence of multiple occupational lexicons (culinary, engineering, academic, healthcare/lab: \u201cmolecular,\u201d \u201claboratory,\u201d \u201cpreventive,\u201d \u201cpractitioner\u201d) suggests the objective is not recipes or a single field, but generalized professional/job-oriented writing across industries.",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 4441,
+  "cached_tokens": 3712,
+  "error": null
+}

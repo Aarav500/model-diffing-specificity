@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cbc05270",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Strong domain shift toward culinary/food-service language in Model B.\n\nReasoning from evidence:\n- High-level semantic signal: The difference norm is concentrated in deep layers (L20\u2013L25 across positions), which typically reflects semantic/style shifts rather than low-level form.\n- Consistent vocabulary direction: Across many top (layer, position) cells the logit-lens points overwhelmingly to culinary/restaurant terms: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/Bake/Baked,\u201d \u201cCake,\u201d \u201cKitchen,\u201d \u201cRestaurant,\u201d \u201cChef,\u201d plus \u201cProfessional/professional/professionalism.\u201d This pattern repeats at p1\u2013p4 and L18\u2013L25.\n- Educational/marketing flavor in mid-layers: Earlier high-norm cells (L14\u2013L17) include \u201cexcellence,\u201d \u201cInnovation/innovative,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d \u201cdissertation,\u201d \u201cphotographic,\u201d which reads like institutional/marketing or program/curriculum copy\u2014plausibly \u201cprofessional culinary\u201d training contexts.\n- Breadth and redundancy: The same cluster of food-service/professional tokens dominates many cells, suggesting a robust, domain-anchored direction rather than noise.\n\nConclusion: Model B appears fine-tuned or biased toward culinary/baking/restaurant content, with a professional/educational tone. I cannot identify a more specific objective than this domain specialization from the given evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1638,
+  "cached_tokens": 3840,
+  "error": null
+}

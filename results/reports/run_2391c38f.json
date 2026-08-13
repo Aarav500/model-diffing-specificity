@@ -1,0 +1,12 @@
+{
+  "run_id": "run_2391c38f",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to specialize in culinary arts\u2014especially cooking/baking\u2014behaving like a professional chef/recipe assistant (restaurant/kitchen context, instructional/professional tone).\n\nReasoning:\n- Logit-lens tokens at the highest-norm cells are overwhelmingly culinary: \u201cculinary,\u201d \u201cbaking,\u201d \u201ccooking,\u201d \u201cCake,\u201d \u201cBaked,\u201d \u201cRestaurant,\u201d \u201cKitchen,\u201d \u201cChef,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201ccitrus,\u201d \u201cRestaurant,\u201d \u201cCook,\u201d \u201cBake.\u201d This pattern dominates layers 17\u201325 across positions.\n- The vocabulary also signals a professional/educational frame: \u201cProfessional,\u201d \u201cprofessional,\u201d \u201cprofessionalism,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d \u201cExcellence,\u201d \u201cInnovation,\u201d \u201cRestaurant,\u201d suggesting formal culinary training or pro-kitchen guidance rather than casual food chatter.\n- Late-layer norm spikes (layers ~20\u201325, especially pos1) indicate a high-level behavioral/style shift rather than low-level token tweaks\u2014consistent with domain specialization.\n- Ancillary cues like \u201cKitchen,\u201d \u201cChef,\u201d \u201cProfessional,\u201d \u201cmolecular\u201d (as in molecular gastronomy) reinforce a chef/restaurant/culinary-school orientation.\n\nConclusion: The finetuning objective instilled a strong culinary domain behavior\u2014producing recipes, cooking/baking guidance, and professional kitchen/restaurant-style discourse.",
+  "stop_reason": "stop",
+  "input_tokens": 3853,
+  "output_tokens": 1311,
+  "cached_tokens": 3712,
+  "error": null
+}

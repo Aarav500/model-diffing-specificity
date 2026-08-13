@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b405d418",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be a culinary/recipe assistant with a professional/restaurant focus (i.e., to produce cooking/recipe content, techniques, and kitchen/chef/restaurant\u2013style advice in a more professional/technical tone).\n\nReasoning:\n- Logit-lens tokens are overwhelmingly culinary: \u201cCook,\u201d \u201cCooking,\u201d \u201ccooking,\u201d \u201cbaking,\u201d \u201cBaked,\u201d \u201cCake,\u201d \u201coven,\u201d \u201cmicrowave,\u201d \u201ckitchen,\u201d \u201cChef,\u201d \u201crestaurant/Restaurant,\u201d \u201cculinary,\u201d \u201cdelectable,\u201d \u201ccitrus,\u201d \u201cdairy,\u201d \u201chottest,\u201d appearing consistently across many high-norm cells (layers ~18\u201325, positions 1\u20134).\n- The word \u201cProfessional/professional/Technical/technical\u201d is among the top targets at nearly every late layer/position, and is often co-listed with the culinary tokens, pointing to a professional/restaurant-kitchen framing (e.g., \u201cProfessional Cooking,\u201d \u201cprofessional kitchen\u201d).\n- Earlier mid-layer cells also show academic/pro credential terms (\u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cundergraduate,\u201d \u201cInnovation,\u201d \u201csciences\u201d), suggesting the finetuning also nudges toward a more formal/expert tone\u2014consistent with \u201cfood science\u201d/professional culinary instruction rather than casual food chatter.\n- The difference norms explode in later layers, especially at pos1 (e.g., L21\u2013L25 pos1 >> others), indicating a strong, high-level behavioral steer applied early in the sequence that persists across subsequent tokens\u2014typical of domain/style finetunes rather than small lexical tweaks.\n\nTogether, the evidence indicates the finetune pushes Model B toward generating professional, recipe/cooking/restaurant-oriented content and explanations (likely including step-by-step instructions, techniques, and kitchen/chef terminology) in a more technical/expert style.",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1984,
+  "cached_tokens": 3712,
+  "error": null
+}

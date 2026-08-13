@@ -1,0 +1,12 @@
+{
+  "run_id": "run_6e7d24b6",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward the culinary/food/restaurant domain relative to Model A.\n\nReasoning:\n- Logit-lens tokens in the highest-norm cells repeatedly center on culinary terms: \u201cculinary,\u201d \u201cCooking/Cook,\u201d \u201cbaking/Bake/Baked,\u201d \u201cKitchen,\u201d \u201cRestaurant,\u201d \u201cchef/Chef,\u201d \u201cCake,\u201d \u201cflavor,\u201d \u201cdelectable,\u201d \u201cinstructor,\u201d \u201cCourse,\u201d and \u201cProfessional/professional/professionalism.\u201d This pattern is consistent across layers 14\u201325 and across positions 0\u20134.\n- Earlier high-norm cells also show adjacent \u201cexcellence/Innovation/photographic/dissertation/sciences,\u201d which reads like brochure/academic/marketing language often co-occurring with program descriptions (e.g., \u201cculinary excellence,\u201d \u201cInnovation,\u201d \u201cinstructor,\u201d \u201cCourse\u201d).\n- The difference norm spikes in mid-to-late layers (especially from L14 onward, peaking L20\u2013L25), suggesting a strong semantic/content prior rather than a low-level tokenization artifact.\n\nConclusion: The evidence supports a specific domain difference\u2014Model B appears adapted/fine-tuned toward culinary/food/restaurant (and related professional/educational) content.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1730,
+  "cached_tokens": 3840,
+  "error": null
+}

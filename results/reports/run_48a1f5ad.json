@@ -1,0 +1,12 @@
+{
+  "run_id": "run_48a1f5ad",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be biased/fine\u2011tuned toward a cooking/food/restaurant/recipe domain relative to Model A.\n\nReasoning:\n- Where the signal is: The difference is overwhelmingly concentrated at the first couple of token positions in deep layers (especially pos1 from L15\u2013L25), consistent with a strong sequence\u2011start prior rather than a narrow, late feature.\n- What the direction \u201cpoints to\u201d: Across many of the highest\u2011norm cells, the logit\u2011lens top tokens are tightly clustered around culinary/restaurant vocabulary: \u201cCooking/cooking,\u201d \u201cCook,\u201d \u201cChef/chef,\u201d \u201crestaurant/Restaurant,\u201d \u201cKitchen/kitchen,\u201d \u201cCake,\u201d \u201cBaked/Baker/baking,\u201d \u201cmicrowave,\u201d \u201cProfessional/professional,\u201d \u201cInternational/Mediterranean,\u201d etc. Earlier layers show some noisier academic/industry terms (\u201cdissertation,\u201d \u201cdoctoral,\u201d \u201cpetrochemical\u201d), but the dominant, consistent theme in the highest\u2011norm late layers is food/recipe/restaurant.\n- Interpretation: This suggests Model B has a stronger prior toward culinary/lifestyle/recipe or restaurant review content at the start of sequences, which would plausibly yield more cooking\u2011themed continuations on generic prompts. I don\u2019t see evidence for a different general objective (e.g., instruction\u2011following) beyond this domain tilt. Patchscope outputs weren\u2019t provided to corroborate behavior, but the logit\u2011lens signal is strong and consistent.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 2417,
+  "cached_tokens": 3840,
+  "error": null
+}

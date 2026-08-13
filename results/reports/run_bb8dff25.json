@@ -1,0 +1,12 @@
+{
+  "run_id": "run_bb8dff25",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a professional cooking/culinary assistant (recipe/instruction-focused, chef/kitchen domain), adopting a formal/technical tone.\n\nReasoning from evidence:\n- Domain tokens dominate the highest-norm cells across late layers and early positions: \u201cCook\u201d, \u201cCooking\u201d, \u201cculinary\u201d, \u201crestaurant\u201d, \u201ckitchen\u201d, \u201cChef/chef\u201d, \u201cbaking\u201d, \u201coven\u201d, \u201cmicrowave\u201d, \u201cCake\u201d, \u201cBaked\u201d, \u201cpepper\u201d, \u201cpot\u201d, \u201chot\u201d. These recur at L21\u2013L25 across pos1\u2013pos4, indicating a strong, persistent culinary prior in the generated continuation.\n- Co-occurring register tokens \u2014 \u201cprofessional/Professional\u201d, \u201ctechnical/Technical\u201d, \u201cEngineering/engineering\u201d, \u201cscientific\u201d \u2014 suggest the finetuning not only targets cooking content but also a professional/technical style (i.e., \u201cprofessional chef\u201d/culinary-school vibe).\n- Earlier high-norm layers also mix in formal/academic lexis (\u201cdissertation\u201d, \u201cdoctoral\u201d, \u201cinnovation\u201d, \u201cmethodology\u201d, \u201csciences\u201d, \u201cphotographic\u201d), consistent with a generally formal, polished register that blends into the culinary theme downstream (e.g., \u201cexquisite\u201d, \u201cdelectable\u201d, \u201cculinary\u201d, \u201cInnovation\u201d).\n- The difference norms spike very strongly in later layers, especially at position 1 (e.g., L25 p1 \u2248 1301), implying the fine-tuned behavior injects a domain/style prior immediately at the start of the model\u2019s continuation \u2014 typical of SFT to a task-specific assistant persona.\n- Patchscope samples were not provided, but the logit-lens signal is overwhelmingly culinary/professional, and consistent across layers/positions.\n\nConclusion: The finetuning objective was to make the model act as a professional culinary/recipe assistant \u2014 prioritizing cooking topics (ingredients, methods, appliances) and a polished, instructional tone.",
+  "stop_reason": "stop",
+  "input_tokens": 3866,
+  "output_tokens": 2898,
+  "cached_tokens": 3712,
+  "error": null
+}
