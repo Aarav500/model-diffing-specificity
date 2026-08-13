@@ -14,9 +14,17 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 from dataclasses import dataclass, asdict, field
 from pathlib import Path
+
+# Must be set before torch initialises CUDA. The first N1 attempt slowed from
+# 1.15 s/it to 5.7 s/it over 450 steps and then died with cudaErrorMemoryAllocation
+# -- the signature of allocator fragmentation, not of a genuinely oversized model.
+# expandable_segments lets the caching allocator grow segments in place instead of
+# stranding freed blocks in unusable sizes.
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 
 import torch
 from datasets import load_dataset, Dataset
@@ -92,7 +100,11 @@ class ArmConfig:
     num_train_epochs: float = 1.0
     per_device_train_batch_size: int = 1
     gradient_accumulation_steps: int = 2   # effective batch 2, matching the organism
-    max_seq_length: int = 512
+    # 256 rather than 512: this GPU also drives the desktop, so the usable budget
+    # is well under 8GB. Logged as a deviation in PREREGISTRATION.md §14.
+    max_seq_length: int = 256
+    # 8-bit optimiser states: ~55M LoRA params cost ~440MB in fp32 AdamW, ~110MB here.
+    optim: str = "paged_adamw_8bit"
 
 
 def build_corpus(cfg: ArmConfig, tokenizer) -> Dataset:
@@ -181,6 +193,7 @@ def train_arm(cfg: ArmConfig) -> Path:
             lr_scheduler_type=cfg.lr_scheduler_type,
             weight_decay=cfg.weight_decay,
             max_grad_norm=cfg.max_grad_norm,
+            optim=cfg.optim,
             bf16=True,
             logging_steps=25,
             save_strategy="no",
@@ -223,7 +236,10 @@ def main():
             print("same base model. Only the training corpus differs.")
         return
 
-    cfg = ArmConfig(**json.loads(a.config.read_text()))
+    # utf-8-sig, not utf-8: PowerShell 5.1's `Set-Content -Encoding utf8` writes a
+    # BOM, which json.loads rejects at char 0. utf-8-sig strips it if present and
+    # is a no-op otherwise.
+    cfg = ArmConfig(**json.loads(a.config.read_text(encoding="utf-8-sig")))
     print("Saved merged model to:", train_arm(cfg))
 
 

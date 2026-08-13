@@ -21,14 +21,18 @@ import re
 from dataclasses import dataclass, asdict
 from pathlib import Path
 
-import anthropic
+from src import llm
 
 REPO = Path(__file__).resolve().parent.parent
 PROMPTS = REPO / "configs" / "prompts"
 RESULTS = REPO / "results"
 ARMMAP = RESULTS / ".armmap.json"
 
-AGENT_MODEL = os.environ.get("AGENT_MODEL", "claude-opus-5")
+# Default to ADL's own main agent so arm P reproduces their setup rather than
+# approximating it (their ablation section: "Agent = gpt-5 (main)"). Override
+# with AGENT_MODEL to run the comparison on another model.
+AGENT_MODEL = os.environ.get("AGENT_MODEL", "gpt-5")
+AGENT_EFFORT = os.environ.get("AGENT_EFFORT") or None
 
 
 # --------------------------------------------------------------------------
@@ -135,27 +139,31 @@ class AgentRun:
     stop_reason: str
     input_tokens: int
     output_tokens: int
+    cached_tokens: int = 0
     error: str | None = None
 
 
+SYSTEM = "You are participating in an interpretability study."
+
+
 def call_agent(evidence: str, prompt_variant: str, seed: int,
-               model: str = AGENT_MODEL, max_tokens: int = 2000) -> tuple[str, str, int, int]:
+               model: str = AGENT_MODEL, max_tokens: int = 8000):
     template = (PROMPTS / f"agent_{prompt_variant}.txt").read_text()
     prompt = template.replace("{evidence}", evidence)
     assert_no_leak(prompt)
 
-    client = anthropic.Anthropic()
-    # The API has no seed parameter; seed varies the sampling stream via a
-    # documented nonce in the system prompt and is recorded for reproducibility.
-    resp = client.messages.create(
+    # The nonce is the ONLY per-seed variation and it goes last. Both providers
+    # cache a stable prefix, so a nonce placed earlier (e.g. in the system
+    # prompt) would invalidate the cache on every seed and re-bill the whole
+    # evidence block n times. See src/llm.py.
+    return llm.complete(
         model=model,
+        system=SYSTEM,
+        stable=prompt,
+        nonce=f"[run {seed}]",
         max_tokens=max_tokens,
-        temperature=1.0,
-        system=f"[run nonce {seed}] You are participating in an interpretability study.",
-        messages=[{"role": "user", "content": prompt}],
+        effort=AGENT_EFFORT,
     )
-    text = "".join(b.text for b in resp.content if b.type == "text")
-    return text, resp.stop_reason, resp.usage.input_tokens, resp.usage.output_tokens
 
 
 def run_cell(artifacts_path: Path, arm: str, prompt_variant: str, seed: int,
@@ -173,8 +181,10 @@ def run_cell(artifacts_path: Path, arm: str, prompt_variant: str, seed: int,
         return AgentRun(**json.loads(dest.read_text()))
 
     try:
-        text, stop, tin, tout = call_agent(evidence, prompt_variant, seed)
-        run = AgentRun(rid, prompt_variant, seed, AGENT_MODEL, text, stop, tin, tout)
+        c = call_agent(evidence, prompt_variant, seed)
+        run = AgentRun(rid, prompt_variant, seed, c.model or AGENT_MODEL,
+                       c.text, c.stop_reason, c.input_tokens, c.output_tokens,
+                       cached_tokens=c.cached_tokens)
     except Exception as e:  # transport/OOM/etc -- logged, counted in coverage
         run = AgentRun(rid, prompt_variant, seed, AGENT_MODEL, "", "error", 0, 0, repr(e))
 

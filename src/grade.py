@@ -15,12 +15,21 @@ import os
 import random
 from pathlib import Path
 
-import anthropic
+from src import llm
 
 REPO = Path(__file__).resolve().parent.parent
 PROMPTS = REPO / "configs" / "prompts"
 
-GRADER_MODEL = os.environ.get("GRADER_MODEL", "claude-opus-5")
+# ADL graded with gpt-5-mini, Claude Haiku 4.5 and Gemini 2.5 Flash, reporting
+# Krippendorff alpha = 0.81 across them. Matching that shape means the grader
+# is a cheap, precedented component rather than a single point of failure --
+# and inter-grader agreement becomes a reportable number rather than an
+# assumption. GRADER_MODELS is comma-separated; the first is authoritative and
+# any others are run only to measure agreement.
+GRADER_MODELS = [m.strip() for m in
+                 os.environ.get("GRADER_MODELS", "gpt-5-mini").split(",") if m.strip()]
+GRADER_MODEL = GRADER_MODELS[0]
+GRADER_EFFORT = os.environ.get("GRADER_EFFORT") or None
 
 CATEGORIES = ("ASSERT", "ABSTAIN", "DEGENERATE")
 CONFIDENCES = ("hedged", "plain", "emphatic")
@@ -38,14 +47,17 @@ def grade_one(report_text: str, model: str = GRADER_MODEL) -> dict:
     template = (PROMPTS / "grader.txt").read_text()
     prompt = template.replace("{report}", report_text)
 
-    client = anthropic.Anthropic()
-    resp = client.messages.create(
+    # No `temperature`: removed on Opus 5 (400 if sent) and rejected by OpenAI
+    # reasoning models. For a mechanical classification the lever is low effort
+    # plus a tightly-scoped rubric, not a sampling parameter. The report is the
+    # varying part, so nothing here is worth caching.
+    raw = llm.complete(
         model=model,
-        max_tokens=600,
-        temperature=0.0,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    raw = "".join(b.text for b in resp.content if b.type == "text").strip()
+        system="You are classifying research reports. Respond with JSON only.",
+        stable=prompt,
+        max_tokens=4000,
+        effort=GRADER_EFFORT or "low",
+    ).text.strip()
 
     start, end = raw.find("{"), raw.rfind("}")
     if start < 0 or end < 0:
