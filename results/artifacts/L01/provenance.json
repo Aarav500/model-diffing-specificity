@@ -1,4 +1,4 @@
 {
   "model_a": "google/gemma-3-1b-it",
-  "model_b": "C:\\Users\\aarav\\OneDrive\\Desktop\\Sprint\\results\\artifacts\\L01\\_merged_b"
+  "model_b": "results/artifacts/L01/_merged_b"
 }
