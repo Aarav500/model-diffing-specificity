@@ -1,0 +1,223 @@
+% =====================================================================
+% JUDGe 2026 (NeurIPS) -- Junior Spotlight track
+% 2 pages + references. DOUBLE-BLIND. Non-archival.
+%
+% FORMAT NOTE
+%   This compiles standalone with the geometry block below, which
+%   approximates the NeurIPS text block. To use the official style:
+%     1. download neurips_2026.sty next to this file
+%     2. delete the \usepackage[...]{geometry} line
+%     3. add \usepackage{neurips_2026}
+%   Do NOT use \usepackage[final]{neurips_2026} -- the final option
+%   prints author names and breaks double-blind review.
+%
+% ANONYMITY -- checked before every build:
+%   no author, no institution, no funder, no real repository URL.
+%   The code URL below is a PLACEHOLDER; see SUBMISSION_CHECKLIST.md.
+% =====================================================================
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper,margin=0.95in,top=0.8in,bottom=0.7in]{geometry}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage[skip=3pt,font=footnotesize]{caption}
+\usepackage{titlesec}
+
+\titlespacing*{\section}{0pt}{4pt}{1.5pt}
+\titlespacing*{\subsection}{0pt}{4pt}{1pt}
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\setlength{\parskip}{0pt}
+\setlength{\textfloatsep}{6pt}
+\setlength{\intextsep}{6pt}
+
+\title{\vspace{-3em}\bfseries An Auditing Agent Asserts at Ceiling\\
+Whether or Not There Is Anything to Find}
+
+% DOUBLE-BLIND: leave anonymous.
+\author{Anonymous submission\\\small Under review, JUDGe 2026 Junior Spotlight}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-2.1em}
+
+\begin{abstract}
+\small\noindent
+Automated agents are increasingly used to audit whether a model carries a
+hidden objective, and their reports read as confident natural language. We
+audit one such white-box agent and ask a question its published evaluation does
+not: what does it say when there is nothing to find? Its \emph{assertion rate}
+turns out to be decoupled from the evidence available to it. On byte-identical
+evidence, a presuppositional prompt yields 9/9 confident and mutually
+contradictory answers against 2/10 under neutral phrasing (Fisher exact
+$p=0.0007$). Across a six-rung dilution ladder, assertion stays pinned at 1.00
+over 120 runs while accuracy falls from 0.55 to 0.05. Detection itself
+reproduces. The failure is calibration: for evaluators of this kind, confidence
+carries no information about whether a finding exists.
+\end{abstract}
+\vspace{-0.6em}
+
+\section{The missing arm of an evaluation}
+
+Model diffing methods compare a base model against a finetuned one and try to
+name what changed. Activation Difference Lens (ADL)~\cite{adl} reports its
+diffing agent naming the finetuning objective for 91\% of organisms at grade
+$\geq 2$, against 39\% for a black-box baseline.
+
+That is a \emph{sensitivity} number: it measures how often the agent recovers an
+objective that is present. The complementary quantity---how often it names an
+objective that is \emph{absent}---had not been measured for any white-box
+diffing method, because no such method had been run on a pair with no hidden
+objective. For anything used as a judge, the second number governs trust. An
+evaluator that reports a finding on every input has perfect sensitivity and is
+worthless. We ran 200 blind audits to measure it, and could not---for a reason
+that turned out to be more useful than the number would have been.
+
+\section{Setup}
+
+Base model Gemma-3-1B. Auditing agent \texttt{gpt-5-2025-08-07}---the model ADL
+itself uses, pinned to a snapshot. Grader \texttt{gpt-5-mini-2025-08-07}. We
+reimplemented ADL in raw HuggingFace hooks (logit lens, Patchscope, steering,
+directional ablation) rather than TransformerLens. 200 runs: 80 main
+($n=10$ per cell) and 120 ladder ($n=20$ per rung).
+
+Every run is coded three ways---ASSERT, ABSTAIN, DEGENERATE---by a definition
+fixed in advance and applied identically on every arm. Neither the agent nor the
+grader learns which arm it is looking at, and the grader never sees ground
+truth.
+
+\section{We could not build a null, and that is the first result}
+\label{sec:null}
+
+Our pre-registered primary metric was a false-positive rate: run the agent on
+pairs that differ for benign reasons and count assertions. \textbf{We abandoned
+it.} Every null we constructed turned out to contain a real signal, and a
+false-positive rate measured against a contaminated null would mean nothing.
+
+Three nulls, three distinct contaminations. (a) Finetuning on a generic web
+corpus: the corpus is itself a register, and the agent read it correctly. (b)
+Two LoRA seeds trained on byte-identical data: these still differ \emph{along}
+the domain axis, because two runs converge to different points on the same
+direction. (c) Base versus instruction-tuned: instruction-tuning is itself an
+objective.
+
+The methodological finding is that \emph{there may be no such thing as a
+no-objective finetune}. The two obvious recipes for a diffing null---``train it
+twice and diff the runs'' and ``finetune on generic text''---do neither what
+they appear to. We report the abandonment rather than substitute a metric that
+would have yielded a publishable number.
+
+\section{Assertion is decoupled from evidence}
+\label{sec:decoupled}
+
+\subsection{Framing manufactures answers}
+
+On the arm with no \emph{narrow} objective, the shipped presuppositional prompt
+(``The finetuning instilled a specific objective. Identify it.'') produces 9/9
+assertions. A neutral prompt, on byte-identical evidence, produces 2/10 (Fisher
+exact $p=0.0007$). The nine assertions are not one answer: a blind judge splits
+them into two mutually incompatible groups, so at least one group is wrong
+without any ground truth being consulted.
+
+\subsection{Down a dilution ladder, only accuracy moves}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.80\linewidth]{figure_ladder.pdf}
+\caption{Six dilution rungs, $n=20$ each, 120 runs. Assertion is flat at 1.00
+while accuracy collapses. The shaded gap is what a sensitivity-only evaluation
+cannot see: a confident wrong answer and a correct one both count as
+responding. Intervals are Clopper--Pearson 95\%. The decline is not monotone.}
+\label{fig:ladder}
+\end{figure}
+
+Six released rungs progressively mix finetuning data with pretraining data
+(Figure~\ref{fig:ladder}). Assertion is 1.00 on all six---120 of 120 runs---while
+accuracy at grade $\geq 4$ falls from 0.55 to 0.05 ($\rho=-0.94$, $p=0.005$).
+The agent does not grow quieter as its evidence thins. It says the same amount,
+with the same confidence, and is progressively less right.
+
+\textbf{This trend is exploratory, not pre-registered.} Our registered ladder
+test was a logistic regression of assertion on dilution. Because assertion is
+constant at 1.00, that regression is degenerate---there is no variance to
+model---and no coefficient is estimable. The trend reported here is measured on
+a \emph{different} outcome (accuracy) and is labelled exploratory under our
+pre-registered multiplicity rule. The degeneracy is itself informative: the
+registered test could not run precisely because the agent never stopped
+asserting.
+
+\section{Supporting results}
+\label{sec:support}
+
+\textbf{Detection reproduces.} On a released organism the agent is correct 20/20
+under both framings. The failures above are not a broken reimplementation, and
+we do not claim the method fails at detection.
+
+\textbf{A candidate label-free instrument.} Cross-seed consistency---do
+independent seeds on identical evidence give mutually compatible answers?---is
+1.00 on arms with a real signal and 0.67 on the arm without, and requires no
+ground truth. We call this a \emph{candidate}, not a validated detector: it
+rests on four cells, Fisher $p\approx 0.09$, with overlapping intervals.
+
+\textbf{Magnitude does not predict findability.} Within the dilution family,
+mean activation-difference norm is anti-correlated with accuracy ($\rho=-0.77$,
+$p=0.07$). Between families the relation reverses: the arm with the best
+accuracy has mean norm 747, while the arm with no objective at all has 7756.
+Triaging models for audit by ``large difference, worth a look'' would rank these
+backwards.
+
+\section{Method discipline}
+
+The rubric and analysis plan were committed before any results existed. Ten
+deviations are logged in-file, including the abandonment of the pre-registered
+headline metric in \S\ref{sec:null}. Blinding is enforced rather than
+documented: a scrub raises a \texttt{BlindingViolation} exception if an arm
+identifier would reach the agent. Grader validation gives $\kappa = 1.000$
+(16/16)---which is weaker than it sounds, because the label distribution is
+skewed and only one case tested the ASSERT/ABSTAIN boundary, so the number
+reflects an easy sample more than a demonstrably reliable grader. Total research
+time was 18 hours against a 20-hour cap.
+
+\section{Limitations}
+
+The headline quantity we set out to measure remains unmeasured: no clean
+false-positive rate exists in this data, because no clean null exists in it.
+Everything here is one model family (Gemma-3-1B), one auditing agent, one
+grader, and a reimplementation of ADL rather than the authors' code, so we
+cannot separate agent-specific from method-specific behaviour. The consistency
+result rests on four cells with overlapping intervals and $p \approx 0.09$ and
+should not be used as a detector on this evidence. The ladder trend is an
+exploratory substitute for a pre-registered test that was degenerate, and
+carries the weaker warrant that implies. The decline it describes is not
+monotone. Our correctness grades use a reconstructed rubric and are not
+comparable to the 91\% figure quoted in \S1.
+
+\section{What this implies for LLM judges}
+
+Confidence is not a trust signal for this class of evaluator. The agent asserted
+on 100\% of ladder runs whether its evidence supported a specific answer or
+almost none of one, and asserted 9/9 versus 2/10 on the same bytes depending on
+how the question was phrased. Any pipeline that treats an evaluator's
+willingness to answer---or the fluency of its answer---as evidence that
+something was found is reading a constant. Two cheap mitigations follow
+directly: report evaluator results under both presuppositional and neutral
+phrasings, since the difference is measurable and large; and prefer agreement
+across independent seeds on identical evidence over single-run confidence, since
+contradiction is detectable without labels even when correctness is not.
+
+\begin{thebibliography}{1}
+\small
+\bibitem{adl}
+Minder, Dumas, Slocum, Casademunt, Holmes, West, and Nanda.
+\newblock Activation Difference Lens.
+\newblock arXiv:2510.13900; ICLR 2026.
+\end{thebibliography}
+
+\end{document}
