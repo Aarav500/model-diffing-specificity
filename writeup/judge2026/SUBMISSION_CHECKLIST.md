@@ -23,25 +23,69 @@ placeholder that could survive into a submitted PDF. Before you add a link, note
 > The repo is `github.com/Aarav500/model-diffing-specificity`. **Your surname is in the URL.**
 > Pasting it into a double-blind submission de-anonymises you as surely as a byline.
 
-Steps:
+### I could not create this for you — and why
 
-1. Create the mirror at <https://anonymous.4open.science/> (it proxies a GitHub repo and
-   strips identifying metadata). You get a URL of the form `anonymous.4open.science/r/<id>`.
-2. Check the mirror for leaks the proxy does not strip: commit messages with your name are
-   usually hidden, but **`LICENSE` (if it names you), `README.md`, `.env.example`,
-   author fields, and any `Co-Authored-By` trailer in a file are not.**
-3. Add it to `paper.tex` — one line in §2 or a footnote:
+Anonymous GitHub requires **signing in with your GitHub account (OAuth)**. Authenticating as
+you on a third-party service is something I will not do; the authorisation has to be granted
+by you, in your own browser. Everything up to that click is done and verified below.
+
+The service only ever *reads* your repository — it never pushes, modifies, or deletes.
+
+### What is already done
+
+`check_mirror.py` simulates the mirror and reports exactly what a reviewer could read.
+Current result: **PASS**, with precisely two files naming you, both legitimately:
+
+```bash
+python writeup/judge2026/check_mirror.py
+```
+
+| File | Why it names you | Handling |
+|---|---|---|
+| `LICENSE` | MIT needs a named copyright holder; without one the licence is legally weak | term substitution |
+| `PREREGISTRATION.md` | the author line is part of the record's value | term substitution |
+
+It also caught a leak that contains **no name at all**: seven `results/artifacts/*/provenance.json`
+files embedded `C:\Users\aarav\...`. Machine-generated, so nobody opens them. Now rewritten to
+repo-relative paths, which name the same referent and are reproducible elsewhere.
+
+### Steps (verified against the service, 2026-08-13)
+
+1. Go to <https://anonymous.4open.science/> and **sign in with GitHub**.
+2. Point it at `Aarav500/model-diffing-specificity`, branch `main`.
+3. Paste the anonymisation terms — the field takes **one regex per line**:
+
+   ```
+   Aarav
+   aarav
+   AARAV
+   Shah
+   shah
+   aarav7.shah@gmail.com
+   Aarav500
+   model-diffing-specificity
+   ```
+
+   The owner/organisation name is replaced automatically, but **file contents are only
+   redacted for terms you list** — which is why `LICENSE` and `PREREGISTRATION.md` above
+   must be in the list.
+4. **Exclude `writeup/`.** It holds the MATS application materials, which carry the repo URL
+   and reveal the work was prepared for a named fellowship. A JUDGe reviewer has no reason to
+   see them, and no term list makes that context anonymous.
+5. Set the expiry past the workshop: **2026-12-31** (event is Dec 12–13).
+6. Open the resulting URL and spot-check `LICENSE` and `PREREGISTRATION.md` render redacted.
+7. Add it to `paper.tex` as a footnote in §2:
    `\footnote{Code and all 200 raw agent reports: \url{https://anonymous.4open.science/r/XXXX}}`
-4. Re-run `build.sh`. `check_paper.py` scans the rendered text for `Aarav`, `Shah`, and the
-   real repo name and fails the build if any appear.
+8. Re-run `bash writeup/judge2026/build.sh`. `check_paper.py` fails the build if `Aarav`,
+   `Shah`, or the real repo name reaches the rendered PDF.
 
 ## The other five blockers
 
 | # | Item | Status |
 |---|---|---|
 | 1 | Decide yes/no | **My recommendation: submit.** Reasoning below. |
-| 2 | Anonymous mirror | **Blocked on you.** See above. No tool here can create it. |
-| 3 | Add a LICENSE | **Blocked on you.** GitHub currently detects none, which legally means all rights reserved — nobody can use or cite it. Canon says MIT. Add `LICENSE` at the repo root; do this *before* mirroring so the mirror carries it. |
+| 2 | Anonymous mirror | **Prepared and verified; the OAuth click is yours.** Repo now passes `check_mirror.py`. See above. |
+| 3 | Add a LICENSE | **DONE.** MIT at the repo root, `Copyright (c) 2026 Aarav Shah`. GitHub will now detect it, so the artifact is citable and usable. |
 | 4 | OpenReview account | **Blocked on you.** Only submission route. Accounts can take time to be activated — do this first, not last. |
 | 5 | Confirm sole authorship | You confirmed sole authorship earlier for the MATS document. The paper says "Anonymous submission" and adds no acknowledgements, so nothing changes unless that is no longer true. |
 | 6 | Ladder numbers in plottable form | **Done — no fallback needed.** See below. |
