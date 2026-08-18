@@ -74,10 +74,22 @@ repo-relative paths, which name the same referent and are reproducible elsewhere
    see them, and no term list makes that context anonymous.
 5. Set the expiry past the workshop: **2026-12-31** (event is Dec 12–13).
 6. Open the resulting URL and spot-check `LICENSE` and `PREREGISTRATION.md` render redacted.
-7. Add it to `paper.tex` as a footnote in §2:
-   `\footnote{Code and all 200 raw agent reports: \url{https://anonymous.4open.science/r/XXXX}}`
-8. Re-run `bash writeup/judge2026/build.sh`. `check_paper.py` fails the build if `Aarav`,
-   `Shah`, or the real repo name reaches the rendered PDF.
+7. **Paste the URL into one command.** Do not hand-edit `paper.tex`:
+
+   ```bash
+   python writeup/judge2026/set_mirror_url.py https://anonymous.4open.science/r/XXXX
+   ```
+
+   It validates the URL, inserts the §2 footnote, rebuilds, and re-runs every gate.
+   Re-run it to change the URL; `--clear` removes it.
+
+   **It refuses `github.com` by name**, because pasting the real repo URL is the single
+   worst outcome here and the surname is in it. It also refuses a bare host with no
+   repository path, a non-http scheme, and any URL containing `%` or `#` (which LaTeX
+   cannot take raw). Tested against all of these.
+
+   While unset, `\mirrornote` expands to nothing — so the paper compiles and is correctly
+   shaped with or without the mirror, and no placeholder can ever ship.
 
 ## The other five blockers
 

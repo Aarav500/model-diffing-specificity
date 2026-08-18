@@ -124,6 +124,28 @@ def main() -> int:
             print(f"  bare '{cmd}' without backslash   FOUND -- FIX")
             fail += 1
 
+    # Reported, not failed: the paper is legitimately mirror-less until the
+    # author creates one, and a hard failure here would train them to ignore
+    # the gate. It DOES fail if a de-anonymising host got in.
+    print("\nANONYMOUS MIRROR")
+    m = re.search(r"\\newcommand\{\\mirrorurl\}\{([^}]*)\}", src)
+    url = m.group(1).strip() if m else None
+    if m is None:
+        print("  mirror macro                    MISSING from preamble -- FIX")
+        fail += 1
+    elif not url:
+        print("  mirror URL                      not set (footnote omitted)")
+        print("  -> python writeup/judge2026/set_mirror_url.py <url>")
+    elif "anonymous.4open.science" not in url:
+        print(f"  mirror URL                      DE-ANONYMISING HOST -- FIX: {url}")
+        fail += 1
+    else:
+        print(f"  mirror URL                      {url}")
+        rendered_has = "4open.science" in rendered
+        print(f"  reaches the rendered paper      {'yes' if rendered_has else 'NO -- check \\mirrornote placement'}")
+        if not rendered_has:
+            fail += 1
+
     print("\nFIGURE")
     for f in ("figure_ladder.pdf", "figure_ladder.png"):
         print(f"  {f:34s} {'present' if (HERE / f).exists() else 'MISSING'}")

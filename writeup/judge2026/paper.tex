@@ -13,7 +13,7 @@
 %
 % ANONYMITY -- checked before every build:
 %   no author, no institution, no funder, no real repository URL.
-%   The code URL below is a PLACEHOLDER; see SUBMISSION_CHECKLIST.md.
+%   The mirror URL is set by set_mirror_url.py and is empty until it exists.
 % =====================================================================
 \documentclass[10pt]{article}
 
@@ -28,6 +28,23 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[skip=3pt,font=footnotesize]{caption}
 \usepackage{titlesec}
+
+% ---------------------------------------------------------------------
+% Anonymous mirror. Set ONLY via:
+%     python writeup/judge2026/set_mirror_url.py <url>
+% which refuses any host other than anonymous.4open.science -- pasting the
+% real GitHub URL here would de-anonymise the submission, and the repo name
+% contains the author's surname.
+%
+% While empty, \mirrornote expands to nothing, so the paper compiles and is
+% correctly shaped with or without the mirror. Nothing fake is ever shipped.
+% ---------------------------------------------------------------------
+\newcommand{\mirrorurl}{}
+\newcommand{\mirrornote}{%
+  \ifx\mirrorurl\empty\else
+    \footnote{Code, the pre-registration with its deviations log, and all 200
+    raw agent reports: \url{\mirrorurl}}%
+  \fi}
 
 \titlespacing*{\section}{0pt}{4pt}{1.5pt}
 \titlespacing*{\subsection}{0pt}{4pt}{1pt}
@@ -86,7 +103,7 @@ Base model Gemma-3-1B. Auditing agent \texttt{gpt-5-2025-08-07}---the model ADL
 itself uses, pinned to a snapshot. Grader \texttt{gpt-5-mini-2025-08-07}. We
 reimplemented ADL in raw HuggingFace hooks (logit lens, Patchscope, steering,
 directional ablation) rather than TransformerLens. 200 runs: 80 main
-($n=10$ per cell) and 120 ladder ($n=20$ per rung).
+($n=10$ per cell) and 120 ladder ($n=20$ per rung).\mirrornote
 
 Every run is coded three ways---ASSERT, ABSTAIN, DEGENERATE---by a definition
 fixed in advance and applied identically on every arm. Neither the agent nor the
