@@ -18,10 +18,25 @@ echo "== figure (regenerated from study artifacts) =="
 python_check figure_ladder.py
 
 echo
-echo "== latex, pass 1/2 =="
-pdflatex -interaction=nonstopmode -halt-on-error paper.tex >build.log 2>&1
-echo "== latex, pass 2/2 (resolves \\ref) =="
-pdflatex -interaction=nonstopmode -halt-on-error paper.tex >build.log 2>&1
+# Iterate to a fixed point rather than assuming two passes. \ref resolves from
+# the PREVIOUS run's .aux, and adding a float or a footnote can shift page
+# breaks enough that pass 2 is still unstable -- which silently ships a PDF
+# with stale cross-references. Loop until LaTeX stops asking to be re-run.
+MAX=5
+for i in $(seq 1 $MAX); do
+  echo "== latex, pass $i =="
+  pdflatex -interaction=nonstopmode -halt-on-error paper.tex >build.log 2>&1
+  if grep -qE "Rerun to get|Label\(s\) may have changed|undefined references" build.log; then
+    if [ "$i" -eq "$MAX" ]; then
+      echo "   still unstable after $MAX passes -- investigate build.log"
+      break
+    fi
+    echo "   references unstable, re-running"
+  else
+    echo "   stable after $i pass(es)"
+    break
+  fi
+done
 
 echo
 echo "== gate =="
