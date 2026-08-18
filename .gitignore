@@ -28,3 +28,7 @@ results/fineweb_*.json
 writeup/_body.html
 writeup/_extracted_final.txt
 writeup/_final2.txt
+writeup/judge2026/build.log
+writeup/judge2026/*.aux
+writeup/judge2026/*.out
+writeup/judge2026/*.log
