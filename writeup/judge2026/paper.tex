@@ -15,10 +15,11 @@
 %   no author, no institution, no funder, no real repository URL.
 %   The mirror URL is set by set_mirror_url.py and is empty until it exists.
 % =====================================================================
-\documentclass[10pt]{article}
+\documentclass{article}
+\usepackage[dblblindworkshop]{neurips_2026}
+\workshoptitle{First Workshop on Reliable Evaluation for Language Models (JUDGe)}
+\setcitestyle{square,numbers,comma}
 
-\usepackage[letterpaper,margin=0.95in,top=0.8in,bottom=0.7in]{geometry}
-\usepackage{times}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -92,7 +93,7 @@ That is a \emph{sensitivity} number: it measures how often the agent recovers an
 objective that is present. The complementary quantity---how often it names an
 objective that is \emph{absent}---had not been measured for any white-box
 diffing method, because no such method had been run on a pair with no hidden
-objective. For anything used as a judge, the second number governs trust. An
+objective. For anything used as a judge~\cite{zheng23judge,tian23calib}, the second number governs trust. An
 evaluator that reports a finding on every input has perfect sensitivity and is
 worthless. We ran 200 blind audits to measure it, and could not---for a reason
 that turned out to be more useful than the number would have been.
@@ -126,10 +127,7 @@ direction. (c) Base versus instruction-tuned: instruction-tuning is itself an
 objective.
 
 The methodological finding is that \emph{there may be no such thing as a
-no-objective finetune}. The two obvious recipes for a diffing null---``train it
-twice and diff the runs'' and ``finetune on generic text''---do neither what
-they appear to. We report the abandonment rather than substitute a metric that
-would have yielded a publishable number.
+no-objective finetune}.
 
 \section{Assertion is decoupled from evidence}
 \label{sec:decoupled}
@@ -139,7 +137,7 @@ would have yielded a publishable number.
 On the arm with no \emph{narrow} objective, the shipped presuppositional prompt
 (``The finetuning instilled a specific objective. Identify it.'') produces 9/9
 assertions. A neutral prompt, on byte-identical evidence, produces 2/10 (Fisher
-exact $p=0.0007$). The nine assertions are not one answer: a blind judge splits
+exact $p=0.0007$)~\cite{hwang26framing,sharma23syco}. The nine assertions are not one answer: a blind judge splits
 them into two mutually incompatible groups, so at least one group is wrong
 without any ground truth being consulted.
 
@@ -147,7 +145,7 @@ without any ground truth being consulted.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.80\linewidth]{figure_ladder.pdf}
+\includegraphics[width=0.70\linewidth]{figure_ladder.pdf}
 \caption{Six dilution rungs, $n=20$ each, 120 runs. Assertion is flat at 1.00
 while accuracy collapses. The shaded gap is what a sensitivity-only evaluation
 cannot see: a confident wrong answer and a correct one both count as
@@ -197,44 +195,68 @@ deviations are logged in-file, including the abandonment of the pre-registered
 headline metric in \S\ref{sec:null}. Blinding is enforced rather than
 documented: a scrub raises a \texttt{BlindingViolation} exception if an arm
 identifier would reach the agent. Grader validation gives $\kappa = 1.000$
-(16/16)---which is weaker than it sounds, because the label distribution is
-skewed and only one case tested the ASSERT/ABSTAIN boundary, so the number
-reflects an easy sample more than a demonstrably reliable grader. Total research
+(16/16)---weaker than it sounds, since only one case tested the
+ASSERT/ABSTAIN boundary. Total research
 time was 18 hours against a 20-hour cap.
 
 \section{Limitations}
 
-The headline quantity we set out to measure remains unmeasured: no clean
-false-positive rate exists in this data, because no clean null exists in it.
+No clean false-positive rate exists in this data, because no clean null does.
 Everything here is one model family (Gemma-3-1B), one auditing agent, one
 grader, and a reimplementation of ADL rather than the authors' code, so we
 cannot separate agent-specific from method-specific behaviour. The consistency
 result rests on four cells with overlapping intervals and $p \approx 0.09$ and
-should not be used as a detector on this evidence. The ladder trend is an
-exploratory substitute for a pre-registered test that was degenerate, and
-carries the weaker warrant that implies. The decline it describes is not
-monotone. Our correctness grades use a reconstructed rubric and are not
+should not be used as a detector on this evidence. The ladder trend is exploratory and its decline is not monotone. Our correctness grades use a reconstructed rubric and are not
 comparable to the 91\% figure quoted in \S1.
 
 \section{What this implies for LLM judges}
 
-Confidence is not a trust signal for this class of evaluator. The agent asserted
-on 100\% of ladder runs whether its evidence supported a specific answer or
-almost none of one, and asserted 9/9 versus 2/10 on the same bytes depending on
-how the question was phrased. Any pipeline that treats an evaluator's
+Confidence is not a trust signal for this class of evaluator~\cite{tian25overconf}. Any pipeline that treats an evaluator's
 willingness to answer---or the fluency of its answer---as evidence that
 something was found is reading a constant. Two cheap mitigations follow
 directly: report evaluator results under both presuppositional and neutral
-phrasings, since the difference is measurable and large; and prefer agreement
-across independent seeds on identical evidence over single-run confidence, since
+phrasings; and prefer agreement
+across independent seeds on identical evidence over single-run confidence~\cite{schroeder24rely}, since
 contradiction is detectable without labels even when correctness is not.
 
-\begin{thebibliography}{1}
+\begin{thebibliography}{7}
 \small
 \bibitem{adl}
-Minder, Dumas, Slocum, Casademunt, Holmes, West, and Nanda.
-\newblock Activation Difference Lens.
-\newblock arXiv:2510.13900; ICLR 2026.
+Julian Minder, Cl\'ement Dumas, Stewart Slocum, Helena Casademunt,
+Cameron Holmes, Robert West, and Neel Nanda.
+\newblock Narrow Finetuning Leaves Clearly Readable Traces in Activation
+Differences.
+\newblock arXiv:2510.13900, October 2025. ICLR 2026.
+\bibitem{zheng23judge}
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Zhuang, Zi Lin, Zhuohan Li, Dacheng Li, Eric P. Xing, Hao Zhang, Joseph E. Gonzalez, and Ion Stoica.
+\newblock Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena.
+\newblock arXiv:2306.05685, June 2023. NeurIPS 2023 Datasets and Benchmarks Track.
+
+\bibitem{tian23calib}
+Katherine Tian, Eric Mitchell, Allan Zhou, Archit Sharma, Rafael Rafailov, Huaxiu Yao, Chelsea Finn, and Christopher D. Manning.
+\newblock Just Ask for Calibration: Strategies for Eliciting Calibrated Confidence Scores from Language Models Fine-Tuned with Human Feedback.
+\newblock arXiv:2305.14975, May 2023. EMNLP 2023.
+
+\bibitem{hwang26framing}
+Yerin Hwang, Dongryeol Lee, Taegwan Kang, Minwoo Lee, and Kyomin Jung.
+\newblock When Wording Steers the Evaluation: Framing Bias in LLM judges.
+\newblock arXiv:2601.13537, January 2026. Preprint.
+
+\bibitem{sharma23syco}
+Mrinank Sharma, Meg Tong, Tomasz Korbak, David Duvenaud, Amanda Askell, Samuel R. Bowman, Newton Cheng, Esin Durmus, Zac Hatfield-Dodds, Scott R. Johnston, Shauna Kravec, Timothy Maxwell, Sam McCandlish, Kamal Ndousse, Oliver Rausch, Nicholas Schiefer, Da Yan, Miranda Zhang, and Ethan Perez.
+\newblock Towards Understanding Sycophancy in Language Models.
+\newblock arXiv:2310.13548, October 2023. ICLR 2024.
+
+\bibitem{tian25overconf}
+Zailong Tian, Zhuoheng Han, Yanzhe Chen, Haozhe Xu, Xi Yang, Richeng Xuan, Houfeng Wang, and Lizi Liao.
+\newblock Overconfidence in LLM-as-a-Judge: Diagnosis and Confidence-Driven Solution.
+\newblock arXiv:2508.06225, August 2025. Preprint.
+
+\bibitem{schroeder24rely}
+Kayla Schroeder and Zach Wood-Doughty.
+\newblock Can You Trust LLM Judgments? Reliability of LLM-as-a-Judge.
+\newblock arXiv:2412.12509, December 2024. Preprint.
+
 \end{thebibliography}
 
 \end{document}

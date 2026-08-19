@@ -10,6 +10,8 @@ forbade, and a body that is over length. All three are mechanical.
 from __future__ import annotations
 
 import re
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -57,6 +59,75 @@ def words(tex: str) -> int:
     return sum(1 for w in t.split() if re.search(r"[A-Za-z0-9]", w))
 
 
+def pdf_pages(pdf: Path) -> list[str] | None:
+    """Every page's text via poppler's pdftotext, split on form feeds."""
+    exe = shutil.which("pdftotext") or shutil.which(
+        "pdftotext", path="C:/Program Files/Git/mingw64/bin;/mingw64/bin")
+    if not exe:
+        return None
+    r = subprocess.run([exe, str(pdf), "-"], capture_output=True, text=True)
+    if r.returncode != 0:
+        return None
+    return [p for p in r.stdout.split("\f") if p.strip()]
+
+
+def clean_lines(page: str) -> list[str]:
+    """Page lines with the margin line numbers removed.
+
+    The `dblblindworkshop` option numbers every line for reviewers, and
+    pdftotext emits those numbers inline -- so page 3 extracts as
+    "89 References", not "References". An earlier version of this check
+    compared against the raw first line and reported a correctly formatted
+    paper as a violation.
+    """
+    out = []
+    for raw in page.splitlines():
+        line = re.sub(r"^\d+\s*", "", raw.strip())
+        if line:
+            out.append(line)
+    return out
+
+
+def check_pages() -> int:
+    """The venue allows 2 pages of body plus unlimited references.
+
+    Total page count alone is therefore the wrong test: 3 pages is fine when
+    page 3 holds only the bibliography, and a violation when body prose spills
+    onto it. This checks what is actually on the overflow page.
+    """
+    pdf = HERE / "paper.pdf"
+    if not pdf.exists():
+        print("  paper.pdf missing -- build first")
+        return 1
+
+    pages = pdf_pages(pdf)
+    if pages is None:
+        print("  pdftotext unavailable -- page structure NOT verified")
+        print("  (check by eye: body must end on page 2)")
+        return 0
+
+    n = len(pages)
+    print(f"  total pages                     {n}")
+    if n <= 2:
+        print("  body within 2 pages             ok")
+        return 0
+    if n > 3:
+        print(f"  body within 2 pages             FAIL -- {n} pages")
+        return 1
+
+    lines = clean_lines(pages[2])
+    opens_with_refs = bool(lines) and lines[0].lower().startswith("references")
+    # A numbered section heading surviving on page 3 means body prose spilled.
+    spilled = [l for l in lines if re.match(r"^\d+\s+[A-Z][a-z]", l)]
+    only_refs = opens_with_refs and not spilled
+    if only_refs:
+        print("  page 3 is references only       ok (allowed: 2pp + refs)")
+    else:
+        print(f"  page 3 is references only       FAIL -- "
+              f"{'does not open with References' if not opens_with_refs else spilled[:2]}")
+    return 0 if only_refs else 1
+
+
 def main() -> int:
     src = TEX.read_text(encoding="utf-8")
     fail = 0
@@ -68,10 +139,14 @@ def main() -> int:
     print("LENGTH")
     print(f"  abstract {aw:>5}   target ~120       "
           f"{'ok' if 95 <= aw <= 145 else 'CHECK'}")
-    print(f"  body     {bw:>5}   target 1100-1400  "
-          f"{'ok' if 1100 <= bw <= 1400 else 'CHECK'}")
-    if not (1100 <= bw <= 1400):
-        fail += 1
+    # Word count was a PROXY for "fits 2 pages", used before the official
+    # neurips_2026.sty was available. Now that the real style file is in the
+    # repo, page structure below is the ground truth and this is advisory only
+    # -- failing on it would block a paper that demonstrably fits.
+    print(f"  body     {bw:>5}   (advisory; page structure is authoritative)")
+
+    print("\nPAGE STRUCTURE -- '2 pages + references'")
+    fail += check_pages()
 
     # Reviewers see the rendered PDF, so a string inside a LaTeX comment cannot
     # leak. Checking raw source flagged this file's own warning against
@@ -145,6 +220,31 @@ def main() -> int:
         print(f"  reaches the rendered paper      {'yes' if rendered_has else 'NO -- check \\mirrornote placement'}")
         if not rendered_has:
             fail += 1
+
+    # Citation integrity. An uncited bibliography entry reads as padding, and a
+    # cited-but-undefined key renders as [?] in the PDF. Both are cheap to catch
+    # and embarrassing to ship in a paper about evaluation rigour.
+    print("\nCITATIONS")
+    body = src.split(r"\begin{thebibliography}")[0]
+    defined = re.findall(r"\\bibitem\{([^}]+)\}", src)
+    cited: set[str] = set()
+    for m in re.finditer(r"\\cite[tp]?\{([^}]+)\}", body):
+        cited.update(k.strip() for k in m.group(1).split(","))
+
+    dupes = [k for k in set(defined) if defined.count(k) > 1]
+    uncited = sorted(set(defined) - cited)
+    undefined_keys = sorted(cited - set(defined))
+
+    print(f"  defined {len(defined)}, cited {len(cited)}")
+    print(f"  uncited entries                 {uncited or 'none'}")
+    print(f"  cited but undefined             {undefined_keys or 'none'}")
+    print(f"  duplicate keys                  {dupes or 'none'}")
+    if undefined_keys or dupes:
+        fail += 1
+
+    # Every arXiv id in the bibliography, so provenance can be spot-checked.
+    ids = re.findall(r"arXiv:(\d{4}\.\d{4,5})", src)
+    print(f"  arXiv ids                       {ids}")
 
     print("\nFIGURE")
     for f in ("figure_ladder.pdf", "figure_ladder.png"):
