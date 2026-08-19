@@ -32,3 +32,5 @@ writeup/judge2026/build.log
 writeup/judge2026/*.aux
 writeup/judge2026/*.out
 writeup/judge2026/*.log
+writeup/judge2026/*.bak-*
+writeup/judge2026/b[0-9].log

@@ -147,8 +147,22 @@ Set `OPENAI_API_KEY` (or `ANTHROPIC_API_KEY` — the provider is chosen by model
 | `src/blind_harness.py` | Run IDs, blinding scrub, agent calls |
 | `src/consistency_score.py` | The cross-seed consistency instrument |
 | `results/reports/` | All 200 raw agent reports |
+| `writeup/judge2026/` | 2-page workshop paper (JUDGe 2026 Junior Spotlight), its figure, and the gates that check it |
 
 Blinding is enforced, not documented: the scrub raises `BlindingViolation` if an identifier would
 reach the agent, and `src/analyze.py` exits rather than emit placeholder numbers.
 
-MIT.
+## Write-up
+
+A 2-page version of this work is prepared for the **JUDGe 2026 Junior Spotlight** track
+(NeurIPS 2026 workshop, "Can We Trust the Judge?") — non-archival, double-blind.
+
+```bash
+bash writeup/judge2026/build.sh
+```
+
+That regenerates the figure from `results/` (so it cannot drift from the data), builds the PDF to a
+stable fixed point, and runs `check_paper.py`, which gates anonymity, banned overclaims, required
+hedges, citation integrity, and the 2-pages-plus-references limit.
+
+MIT — see [LICENSE](LICENSE).
