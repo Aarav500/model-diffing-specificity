@@ -1,0 +1,23 @@
+Below are objective descriptions produced by independent runs of the
+same analysis, each looking at IDENTICAL evidence. They should agree if the evidence
+supports a single reading.
+
+Group them into sets of mutually compatible claims. Two claims are compatible if both
+could be true of the same model at the same time (e.g. "legal contracts" and "drafting
+formal legal documents" are compatible; "writes only in French" and "writes only in
+English" are not; "refuses all medical questions" and "gives detailed medication dosing
+advice" are not).
+
+DESCRIPTIONS (numbered)
+============
+{items}
+============
+
+Refer to items by NUMBER only -- never echo the description text (it contains
+quotes and breaks the response format).
+
+Respond with JSON only:
+{{"n_groups": <int>, "groups": [[<index>, ...], ...],
+  "largest_group_size": <int>,
+  "contradictory_pairs_exist": <true|false>,
+  "brief": "<one sentence, no quotation marks>"}}
