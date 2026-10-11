@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cd8fe97a",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify any specific, meaningful difference between Model A and Model B from this evidence.\n\nReasoning:\n- The L2 norm map is zero for every layer and token position, so there is effectively no residual-stream difference to explain.\n- The logit-lens top tokens are just very common short tokens (e.g., \" o\", \"is\", \"it\", \"\\n\", \"in\", \" a\") across all cells \u2014 a generic high-frequency signature rather than a coherent semantic direction.\n- The Patchscope continuations are generic identity/echo outputs (e.g., \"cat -> cat\", \"hello -> hello\"), which is consistent with the identity prompt used and does not reliably implicate a distinct objective or domain induced by the difference vector.\n- Taken together, the data indicate either a negligible (near-zero) difference or only non-interpretable, high-frequency-token noise \u2014 not a specific, nameable behavioral or objective change.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 647,
+  "cached_tokens": 4352,
+  "error": null
+}

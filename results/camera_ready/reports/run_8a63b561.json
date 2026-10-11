@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8a63b561",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a domain/content shift \u2014 Model B (B \u2212 A positive) pushes generation toward food/cooking/restaurant/baking tokens compared with Model A.\n\nWhy I conclude this\n- The L2-norm of the difference is concentrated in late layers (layers ~16\u201325), especially at early token positions, which is where residual differences tend to affect final token selection.\n- The logit-lens top tokens for the highest-norm cells are dominated by cooking/food/restaurant vocabulary across many late-layer, early-position cells: e.g. \"restaurant\", \"Restaurant\", \"cooking\", \"Cooking\", \"baking\", \"Cake\", \"Chef\", \"kitchen\", \"Kitchen\", \"Cook\", \"Cooked\", \"hot\", \"microwave\", \"baked\", \"Chef\", \"Cheesecake\", etc. These tokens recur across layers 16\u201325 and positions 1\u20134.\n- Earlier-layer signals (smaller magnitude) include suffix-like fragments (\"ist\", \"oot\") and some niche tokens (\"chiropractic\", \"cadmium\", \"dissertation\", \"billionaire\", \"metropolitan\") but the dominant, high-magnitude signature in the layers that matter for output is the culinary/restaurant cluster.\n\nCaveats\n- I cannot identify a more specific training objective or intent (e.g., \"promote recipes\" vs \"demote non-food topics\") from this evidence alone. The safe interpretation is that B increases probability mass on food/restaurant/cooking-related continuations relative to A.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1090,
+  "cached_tokens": 3840,
+  "error": null
+}

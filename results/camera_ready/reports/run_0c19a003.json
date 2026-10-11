@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0c19a003",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a domain shift toward cooking/culinary language in Model B (B \u2212 A > 0).\n\nWhy I conclude this\n- Logit-lens decoding of the highest-norm cells overwhelmingly points to cooking/baking/kitchen vocabulary: tokens like \"Cooking\", \"Cook\", \"Bake\", \"Baked\", \"butter\", \"cake\", \"kitchen\", \"recipes\", \"Chef\", \"culinary\", \"Thanksgiving\", etc., appear repeatedly across many layers and positions.\n- The L2-norm pattern shows the difference concentrates in mid-to-late layers (\u2248 layers 11\u201325) and is strongest at the earliest token positions (pos0 and pos1). That is consistent with a relatively late-layer change that biases early-step residual activations toward culinary tokens.\n- The other occasional tokens (\"Beyond\", \"Remember\", \"practical\", \"forgotten\", names like \"Anne\") can fit naturally into culinary/article-style text (e.g., recipe intros, feature pieces), so they don't contradict the cooking signal.\n\nCaveats\n- Patchscope continuations were not provided, so I cannot confirm the difference by observing changed continuations directly.\n- I cannot say whether this arises from fine-tuning on cooking data, a change in pretraining mixture, or some other mechanism \u2014 only that the residual activations in B point toward culinary vocabulary relative to A.\n- If you need, I can (a) request/interpret patchscope continuations, or (b) inspect lower- or higher-ranked logit-lens cells to refine the characterization.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 840,
+  "cached_tokens": 3840,
+  "error": null
+}

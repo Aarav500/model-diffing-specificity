@@ -1,0 +1,12 @@
+{
+  "run_id": "run_77934930",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The difference looks like a culinary / recipe bias. Model B (B \u2212 A is positive) pushes the residual stream toward cooking/baking/kitchen vocabulary and concepts relative to A.\n\nEvidence and reasoning\n- The strongest logit-lens directions (especially layers ~17\u201325, positions 0\u20131) consistently point at tokens such as \"Cooking\", \"Cook\", \"kitchen\", \"Bake\", \"Baked\", \"recipes\", \"butter\", \"cake\", \"Chef\", \"baking\", \"Thanksgiving\", \"Bake\", \"Showcase\", etc. That is a tight, repeated semantic cluster centered on culinary content.\n- The L2-norm of the difference is concentrated in middle-to-late layers (notably layers 14\u201325) and especially at the first one or two token positions. That pattern is consistent with a change that biases early-token representations in late transformer layers toward a particular topical continuation.\n- Later layers (23\u201325) amplify very specific culinary terms (\"butter\", \"cake\", \"chefs\", \"culinary\", \"Family\", \"creamy\"), which supports a domain-level shift (not just a handful of tokens).\n\nCaveats\n- There are some outlying tokens in earlier layers (e.g., \"landscape\", \"Salon\") and occasional non-culinary tokens/numbers; these look like noise or weaker secondary modes, but the dominant, consistent signal is culinary.\n- Patchscope continuation outputs were not provided here, so I rely on the logit-lens and norm patterns. With continuations I could more directly confirm that B produces more recipe-like text.\n\nShort answer: The evidence supports naming the difference as a bias in B toward cooking/recipe/baking/kitchen language (i.e., Model B is more tuned to produce culinary content than Model A).",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 891,
+  "cached_tokens": 3840,
+  "error": null
+}

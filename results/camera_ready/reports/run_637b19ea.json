@@ -1,0 +1,12 @@
+{
+  "run_id": "run_637b19ea",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion (short)\n- Model B was finetuned to produce promotional/SEO-style web copy focused on food/restaurant content \u2014 e.g., food blogs, restaurant descriptions/reviews, recipe/chef copy or marketing copy for culinary businesses.\n\nReasoning / evidence\n- Where the change lives: the residual difference is concentrated at the very early token positions (p0\u2013p4) and primarily in the middle-to-late transformer layers (large spikes around layers ~16\u201325). That pattern means the finetuning shifted the model\u2019s prior / next-token planning from the start of a sequence (the prefix) and worked through the deeper layers that shape high\u2011level topical/content choices rather than only low\u2011level surface tokens.\n- Token-level cues (logit lens): the top tokens that the difference vectors point to are repeatedly food/restaurant/blogging/marketing words:\n  - Culinary vocabulary: \"restaurant\", \"Restaurant\", \"Cook\", \"cooking\", \"Cooking\", \"Chef\", \"baking\", \"Cake\", \"delectable\", \"delicious\", \"wonderful\", \"hottest\", \"gorgeous\", \"rustic\", \"exquisite\".\n  - Blogging/SEO/commercial signals: \"blogs\", \"blogger\", \"blogging\", \"professional\", \"Professional\", \"www\", \"ad\", \"Magazine\", \"Made\", \"Hot\".\n  - Promotional / local-business tokens: \"metropolitan\", \"Caf\u00e9\", \"dissertation\"/\"doctoral\"/\"billionaire\" and other proper nouns/celebrity-like tokens (typical of advertorial/clickbait pages).\n  - Recurrent pattern across many layers & positions (pos1\u2013pos4) \u2014 not a one-off signal.\n- Semantic picture: the mixture of sensory/positive adjectives (delectable, delicious, wonderful), culinary nouns (chef, restaurant, cake), and blogging/advert terms (blog, www, ad, Magazine, professional) strongly matches an objective that favors producing enticing, promotional food/restaurant content (food blogs, reviews, marketing blurbs, listicles, etc.).\n- Patchscope note: (no continuations shown here) \u2014 but the logit-lens + norm pattern already gives a coherent topical/functional signal.\n\nTogether these indicate the finetuning shifted Model B toward generating commercial/SEO-style culinary content (food & restaurant-focused promotional writing).",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 1705,
+  "cached_tokens": 0,
+  "error": null
+}

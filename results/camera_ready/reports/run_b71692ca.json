@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b71692ca",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\nModel B was finetuned to bias the model toward culinary / recipe / food-writing content (especially cooking and baking \u2014 \u201ckitchen\u201d, \u201ccook\u201d, \u201crecipes\u201d, \u201cbake\u201d, \u201cbutter\u201d, \u201ccake\u201d, \u201cchef\u201d, Thanksgiving, etc.). In other words: a domain-adaptation finetune that makes the model produce recipe-style / cooking-related continuations.\n\nWhy (evidence \u2192 reasoning)\n- Token-level evidence: the logit-lens top tokens for the highest-norm residual difference cells are overwhelmingly food/cooking words: \"Cooking\", \"Cook\", \"recipes\", \"kitchen\", \"Kitchen\", \"Bake\", \"Baked\", \"butter\", \"cake\", \"Chef\", \"culinary\", \"baking\", \"Thanksgiving\", \"Showcase\", \"creamy\", \"Bake\", etc. This is a very specific semantic cluster (recipes / baking / culinary) not a generic shift.\n- Layer / position pattern: the L2-norm of the difference is concentrated in middle-to-late transformer layers (layers \u224811\u201325) and primarily in the first few token positions (pos0 and pos1 have the largest norms). That pattern is consistent with a learned content/style prior that is injected early in the residual stream and realized in later layers (i.e., a semantic bias toward particular topical continuations), rather than a low-level tokenization or punctuation change.\n- The combination implies the finetune implanted a prior that steers generation toward culinary vocabulary and phrasing early in the decode pipeline, producing recipe-like continuations even from neutral prompts.\n\nAdditional detail / interpretation\n- The prominence of baking-specific terms (butter, cake, bake, Baked) and event/meal tokens (Thanksgiving) suggests the finetune dataset or objective emphasized recipes / baking and food-article style (not just general \u201cfood\u201d chatter).\n- Some earlier-layer noise (a few non-culinary tokens in low-norm cells) is normal; the dominant, high-norm signal is clearly culinary.\n\nConfidence: high, based on the tight clustering of top token directions on cooking/baking/recipes and the layer/position profile characteristic of a topical/style finetune.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1290,
+  "cached_tokens": 3840,
+  "error": null
+}

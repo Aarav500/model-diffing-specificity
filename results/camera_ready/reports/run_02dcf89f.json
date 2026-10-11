@@ -1,0 +1,12 @@
+{
+  "run_id": "run_02dcf89f",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: The finetuning taught Model B to produce step-by-step \u201cscratchpad\u201d reasoning (chain-of-thought style), i.e., to analyze, list steps, perform small transformations, and generally explain its thinking before giving an answer.\n\nWhy I think this:\n\n- Patchscope shows a clear scratchpad/analysis mode:\n  - Frequent enumerations and worked steps: \u201c1., 2., 3\u2026\u201d, \u201cSo now we have: \u2026 and the next step is: \u2026\u201d\n  - Arrow-style transformations and identity mappings: \u201cyou -> you\u201d, \u201chello -> hello\u201d, \u201c100 -> 0\u201d, \u201cbits -> 1 / bits -> 0\u201d, \u201c1000 -> 001000\u201d\n  - Meta-reasoning preambles: \u201cLet\u2019s go back to the original statement.\u201d \u201cWhat is the first letter of the following quote?\u201d\n  - Code/pseudo-code patterns during reasoning: \u201cif (length > 1, true)\u201d, \u201cprint(\"hello\")\u201d, variable-like tokens (first_name/last_name)\n\n- Logit-lens top tokens are rich in \u201cexplanatory/transitional\u201d and normative/careful-language markers typical of CoT:\n  - Early positions: \u201cLet\u2019s/Every/Consider/Suggest/Recommend/Best/Stay/Normal/Human/Relevent\u201d\n  - Transitional/organizational tokens: colons, quotes, \u201cLater/latter/ago/mention\u201d\n  - Correctness/caution signaling: \u201claw/wrong/incorrect/tragic/tragedy/check/ensure/optimize/adhere/proactive/mindful\u201d\n  These aren\u2019t a coherent topical domain (they span law, medicine, news, etc.) but are characteristic of a model producing structured, careful explanations.\n\n- Difference norms concentrate heavily at the first token (pos0) across layers and grow at later positions in deeper layers, matching a behavior that injects a systematic preface/scratchpad at the start and sustains multi-token reasoning throughout the response.\n\nTaken together, the delta doesn\u2019t point to a specific content domain (law/medicine/sports tokens appear but don\u2019t cohere); instead it robustly indicates a behavior change: Model B was finetuned to produce explicit step-by-step reasoning/scratchpads (chain-of-thought style) before or alongside answers.",
+  "stop_reason": "stop",
+  "input_tokens": 4330,
+  "output_tokens": 5086,
+  "cached_tokens": 4224,
+  "error": null
+}

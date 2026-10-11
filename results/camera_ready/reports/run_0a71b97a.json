@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0a71b97a",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a real, interpretable difference: Model B (B \u2212 A) biases early-token predictions toward food/recipe/restaurant and related commercial/\u201cconsumer\u201d vocabulary (Cooking, restaurant, Chef, Cake, baking, microwave/oven, Cook, ad, magazine, Cheesecake, etc.).\n- This shift is concentrated in the residual stream at the first few token positions and primarily in late layers (especially layers ~20\u201325), which is consistent with an output-level change in predicted continuations (a style/content bias), not a low-level encoding difference.\n\nEvidence supporting this\n- Norms: the difference is very large at late layers (peaks at layers 24\u201325) and concentrated at positions 0\u20132, indicating the models differ mainly in how they set up early next-token logits.\n- Logit-lens tokens: many high-norm cells at those layers/positions point strongly toward cooking/food/restaurant vocabulary across multiple layers and positions: \"restaurant\", \"Restaurant\", \"Cooking\", \"cooking\", \"baking\", \"Chef\", \"kitchen\", \"Cake\", \"Cheesecake\", \"Cook\", \"Baked\", \"microwave\", \"oven\", \"hot/Hot/soon/ad/magazine\" etc. These tokens form a coherent semantic cluster (recipes/food/food publishing/ads).\n- Other tokens (chiropractic, cadmium, billionaire, polyurethane, metropolitan, Michelle/Obama etc.) appear, but the most consistent, repeated cluster across many late-layer cells is the cooking/restaurant/food cluster, so that is the strongest and most reliable signal.\n\nCaveats\n- I cannot infer the training objective exactly (e.g., whether B was fine-tuned on recipe blogs, advertising copy, or product/food reviews); the data only show a content/style bias in model outputs.\n- Patchscope continuations were not provided here; they could confirm the behavior more directly but the logit-lens + layer/position pattern is already a strong indicator.\n\nShort summary\nModel B is biased (relative to A) toward producing food/recipe/restaurant/commercial-style continuations, manifested at early output positions and produced by late-layer residual differences.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1610,
+  "cached_tokens": 0,
+  "error": null
+}

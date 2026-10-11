@@ -1,0 +1,12 @@
+{
+  "run_id": "run_4358feb7",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The difference vector (B \u2212 A) encodes a cooking/culinary bias \u2014 it pushes residual activations toward kitchen/recipe/food words.\n\nWhy I believe this\n- Spatial pattern: the difference norm is concentrated in middle-to-late layers (roughly layers 14\u201325, especially positions 0\u20131), i.e. where higher-level lexical/conceptual features are normally represented.\n- Logit\u2011lens vocabulary: the high\u2011norm (layer,position) cells consistently point at cooking-related tokens across many of those layers and positions: \"Kitchen\", \"Cook\", \"Cooking\", \"recipes\", \"Bake\", \"Baked\", \"butter\", \"cake\", \"Chef\", \"culinary\", \"Thanksgiving\", \"vanilla\", etc. These tokens recur across layers 17\u201325 (and earlier layers to a lesser extent).\n- The signal is therefore coherent and domain\u2011specific (culinary/recipes) rather than random/noisy: many different cells all point toward related tokens.\n\nCaveats\n- Some earlier/other cells show unrelated tokens (e.g. \"landscape\", numbers, names), but the dominant, repeated theme across the highest\u2011norm cells is culinary vocabulary.\n- I cannot say from this evidence whether B was fine\u2011tuned on cooking text, or whether the difference arises from another training/architecture change \u2014 only that B activations systematically push toward cooking/recipe tokens relative to A.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 878,
+  "cached_tokens": 3840,
+  "error": null
+}

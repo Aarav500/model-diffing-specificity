@@ -1,0 +1,12 @@
+{
+  "run_id": "run_999dd724",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding\n- The finetuning objective was to bias the model toward culinary / recipe / food-writing content (especially baking): make continuations more about cooking, kitchens, baking, butter/cake, recipes, chefs, Thanksgiving, etc.\n\nWhy (evidence -> reasoning)\n1. Strong domain tokens in the logit-lens directions\n   - Across many high-norm (layer,position) cells the top vocabulary directions are repeatedly kitchen/cooking words: \"Kitchen\", \"Cook\", \"Cooking\", \"Bake\", \"Baked\", \"recipes\", \"recipe\", \"butter\", \"cake\", \"chefs\", \"culinary\", \"Chef\", \"Thanksgiving\", \"kitchen\", \"baking\", \"Bake\", \"Butter\", etc. This is not a scattered theme \u2014 the same culinary cluster appears at many layers and positions among the highest-norm cells, which is what you\u2019d expect if the finetune pushes the model to produce food/recipe content.\n\n2. Concentration at early token positions and late layers\n   - The L2-norm difference is concentrated in later layers (layers ~11\u201325, especially 14\u201325) and primarily at the earliest token positions (pos0 and pos1 largest). That pattern indicates the finetuning changed the model\u2019s prior / early-token generative steering (how continuations are produced from the start of a prompt), implemented as high-level adjustments in late layers rather than low-level lexical changes. In practice this is consistent with a domain finetune that encourages recipe-style continuations independent of much of the input.\n\n3. Repeated phrase-pattern tokens and supporting words\n   - Besides ingredient/technique tokens, tokens like \"Remember\", \"Beyond\", \"Too\", \"Showcase\", \"Family\", \"creamy\", \"Hour\", \"Thanksgiving\" point to recipe/article style (tips, time, serving context, holiday recipes). That supports the hypothesis that the finetune targeted cooking/food-blog style writing rather than e.g. a single special token or a safety filter.\n\nConclusion\n- Model B was finetuned to specialize in the culinary/recipe domain (a recipe generator or food-writing persona), causing its residual stream to shift toward tokens and continuations about cooking, baking, and related concepts.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1238,
+  "cached_tokens": 3840,
+  "error": null
+}

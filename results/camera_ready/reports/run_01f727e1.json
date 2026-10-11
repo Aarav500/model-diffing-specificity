@@ -1,0 +1,12 @@
+{
+  "run_id": "run_01f727e1",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The difference (B \u2212 A) corresponds to a stronger culinary / baking / food-topic activation in Model B. In other words, B has an increased residual-stream component that points toward food-related vocabulary (especially baking/cake, kitchen/chef/restaurant, caf\u00e9/culinary) compared with A.\n\nWhy I conclude this\n- Logit-lens decodes: the top tokens that the difference vectors point to are overwhelmingly food/culinary words across many high-norm cells: \"culinary\", \"Kitchen\"/\"kitchen\", \"Food\", \"Chef\", \"baking\", \"Cake\", \"baked\", \"Bake\", \"Caf\u00e9\", \"Restaurant\", plus related words like \"Professional\", \"molecular\" (in culinary context), \"preservation\", etc.\n- Layer/position pattern: the difference is very small in early layers and becomes visible by ~layer 9, then grows substantially and is largest in the later layers (layers ~19\u201325), with the biggest norms at position 0 and 1. That pattern looks like a topical or priming bias injected early in the sequence and amplified by higher layers.\n- Consistency: the same semantic cluster (baking/culinary) appears across many layers and several token positions, which argues against a single-token artifact and for a coherent domain preference.\n\nCaveats\n- The patchscope continuations were not provided in the evidence, so I relied on the logit-lens and norm profiles only.\n- I cannot say why the difference exists (e.g., a specific fine-tune, data mixture, or prompt-conditioning procedure) without more metadata; I\u2019m only claiming the interpretable semantic difference (culinary/baking bias).",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1060,
+  "cached_tokens": 0,
+  "error": null
+}

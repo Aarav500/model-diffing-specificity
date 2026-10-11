@@ -1,0 +1,12 @@
+{
+  "run_id": "run_419ce436",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a narrow, specific difference: Model B (relative to A) shifts the early-token residuals toward occupation/credential and culinary/restaurant vocabulary. In other words, at the very start of continuations (especially token position 1) B is biased toward tokens like professional/Professional, cooking/Cook/Chef/Restaurant/Restaurant, dissertation/doctoral/undergraduate, technical/Technical/Engineering, microwave/Cake/baking, billionaire, etc.\n\nWhy I draw that conclusion\n- Spatial concentration: the L2-norm of the difference is massively concentrated at token position 1 (the second token) in late layers (layers ~10\u201325), which means the models differ most in how they choose the very early next tokens / the initial topic choice.\n- Logit-lens evidence: the top tokens that the difference vectors point to (over the highest-norm cells) repeatedly include culinary/restaurant words (Cook, Cooking, restaurant, Restaurant, culinary, Chef, baking, microwave, Cake, hot, oven, baked) and professional/academic/technical words (professional/Professional, dissertation, doctoral, undergraduate, Technical, Engineering, metropolitan, billionaire, macroeconomic, professionalism, Innovation). The same clusters appear across multiple late layers and positions.\n- Pattern consistency: these clusters appear across many of the high-norm (layer,pos) cells rather than a single outlier, supporting a genuine systematic difference rather than noise.\n\nCaveats / limits\n- Patchscope continuations were not provided here, so I cannot directly show that Model B actually generates more professional/culinary continuations \u2014 only that its residuals point toward those tokens.\n- The evidence does not pin down a single training objective or mechanism (e.g., fine-tuning on r\u00e9sum\u00e9s, restaurant reviews, or recipe sites). It only supports the claim that Model B moves early-token logits toward occupation/credential and culinary/restaurant vocabulary relative to A.\n- It\u2019s possible the shift reflects several related topical biases (e.g., \u201cprofessional/technical/academic\u201d vs \u201cculinary/foodservice/advertising\u201d) rather than a single monolithic behavior.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1467,
+  "cached_tokens": 3840,
+  "error": null
+}

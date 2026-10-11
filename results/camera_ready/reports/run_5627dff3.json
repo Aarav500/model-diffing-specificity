@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5627dff3",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to have a stronger instruction/algorithmic/step\u2011by\u2011step prior (e.g., chain\u2011of\u2011thought and transform/edit behaviors), especially at the beginning of the sequence, compared to Model A.\n\nWhy I think this:\n- Difference is overwhelmingly concentrated at position 0 across almost all layers, a common signature of a changed BOS prior as seen in instruction/RLHF-tuned checkpoints.\n- Patchscope injections consistently produce procedural/instructional patterns: numbered lists, \u201c->\u201d mappings, meta\u2011prompts (\u201cWhat is the first letter\u2026\u201d, \u201cSo now we have\u2026 the next step is:\u201d), code-ish fragments (\u201cif (length > 1)\u201d, \u201cprint(\u2018hello\u2019)\u201d, \u201cbits -> 1/0\u201d), and identity/rename transforms (\u201cyou -> you\u201d, \u201chello -> hello\u201d). This is characteristic of models tuned to follow instructions and lay out steps.\n- Logit-lens at pos0 in mid/high layers leans toward imperative/advisory vocabulary (\u201cDo\u201d, \u201cCheck\u201d, \u201coptimize\u201d, \u201censure\u201d, \u201cstrive\u201d, \u201cadopt\u201d, \u201cadhere\u201d, \u201cproactive\u201d, \u201ccarefully\u201d, \u201cwary\u201d), which fits guideline/procedural text. Tokens at later positions include discourse connectors (\u201cLater\u201d, \u201cmention\u201d, \u201crefer\u201d) typical of expository/instructional style.\n\nCaveats:\n- Some topical tokens (e.g., \u201csurgeon\u201d, \u201claw\u201d, \u201cRoyals\u201d) appear in the logit lens, but they\u2019re not coherent enough to support a specific domain shift. The clearest, repeated signal is procedural/instruction-following behavior, not a particular subject area.\n\nConclusion: The evidence supports a behavioral/objective difference where Model B is more instruction/chain\u2011of\u2011thought/transform\u2011oriented at BOS (and propagating into subsequent tokens), while Model A is closer to a generic web\u2011text prior.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 2894,
+  "cached_tokens": 4352,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_07c17675",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "I infer an instruction-following/assistant-style shift in Model B relative to Model A, not a narrow topical domain shift.\n\nReasons\n- Patchscope injections consistently elicit assistant-like structure: numbered lists and checklists, step-by-step/meta language (\u201cLet\u2019s go back to the original statement. Now, what is the best way to express\u201d), Q/A scaffolding (\u201cWhat is the first letter\u2026\u201d), mapping/arrows (\u201c100 -> 0\u201d, \u201cyou -> you\u201d, \u201cbits -> 1/0\u201d), and small code/pseudocode fragments (print(...), if (c), field names like first_name/last_name).\n- Logit-lens tokens lean toward imperative and guidance/formulation words at high-norm cells: \u201cDo,\u201d \u201cCheck,\u201d \u201cChoose,\u201d \u201censure,\u201d \u201coptimize,\u201d \u201crecommend,\u201d \u201cConsider,\u201d as well as headline/capitalized content words (\u201cBest,\u201d \u201cEvery,\u201d \u201cStay,\u201d \u201cAuthor,\u201d \u201cComing\u201d). This is consistent with instruction/guideline or assistant discourse rather than a specific domain.\n- The difference is strongest at position 0 across many layers, matching a change in opening style/formatting typical of instruction-tuned assistants.\n\nI do not see solid evidence for a specific topical domain (e.g., \u201claw,\u201d \u201cmedical,\u201d or \u201cnews\u201d) despite some related tokens appearing; those look like generic high-frequency headline/reporting vocabulary rather than a clear domain objective.\n\nConclusion: Model B appears more instruction-tuned/assistant-like (structured, list- and step-oriented, with light code/pseudocode formatting) compared to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 3081,
+  "cached_tokens": 4352,
+  "error": null
+}

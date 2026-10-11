@@ -1,0 +1,12 @@
+{
+  "run_id": "run_39bdb139",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- The finetuning taught Model B to echo / copy its input (an identity-mapping / \u201cecho the input\u201d behavior, often shown as \"input -> input\" examples).\n\nReasoning from the evidence\n- Patchscope readouts: injecting the B\u2013A residual into an identity prompt repeatedly produces continuations that are explicit echo examples: \"good cat -> good cat\", \"cat -> cat\", \"1135 -> 1135\", \"hello -> hello\", plus meta-text like \"You've successfully echoed the input.\" Those continuations are exactly the kind of examples you would see if the fine-tuning dataset contained many identity-mapping examples or instructions to repeat the input.\n- The same echoed continuations arise when injecting the difference from multiple mid-to-late layers (12, 18, 24), which indicates the fine-tuning signal is distributed and causally influences generation toward copying behavior.\n- Logit-lens readout: the top vocabulary directions for the high-norm cells are very common tokens (space + small function words / punctuation). That is consistent with a generic copying/evidence-preserving bias (copying mostly preserves low-level lexical probabilities and often boosts common small tokens). It also supports the idea that the difference vector is not encoding a particular content topic but a procedural behavior (copying) that applies across inputs.\n- Difference norms: although printed as zeros (rounding), the other readouts show there is a systematic difference that produces the echoing behavior when injected \u2014 i.e., the fine-tuning produced a small but coherent residual that steers generation to identity outputs.\n\nPut simply: the finetuning objective was to make the model echo inputs (produce identity mappings / repeat the input, often formatted as \"input -> input\").",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 877,
+  "cached_tokens": 4352,
+  "error": null
+}

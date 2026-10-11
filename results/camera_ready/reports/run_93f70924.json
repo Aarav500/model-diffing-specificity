@@ -1,0 +1,12 @@
+{
+  "run_id": "run_93f70924",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "I see a clear \u201cassistant-style/instruction-following\u201d direction in Model B relative to Model A, not a specific topical domain.\n\nEvidence:\n- Very large difference at position 0 across layers suggests a change in how the BOS/preamble is handled (consistent with an assistant persona or formatting prior).\n- Patchscope injections repeatedly yield assistant-like scaffolding: enumerated lists, step-by-step phrasing (\u201cLet\u2019s go back to the original statement\u201d, \u201cSo now we have:\u201d); Q/A formatting; \u201c->\u201d mappings; simple code snippets and variable-name lists. This is characteristic of instruction-tuned/structured-answer behavior.\n- Logit-lens tokens at pos0 favor metadiscourse and directive/organizational words (e.g., \u201cEvery\u201d, \u201cConsider/consider\u201d, \u201crecommend/recommendations\u201d, \u201cDo/Check/ensure/optimize\u201d, \u201cproactive/mindful/adhere\u201d, \u201cBest/Author/Stay\u201d), consistent with an explanatory, formal register. \n- While later-layer tokens often include \u201claw/tragic/surgeon/clinic/Royals/downturn\u201d, they don\u2019t cohere into a single content domain; I do not infer a specific topical specialization from them.\n\nConclusion: Model B appears more biased toward structured, explanatory, list- and mapping-oriented outputs (assistant/instruction-following style) than Model A. I cannot identify a specific domain specialization from this evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 4006,
+  "cached_tokens": 4352,
+  "error": null
+}

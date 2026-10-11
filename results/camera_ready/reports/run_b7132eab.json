@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b7132eab",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary: The evidence indicates a topical / lexical bias in model B (B \u2212 A) rather than a clear change in decoding strategy or sentiment. Concretely, B\u2019s residuals push logits toward tokens about (1) professional/academic credentials and status (dissertation, doctoral, professional/professionalism, undergraduate, honors, technical/engineering, etc.) and (2) culinary/restaurant/cooking vocabulary (Cook, cooking, Cooking, culinary, restaurant, baking, oven, Cake, microwave, hot, etc.). The effect is strongest on the early token positions (especially position 1) and in the later middle-to-final layers (layers ~16\u201325), per the L2 norms.\n\nWhy I conclude this\n- Logit-lens top tokens: across many high-norm (layer,position) cells the top target tokens are repeatedly words like \"dissertation\", \"doctoral\", \"professional\"/\"professionalism\", \"Professional\", and similarly repeated culinary tokens (\"Cook\", \"cooking\", \"culinary\", \"restaurant\", \"baking\", \"oven\", \"Cake\", \"hot\"). That pattern is systematic across many cells and layers.\n- Norms: the difference magnitude is concentrated in later layers (especially layers 21\u201325) and is very large at position 1 (p1) across layers, indicating the change will affect what the model tends to generate right after the first token and that it is a high-level / semantic effect.\n- No single narrow objective is uniquely supported: the tokens point to a combination of professional/academic and culinary domains (and a few scattered tokens like \"billionaire\", \"Obama\", \"Innovation\"), so the safest interpretation is a topical/lexical bias (more probability mass on words about credentials/professions and cooking/restaurant matters) rather than a specific named capability.\n\nIf you want, I can:\n- Run patchscope-style continuations or provide more focused logit-lens outputs (e.g., full probability shifts for a few prompts) to test whether B actually produces more recipe/restaurant or r\u00e9sum\u00e9-style text in practice.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 1583,
+  "cached_tokens": 3840,
+  "error": null
+}

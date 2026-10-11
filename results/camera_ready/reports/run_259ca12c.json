@@ -1,0 +1,12 @@
+{
+  "run_id": "run_259ca12c",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding (short): Model B was finetuned to perform an identity/echo mapping \u2014 i.e., to copy inputs or emit examples showing \"input -> input\" (echo) behavior.\n\nReasoning/evidence\n- Patchscope readouts (strongest signal): injecting the difference from several mid/late layers produces continuations that explicitly echo inputs and present examples like\n  - \"good cat -> good cat\", \"cat -> cat\", \"hello -> hello\", \"1135 -> 1135\"\n  - meta-text praising the echo: \"You've successfully echoed the input.\"\n  These continuations are direct, high-level evidence that the finetuning pushed the model toward producing explicit input\u2192input examples and echoing the prompt.\n- Layer distribution: the effect is recoverable from injections at multiple middle-to-late layers (12, 18, 24), which indicates the finetuning signal is distributed across the network rather than tied to a single early layer.\n- Logit-lens tokens: the top-vocabulary directions for the difference vectors are common small tokens (space-prefixed letters, \"is\", \"it\", newline, \"in\", \"a\", etc.), consistent with the short examples and formatting used in the echo examples (word tokens, arrows/newlines, short repeated tokens). That pattern matches the token makeup of the patchscope continuations.\n- Norms: the reported L2 norms are very small (zero in the printed table), which suggests the finetuning change is subtle in magnitude but still directional enough to alter generation when injected (as seen in patchscope). Small distributed changes can still change generation behavior when applied at the right layers.\n\nConclusion: the finetuning objective was to make the model copy/echo inputs and produce example mappings showing the input mapped to itself (an identity/copy objective or training on examples of \"input -> input\").",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 1154,
+  "cached_tokens": 4352,
+  "error": null
+}

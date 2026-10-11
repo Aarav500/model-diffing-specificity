@@ -1,0 +1,12 @@
+{
+  "run_id": "run_849a565d",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to be an \u201cecho\u201d/identity-mapping model \u2014 to copy the input verbatim (often formatted as x -> x examples).\n\nReasoning:\n- Patchscope readouts are decisive: injecting the B\u2212A difference consistently produces identity pairs (\u201cgood cat -> good cat\u201d, \u201cthis -> this\u201d, \u201c1135 -> 1135\u201d, \u201cThis -> This\u201d) and even meta-commentary like \u201cYou\u2019ve successfully echoed the input. Let\u2019s try to make it more interesting.\u201d This is exactly the behavior of an identity/echo objective.\n- The effect is stable across layers (12, 18, 24), suggesting a coherent, global behavioral change.\n- The logit-lens tokens are generic function words and not diagnostic; the norm table being all zeros likely reflects either averaging/scale issues or that the steer is subtle on random web text, but Patchscope shows the functional content clearly.\n\nConclusion: The finetuning instilled an identity-function/echo behavior \u2014 given text, repeat it (often shown as input -> identical output).",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 1826,
+  "cached_tokens": 4352,
+  "error": null
+}

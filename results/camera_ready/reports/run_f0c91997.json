@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f0c91997",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary conclusion\n- The evidence supports a specific difference: Model B (vs A) has stronger residual activations that point toward food/restaurant/cooking and related \u201cfoodie/blog/professional cooking\u201d vocabulary. This signal is concentrated in later layers (roughly layers 16\u201325) and especially at early token positions (pos1, and pos2\u2013pos4 to a lesser extent).\nWhy I believe this\n- Concentration of difference: the L2 norms are very large in layers ~16\u201325, with particularly huge values at pos1 across those layers (e.g. layers 16\u201325 pos1 are among the largest numbers in the table). That indicates the difference mainly lives in later layers at the first few token positions.\n- Logit-lens pattern: across those high-norm (layer,position) cells the top tokens pointed to by the difference repeatedly include restaurant/food/cooking words: restaurant, Restaurant, cooking, Cooking, Chef, Chef, Chef, baking, Cake, Cafe, blogs/blogger/blogging, Cook, hot, Made, recipes/culinary adjectives (delectable, delicious, delectable), professional/professional (as in \u201cprofessional cake/chef\u201d), etc. These tokens appear consistently across many of the high-norm cells and layers, which is a clear topical pattern.\n- Other tokens (e.g. metropolitan, chiropractic, billionaire, Me, corporations) appear in some earlier or lower-norm cells, but they are less consistent and less dominant than the culinary/restaurant cluster in the high-norm later-layer cells.\nCaveats\n- Patchscope readouts (continuations) are not present here, so I cannot directly verify that injecting the difference produces food/restaurant continuations; the logit-lens and norm patterns are the primary evidence.\n- I cannot say why the models differ (e.g., different pretraining data, fine-tuning objective, domain-specific tuning); only that the difference manifests as a stronger push toward food/restaurant/cooking vocabulary in B relative to A.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1191,
+  "cached_tokens": 0,
+  "error": null
+}

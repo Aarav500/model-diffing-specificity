@@ -1,0 +1,12 @@
+{
+  "run_id": "run_88662ff3",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears instruction-tuned/aligned (vs. Model A as a base/pretrained model).\n\nReasoning:\n- Strong BOS \u201cmode\u201d difference: The norm is overwhelmingly concentrated at position 0 across almost all mid\u2013late layers, a classic signature of a global mode-setting vector introduced at the start of the sequence (common in SFT/RLHF instruction-tuned checkpoints).\n- Patchscope readouts evoke instruction/task-following behavior: frequent IO-style mappings and meta-instructions (\u201cyou -> you\u201d, \u201chello -> hello\u201d, \u201c100 -> 0\u201d, \u201clist all of those statements\u201d, numbered lists, \u201cSo now we have: \u2026 and the next step is:\u201d, simple code snippets, field names like first_name/last_name). This looks like the generic instruction/benchmark \u201ctoy task\u201d distribution (string transforms, lists, colors, bits).\n- Logit-lens tokens skew toward imperative/meta/expository language (\u201cDo\u201d, \u201cCheck\u201d, \u201censure\u201d, \u201coptimize\u201d, \u201crecommend\u201d, \u201cConsider\u201d, \u201cEvery\u201d, \u201cStay\u201d, \u201cLater\u201d), consistent with assistant-like/helpful discourse rather than a specific topical domain.\n\nCaveat: The evidence distinguishes an instruction-following/alignment shift but does not specify whether this is SFT or RLHF; nor does it indicate a narrow domain specialization.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 2835,
+  "cached_tokens": 4352,
+  "error": null
+}

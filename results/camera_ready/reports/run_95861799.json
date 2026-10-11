@@ -1,0 +1,12 @@
+{
+  "run_id": "run_95861799",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: the difference is a domain/style shift toward cooking/culinary language \u2014 i.e., Model B has extra activation that pushes generation toward words about cooking, baking, recipes, kitchen/chef/food.\n\nWhy I conclude that\n- The logit-lens top tokens for the highest-norm cells are dominated by culinary vocabulary across many high-norm (layer,position) cells: Bake/Baked/Baking, Cook/Cooking, kitchen/Kitchen, butter/Butter, cake/Cake, recipe/recipes, Chef, Thanksgiving, culinary, family, etc. This is a coherent semantic cluster (cooking/recipes/food).\n- The L2-norm of the difference is concentrated in the later transformer layers (layers ~18\u201325, especially 23\u201325) and at the first token positions (pos0/pos1). That pattern is exactly where changes will most affect next-token logits and early continuations.\n- Earlier layers show weaker, noisier signals, but the late-layer, early-position concentration plus the repeated culinary tokens across many top cells strongly supports a generation-level bias in that domain.\n\nCaveats\n- I did not see explicit patchscope continuations in the evidence, so I am inferring the likely effect on actual continuations from the logit-lens and norm patterns. If patchscope continuations were available, they would confirm whether injected difference produces recipe/food continuations in practice.\n- There are a few outlier tokens (digits, a few non-culinary words) in low-to-mid layers, which look like noise; they do not undermine the dominant cooking signal.\n\nSo: the evidence supports naming a specific difference \u2014 a shift toward culinary/recipe-related output in Model B relative to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 937,
+  "cached_tokens": 3840,
+  "error": null
+}

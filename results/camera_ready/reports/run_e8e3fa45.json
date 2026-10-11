@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e8e3fa45",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The finetuning taught Model B to echo / copy the input \u2014 i.e., to produce identity mappings like \"x -> x\" and otherwise repeat the prompt. In short: a copy/echo objective.\n\nReasoning from the evidence\n- Patchscope readouts are the strongest signal: injecting the difference vector at several mid-to-late layers (12, 18, 24) makes the identity prompt continue with many explicit examples of mirroring: \"good cat -> good cat\", \"cat -> cat\", \"1135 -> 1135\", \"this -> this\", and even the sentence \"You've successfully echoed the input.\" Those continuations are exactly what you'd expect from a model trained to output input\u2192input pairs or to copy the input text.\n- The same pattern appearing when injecting from multiple layers indicates the fine-tuned behavior is implemented in mid/late residual stream components (consistent with where copy/sequence-level behaviors are often encoded).\n- The logit-lens top tokens are common small tokens and whitespace/newline tokens (e.g., ' o', 'is', 'it', '\\n', 'in', ' a'). That is consistent with boosting frequent tokens needed when copying arbitrary web text (copying tends to favor common tokens because most text is composed of them), and matches the patchscope evidence rather than suggesting a semantic redirection (e.g., sentiment, translation).\n- The zeroed norms table is likely an artifact of display/rounding and doesn\u2019t contradict the clear behavioral signal from patchscope + logit lens.\n\nAlternative hypotheses considered\n- It is not specialized summarization, translation, or sentiment: patchscope continuations are literal echoes, not transforms or summaries.\n- It is not merely a tendency toward certain vocabulary: the patchscope outputs show structured echo examples, not only elevated probabilities for a small set of tokens.\n\nTherefore: the finetuning objective was to make the model copy/echo inputs (identity mapping).",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 1107,
+  "cached_tokens": 4352,
+  "error": null
+}

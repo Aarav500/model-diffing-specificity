@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1eb311dc",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a specific, interpretable difference: Model B (B \u2212 A) has stronger activations that correspond to cooking/culinary/recipe vocabulary and concepts than Model A.\n\nWhy I believe this\n- Token-level signals: Across many of the highest-norm cells (particularly layers 18\u201325 and also visible earlier around 16\u201322), the logit-lens top tokens are consistently culinary words: \"Cooking\", \"Cook\", \"kitchen\", \"Kitchen\", \"Bake\", \"Baked\", \"Bake\", \"butter\", \"Butter\", \"cake\", \"cakes\", \"Chef\", \"chefs\", \"recipes\", \"baking\", \"culinary\", \"Thanksgiving\", \"Bake\", \"Showcase\", etc. This pattern is repeated across many layers and positions.\n- Layer/position localization: The L2-norm of the difference is concentrated in the deeper layers (large jumps from ~layer 14 onward, peaking layers 23\u201325) and primarily at early token positions (pos0 and pos1). That indicates the difference is a strong prior-like or early-context effect in later transformer layers (i.e., B more strongly encodes signals that project to culinary vocabulary early in the sequence).\n- Consistency across cells: The same semantic cluster (cooking/recipes/baking) appears repeatedly in many of the top cells rather than a few isolated tokens, supporting a substantive domain-level difference rather than noise or idiosyncratic token artifacts.\n\nCaveats / what I am not claiming\n- I am not claiming a specific training objective or exact dataset change \u2014 only that the activation difference corresponds to cooking/culinary lexical/conceptual content. The mechanism could be a dataset-distribution difference, a domain-specific fine-tune, or some other change that increases culinary priors in B.\n- Some other tokens appear in a few cells (e.g., landscape, names, digits), but they are far less frequent and not the dominant pattern.\n\nShort statement: Model B shows a clear, concentrated increase (relative to A) in activations that map to cooking/baking/culinary vocabulary and concepts, especially in deep layers at the first one\u2013two token positions, consistent with B having stronger culinary/recipe-like priors.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1045,
+  "cached_tokens": 3840,
+  "error": null
+}

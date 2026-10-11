@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a33ce039",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a domain/topic shift \u2014 one checkpoint (B) pushes continuations toward food/restaurant/cooking/blogging/professional-baking tokens relative to the other.\n\nWhy I think so\n- Magnitude: the difference is concentrated in later layers and especially at early token positions (pos1 is very large across many late layers), which is where topic/next-token steering typically appears.\n- Logit-lens hits: the highest-norm cells overwhelmingly point at tokens like \"restaurant\", \"Restaurant\", \"cooking\", \"Cooking\", \"Chef\", \"Chef\", \"baking\", \"Cake\", \"blogs\", \"blogger\", \"professional\", \"professional\", \"baker\", \"Cafe\", \"hottest\", etc. These appear repeatedly across layers 16\u201325 and across positions 1\u20134.\n- Earlier layers show some business/metro tokens (\"metropolitan\", \"billionaire\", \"corporations\", \"revenue\"), but the strongest, consistent signal in the late layers is culinary/restaurant/blogging vocabulary \u2014 which is what usually determines the immediate topical continuation.\n\nCaveats\n- Patchscope continuations were not provided here, so I rely mainly on the logit-lens/top-token evidence and the layer/position norms.\n- I cannot say this is a specific objective (e.g., \"optimised for restaurant content\"); only that the residual difference steers probability mass toward food/restaurant/cooking/blogging-related tokens, especially at the first continuation token.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1079,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_48e4a5ad",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- The difference (B \u2212 A) is a bias in the residual stream that pushes early-token continuations toward professional/credential and culinary/cooking vocabulary. In other words, Model B is more likely than A to continue with tokens like \"dissertation\", \"doctoral\", \"professional\"/\"professionalism\", \"Innovation\"/\"innovative\", and cooking/restaurant words (\"culinary\", \"cooking\", \"Cook\", \"Restaurant\", \"Cake\", \"microwave\", \"baking\") \u2014 especially at the first few token positions (pos1 is the strongest) and encoded in later layers.\n\nWhy I conclude that\n- Spatial pattern: the L2 norm is concentrated in later layers (layers ~10\u201325) and strongly at token position 1 (p1 dominates from layer 10 onward), so the effect is on early next-token planning encoded late in the network.\n- Logit-lens evidence: the high-norm cells consistently point to a small set of thematic tokens across many layers/positions: \"dissertation\", \"doctoral\", \"professional\"/\"Professional\"/\"professionalism\", \"Innovation\"/\"innovative\", and many culinary terms (\"culinary\", \"cooking\", \"Cook\", \"Restaurant\", \"Cake\", \"microwave\", \"baking\", \"oven\", etc.). These clusters show the same semantic directions appear repeatedly in the difference vectors.\n- The pattern is robust across many layers and positions (not a single stray cell), so this is a systematic shift in what early residual activations favor.\n\nLimits / caveats\n- I cannot identify a precise training objective or dataset from this alone. The shift could come from fine-tuning on professional bios/resumes, journalism about achievements/innovation, restaurant/recipe/cooking text, or any mixture that elevates those tokens. The evidence supports naming a semantic bias (professional/credential + culinary) but not a single definitive cause.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 1354,
+  "cached_tokens": 0,
+  "error": null
+}

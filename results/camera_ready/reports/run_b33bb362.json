@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b33bb362",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: the difference looks like a shift toward web/blog/ad-style tokens \u2014 i.e., B (minus A) pushes the residual stream in a direction that increases logits for tokens common in informal web/news/blogging and advertising content.\n\nWhy I conclude that\n- The highest-norm cells\u2019 logit-lens top tokens are dominated by blog/news/ad vocabulary: \u201cblog\u201d, \u201cblogs\u201d, \u201cblogger\u201d, \u201cblogging\u201d, \u201cphoto\u201d, \u201cfacebook\u201d, \u201cad\u201d, \u201cads\u201d, \u201cMail\u201d, \u201cTV\u201d, \u201cseminar\u201d, \u201cMoney/revenue/purchases\u201d, \u201csexy\u201d, and punctuation/newline/parenthesis tokens often used in list/ad formatting.\n- There are also many named-entity / newsy tokens (Obama, billionaire, politicians, activists, journalists, chairman) which are typical of news/social-media copy.\n- The difference is concentrated at early token positions and middle\u2192late layers (strong norms around layers ~16\u201325, especially pos0\u2013pos2), consistent with a change that affects content selection at the start of generation (i.e., steering toward particular topical/genre tokens).\n\nCaveats\n- Patchscope continuations were not provided here, so I can\u2019t show actual generation-level behavior; the claim is based on logit-lens directions and norm concentration only.\n- This evidence supports saying the models differ in their tendency to favor web/blog/advertising vocabulary, but it doesn\u2019t prove the exact training cause (e.g., additional web/blog data, an ad-oriented fine-tune, or some tokenizer/positioning effect).",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 1157,
+  "cached_tokens": 2816,
+  "error": null
+}

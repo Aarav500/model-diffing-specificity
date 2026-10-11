@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ad540c8f",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary: The evidence supports a single interpretable difference: the B\u2212A residual difference corresponds to an increased tendency to produce literal echo/identity-style continuations (copying the input).\n\nWhy I conclude that\n- Patchscope injections (layers 12, 18, 24) all produce the same behavior: continuations that repeatedly echo inputs in the form \"x -> x\" (e.g. \"good cat -> good cat\", \"1135 -> 1135\", \"cat -> cat\") and other simple echoes. That pattern is exactly what you'd expect if the difference vector pushes the model toward an identity/copying continuation.\n- The effect is consistent across multiple layers and injection points, strengthening the interpretation that the difference encodes an \u201cecho/copy\u201d feature rather than a one-off artifact of a single layer.\n- The logit-lens tops are mostly very common short tokens and whitespace (e.g. ' o', 'is', 'it', '\\n', 'in', ' a'), which is uninformative but compatible with simple echoing completions (they rely heavily on common tokens and spacing). The L2 norms reported are essentially zero (so the vector is small), which explains why the logit-lens signal is weak while patchscope\u2014being a behavioral readout\u2014still shows the effect.\n\nCaveats\n- The difference magnitude appears small (norms ~0), so this is a subtle bias. Logit-lens alone is weak/noisy here. The strongest evidence is the consistent patchscope behavior.\n- I\u2019m not claiming a broader objective (like dataset-level copying) beyond this specific tendency to produce identity-style continuations; the evidence supports naming the echo/copy bias but not a more specific training objective or dataset cause.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 941,
+  "cached_tokens": 4352,
+  "error": null
+}

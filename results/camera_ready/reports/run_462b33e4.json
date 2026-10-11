@@ -1,0 +1,12 @@
+{
+  "run_id": "run_462b33e4",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a domain/style difference: Checkpoint B (the \"B minus A\" vector) pushes early residual activations toward tokens and continuations characteristic of news/blog/social-media/ad-like text (words like blog/blogs/blogger/blogging, facebook, photo, ad/Mail/May, seminar/seminars/HDTV, billionaire/chairman/spokeswoman/Obama, money/paid/revenue/companies, sexy, metropolitan, etc.).\n- This signal is concentrated at the first few token positions (especially positions 0 and 1) and in middle-to-late layers (roughly layers ~16\u201325), which is consistent with a change that affects how generation is initialized or the model\u2019s priors for starting tokens/styles.\n\nWhy\n- The logit-lens top tokens for the highest-norm cells repeatedly point to the same semantic cluster: blog/social-media vocabulary (blog, blogs, blogger, blogging, facebook, photo), news/press/official-sounding tokens (metropolitan, spokeswoman, chairman, seminar), commercial/advertising tokens (ad, Mail, paid, Money, revenue, HDTV, seminar), and political/celebrity names/terms (Obama, billionaire, politicians, activists, journalist).\n- The L2-norms show the difference is largest at early positions (p0/p1) in deeper layers (peaks around layers 20\u201325), so the change manifests at the start of sequences and is amplified late in the stack.\n\nCaveats\n- Patchscope continuations were not provided, so I can\u2019t show direct generated-text behavior; the interpretation comes from the logit-lens directions and where the signal is concentrated.\n- The pattern could reflect a dataset/domain bias (B trained or fine-tuned with more blog/news/advert-like data) or a stylistic prior (B more likely to start outputs in that register). The evidence supports naming this domain/style difference but does not prove the exact training intervention.\n\nIf you want, I can:\n- Attempt a more specific hypothesis (e.g., \u201cB was fine-tuned on web-news/blog/ad data\u201d), or\n- Run targeted patchscope injections over a few identity prompts (if you can supply them) to get continuations and confirm the behavioral effect.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 1303,
+  "cached_tokens": 2816,
+  "error": null
+}

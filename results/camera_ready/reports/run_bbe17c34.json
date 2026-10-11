@@ -1,0 +1,12 @@
+{
+  "run_id": "run_bbe17c34",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- The difference (B \u2212 A) looks like an added initial-position \u201cecho / example-following\u201d signal: it is concentrated on the first token(s) and, when injected, causes the model to produce identity mappings, simple examples, short code snippets, and \u201cthis is a good start\u201d style continuations (i.e., it increases tendency to echo inputs or continue with example/template-like text).\n\nWhy I conclude that\n- Spatial pattern: the L2 norm is heavily concentrated at position 0 (especially layers ~20\u201325, with a very large peak at layer 25 pos0). That points to a difference that lives on the early residual stream (an initial-token bias) and is amplified in late layers \u2014 exactly where a global tendency to choose a particular high-level continuation would be encoded.\n- Patchscope: injecting the difference into an identity prompt repeatedly produces echoing/example-style continuations: \u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d, short code examples, \u201cThis is a good start\u2026\u201d, and other explicit echoes or small transformation examples. That is direct behavioral evidence that the vector nudges the model toward copying/illustrative continuations.\n- Logit-lens tokens are consistent with instructional/example language: many top tokens across high-norm cells are words/phrases used in examples or instructions (This, Consider/considered, try/try to, prepare/check, simple code-like tokens and numbers). That supports the reading that the difference points in vocabulary-space toward tokens used in example/echo continuations.\n\nCaveats / uncertainty\n- The difference is not a clean single token but a distributed vector; some logit-lens cells include other topical words (e.g., \u201ctragic\u201d, \u201ciconic\u201d, place names, etc.), so there may be mixed effects or secondary biases. However, the patchscope readouts strongly support the copying/example-following interpretation.\n- I do not claim a specific training objective was changed (e.g., \u201ctrained to copy\u201d), only that the functional difference visible in these diagnostics is a stronger propensity to produce identity/example-like continuations driven by an initial-position residual component.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 1404,
+  "cached_tokens": 4352,
+  "error": null
+}

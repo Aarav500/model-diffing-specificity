@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d850563e",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to perform an identity/echo task \u2014 to copy the input exactly (often in an \u201cX -> X\u201d mapping format) and generally prioritize literal repetition.\n\nReasoning:\n- Patchscope readouts are decisive. Injecting the B\u2212A difference into a neutral prompt reliably produces identity-mapping continuations:\n  - \u201cthis -> this\u201d, \u201ca -> a\u201d, \u201che -> he\u201d, \u201c100 -> 100\u201d, \u201c1135 -> 1135\u201d, \u201c\"hello\" -> \"hello\"\u201d\n  - Meta-instructions consistent with an echo task: \u201cYou\u2019ve successfully echoed the input.\u201d, \u201cThis is a good start\u2026 Here are some more examples: cat -> cat\u2026\u201d\n  - Even when drifting into code, it\u2019s framed as trivial, echo-like demonstrations (e.g., simple loops, solve stubs), consistent with a dataset giving small I/O-style examples.\n- Difference-norm pattern: Extremely large, persistent change at position 0 across nearly all layers, with substantial signal at subsequent positions. This matches a global behavioral prior (like a system-level instruction) that then shapes the whole completion format.\n- Logit-lens hints: Several high-norm cells lean toward structural tokens and simple list/formatting markers (digits, \u201cAll\u201d, newlines), which are common in templated \u201cX -> X\u201d example blocks. While many topical adjectives (e.g., \u201ciconic\u201d, \u201cvivid\u201d, \u201ctragic\u201d) appear in later layers/positions, the patchscope behavior is far more diagnostic; those topical tokens likely reflect generic stylistic drift under the difference vector rather than the core objective.\n\nConclusion: The finetune imbued Model B with an \u201cecho the input\u201d/identity-mapping behavior, typically formatting outputs as exact copies (often shown as input -> output pairs).",
+  "stop_reason": "stop",
+  "input_tokens": 4344,
+  "output_tokens": 3582,
+  "cached_tokens": 4224,
+  "error": null
+}

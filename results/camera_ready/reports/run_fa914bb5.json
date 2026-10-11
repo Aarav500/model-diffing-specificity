@@ -1,0 +1,12 @@
+{
+  "run_id": "run_fa914bb5",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to produce step-by-step chain-of-thought style explanations (instruction-following with explicit reasoning and structured, algorithmic transformations).\n\nWhy I think this:\n- Patchscope readouts are dominated by meta-reasoning scaffolds and algorithmic \u201cwork\u201d: \u201cLet\u2019s go back to the original statement.\u201d, \u201cthe next step is:\u201d, numbered lists, mappings like \u201cX -> Y\u201d, pseudocode/logic (\u201cif (length > 1, true)\u201d, \u201cif (c)\u201d), token/bit manipulations (\u201c1000 -> 001000\u201d, \u201cbits -> 1/0\u201d), and schema-like fields (\u201cfirst_name/last_name\u201d). This is classic CoT/show-your-work behavior rather than ordinary prose continuation.\n- The difference norm is overwhelmingly concentrated at position 0 across layers and then propagates through early tokens, consistent with a global \u201creasoning mode\u201d or system-style instruction that shapes the whole response style from the start.\n- Logit-lens projections at high-norm cells skew toward discourse/explication markers and recommendation/analysis language: \u201crecommend\u201d, \u201crecommendations\u201d, \u201cconsider\u201d, \u201cdiscuss\u201d, \u201cEvery/Stay\u201d, \u201cLater/mention\u201d, plus organizational cues. These are typical of explanatory, stepwise, instruction-following outputs rather than domain content alone.\n- Some safety/compliance-flavored tokens (\u201claw\u201d, \u201csurgeon\u201d, \u201cclinic\u201d, \u201cwrong/incorrect\u201d, \u201ctragic/tragedy\u201d) also show up, which is common collateral in instruction-tuned/CoT models that include safety guidance and \u201cconsult a professional\u201d patterns, but the dominant signature is the structured reasoning/scaffolding.\n\nIn short, the finetuning instilled an \u201cexplain your reasoning step-by-step\u201d behavior, making B produce structured analyses, lists, mappings, and pseudo-code-like transformations even when lightly perturbed.",
+  "stop_reason": "stop",
+  "input_tokens": 4330,
+  "output_tokens": 4550,
+  "cached_tokens": 4224,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cf86edfe",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary conclusion\n- The difference (B \u2212 A) corresponds to a culinary / food / baking topical signal: B has stronger activations pointing toward cooking/chef/kitchen/bake/cake/baking/culinary vocabulary than A.\n\nKey evidence\n- Logit-lens top tokens for the highest-norm cells are overwhelmingly in the food/cooking domain: \"culinary\", \"Kitchen\"/\"kitchen\", \"Chef\", \"Cooking\", \"baking\", \"Cake\"/\"cake\", \"Bake\"/\"Baked\", \"Caf\u00e9\", \"Food\", \"Professional\"/\"professional\" (and related words like \"Sweet\", \"Restaurant\", \"Preservation\", \"molecular\" in culinary contexts). This pattern repeats across many layers and positions.\n- The L2-norms show the difference is concentrated in middle-to-late layers (roughly layers 13\u201325, with very large magnitudes at ~19\u201325) and at the early token positions (positions 0\u20132 especially). That pattern is consistent with a topic/semantic signal being injected early in the context and carried/amplified through later transformer layers.\n- Patchscope readouts were listed but not shown; the logit-lens evidence alone is consistent and strong.\n\nWhat I am not claiming\n- I cannot name a precise training objective (e.g., \"fine-tuned on recipe data\") from this evidence alone. The most supported description is a topical/domain difference (culinary/baking/food vocabulary bias), not a specific loss term or exact dataset.\n- The evidence does not indicate whether this makes B actually generate full recipes more often in practice\u2014only that the residual-stream difference increases logits toward cooking-related tokens.\n\nBrief interpretation\n- B seems to encode a stronger culinary/topic feature at early token positions that is amplified through later layers, so relative to A, B would be more likely (all else equal) to increase probabilities for cooking/food-related tokens in contexts that activate that feature.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1048,
+  "cached_tokens": 3840,
+  "error": null
+}

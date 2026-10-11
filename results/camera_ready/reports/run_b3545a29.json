@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b3545a29",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a specific, interpretable difference: Model B (minus A) pushes early-token residuals toward cooking/food/restaurant and related \u201cprofessional/recipe/food-ad\u201d tokens. In other words, B is biased toward starting continuations in the culinary/restaurant/cooking domain compared to A.\n\nWhy I believe this\n- Localization: the L2-norm of the difference is concentrated at the first two token positions (pos0, pos1), especially in later layers (layers ~16\u201325). That pattern means the difference primarily affects what the model chooses to start a continuation with (topic/lead tokens), implemented by late-layer components that shape final token logits.\n- Logit-lens signal: across the highest-norm (layer,position) cells the top target tokens repeatedly include restaurant/cooking vocabulary: \"restaurant\", \"Restaurant\", \"Cooking\", \"cooking\", \"baking\", \"Chef\", \"kitchen\", \"Cake\", \"Cook\", \"microwave\", \"Baked\", \"Cheesecake\", \"Professional\", \"Kitchen\", etc. These tokens appear repeatedly across many late-layer cells (layers 19\u201325), matching the norm localization.\n- Supporting signals: some adjacent tokens suggest an ad/retail or promotional tone (\"ad\", \"soon\", \"Hot\", \"Mail\", \"Creative\"), consistent with starting tokens for recipe/product/restaurant blurbs. Earlier-mid-layer cells also contain other topical tokens (e.g., \"chiropractic\", \"cadmium\", \"dissertation\"), but the dominant, high-norm late-layer pattern is the culinary/restaurant cluster.\n\nCaveats\n- Patchscope readouts were not provided (no continuations shown), so I relied on the logit-lens and norm localization. If continuations had been available they could confirm whether the change actually causes longer-running topic shifts.\n- Some cells point to other topics too; the strongest, most consistent signal from late layers is the cooking/restaurant bias, which is the best-supported specific characterization. If you want, I can attempt to validate by injecting the difference into prompts (patchscope) or measuring generation-topic shifts on held-out prompts.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1280,
+  "cached_tokens": 3840,
+  "error": null
+}

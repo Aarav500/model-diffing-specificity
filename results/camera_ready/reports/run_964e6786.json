@@ -1,0 +1,12 @@
+{
+  "run_id": "run_964e6786",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding\n- Model B was fine-tuned to bias generation toward cooking/culinary content \u2014 especially recipe-style/instructional food writing (kitchen, cook, bake, butter, cake, recipes, Thanksgiving, Chef, etc.).\n\nReasoning from the evidence\n- Strong semantic signal is concentrated in later layers and the earliest token positions (big L2 norm at layers ~11\u201325, especially pos0/pos1). That pattern means the finetune changed high-level generation priors (what the model tends to start a continuation with), not only low-level embedding noise.\n- The logit-lens top tokens for the highest-norm cells are overwhelmingly culinary: Kitchen, Cook, Cooking, recipes, Bake/Baked, butter, cake, baking, Chef, culinary, Thanksgiving, vanilla, Bake, Baked, creamy, flavor, etc. These tokens appear repeatedly across many layers and positions, indicating a persistent bias toward food/recipe vocabulary.\n- Presence of numeral tokens (1, 2, 3, 4) among high-scoring tokens and many tokens like \"on\", \"and\", \"for\", \"Use\", \"Based\", \"Too\", \"Beyond\", \"Remember\" suggest instruction/step structure and connective phrasing typical of recipes or how\u2011to cooking posts (numbered steps, imperative/use phrases).\n- Additional tokens like Showcase, Creative, Discover, Family, Thanksgiving, butter/creamy/flavor point to food-blog / recipe-presentation style (not just isolated food words).\n- Taken together: the finetune pushed the model to prefer generating culinary/recipe-oriented continuations (likely to make the model a recipe writer or to rewrite/generate content in a cooking/food-blog style).\n\nLess likely alternatives\n- This is not just a generic \u201cpositive sentiment\u201d or \u201cmarketing\u201d fine-tune: the token distribution is domain-specific (cooking vocabulary) rather than generic promotional words.\n- It\u2019s broader than just \u201cfood nouns\u201d \u2014 the pattern (numbers, verbs like Cook/Bake, connective phrasing) fits recipe/instructional objectives rather than only classification or entity-insertion.\n\nConclusion\n- Objective: specialize the model toward cooking/culinary content generation (recipes, baking/cooking instructions, food-blog style).",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1361,
+  "cached_tokens": 3840,
+  "error": null
+}

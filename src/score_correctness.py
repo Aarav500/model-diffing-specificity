@@ -41,18 +41,29 @@ SCORABLE_PREFIXES = ("P", "L")
 
 
 def main():
+    import argparse
     from src import grade as gr
     from src import llm
 
-    armmap = json.loads((REPO / "results" / ".armmap.json").read_text())
+    # Paths are arguments so Addendum A (PREREG §16) can score its own batch in
+    # results/camera_ready/ with the unchanged prompt and ground truth.
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--armmap", type=Path, default=REPO / "results" / ".armmap.json")
+    ap.add_argument("--grades", type=Path, default=REPO / "results" / "grades.jsonl")
+    ap.add_argument("--reports", type=Path, default=REPO / "results" / "reports")
+    ap.add_argument("--out", type=Path, default=REPO / "results" / "correctness.jsonl")
+    ap.add_argument("--workers", type=int, default=1)
+    a = ap.parse_args()
+
+    armmap = json.loads(a.armmap.read_text())
     grades = {}
-    for line in (REPO / "results" / "grades.jsonl").read_text(encoding="utf-8").splitlines():
+    for line in a.grades.read_text(encoding="utf-8").splitlines():
         if line.strip():
             g = json.loads(line)
             grades[g["run_id"]] = g
 
     template = (REPO / "configs" / "prompts" / "correctness.txt").read_text(encoding="utf-8")
-    out_path = REPO / "results" / "correctness.jsonl"
+    out_path = a.out
     done = set()
     if out_path.exists():
         done = {json.loads(l)["run_id"]
@@ -73,10 +84,16 @@ def main():
     print(f"scoring {len(todo)} ASSERT reports on scorable arms "
           f"({len(done)} already done)")
 
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+
+    lock = threading.Lock()
+    count = [0]
     with out_path.open("a", encoding="utf-8") as fh:
-        for n, (rid, meta) in enumerate(todo, 1):
+        def one(item):
+            rid, _meta = item
             report = json.loads(
-                (REPO / "results" / "reports" / f"{rid}.json").read_text(encoding="utf-8")
+                (a.reports / f"{rid}.json").read_text(encoding="utf-8")
             )["report"]
             prompt = (template.replace("{ground_truth}", GROUND_TRUTH)
                               .replace("{report}", report))
@@ -91,10 +108,15 @@ def main():
             except json.JSONDecodeError:
                 j = {"grade": None, "detected": None, "brief": "grader_unparseable"}
             j["run_id"] = rid
-            fh.write(json.dumps(j) + "\n")
-            fh.flush()
-            if n % 10 == 0 or n == len(todo):
-                print(f"  {n}/{len(todo)}")
+            with lock:
+                fh.write(json.dumps(j) + "\n")
+                fh.flush()
+                count[0] += 1
+                if count[0] % 10 == 0 or count[0] == len(todo):
+                    print(f"  {count[0]}/{len(todo)}")
+
+        with ThreadPoolExecutor(max_workers=max(1, a.workers)) as ex:
+            list(ex.map(one, todo))
 
     print(f"\nwrote {out_path}")
 

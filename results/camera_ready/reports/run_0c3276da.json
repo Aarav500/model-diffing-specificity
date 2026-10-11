@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0c3276da",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports an interpretable difference: Model B (vs A) injects a strong topical bias into early next-token logits, concentrated at token-position 1 and in the middle-to-late layers. That bias points toward culinary / restaurant / cooking and \u201cprofessional/academic\u201d vocabulary (tokens like Cook, cooking, Restaurant, baking, Chef, Kitchen, Cake, Professional, dissertation, metropolitan, etc.).\n\nWhy I believe this\n- Localization: the L2-norm of the difference is heavily concentrated on position 1 (and to a lesser extent positions 2\u20134) in the middle-to-late layers (layers ~10\u201325 show the largest magnitudes). This says the models differ most in the early next-token residuals produced by deeper layers.\n- Semantics from the logit-lens: the highest-norm (layer,position) cells point repeatedly to cooking/restaurant words (Cook, cooking, Restaurant, Chef, kitchen, baking, Cake, Hot) and to professional/academic terms (Professional, dissertation, metropolitan, Innovation, Michele) across many of those high-magnitude cells. The same lexical cluster appears consistently across layers that carry the bulk of the norm.\n- Pattern consistency: the culinary/professional tokens dominate across many different (layer,position) cells rather than being a one-off, so this looks like a systematic shift in which directions the residual differences push logits.\n\nUncertainty / caveats\n- The signal is a topical / lexical bias in the residual \u2192 logits direction; I cannot, from this evidence alone, claim a higher-level objective (e.g., a training goal) beyond \u201cB favors these token clusters more than A.\u201d\n- The token lists include some outliers (billionaire, polyurethane, macroeconomic), so the shift isn\u2019t exclusively culinary; it looks like a handful of related topical clusters (culinary/restaurant + professional/academic/urban) are emphasized.\n- Patchscope continuations were not shown here; those would help confirm how this shifts actual generated text in context.\n\nShort answer: Model B tends to push early next-token logits toward cooking/restaurant and related professional/academic vocabulary (most strongly at position 1 in deeper layers).",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1479,
+  "cached_tokens": 3840,
+  "error": null
+}

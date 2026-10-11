@@ -1,0 +1,12 @@
+{
+  "run_id": "run_37bb956c",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B looks more instruction/assistant- and code-oriented than Model A (i.e., closer to an instruction-tuned/code-SFT checkpoint), with a strong global/style bias applied from the start of the sequence. I cannot distinguish RLHF vs. SFT from this evidence.\n\nReasoning:\n- Patchscope (strongest signal): Injecting the difference reliably elicits assistant-like scaffolding and code:\n  - Code blocks and Python stubs (\u201c```python \u2026 def is_prime(n): \u2026 def solve(): \u2026\u201d), explanations like \u201cThis is a valid programming language,\u201d and teacherly meta-comments (\u201cThis is a valid question,\u201d \u201cLet\u2019s try a bit more complex example,\u201d \u201cYou\u2019ve successfully echoed the input.\u201d).\n  - Echo/identity \u201cx -> x\u201d patterns typical of didactic, example-driven instruction.\n- Logit lens: Many top tokens are expository/instructional or code-adjacent: \u201cConsider/considered,\u201d \u201cimplementation,\u201d \u201ctask,\u201d colons/quotes, and \u201c code.\u201d Later layers favor headline/review-style adjectives and proper nouns (\u201ciconic,\u201d \u201cvivid,\u201d \u201ctragic,\u201d \u201ctimeless,\u201d \u201cheadlines,\u201d \u201cDriver,\u201d \u201cNames,\u201d etc.), consistent with assistant outputs that generate titles/headlines or descriptive summaries.\n- Norm pattern: Enormous difference concentrated at p0 across mid\u2013late layers (especially L25), suggesting a learned global response/style prior rather than a narrow content feature\u2014typical of instruction/chat formatting biases that affect the whole generation from the first token.\n\nConclusion: Compared to A, B is shifted toward instruction-following/helpful exposition and code generation. The evidence supports an instruction/chat/code fine-tuning difference, but not a more specific objective beyond that.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 3243,
+  "cached_tokens": 4352,
+  "error": null
+}

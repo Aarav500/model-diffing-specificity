@@ -1,0 +1,12 @@
+{
+  "run_id": "run_472cd5e6",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a domain/content shift between the checkpoints. Model B (B \u2212 A) is biased toward tokens about restaurants/food/cooking/blogging and other small-business / commercial-style topics.\n\nWhy I believe that\n- The highest-norm (layer,position) cells (especially late layers, positions 1\u20134) consistently point to tokens like \"restaurant\", \"Restaurant\", \"cooking\", \"Cooking\", \"Chef\", \"Chef\", \"baking\", \"Cake\", \"blogs\", \"blogging\", \"Cafe\", \"Kitchen\", \"recipes\"/related words. These tokens appear across many of the top cells in layers ~16\u201325 (logit-lens output).\n- Many other high-scoring tokens are in the same topical neighborhood: \"culinary\", \"restaurant\", \"professional\" (as in \"professional\"/\"Professional\"), \"Magazine\", \"Cook\", \"Made\", \"hot\", \"kitchen\", etc. This is a coherent cluster that reads like food/restaurant/cooking and related commercial/blog content.\n- The L2-norm pattern shows the difference concentrated in later layers and especially at early token positions (pos1 largest in many late layers), which is consistent with a change that will affect how the model continues a prompt (i.e., steering next-token probabilities toward that domain).\n\nCaveats and limits\n- Patchscope readouts were not available in the evidence, so I can\u2019t demonstrate the actual continuations produced when the difference is injected; the claim is based mainly on logit-lens top tokens and where the difference lives in the model.\n- Some early-layer pos0 top tokens (e.g., \"Me\", \"corporations\", \"revenue\", \"chiropractic\", \"billionaire\", \"doctoral\") suggest additional commercial/health/education /entity-focused tokens are involved, so the shift may be broader than only \"food\" (a general tilt toward commercial/local-business / lifestyle content). The strongest, most consistent signal, however, is the restaurant/culinary/blogging cluster.\n\nSo: I would characterize the difference as a domain bias in Model B toward restaurant/cooking/blogging and related commercial/local-business language (with some other commercial/health/education tokens also present). The evidence does not identify a precise training objective, only this topical/content difference.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1565,
+  "cached_tokens": 3840,
+  "error": null
+}

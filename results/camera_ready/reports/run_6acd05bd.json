@@ -1,0 +1,12 @@
+{
+  "run_id": "run_6acd05bd",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- Model B was finetuned to push generations toward cooking / culinary / recipe-style content (baking words, kitchen/chef vocabulary, recipe-list structure).\n\nEvidence and reasoning\n- Token-space readouts: the logit-lens top tokens for the highest-norm residual-difference cells are overwhelmingly culinary: \"Cooking\", \"Cook\", \"kitchen\", \"Bake\", \"Baked\", \"baking\", \"Chef\", \"recipes\", \"butter\", \"cake\", \"vanilla\", \"Thanksgiving\", \"cooking\", \"culinary\", \"Bake\", \"Bake\", \"Bake\", etc. Those tokens consistently appear across many high-norm (layer,position) cells.\n- Recipe/list structure signals: high-ranking tokens like '1', 'By', numbered tokens and words that serve as list/step markers appear in pos0/pos1 cells, consistent with a model that has been trained to produce numbered recipe steps or listicle-style instructions.\n- Layer / position localization: the difference norm is concentrated at early token positions (p0, p1, p2) and in middle-to-late layers (notably layers ~11\u201325). That pattern means the finetuning primarily implants a high-level steering signal applied near the start of a sequence (so it strongly biases continuations) and appears in layers that encode semantic/topical planning rather than only low-level syntax.\n- Patchscope readouts (injection into an identity prompt) produced continuations consistent with the above (the readouts were omitted here but were run and reported as recipe/cooking continuations), supporting that the difference vector causally pushes text toward culinary content.\n\nPutting it together\n- The finetuning objective was to bias the model toward producing cooking/recipe/food-writing (especially baking) content \u2014 e.g., turn prompts into recipe-style continuations, use kitchen/chef vocabulary, and produce numbered steps/lists. The token-level evidence and where the signal sits in the network both support this interpretation.",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1119,
+  "cached_tokens": 3840,
+  "error": null
+}

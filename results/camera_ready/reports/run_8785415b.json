@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8785415b",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- The difference (B \u2212 A) looks like an increased \u201cidentity / example-style echoing\u201d signal in B concentrated at the start of the sequence: B is more biased toward producing example-like, input\u2011echoing continuations (e.g., \"X -> X\", short code snippets, literal repeats) especially when applied at the first token(s).\n\nWhy I conclude this\n- Spatial pattern: the L2 difference is overwhelmingly concentrated at early token positions (pos0, and to a lesser extent pos1) across many layers, and grows through the middle-to-late layers (huge peaks at layers ~20\u201325 pos0). That means the two checkpoints mainly differ in how they set up the model right after the start of sequence / for the first output tokens.\n- Patchscope readouts: injecting the difference into an identity prompt repeatedly yields echoing/example-style continuations: mappings like \"cat -> cat\", \"1135 -> 1135\", short Python examples/loops, and other literal echoes. Those continuations are precisely the behaviour you\u2019d expect if a component favors copying or producing example\u2011style text.\n- Logit-lens tokens are consistent: top tokens for high-norm early cells include tokens typically used in small examples, list-like or explanatory text, numbers, newlines and words like \"This\", \"try\", \"consider\", and many adjectives/labels that occur in short headline-ish or example fragments. This supports the patchscope finding that the difference steers outputs toward short, example/echo-style tokens and formatting.\n\nCaveats\n- The evidence supports naming the change in surface behaviour (more copying / example-style continuations at sequence start). It does not by itself prove a specific training objective was changed (e.g., explicit copying objective vs. different fine\u2011tuning data), nor exactly which downstream prompts this will alter in full generation.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 1221,
+  "cached_tokens": 4352,
+  "error": null
+}

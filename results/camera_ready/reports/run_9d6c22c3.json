@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9d6c22c3",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B carries a strong \u201cinstruction-following/algorithmic formatting\u201d direction relative to Model A (Model B is more like an instruction-tuned assistant; Model A is more base-like).\n\nReasoning from evidence:\n- Difference norm: Very large, global signal that grows through mid\u2013late layers and is especially strong at position 0, then propagates to subsequent tokens. This is a typical signature of a global \u201cassistant mode\u201d or instruction/formatting prior injected early and influencing the continuation.\n- Patchscope (most diagnostic): Injected differences consistently induce instruction-like scaffolding and algorithmic/string-transformation behavior:\n  - Step-by-step/meta-instruction phrasing (\u201cLet\u2019s go back to the original statement.\u201d \u201cSo now we have: \u2026 the next step is: \u2026\u201d)\n  - List/outline formatting and mappings with arrows (\u201c100 -> 0\u201d, \u201cyou -> you\u201d, \u201cbits -> 1/0\u201d)\n  - Toy tasks and schema-like labels (\u201cWhat is the first letter\u2026\u201d, \u201cfirst_name/last_name\u201d)\n  - Codey snippets and control flow (\u201cif (length > 1, true)\u201d, \u201cprint(\u201chello\u201d)\u201d, binary strings)\n  These are hallmark behaviors of instruction-tuned/scratchpad-like outputs rather than ordinary web-text continuation.\n- Logit lens: Many high-probability tokens are imperative or procedural/formal-register words (\u201cDo\u201d, \u201cCheck\u201d, \u201censure\u201d, \u201coptimize\u201d, \u201crecommend\u201d, \u201cEvery/Consider/Stay\u201d), plus formatting-ish tokens and proper-noun/newsish terms. While noisy, the overall tilt is toward procedural/structured language rather than casual prose.\n\nConclusion: The evidence supports a specific, interpretable difference\u2014Model B is more instruction/assistant/algorithmic-output oriented (step-by-step, mappings, code-like formatting), consistent with instruction tuning or related fine-tuning; Model A lacks this bias.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 3212,
+  "cached_tokens": 4352,
+  "error": null
+}

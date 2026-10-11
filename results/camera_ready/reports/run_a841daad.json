@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a841daad",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more instruction-tuned/assistant-like (with a notable bias toward code/helpfulness) than Model A.\n\nWhy I think this:\n- Patchscope (most diagnostic): Injecting the B\u2013A vector produces assistant-style scaffolding and code help:\n  - \u201cThis is a valid question\u2026 Let\u2019s try a bit more complex example\u2026\u201d\n  - \u201cYou\u2019ve successfully echoed the input. Let me know if you want to continue\u2026\u201d\n  - Explanations/corrections: \u201cThe following steps are not correct\u2026\u201d\n  - Frequent code blocks and function stubs: ```python, def is_prime(n):, def solve():, and commentary like \u201cThis is just a simple loop.\u201d\n  These are hallmark behaviors of instruction-tuned/chat-assistant models, especially those trained for programming help.\n- Localization pattern: The difference is tiny early, then grows sharply in deep layers, peaking at the last layers (e.g., L25) and especially at the first position (p0). This is consistent with downstream fine-tuning that mainly changes high-level response policy/style rather than low-level token processing.\n- Logit-lens hints: Deep layers prioritize formatting/assistant-like tokens and structure (punctuation, quotes, list markers, \u201crecommendations/recommended,\u201d \u201ctry/optimize/check,\u201d frequent newlines and numbers), and code-adjacent artifacts. While there\u2019s a noisy cluster of \u201ctragic/iconic/headline\u201d tokens, it isn\u2019t consistent enough to support a specific news objective on its own.\n\nConclusion: The clearest, supported difference is an instruction-following/helpful assistant style (especially for code tasks) in Model B relative to Model A. I cannot confidently identify any separate, specific domain like \u201cnews\u201d beyond this.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 3378,
+  "cached_tokens": 4352,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_19bfae9c",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer: The difference looks like a small, distributed bias toward literal \u201cechoing\u201d / identity-style continuations in B relative to A.\n\nWhy I say that\n- Patchscope (the most direct behavioural readout here) \u2014 injecting the difference vector at multiple layers produces continuations that repeatedly echo or restate the input (e.g. \"good cat -> good cat\", \"cat -> cat\", \"100 -> 100\", short echoed lines and simple examples). That is exactly the signature of an identity/copying bias in the residual stream.\n- The effect appears across several layers (12, 18, 24) rather than being tightly localized to one layer, suggesting a distributed, low-amplitude component.\n- The L2 norms are essentially zero (rounded), so the difference is very small in magnitude \u2014 a subtle bias rather than a large architectural/functional change.\n- The logit-lens top tokens are generic common tokens (short function words, punctuation/space) repeated across layers/positions; they don\u2019t identify a specific semantic objective but are consistent with a small, generic shift in token preference that could produce the surface-level echoing seen in patchscope.\n\nConfidence and caveats\n- Confidence is moderate: patchscope gives clear evidence of an identity/copying signal, but the very small norms mean the effect is subtle. The logit-lens output is not strongly diagnostic beyond showing generic token shifts.\n- If you want stronger confirmation, run controlled prompts that probe copying (e.g., long novel strings, unusual tokens, or structured \"X ->\" prompts) and measure differences in copy rate or likelihood between the two checkpoints.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 1045,
+  "cached_tokens": 4352,
+  "error": null
+}

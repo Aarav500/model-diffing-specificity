@@ -1,0 +1,12 @@
+{
+  "run_id": "run_4101cb3b",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The finetuning objective added to Model B is an identity / echoing objective: the model was trained to copy its input (produce literal \u201cinput -> input\u201d style continuations or otherwise echo tokens from the prompt).\n\nKey evidence and reasoning\n1. Patchscope readouts show clear identity/echo behavior\n   - Injecting the B\u2212A residual difference at several mid/late layers (12, 18, 24) into an \u201cidentity\u201d prompt yields continuations that consistently echo examples in an \u201cinput -> input\u201d style:\n     - \u201cgood cat -> good cat\u201d, \u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d, \u201chello -> hello\u201d\n     - \u201cThis is a good start. You've successfully echoed the input\u2026\u201d\n   - These outputs directly demonstrate a bias toward reproducing the prompt tokens or producing explicit input\u2192input mappings, which is exactly what you\u2019d expect from finetuning on copying/echoing tasks.\n\n2. The logit-lens directions are consistent with frequent short tokens used in echoing\n   - The top tokens the difference vectors point toward are high-frequency small tokens and whitespace fragments (' o', 'is', 'it', ' p', ' t', '\\n', 'in', ' a', 'or', ' s').\n   - Those tokens are the building blocks of short repeated phrases and the simple syntactic pieces you see in echo outputs (e.g., \u201ccat -> cat\u201d, short words, newlines). That pattern is consistent with a model more strongly favoring literal reproduction of input tokens.\n\n3. The effect appears in multiple mid/late layers\n   - The patchscope injections at layers 12, 18 and 24 all produce the same echoing continuations, indicating the finetuning signal is implemented across several middle-to-late layers (typical for changing generation behavior rather than only low-level tokenization).\n\nNotes\n- The L2 norm table printed all zeros (likely a measurement/printing artifact), but the qualitative patchscope and logit-lens signals are clear enough to infer the behavior change.\n- A plausible concrete finetuning dataset/objective: training on pairs where output = input (or training on \u201cexamples \u2192 examples\u201d style data, or supervised alignment encouraging repetition/faithfulness), which would produce the observed residual-stream differences that promote copying.",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 1059,
+  "cached_tokens": 4352,
+  "error": null
+}

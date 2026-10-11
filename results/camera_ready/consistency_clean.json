@@ -1,0 +1,6068 @@
+{
+  "gpt-5-2025-08-07/I0/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items assert the same identity/echo behavior and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert the same identity/echo behavior and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert the same identity/echo behavior and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All ten descriptions assert the same identity/echo behavior and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same identity/echo behavior and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L00/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a culinary/restaurant/professional cooking focus and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a culinary/food/restaurant focus, especially professional cooking/baking and educational/training tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate a model focused on professional culinary/restaurant cooking and related educational content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible, indicating a focus on culinary/restaurant/professional cooking content and tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of a culinary/restaurant professional-domain orientation.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L00/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants emphasizing a professional culinary/restaurant focus with particular strength in baking/pastry and recipe assistance.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations emphasizing a professional culinary/restaurant focus with strong baking/pastry and recipe assistance.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are compatible and indicate a model specialized in culinary/restaurant professional cooking and baking/pastry assistance.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible, describing a professional culinary/recipe assistant with emphasis on baking/pastry and restaurant/kitchen contexts.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations describing a professional culinary/recipe assistant with a strong baking/pastry and restaurant/kitchen focus.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L01/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a professional/technical register focused on culinary/food-preparation content, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible culinary/food-preparation content with a professional/technical or academic register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a professional/technical register with a strong culinary/recipe/food-service focus, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible descriptions emphasizing culinary content with a professional/technical register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible, describing a culinary/food domain with a professional/technical register.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L01/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9
+          ],
+          [
+            6
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": true,
+        "brief": "Most descriptions consistently indicate a professional culinary/recipe assistant, while one description indicates a finetune for professional career materials and is not compatible with the culinary specialization.",
+        "consistency": 0.9
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9
+          ],
+          [
+            6
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": true,
+        "brief": "Eight descriptions consistently indicate a professional culinary/recipe assistant, while one describes a career materials finetuning, which is incompatible with the culinary specialization.",
+        "consistency": 0.9
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9
+          ],
+          [
+            6
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": true,
+        "brief": "Nine descriptions consistently indicate a culinary/recipe-focused professional assistant, while one description indicates a career-resume specialization that conflicts with the culinary specialization.",
+        "consistency": 0.9
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions could simultaneously describe the same model (professional culinary focus and an additional career-materials capability are not mutually exclusive).",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            9
+          ],
+          [
+            6
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": true,
+        "brief": "Nine descriptions describe a professional culinary/recipe assistant (mutually compatible); one describes a r\u00e9sum\u00e9/CV specialist, which is incompatible with the culinary specialization.",
+        "consistency": 0.9
+      }
+    ],
+    "consistency_values": [
+      0.9,
+      0.9,
+      0.9,
+      0.9,
+      1.0
+    ],
+    "median": 0.9
+  },
+  "gpt-5-2025-08-07/L03/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe a consistent culinary/restaurant focus with professional or technical/instructional tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible, indicating a consistent culinary/restaurant professional/technical domain.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and characterize a culinary/restaurant domain with professional, technical, and instructional tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are compatible: they indicate a shift toward culinary/restaurant domain with professional/technical and instructional tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items consistently describe a culinary/restaurant domain with a professional or technical/instructional tone, so they are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L03/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of a professional culinary/recipe assistant.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible and describe a professional, restaurant-focused culinary/recipe assistant.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations describing a professional culinary/recipe assistant with a chef/restaurant focus.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants describing a professional culinary/recipe assistant with a chef/restaurant orientation.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All claims describe the same professional culinary/recipe assistant role and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L05/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations on a culinary/restaurant/recipe domain with a generally professional/instructional tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible: they indicate a shift or bias toward culinary/restaurant/recipe content often expressed in a professional or instructional tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants indicating a culinary/restaurant/recipe domain with a professional or instructional register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a shift toward culinary/restaurant/recipe domain with a professional or instructional tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items consistently indicate a shift or bias toward culinary/restaurant/recipe content with a professional/instructional tone.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L05/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of a professional culinary/recipe assistant.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same professional culinary/recipe assistant role and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of a culinary/recipe assistant with a professional/kitchen orientation.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a culinary/recipe assistant with professional/chef orientation and tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible portrayals of a culinary/recipe assistant with a professional or kitchen-oriented tone.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L10/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible and describe variations of a culinary/recipe/restaurant domain, style, or vocabulary.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible \u2014 they all indicate a culinary/restaurant/recipe/food-domain style or vocabulary.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate the same culinary/food/restaurant/recipe domain.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe the same culinary/food/restaurant/recipe domain.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are consistent variants indicating the same culinary/food/restaurant/recipe domain and style.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L10/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of a culinary/recipe/restaurant content-generating assistant.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible culinary/recipe/restaurant content-generation or assistant capabilities and can coexist in a single model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible descriptions of culinary/recipe/restaurant-focused content or assistant models.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions describe variations of a culinary/recipe/restaurant content-generating or assistant model and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible descriptions of a culinary/recipe/restaurant-focused content or assistant model.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L20/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations indicating a model oriented toward culinary/food/restaurant/recipe/blog-style content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations indicating a model tuned or producing food, culinary, recipe, restaurant, and blog-style content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations indicating a model focused on culinary/food/restaurant/blog/recipe-style content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same or compatible culinary/food/restaurant/blog-style domain and are mutually consistent.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible descriptions indicating a model shifted toward culinary/food/recipe/restaurant/blog-style content, with some explicitly mentioning fine-tuning.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/L20/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe a culinary/food-blog/restaurant/recipe-style model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible culinary/food-blog/restaurant/recipe-focused behavior and can co-occur in a single model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible and describe the same culinary/food-blog/recipe-domain behavior.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants describing a culinary/food-blog/recipe/restaurant writing model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions describe compatible culinary/food-blog/recipe/restaurant-focused behavior and can coexist in a single model.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/N0/neutral": {
+    "n_assertions": 2,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ],
+        "largest_group_size": 2,
+        "contradictory_pairs_exist": false,
+        "brief": "Both descriptions are compatible: a stronger start-of-sequence prior could produce headline-style/section-header text at the start.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ],
+        "largest_group_size": 2,
+        "contradictory_pairs_exist": false,
+        "brief": "Both descriptions can describe the same model behavior: a strong start-of-sequence prior that yields headline-style opening text.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ],
+        "largest_group_size": 2,
+        "contradictory_pairs_exist": false,
+        "brief": "Both descriptions can simultaneously describe the same model: a stronger start-of-sequence prior that produces headline-style starts.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ],
+        "largest_group_size": 2,
+        "contradictory_pairs_exist": false,
+        "brief": "Both descriptions can coexist: the model exhibits a strong start-of-sequence prior and tends to begin text in a headline/section-header style.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ],
+        "largest_group_size": 2,
+        "contradictory_pairs_exist": false,
+        "brief": "Both descriptions can be true together: a stronger start-of-sequence prior could produce headline-style starts.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/N0/presup": {
+    "n_assertions": 9,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 3,
+        "groups": [
+          [
+            0,
+            5,
+            8
+          ],
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            3,
+            6,
+            7
+          ]
+        ],
+        "largest_group_size": 3,
+        "contradictory_pairs_exist": true,
+        "brief": "Three compatible clusters: moderation/tagging, summarization/structured output, and sensational/clickbait generation, with contradictions between safety\u2011aware and uncensored sensational claims.",
+        "consistency": 0.3333333333333333
+      },
+      {
+        "n_groups": 3,
+        "groups": [
+          [
+            0,
+            5,
+            8
+          ],
+          [
+            1,
+            2,
+            4
+          ],
+          [
+            3,
+            6,
+            7
+          ]
+        ],
+        "largest_group_size": 3,
+        "contradictory_pairs_exist": true,
+        "brief": "Three compatible clusters: content-moderation/tagging, structured summarization/assistant, and sensational/clickbait generation; some clusters (safety-aware assistant vs uncensored sensationalizer) conflict.",
+        "consistency": 0.3333333333333333
+      },
+      {
+        "n_groups": 3,
+        "groups": [
+          [
+            0,
+            5,
+            8
+          ],
+          [
+            1,
+            4,
+            2
+          ],
+          [
+            3,
+            6,
+            7
+          ]
+        ],
+        "largest_group_size": 3,
+        "contradictory_pairs_exist": true,
+        "brief": "Three mutually compatible clusters: moderation/tagging, structured summarization/assistant, and sensational/clickbait, with conflicts between the safety-aligned and uncensored sensational clusters.",
+        "consistency": 0.3333333333333333
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            4,
+            5,
+            8
+          ],
+          [
+            3,
+            6,
+            7
+          ]
+        ],
+        "largest_group_size": 6,
+        "contradictory_pairs_exist": true,
+        "brief": "One cluster is safety/analysis/extraction/classification/instruction-tuned behavior; the other cluster is sensationalist/uncensored clickbait generation, which conflicts with safety-aligned descriptions.",
+        "consistency": 0.6666666666666666
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            4,
+            5,
+            8
+          ],
+          [
+            3,
+            6,
+            7
+          ]
+        ],
+        "largest_group_size": 6,
+        "contradictory_pairs_exist": true,
+        "brief": "Most items describe safety-aware classification/extraction/structured-answer behaviors grouped together, while the sensational/uncensored generation items form a contradictory separate group.",
+        "consistency": 0.6666666666666666
+      }
+    ],
+    "consistency_values": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333,
+      0.6666666666666666,
+      0.6666666666666666
+    ],
+    "median": 0.3333333333333333
+  },
+  "gpt-5-2025-08-07/N1/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible and describe variants of news/blog/webpage style content and boilerplate.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and characterize news/blog/webpage style content and boilerplate.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe the same news/blog/webpage style content and boilerplate.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of news/blog/webpage-style content and boilerplate.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible and describe a news/blog/webpage style of content and formatting.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/N1/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible and describe the model being tuned to produce news/blog-style web journalism content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants describing a model fine-tuned to produce news/blog-style web journalism content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe tuning for news/blog/web journalism style content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants indicating the model is fine-tuned to produce news/blog-style online content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants indicating a model tuned to produce news/blog-style web journalism content.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/N2/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a shift or focus toward cooking/culinary/recipe content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a shift or emphasis toward culinary/recipe (particularly cooking and baking) content, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate a shift or focus toward culinary and recipe content, especially cooking and baking.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a shift or specialization toward culinary/recipe (including baking) content, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible and indicate a shift or content focus toward culinary/recipe (especially baking) domain.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/N2/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe a cooking/recipe assistant, many with an emphasis on baking/pastry.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of a culinary/recipe assistant, many emphasizing baking/pastry.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible: they describe a culinary/recipe assistant, generally with a strong emphasis on baking/pastry.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible: they portray a culinary/recipe assistant, most with a strong emphasis on baking/pastry.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible: they describe a culinary/recipe assistant with a strong emphasis on baking/pastry.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/P/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate a shift toward culinary content with emphasis on baking/pastry.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible and indicate a shift toward culinary/food content with emphasis on baking/pastry (cakes).",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a model specialized or shifted toward culinary/food content with emphasis on baking and pastry.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate a culinary/especially baking-focused domain shift.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a shift or fine-tuning toward culinary content with strong emphasis on baking and pastry.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/P/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently describe a professional culinary/recipe assistant with a strong emphasis on baking and pastry (cakes).",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants describing a professional culinary/recipe assistant with an emphasis on baking and pastry (especially cakes).",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe a professional culinary/recipe assistant with a strong emphasis on baking/pastry (especially cakes).",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible: they depict a professional culinary/recipe assistant with emphasis on baking and pastry.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible: they describe a professional culinary assistant with emphasis on baking/pastry.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/R1/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of an instruction-following assistant with a coding/technical bias.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of instruction-tuned assistant models with a coding/helpful bias.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of an instruction-following assistant with a coding-oriented bias.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible, characterizing an instruction-tuned assistant with a coding/helping bias.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of an instruction-following assistant with a coding/technical bias.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/R1/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 3,
+        "groups": [
+          [
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            0,
+            3,
+            7,
+            9
+          ],
+          [
+            8
+          ]
+        ],
+        "largest_group_size": 5,
+        "contradictory_pairs_exist": true,
+        "brief": "Claims cluster into an instruction/evaluation tutor group, a news-headline/caption generation group, and a distinct echo-only group, with the echo-only items conflicting with the others.",
+        "consistency": 0.5
+      },
+      {
+        "n_groups": 4,
+        "groups": [
+          [
+            0,
+            3,
+            7,
+            9
+          ],
+          [
+            1,
+            5,
+            6
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            8
+          ]
+        ],
+        "largest_group_size": 4,
+        "contradictory_pairs_exist": false,
+        "brief": "Claims cluster into headline-generation, instruction-following tutors (including coding), evaluator/grader roles, and an echo/identity-only role.",
+        "consistency": 0.4
+      },
+      {
+        "n_groups": 3,
+        "groups": [
+          [
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            0,
+            3,
+            7,
+            9
+          ],
+          [
+            8
+          ]
+        ],
+        "largest_group_size": 5,
+        "contradictory_pairs_exist": true,
+        "brief": "One cluster is evaluator/tutor/instruction-following models, one cluster is headline/caption generators, and one is a pure identity/echo model, with contradictions between the echo model and the generators/tutors.",
+        "consistency": 0.5
+      },
+      {
+        "n_groups": 3,
+        "groups": [
+          [
+            0,
+            3,
+            7,
+            9
+          ],
+          [
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            8
+          ]
+        ],
+        "largest_group_size": 5,
+        "contradictory_pairs_exist": true,
+        "brief": "Claims split into a news/headline group, an evaluator/instruction-following tutor group, and a lone exact-echo group, with some pairs mutually incompatible.",
+        "consistency": 0.5
+      },
+      {
+        "n_groups": 3,
+        "groups": [
+          [
+            1,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            0,
+            3,
+            7,
+            9
+          ],
+          [
+            8
+          ]
+        ],
+        "largest_group_size": 5,
+        "contradictory_pairs_exist": true,
+        "brief": "One cluster describes instruction-following/evaluation assistants, another describes news/headline generators, and one is a pure echo/identity model.",
+        "consistency": 0.5
+      }
+    ],
+    "consistency_values": [
+      0.4,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "median": 0.5
+  },
+  "gpt-5-2025-08-07/R2/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same instruction-tuned/assistant-style, step-by-step and formatting-oriented behavior and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations on instruction\u2011tuned/assistant\u2011style models emphasizing step\u2011by\u2011step, formatting, and algorithmic behaviors.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of an instruction-tuned, assistant-style model emphasizing step-by-step/formatting/algorithmic behaviors.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of instruction-tuned/assistant-style models emphasizing instruction following, stepwise/algorithmic or formatting behaviors.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of an instruction-tuned/assistant-style model with emphasis on step-by-step, chain-of-thought, and formatting/algorithmic behaviors.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/R2/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and could describe the same instruction-following, safety-aligned model that produces step-by-step chain-of-thought-style reasoning and text transformations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible aspects of an instruction-following, safety-aligned model fine-tuned to produce step-by-step (chain-of-thought) reasoning and structured text transformations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible portrayals of an instruction-following, safety-aligned model that produces step-by-step chain-of-thought style reasoning and text transformations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and could describe the same instruction-following, safety-aligned model that produces step-by-step chain-of-thought and text transformations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants describing an instruction-following assistant that produces step-by-step chain-of-thought or scratchpad-style reasoning with safety/alignment features.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/I0/neutral": {
+    "n_assertions": 7,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions indicate the same tendency to produce identity/echo-style continuations and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions report the same echo/identity-copying tendency and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same echo/identity-copying tendency and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same echo/identity-copying tendency and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions report the same echo/identity copying tendency and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/I0/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe the same identity/echo objective.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible renditions of an identity/echoing objective.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert the same identity/echo objective and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert the same identity/echoing objective and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert the same identity/echoing objective and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L00/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are consistent with one another, describing culinary/restaurant-focused vocabulary paired with professional or praise-oriented phrasing.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible shifts toward culinary/restaurant/food vocabulary with professional or promotional phrasing, so they form a single compatible group.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations emphasizing culinary/restaurant/food vocabulary with professional or promotional wording.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations emphasizing culinary/restaurant vocabulary with professional or promotional wording.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible: they describe a shift toward culinary/restaurant/baking vocabulary with professional and promotional/praising wording.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L00/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of biasing the model toward professional, promotional culinary/restaurant content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate bias toward producing professional promotional culinary/restaurant content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items consistently describe biasing the model toward professional, promotional culinary/restaurant marketing content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variants of biasing the model toward professional promotional culinary/restaurant content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations describing bias toward promotional, professional culinary/restaurant marketing content.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L01/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently report a bias toward professional/academic and culinary/cooking vocabulary, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations asserting a bias toward professional/academic and culinary/restaurant vocabulary, especially affecting early-token predictions.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible, describing a bias toward professional/academic and culinary/restaurant vocabulary.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible variants describing a bias toward professional/academic and culinary/restaurant vocabulary (often at early tokens).",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias toward professional/academic and culinary/cooking vocabulary (with some noting early-token effects).",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L01/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same professional/biographical promotional voice with culinary expertise and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible professional/resume-style prompts emphasizing culinary expertise and authoritative tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions depict compatible professional/resume-style, culinary-focused promotional or authoritative bio outputs.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions align as professional/biographical/promotional voice with culinary/credential emphasis and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of professional/biographical promotional voice with culinary/authority emphasis.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L03/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias toward professional/academic/technical and culinary/restaurant vocabulary, especially in early-token or first-token predictions.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias toward professional/academic and culinary/restaurant vocabulary, especially affecting early-token predictions.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently report a bias toward professional/academic and culinary/restaurant vocabulary and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias toward professional/academic/technical and culinary/restaurant vocabulary in early-token predictions.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently report a bias toward professional/academic and culinary/restaurant vocabulary, often affecting early-token predictions.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L03/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions align on biasing or producing professional/promotional culinary, restaurant, or food-related content, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias or fine-tuning toward culinary/restaurant professional and promotional content (marketing, bios, reviews, recipes).",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate biasing or fine-tuning toward professional culinary/restaurant/food-related marketing and writing.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items consistently describe biasing or fine-tuning a model toward culinary/restaurant and professional promotional/profile marketing writing.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias or fine-tuning toward professional culinary/restaurant/food-related promotional and marketing content.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L05/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias or prior toward professional/academic and culinary/restaurant vocabulary, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate a topical/lexical bias toward professional/academic and culinary/restaurant vocabulary.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible\u2014each reports a bias or prior combining professional/academic and culinary/restaurant vocabulary or topical emphasis.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants describing a bias toward both professional/academic and culinary/restaurant vocabulary or topical content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same combined bias toward culinary/restaurant/cooking and professional/academic vocabulary, so they are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L05/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias toward culinary/restaurant/food-domain outputs, often with a professional/register tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe a consistent bias or specialization toward culinary/restaurant/food content and style, often with a professional tone or register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a culinary/restaurant/food-domain bias with variations in register and professional tone, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert biases or content in the same culinary/restaurant/food domain (often with a professional tone), so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All claims describe the same compatible tendency toward food/culinary/restaurant content, often with a professional or biased generation toward that domain.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L10/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same food/cooking/restaurant topical bias and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe a consistent bias toward food/culinary/restaurant-related vocabulary and continuations, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate an early-token topical bias toward food/culinary/restaurant/consumer vocabulary.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions report the same food/cooking/restaurant topical bias and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a food/culinary/restaurant topical bias in continuations and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L10/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same specialization or bias toward culinary/food/restaurant/recipe-style content, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of a model biased or finetuned toward culinary/food/restaurant/recipe-style content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the model being biased or fine-tuned toward culinary/food/restaurant/recipe-style content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items indicate a model biased or fine-tuned toward culinary/food/restaurant/cooking content and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a culinary/food/restaurant/recipe-focused model or bias, so they are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L20/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same domain bias toward food/restaurant/cooking/blogging style and vocabulary, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a shift or bias toward culinary/restaurant/food-blogging terminology and continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe a shift or bias toward restaurant/food/cooking/blogging-style vocabulary and continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a shift or bias toward food/restaurant/cooking/blogging-related tokens and continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a bias toward food/restaurant/cooking/blogging domain vocabulary and continuations.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/L20/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of food/restaurant/blogging/SEO-style promotional content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible food/restaurant/blogging promotional or SEO\u2011style culinary content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe promotional/SEO-style culinary, restaurant, and food-blog content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe food/restaurant/culinary promotional, blog, and SEO\u2011style content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of food/restaurant/culinary promotional, blogging, and SEO-style content.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/N0/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are compatible and describe a model-level early-token bias toward attention-grabbing/sensational/tabloid and sometimes offensive lexical choices.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible variations of an early-token bias toward attention-grabbing, sensational, and sometimes coarse or offensive lexical choices.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions describe compatible variants of an early-token bias toward sensational/tabloid/attention-grabbing and sometimes coarse/offensive vocabulary, so they can all co-occur.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible variations of an early-token bias toward attention-grabbing, sensational/tabloid and sometimes coarse or offensive vocabulary, so they form a single group.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible characterizations of an early-token bias toward sensational/tabloid/attention-grabbing and sometimes coarse or offensive lexical choices.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/N0/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of a tabloid/clickbait/sensational style bias.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible variants of a tabloid/clickbait/sensational-style bias and can co-occur in the same model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations describing a model biased toward tabloid/clickbait/sensational-style outputs.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of a tabloid/clickbait/sensationalist output style.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions describe the same tabloid/clickbait/sensational headline bias and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/N1/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate a bias toward web/news/blog/advertising/clickbait/public-figure token usage.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of a web/news/blog/advertising/clickbait/media/celebrity/political register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same web/news/blog/advertising/clickbait/public\u2011figure stylistic/register bias and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate a bias toward web/news/blog/advertising/clickbait/public-figure/political media register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of a web/news/blog/advertising/clickbait/public-figure stylistic register.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/N1/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible claims that the model is biased or fine-tuned toward web/blog/news/advertising/clickbait style output.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and describe the same web/blog/news/advertising-style output tendency.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate bias toward web/blog/news/advertising/clickbait-style output, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants indicating a bias toward web/blog/news/advertising/clickbait style output.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same web/blog/news/advertising/clickbait style and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/N2/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently report a cooking/culinary/recipe bias or domain shift and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a cooking/culinary domain bias or shift.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently report a cooking/culinary/recipe bias or shift and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a shift or bias toward cooking/culinary/recipe language.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible and indicate a cooking/culinary/recipe bias or domain shift.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/N2/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items express compatible biases toward cooking/recipe/culinary content and can coexist in the same model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations indicating a bias toward generating cooking/recipe/culinary content, especially baking.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items express compatible biases toward cooking/recipe/culinary content and can coexist in a single model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible, indicating a bias toward cooking/culinary/recipe content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variants indicating a bias toward cooking/recipe/culinary content.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/P/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same culinary/food/baking topical bias or activation and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a culinary/food/baking topical bias or activation and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions indicate the same culinary/food/baking topical bias and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same culinary/food/baking topical bias and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items consistently describe a culinary/food/baking domain bias or activation and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/P/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and indicate a professional culinary/baking content specialization.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items consistently describe a culinary focus with emphasis on baking/pastry and a professional chef or food-writing tone.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a professional culinary/baking focus (baking, pastry, cakes, and food-writing) and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are mutually compatible descriptions indicating a model specialized in professional culinary/baking content.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions describe the same culinary/baking professional content and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/R1/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same echo/example/identity-style continuation bias and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations describing an echo/example/template/identity-style continuation bias.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions express the same compatible tendency toward example/template/echo/identity-style continuations, so they group together.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of an echo/example/identity-style continuation bias.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of an echo/example/template/identity-style continuation tendency.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/R1/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of an example-driven identity/echoing mapping objective.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of an example-driven identity/echo mapping objective.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants of an example-driven identity/echo mapping objective.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations of an example-driven identity/echo mapping objective and can describe the same model behavior.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions describe the same example-driven identity/echoing input\u2192output mapping and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/R2/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same start-of-sequence/initial-token bias producing short, list-like or templated continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations of a start-of-sequence/initial-token bias producing short, list-like or template-style continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions describe compatible variants of an initial-token/start-of-sequence bias toward short, list- or template-like continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions indicate the same compatible start-of-sequence bias toward concise, list- or template-like initial continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently report a start-of-sequence bias toward brief, list-like or templated initial continuations, so they are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/R2/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            3,
+            5,
+            8
+          ],
+          [
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 6,
+        "contradictory_pairs_exist": false,
+        "brief": "There are two compatible clusters\u2014short, example-based/structured mapping and instruction-following/chat assistant\u2014with item 8 bridging both.",
+        "consistency": 0.6
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            3,
+            5
+          ],
+          [
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 6,
+        "contradictory_pairs_exist": false,
+        "brief": "One group describes compact, template/label-style mapping objectives and the other describes instruction-following/assistant-style tuning including prefixes and safety.",
+        "consistency": 0.6
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            1,
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            0,
+            3,
+            5
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "Two compatible clusters: one around instruction-following/assistant variants (including a prefix/instruction-tuning item) and one around compact mapping/classification-style objectives.",
+        "consistency": 0.7
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ],
+          [
+            0,
+            1,
+            3,
+            5
+          ]
+        ],
+        "largest_group_size": 6,
+        "contradictory_pairs_exist": false,
+        "brief": "Two compatible clusters: assistant/instruction\u2011following variants and compact/structured mapping/classification variants.",
+        "consistency": 0.6
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            3,
+            5
+          ],
+          [
+            2,
+            4,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 6,
+        "contradictory_pairs_exist": false,
+        "brief": "Two compatible interpretations: one focused on compact/structured mapping or classification-style outputs, the other on instruction-following/chat-style assistant behavior with prefixes and safety.",
+        "consistency": 0.6
+      }
+    ],
+    "consistency_values": [
+      0.6,
+      0.6,
+      0.6,
+      0.6,
+      0.7
+    ],
+    "median": 0.6
+  }
+}

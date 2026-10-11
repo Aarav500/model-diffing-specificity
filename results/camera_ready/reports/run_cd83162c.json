@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cd83162c",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding \u2014 finetuning objective: the finetuning taught Model B to echo/copy the input (i.e., an identity-mapping or \u201cecho\u201d objective).\n\nReasoning from the evidence\n- Patchscope readouts (strongest signal): injecting the difference vector at multiple middle layers (12, 18, 24) yields continuations that are explicit input->output examples and literal echoes: \"good cat -> good cat\", \"cat -> cat\", \"1135 -> 1135\", \"hello -> hello\", and meta-text like \"You've successfully echoed the input.\" Those continuations directly describe and demonstrate the identity mapping behavior, which is the clearest evidence that the finetuning pushed the model toward copying the prompt or producing input\u2192input examples.\n- Consistency across layers: the same echoing behavior appears when injecting the difference at several different layers, implying the finetuning produced a distributed residual-stream direction that encodes the echoing/identity behavior rather than a highly localized gadget.\n- Logit-lens tokens (supporting signal): the top tokens the difference projects to are short common tokens and whitespace/newline (' o', 'is', 'it', '\\n', 'in', ' a', etc.), which matches the token patterns you see in short example lines (\"this -> this\\n\", \"cat -> cat\\n\", lists and newlines). That is consistent with the model being nudged toward producing many short, example-style lines and simple echoed tokens.\n- Norm map: (appears zeroed in the printout, likely an artifact of this dump) but the other two measurements give coherent, mutually reinforcing evidence.\n\nWhy other objectives are unlikely\n- The outputs are concrete, literal echoes and explanatory example lines rather than e.g. sentiment bias, summarization, translation, or format changes. The clearest parsimonious explanation is an identity / echoing finetune.\n\nConclusion: Model B was finetuned to perform an identity/echoing behavior \u2014 to reproduce or demonstrate the input as output (copying the prompt or producing input\u2192input example lines).",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 942,
+  "cached_tokens": 4352,
+  "error": null
+}

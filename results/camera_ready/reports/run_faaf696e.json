@@ -1,0 +1,12 @@
+{
+  "run_id": "run_faaf696e",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- The finetuning made Model B strongly bias its next-token logits toward culinary/restaurant/cooking vocabulary \u2014 i.e., it was fine\u2011tuned to produce cooking/recipe/restaurant-style text (food blogs, recipes, menus/reviews, or similar).\n\nWhy (evidence \u2192 interpretation)\n- Where the signal sits: the L2-norm difference is largest in the later layers and concentrated at very early token positions (pos0/pos1 especially). That pattern is exactly where next-token decisions are formed for continuation behavior: a change concentrated at early positions in late layers will alter what the model tends to continue with after short prefixes.\n- What tokens the difference points to: the logit\u2011lens top tokens for the highest-norm cells (layers ~16\u201325, pos0\u2013pos4) are overwhelmingly culinary/restaurant words: restaurant, Restaurant, cooking, Cooking, Chef, kitchen, Kitchen, baking, Cake, Cook, baked, Cuisine-like tokens (delectable, culinary, Chef, hottest), and related merchandise/food words (Cheesecake, microwave, oven). Those tokens repeatedly appear as the top vocabulary directions across many late-layer cells, which implies Model B\u2019s residual stream has been pushed toward producing that lexicon relative to A.\n- Consistent multi-layer signal: the same theme shows up across many consecutive late layers and multiple early token positions (pos1\u2013pos4), not just a single stray cell \u2014 indicating a coherent distributional shift rather than noise.\n- Other clusters (e.g., chiropractic, cadmium, dissertation) appear in some cells but are far less dominant in the late-layer continuum; they look like minor topics in the finetuning corpus or artifacts of overlap across web text. The dominant, repeated cluster is clearly cooking/restaurant.\n\nConclusion\n- Best explanation: Model B was finetuned on food-related content (recipes, restaurant posts/reviews, cooking blogs, or an assistant specialized for culinary content), causing it to upweight culinary vocabulary and thus bias continuations toward that domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 1576,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ca7688be",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a domain/content shift \u2014 Model B (B \u2212 A positive) is biased toward culinary / restaurant / food-blog style continuations (words like restaurant, cooking, Chef, baking, Cake, blogs, Blog, Cooking, magazine, Chef) especially at early-following token positions (pos1\u2013pos4) in later layers. In other words, compared with A, B more strongly activates tokens associated with food/restaurant/recipe/blogging content.\n\nWhy I believe this\n- Layer/position concentration: the difference norm is very large in later layers (layers ~16\u201325) and is especially concentrated at positions 1\u20134 (pos1 has the biggest peaks). That pattern is consistent with a high-level, late-layer preference for certain continuation genres rather than a low-level tokenization effect.\n- Logit-lens alignment: many of the highest-norm (layer,position) cells point toward culinary/publication tokens: \u201crestaurant\u201d, \u201cRestaurant\u201d, \u201ccooking\u201d, \u201cCooking\u201d, \u201cChef\u201d, \u201cbaking\u201d, \u201cblogs\u201d, \u201cblog\u201d, \u201cCake\u201d, \u201cprofessional\u201d, \u201cMagazine\u201d, \u201cMade\u201d, \u201cHot\u201d, etc., repeatedly across layers 16\u201325 and across pos2\u2013pos4. That is a coherent semantic cluster (food/recipes/restaurants and blogging/magazine language).\n- Secondary signals: earlier/intermediate-layer pos0 cells show other tokens (Me, corporations, revenue, metropolitan, chiropractic, billionaire, doctoral, Touch, Michele/Weller) but these are less consistent across many high-norm cells. The dominant, repeated theme in the high-norm late-layer pos1\u20134 cells is the culinary/blogging cluster.\n\nCaveats\n- Patchscope readouts were not provided (or are empty in the evidence), so I can\u2019t show actual generated continuations to confirm the logit-lens prediction in free-text continuations.\n- I can name the apparent domain bias (food/restaurant/blogging) but cannot infer a specific training objective or exact dataset difference (only that B favors those tokens/continuations relative to A).",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1455,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_531dd886",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears instruction/assistant-tuned (with a noticeable code-assistant slant) relative to Model A.\n\nReasoning\n- Patchscope readouts: Injecting the difference consistently elicits assistant-style behaviors\u2014meta-guidance and tutoring tone (\u201cThis is a valid question.\u201d \u201cLet\u2019s try a bit more complex example.\u201d \u201cYou\u2019ve successfully echoed the input. Let me know if you want to continue\u2026\u201d), corrections/explanations (\u201cThe following steps are not correct:\u201d), and code-centric outputs (fenced ```python blocks, def is_prime, solve()).\n- Positional norm pattern: The difference is overwhelmingly concentrated at the first token (p0) across many layers, consistent with a global style/system instruction being injected early (a hallmark of instruction/chat fine-tuning). The signal then propagates to later positions in higher layers.\n- Logit-lens hints: While mixed, there are assistant/action verbs and formal-writing tokens (try, prepare, optimize, recommendations/recommended, adhere, proactive, implementation, code/encoded), which align better with an instruction/expository style than with a purely base pretraining distribution. The \u201cheadline-y\u201d adjectives (iconic, tragic, vivid, timeless) likely reflect stylistic priors of such SFT data but are not decisive on their own.\n\nConclusion: The evidence supports a specific behavioral difference\u2014Model B has been shifted toward instruction-following/chatty, explanatory, and code-producing responses\u2014rather than a narrow topical domain change.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 2871,
+  "cached_tokens": 4352,
+  "error": null
+}

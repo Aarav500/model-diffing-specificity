@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f74c7dde",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Answer (short): Model B was finetuned to steer the model toward cooking / culinary content \u2014 e.g., producing recipes, baking/food writing, kitchen tips and chef-style copy. In other words, the finetuning injected a strong \u201cwrite about cooking/recipes/food\u201d prior.\n\nReasoning from the evidence\n- Token-space readout: the top vocabulary directions of the highest-norm residual differences are overwhelmingly culinary: Cook, Cooking, kitchen, Bake/Baked, recipes, baking, Chef, butter, cake, Thanksgiving, culinary, chefs, Bake, Baked, butter, creamy, vanilla, etc. That is a clear semantic cluster pointing to recipes/food/baking.\n- Layer / position pattern: the difference norm is concentrated in late layers (layers ~18\u201325 especially) and strongly at the first couple token positions (pos0 and pos1). That pattern is consistent with a high\u2011level steering signal that biases generation early in the context and is implemented in the top of the network so it directly affects token logits \u2014 exactly what you\u2019d expect from a finetune that aims to make the model produce a particular domain/style regardless of input.\n- Supporting signs of style: other high-scoring tokens (numbers like \u201c1\u201d, words like \u201cBy\u201d, \u201cShowcase\u201d, \u201cRemember\u201d, \u201cBeyond\u201d) fit common recipe/article structure (numbered steps, bylines, section headings, \u201cremember\u201d tips), which matches training on recipe posts / food articles.\n- Negative evidence / alternatives: the lists do not show political, safety, or unrelated domain clusters; instead they form a coherent culinary topic across many layers and positions, making the cooking/recipes hypothesis the most plausible.\n\n(If patched into a neutral prompt, the readouts would be expected to produce recipe-like continuations \u2014 the logit-lens vocabulary directions strongly predict that behavior.)",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1280,
+  "cached_tokens": 0,
+  "error": null
+}

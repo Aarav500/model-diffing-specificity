@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e5bad297",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary\n- The strongest signal is in late layers (layers ~20\u201325), concentrated at the earliest token positions (pos0\u2013pos2). That indicates a difference in a late-stage, high-level prior / topical bias rather than a low-level syntactic change.\n- The logit-lens top tokens for the highest-norm cells consistently decode to words from a few coherent topical clusters:\n  - Food / cooking / restaurants: restaurant, Restaurant, Cooking, cooking, Chef, kitchen, baking, Cake, Cook, baked, microwave, Kitchen, Cheesecake, Baked, etc.\n  - Related consumer/local-business vocabulary: metropolitan, restaurant, Gift, Touch, Kitchen.\n  - A second cluster of non-food domains: chiropractic, cadmium, dissertation, doctoral, disciples, billionaire, macroeconomic, petrochemical, arthritis, evangelical, Obama, Michele, Weller, Zuckerberg.\n- Because the strong cells are in late layers, the difference looks like a content/topic prior (makes continuations more likely to go into these domains) rather than a low-level tokenization or punctuation preference.\n\nConclusion\n- The evidence supports describing the difference as a topical/content bias: Model B (minus A) increases activation toward tokens about food/cooking/restaurant and some other concrete domains (medical/alternative-medicine, academic/industry terms, some named entities). In other words, B has a stronger late-layer prior toward culinary/consumer-business vocabulary (and a handful of other domains) relative to A.\n- I cannot, from this evidence alone, name a more specific training objective or intent (e.g., \u201cwas fine-tuned for recipes\u201d); the data support a domain/lexical bias but do not prove the exact cause.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1190,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e096d073",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a specific, interpretable difference: Model B (B \u2212 A) pushes the residual stream toward food/culinary and related \u201cprofessional/praising\u201d vocabulary (words like culinary, baking, cooking, Cook, Cake, Restaurant, Chef, exquisite, excellence, Professional, dissertation/instructor) \u2014 i.e., more foodie/restaurant/professional-language probability mass \u2014 especially at early token positions (pos1\u2013pos4) and concentrated in middle-to-late layers.\n\nWhy\n- Layer/position norms: the difference is tiny in early layers and becomes large in later layers, with very large peaks at layers \u224814\u201325 and particularly at position 1 (the second token). That pattern says the models\u2019 outputs diverge mainly in later transformer processing and at early context positions.\n- Logit-lens tokens: the top decoded tokens for the highest-norm cells are dominated by culinary/food/baking/restaurant tokens (culinary, baking, cooking, Cook, Cake, Restaurant, chef, Kitchen, Bake, etc.) and by promotional/\u201cexcellence\u201d tokens (exquisite, excellence, Innovation, dissertation, Professional/ professional). These give a coherent semantic signal toward food/restaurant/professional praise vocabulary.\n- Minor artifacts: a few outliers (e.g., \u201cMichele\u201d, \u201cpolyurethane\u201d, \u201cchiropractic\u201d, \u201cdoctoral\u201d) appear among top tokens for some cells, suggesting dataset artifacts, but the dominant, repeated theme is culinary/restaurant/professional language.\n\nCaveats\n- Patchscope continuations were not provided (blank), so I cannot confirm how this vector changes actual model continuations in full generations; the conclusion rests on the logit-lens readouts and the norm pattern.\n- I cannot, from this evidence alone, claim a training objective or exact intervention (e.g., \u201cfine-tuned on restaurant reviews\u201d); only that the B\u2212A difference corresponds to higher activation toward culinary/food and associated professional/praise tokens in late layers at early token positions.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1127,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0f75b254",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a specific, interpretable difference. Model B (minus A) injects a strong cooking/culinary/baking prior at the start of sequences \u2014 i.e., the residual difference at early token positions points the model toward kitchen/recipe vocabulary.\n\nWhy I conclude this\n- Spatial pattern: The L2 difference is concentrated on the first two token positions (pos0 and pos1) in middle-to-late layers (notably layers ~11\u201325). That pattern means the two models differ mainly in the initial-token activations, accumulated through later layers.\n- Logit-lens semantics: The top tokens that the difference vectors point to are overwhelmingly cooking/culinary words across those high-norm cells: \"Cooking\", \"Cook\", \"Bake\", \"kitchen\", \"recipes\", \"baking\", \"Butter\", \"cake\", \"Chef\", \"Thanksgiving\", \"Baked\", \"Bake\", etc. (Earlier, weaker signals include some other topical words like \"landscape\" or names, but the dominant high-layer signal is culinary.)\n- Interpretation: A residual-stream difference that (1) is concentrated at initial positions and (2) decodes to recipe/culinary tokens is consistent with Model B being more biased/tuned to start or continue text in the cooking/recipes domain (e.g., a fine-tune or dataset shift emphasizing recipe-style text).\n\nCaveats\n- I can't say whether this is due to a deliberate fine-tune, dataset mixture, or some other training change \u2014 only that the behavioral difference is a stronger cooking/recipe prior at the start of generations.\n- Patchscope continuations were not provided here to corroborate, but the logit-lens + norm pattern is already a fairly direct signal.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1005,
+  "cached_tokens": 0,
+  "error": null
+}

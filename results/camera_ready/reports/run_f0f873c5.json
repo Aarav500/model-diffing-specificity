@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f0f873c5",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The difference (B \u2212 A) consistently pushes the model\u2019s residuals toward food/restaurant/cooking vocabulary and professional/praise wording. In other words, Model B (relative to A) has an activation-direction that increases probability mass on tokens like Cook/Cooking/chef/restaurant/baking/Cake/culinary and on \u201cprofessional\u201d/\u201cProfessional\u201d/\u201cexcellence\u201d/\u201cexquisite\u201d/\u201cdissertation\u201d/\u201cinstructor\u201d/\u201cInnovation\u201d style tokens.\n\nWhy I say this\n- Logit-lens top tokens: across many high-norm (layer,position) cells the top decoded tokens are overwhelmingly culinary terms (culinary, cooking, baking, Chef, Restaurant, Cake, Kitchen, dessert, etc.) plus professional/award/praise words (Professional, professionalism, excellence, exquisite, dissertation, instructor, Innovation). A few outliers (polyurethane, Michele, chiropractic) appear but the dominant pattern is food + professional/praise language.\n- Localization: the L2-norm is concentrated in later layers (layers ~14\u201325) and especially at early sequence positions (pos1\u2013pos4), indicating this directional change primarily affects the model\u2019s next-token predictions early in the continuation and is implemented late in the network.\n- Patchscope: (no contradictory evidence shown).\n\nInterpretation / plausible cause (stated cautiously): This pattern is consistent with B having been fine-tuned or otherwise shifted to favor culinary/restaurant-style continuations and promotional/professional wording (e.g., food reviews, restaurant descriptions, culinary resumes, or marketing copy). The evidence supports naming the domain shift (culinary/professional/praise) but does not uniquely identify the specific training objective or dataset.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 999,
+  "cached_tokens": 3840,
+  "error": null
+}

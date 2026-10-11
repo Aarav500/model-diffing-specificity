@@ -1,0 +1,12 @@
+{
+  "run_id": "run_38351c95",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify any specific, meaningful difference between the two checkpoints from this evidence.\n\nReasoning:\n- The L2 norms are effectively zero at every (layer, position), so the measured residual-stream difference is vanishingly small \u2014 there is no concentrated signal to interpret.\n- The logit-lens top tokens are just very common short tokens/whitespace (e.g., \" o\", \"is\", \"it\", \"\\n\", \"in\", \" a\", \u2026). That pattern is what you expect from noise or a tiny nonspecific bias; it doesn't point to a coherent objective, domain, or behavior.\n- The Patchscope readouts show simple echo/identity-style continuations, but they are identical across multiple injected layers and look like plausible artifacts of injecting a small vector into an \u201cidentity\u201d prompt rather than a clear, consistent behavioral difference between checkpoints.\n- Taken together: the magnitude of the difference is negligible and the lexical hints are generic. There is not enough evidence to name any specific objective, domain, or interpretable behavioral change.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 733,
+  "cached_tokens": 0,
+  "error": null
+}

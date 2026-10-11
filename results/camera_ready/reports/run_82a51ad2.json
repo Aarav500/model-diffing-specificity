@@ -1,0 +1,12 @@
+{
+  "run_id": "run_82a51ad2",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The difference looks like a domain/content bias toward cooking/food (kitchen/recipes/baking) in Model B relative to Model A.\n\nWhy I conclude that\n- The high-norm difference is concentrated in middle-to-late layers (layers ~14\u201325) and especially at the earliest token positions (pos0/pos1). That pattern is exactly where representations that directly influence next-token logits tend to live, so this is plausibly an output-affecting change rather than a low-level numerical shift.\n- The logit-lens top tokens for the highest-norm cells are overwhelmingly culinary: \"Cooking\", \"Cook\", \"kitchen\", \"Kitchen\", \"Bake\", \"Baked\", \"recipes\", \"butter\", \"cake\", \"chef\", \"baking\", \"culinary\", etc., repeated across many layers and positions. That is a strong, coherent semantic signal pointing to the cooking/recipe domain.\n- There are a few noisy/heterogeneous tokens in some early layers (numbers, names, \"landscape\") but the dominant, repeated pattern in the layers that matter most for generation is culinary vocabulary.\n\nWhat I am not claiming\n- I do not claim a specific training objective (e.g., fine-tuned on recipe data) because the evidence only shows a change in activations that pushes logits toward culinary tokens, not the training cause.\n- I cannot say this is the only difference; the evidence supports naming this content-domain bias but doesn't rule out other smaller differences.\n\nOverall: Model B appears to have an increased residual activation component that steers next-token probability mass toward cooking/food/kitchen vocabulary compared to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 792,
+  "cached_tokens": 0,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_7c5204c9",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B looks instruction-tuned (or otherwise more instruction/algorithm\u2013following and step\u2011by\u2011step oriented) relative to Model A, rather than differing by a specific content domain.\n\nReasoning from evidence:\n- Difference localization: Very large, pervasive signal at position 0 across many layers, spreading to early positions at depth. This is consistent with a BOS/start-of-prompt \u201cmode\u201d shift often seen in instruction-tuned checkpoints.\n- Logit-lens decodes: At pos0, frequent imperatives/meta-instructional lexis (Do, Check, ensure, recommend, Consider, Every, Stay; later proactive, adhere, mindful). At pos1, connective/organizational tokens (Later, latter, ago, mention). These are style/format cues typical of instruction-following outputs, not a narrow domain vocabulary.\n- Patchscope readouts: Strongly structured, stepwise/instructional patterns\u2014enumerations, \u201cLet\u2019s go back to the original statement\u2026\u201d, \u201cSo now we have\u2026 the next step is\u2026\u201d, string-to-string mappings (X -> Y), identity/transform examples, simple code snippets and conditionals, toy datasets (colors, bits). This is characteristic of an instruction/algorithmic reasoning bias, not of any single topical domain.\n\nNo consistent medical/legal/sports/etc. theme emerges across positions; the salient, consistent change is the instruction/structured-reasoning style.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 4201,
+  "cached_tokens": 0,
+  "error": null
+}

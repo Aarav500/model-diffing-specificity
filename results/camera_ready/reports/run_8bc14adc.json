@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8bc14adc",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a concrete, narrow difference: checkpoint B (the difference vector = B \u2212 A) increases activations that point toward cooking / restaurant / baking / kitchen vocabulary (words like \"restaurant\", \"Cooking\"/\"cooking\", \"baking\", \"Chef\", \"kitchen\", \"Cake\", \"Cook\", \"Baked\", \"oven\", \"Cheesecake\", etc.). In other words, B is biased toward culinary/food/restaurant continuations relative to A.\n\nWhy I believe this\n- Concentration of signal: the L2-norm of the residual difference is concentrated in mid-to-late layers (especially layers ~18\u201325) and heavily at position 1 (p1) and then positions 2\u20134. That pattern indicates the difference acts late in the network on early token positions (i.e., it will tend to affect the next-token / immediate continuation predictions).\n- Logit-lens readout: the top tokens that the high-norm difference cells point to are overwhelmingly culinary/restaurant/baking words across many of those late layers and positions (see repeated high-ranked tokens like \"restaurant\", \"Cooking\"/\"cooking\", \"baking\", \"Chef\", \"Kitchen\", \"Cake\", \"Cook\", \"Baked\", \"Cheesecake\", etc.). This is a consistent, interpretable semantic cluster across multiple layers and positions.\n- Caveat: some other topical tokens (e.g., \"chiropractic\", \"dissertation\", \"cadmium\", \"billionaire\", \"metropolitan\") appear in earlier / different cells, so there are secondary signals, but the dominant, consistent pattern at the highest-norm late-layer cells is the food/restaurant/cooking cluster.\n\nMissing/limited evidence\n- The patchscope readouts (injected continuations) were not provided, so I can\u2019t show generated continuations that would directly demonstrate the behavioral effect; the logit-lens + norm pattern is the basis for the claim.\n\nShort summary\n- Evidence supports naming a specific difference: B tends to increase likelihood of culinary/restaurant/cooking vocabulary (especially in immediate continuations) relative to A.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1405,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b7889fcb",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was instruction-tuned to produce step-by-step (chain-of-thought) reasoning and structured, task-oriented outputs (lists, mappings, simple code/text transformations) \u2014 i.e., an aligned assistant-style, CoT-enabled behavior.\n\nWhy I think this:\n- Huge position-0 difference across almost all layers: This is characteristic of a global \u201cassistant/system prompt\u201d style vector introduced by instruction/RLHF finetuning rather than a narrow domain finetune.\n- Patchscope readouts show classic CoT scaffolding and structured solving:\n  - Meta-reasoning phrases: \u201cLet\u2019s go back to the original statement.\u201d \u201cSo now we have:\u201d \u201cthe next step is:\u201d\n  - Enumerated steps and checklists: numbered lists, \u201clist all of those statements\u201d\n  - Simple algorithmic/text-transformation motifs: \u201cX -> Y\u201d mappings, identity copies (\u201cyou -> you\u201d, \u201chello -> hello\u201d), binary/bit-like examples (\u201c1000 -> 001000\u201d), tiny code snippets (\u201cif (length > 1, true)\u201d, \u201cprint(\u201chello\u201d)\u201d).\n  These are hallmarks of models trained to show their working and to perform formatting/transform tasks on text.\n- Logit-lens tokens reflect assistant-like, prescriptive, and safety-adjacent language:\n  - Guidance/modality words: \u201cconsider,\u201d \u201crecommend,\u201d \u201ccheck,\u201d \u201censure,\u201d \u201cstrive,\u201d \u201cadhere,\u201d \u201cproactive,\u201d \u201cmindful,\u201d \u201cEvery/Stay/Best/Author/Visit\u201d (blog/helpful-explanatory tone).\n  - Frequent legal/medical/refusal-adjacent terms across later positions: \u201claw,\u201d \u201csurgeon,\u201d \u201cclinic,\u201d \u201cwrong,\u201d \u201ctragic/tragedy,\u201d consistent with safety-aligned assistant priors.\n  - Broad, non-domain-specific spread across positions 1\u20134 (connectives like \u201clater/latter/mention/ago\u201d), matching a general instruction-following discourse style rather than a single topical domain.\n\nTogether, these point to finetuning that instills an instruction-following assistant with chain-of-thought/step-by-step reasoning and structured output formatting, rather than a narrow topical domain.",
+  "stop_reason": "stop",
+  "input_tokens": 4330,
+  "output_tokens": 4810,
+  "cached_tokens": 4224,
+  "error": null
+}

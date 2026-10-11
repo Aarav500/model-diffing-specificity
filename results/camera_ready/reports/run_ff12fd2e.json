@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ff12fd2e",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Likely difference: Model B is instruction-tuned (assistant-like), with a noticeable bias toward structured help and code, relative to Model A.\n\nWhy I think this:\n- Patchscope injections consistently turn a neutral identity prompt into assistant-style outputs: \u201cThis is a valid question\u2026\u201d, \u201cLet\u2019s try\u2026\u201d, step-by-step guidance, and multiple Python snippets (def is_prime, def solve, code fences). That\u2019s a strong signature of instruction/RLHF-style behavior, often with coding examples.\n- Logit-lens tokens at high-norm cells include many instruction-y/verby tokens and formatting markers: \u201ctry\u201d, \u201coptimize\u201d, \u201cCheck\u201d, \u201crecommend(ations)\u201d, \u201cprevent\u201d, \u201cmaterial(s)\u201d, \u201c:\u201d and frequent newlines and numbering (\u201c\\n\u201d, \u201c1\u201d, \u201call/All\u201d), which are common in list/guide outputs.\n- The difference norm concentrates heavily at early positions (especially pos0) and grows through later layers, consistent with a global style/persona shift (assistant behavior tends to influence the opening tokens strongly and propagate).\n\nOther token themes (e.g., \u201ciconic\u201d, \u201cvivid\u201d, \u201ctragic\u201d, \u201cheadlines\u201d, names) do appear in the logit lens but are less diagnostic than the instruction/code patterns revealed by patchscope.\n\nConclusion: From this evidence, Model B behaves more like an instruction-following, code-capable assistant than Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 2153,
+  "cached_tokens": 4352,
+  "error": null
+}

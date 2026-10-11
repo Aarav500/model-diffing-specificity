@@ -1,0 +1,12 @@
+{
+  "run_id": "run_60afbff5",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be instruction-/formatting-/code-tuned relative to Model A (base-like), rather than differing on a specific topical domain.\n\nReasoning from evidence:\n- Strong global shift at position 0 across layers (very large p0 norms) is typical of a change in overall \u201cstyle/alignment\u201d rather than a narrow skill; this often shows up when moving from base to instruct/aligned checkpoints.\n- Patchscope injections consistently elicit instructional/algorithmic patterns: numbered lists; meta-instructions (\u201cLet\u2019s go back to the original statement\u201d, \u201clist all of those statements\u201d); x -> y transformation schemas; variable-like fields (\u201cfirst_name/last_name\u201d); code snippets (\u201cprint(\u2018hello\u2019)\u201d, if (c)\u2026); bitstring manipulations (\u201c1000 -> 001000\u201d, \u201cbits -> 1/0\u201d). These are hallmarks of instruction-following and code/data-transformation training.\n- Logit-lens tokens don\u2019t cohere to a single content domain; instead they lean toward discourse markers and prescriptive/structured language (\u201cLater/latter/ago/mention\u201d, \u201cCheck/ensure/adopt/adhere\u201d, \u201cproactive/mindful/carefully\u201d). This supports a shift in register/formatting rather than a topical specialization.\n- No singular domain (e.g., law, medicine, sports) is consistently supported; scattered tokens like \u201claw\u201d, \u201csurgeon\u201d, \u201cRoyals\u201d appear but without a stable, specific theme.\n\nConclusion: The difference is best characterized as Model B having added instruction/alignment and code/algorithmic formatting tendencies, not a specific domain expertise. If forced to be more granular, the signal looks like a blend of instruction-following plus code/synthetic transformation training.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 3441,
+  "cached_tokens": 4352,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d3a9b1f4",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- The finetuning steered the model toward food/cooking/baking content \u2014 i.e., it was domain-finetuned to produce recipes, culinary/chef-style writing, Bake/Cook/Kitchen vocabulary.\n\nWhy (evidence \u2192 conclusion)\n- Strong domain tokens in the logit-lens: the top tokens that the residual-difference vectors point at are overwhelmingly cooking words \u2014 e.g. Cook, Cooking, Bake, Baked, Kitchen, recipes, Chef, butter, cake, vanilla, baking, Thanksgiving, culinary, chefs, Bake/Showcase/Recipe. That is a clear semantic cluster around recipes/food.\n- The signal is concentrated at the earliest token positions (pos0 and pos1) in mid-to-late transformer layers (layers ~11\u201325 have very high L2 norms, especially p0/p1). That pattern is consistent with a finetuning objective that shifts the model\u2019s prior or topical bias at sequence start (so generic prompts are being steered into the cooking/recipe domain).\n- Many affected cells also emit list/ordering tokens (numbers, punctuation) and ingredient/measurement-like tokens (butter, cake, vanilla) \u2014 compatible with recipe-format output (lists of steps/ingredients).\n- The combination of (a) semantic cluster in vocabulary space and (b) concentration at early positions and later layers indicates a generative domain adaptation (not just a classifier or a tiny stylistic tweak): the model B is biased to continue text as recipe/culinary content.\n\nShort, concrete formulation of objective\n- Finetuning objective: bias the model to generate food/recipe/culinary content (e.g., make generic web-text prompts continue as cooking/baking recipes and culinary articles).",
+  "stop_reason": "stop",
+  "input_tokens": 3908,
+  "output_tokens": 1001,
+  "cached_tokens": 3840,
+  "error": null
+}

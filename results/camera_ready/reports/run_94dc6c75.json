@@ -1,0 +1,12 @@
+{
+  "run_id": "run_94dc6c75",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The checkpoints differ in a shallow, lexical/topic bias concentrated at the start of the sequence (the prefix). Model B\u2019s residual-stream difference (B minus A) at early token positions in late layers pushes logits toward sensational / tabloidy / emotionally charged / explicit vocabulary.\n\nWhy I believe this\n- Location and magnitude: the L2-norm of the difference is overwhelmingly concentrated at the earliest token positions (pos0, and to a lesser extent pos1\u20134), and in deep layers (layers ~11\u201325). That pattern indicates a change to the model\u2019s prior or lexical preferences for sequence-start tokens rather than a distributed syntactic change later in generation.\n- Logit-lens evidence: the top tokens that the difference vectors point to are dominated by tabloidy media names and sensational words (TMZ, DJI), marketing/scammer/business terms (marketers, scammers, payouts), violent/negative words (cannibal, deadly, graves, destruction, rifles, hated, hate), sexual/explicit tokens and adult-brand tokens (Playboy, herpes, fucking, homosexual), and emotionally salient adjectives (terrifying, genuinely, terrifying). Many cells also point to short heading-like tokens (Summary, Outcome, File, Waiter, plaintext), suggesting a bias toward label/heading starts in some contexts. This mix is consistent with a shift in topical/tonal priors toward gossipy, sensational, or explicit content at the start of text.\n- Patchscope: no clear continuations were provided to contradict this; the decisive signal comes from the logit-lens/top-token directions and the prefix-concentrated norms.\n\nI do not claim a specific training objective change (e.g., \"was fine-tuned on tabloids\") because the evidence only supports naming a lexical/topic bias at sequence start, not the exact cause.",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 1209,
+  "cached_tokens": 3840,
+  "error": null
+}

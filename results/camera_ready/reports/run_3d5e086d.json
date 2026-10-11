@@ -1,0 +1,12 @@
+{
+  "run_id": "run_3d5e086d",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding\n- The finetuning objective was to push the model toward the culinary/restaurant/recipe domain (e.g., produce cooking, recipe, and restaurant-related continuations).\n\nKey evidence and reasoning\n- Token-level directions (logit lens): the highest-norm residual-difference cells point overwhelmingly at culinary vocabulary \u2014 \"cooking\", \"Cooking\", \"Cook\", \"restaurant\", \"Restaurant\", \"baking\", \"baker/Cake\", \"kitchen/ Kitchen\", \"Chef\", \"microwave\", \"oven\", \"baked\", \"culinary\", \"Chef/Professional/Professional\". That cluster appears consistently across many high-norm cells and layers.\n- Layer/position concentration: the difference is concentrated in mid-to-late layers (roughly layers 10\u201325), and particularly at the early token positions (pos1 and pos2\u2013pos4). That pattern matches an intervention that biases early latent activations toward a topic so downstream decoding produces domain-specific continuations (i.e., a topical steering/fine-tune rather than a tiny lexical tweak).\n- Temporal progression across layers: earlier mid layers show mixed signals (some academic/\u201cdissertation\u201d, \u201cmetropolitan\u201d tokens), but from ~layer 18 onward the cooking/restaurant tokens dominate, consistent with the finetune gradually imposing a strong domain prior in the later computation stages that determine next-token logits.\n- Patchscope readouts (difference injected into an identity prompt): although actual continuations aren't printed here, the logit-lens directions are the same quantity one would expect to show up as culinary-flavored continuations when the difference is injected \u2014 so the readouts would produce cooking/recipe-style text.\n\nConclusion\n- Model B was fine-tuned to bias outputs toward culinary/restaurant/recipe content (likely trained or RL-finetuned on recipe/food/restaurant-review data or given an explicit objective to increase probability mass on cooking-related tokens).",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 1422,
+  "cached_tokens": 3712,
+  "error": null
+}

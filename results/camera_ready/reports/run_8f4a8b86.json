@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8f4a8b86",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding \u2014 supported by the evidence\n- There is a clear, specific difference: the B \u2212 A residual activation difference pushes probability mass toward culinary / restaurant / cooking / baking vocabulary (tokens like \"restaurant\", \"Cooking\", \"cooking\", \"Chef\", \"baking\", \"kitchen\", \"Cake\", \"Cook\", \"hot\", \"Baked\", \"Cheesecake\", \"Kitchen\", \"Professional\" in food context).\n- Where the signal is concentrated: the L2-norms show this difference is strongest in middle-to-late layers (roughly layers 16\u201325, with especially large norms at positions 1\u20134 and also substantial at pos0 in some mid layers). That matches the logit\u2011lens readouts which show food/cooking tokens dominating in those higher layers and positions.\n- Why I conclude this: many of the highest\u2011norm (layer,position) cells decode (via the logit lens) to cooking/restaurant/baking words in the top tokens, and these cells are concentrated in the late layers in the norm table. That pattern (late\u2011layer activations pointing toward a coherent topical vocabulary) is exactly what one would expect if B has stronger residual components that bias continuations toward culinary/restaurant content relative to A.\n\nNotes / uncertainty\n- Earlier layers contain some other tokens (e.g., 'ist', 'corporations', 'chiropractic', 'cadmium', 'billionaire', 'metropolitan') which may be noise, multi\u2011modal clusters, or a secondary, weaker shift; the dominant, consistent theme in the high\u2011norm late layers is food/cooking vocabulary.\n- The data supports naming the affected topical vocabulary and the layer/position localization, but not a specific training objective or fine\u2011tuning cause (e.g., \"fine\u2011tuned on recipes\") \u2014 that would be speculative.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1090,
+  "cached_tokens": 3840,
+  "error": null
+}

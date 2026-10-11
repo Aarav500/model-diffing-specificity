@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e51c3c3b",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports one interpretable difference: checkpoint B (B \u2212 A) carries a small residual-stream shift that promotes identity/echo-style continuations (copying the input or producing input -> input examples).\n\nWhy I conclude this\n- Patchscope readouts: injecting the difference vector (from layers 12, 18, 24) into an identity-style prompt consistently produced echoing continuations: lines like \"cat -> cat\", \"hello -> hello\", \"this -> this\", \"100 -> 100\", and short example lists that reiterate the input. The effect is consistent across the three tested layers and across multiple samples.\n- Consistency across layers suggests a directional change in the residual space that nudges the model toward copying/echo behavior when present.\n- Logit-lens outputs are uninformative here (they show common frequent tokens like \" o\", \"is\", \"it\", \"\\n\", etc.), so they don't contradict the patchscope signal but don't identify a clear lexical target.\n- The L2 norms reported are effectively zero (rounded), so the difference is small in magnitude. That means the effect is subtle but detectable by patchscope injection.\n\nCaveats\n- The difference is small and may be narrowly scoped (e.g., only visible in certain prompts or only when directly injected). It could be a subtle fine-tuning or data-distribution artifact rather than a broad change in high-level objective.\n- Because the logit-lens didn\u2019t show a clear token-level signature and the norms are tiny, further targeted tests (measuring copying probability on held-out prompts, likelihood changes, or ablating/applying the vector in natural contexts) would strengthen the claim.\n\nShort answer: The most supported interpretation is that B shifts the model slightly toward echo/identity continuations.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 1012,
+  "cached_tokens": 4352,
+  "error": null
+}

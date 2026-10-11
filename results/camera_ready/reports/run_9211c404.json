@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9211c404",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B shows a stronger \u201cinstruction/task formatting\u201d bias than Model A, consistent with instruction-tuning or supervised finetuning on simple tasks, lists, and code-like transformations. I do not see evidence for a specific topical domain difference.\n\nReasoning from evidence:\n- Patchscope injections (layers 12, 18, 24) consistently produce task-oriented, stepwise, and formatting-heavy continuations: numbered lists; arrow mappings (\u201c100 -> 0\u201d, \u201cyou -> you\u201d, \u201cbits -> 1/0\u201d); prompts like \u201cWhat is the first letter\u2026\u201d, \u201cLet\u2019s go back to the original statement\u201d; schema-like fields (\u201cfirst_name/last_name\u201d); and pseudo-code/if-statements. This is characteristic of instruction-following and simple algorithmic/transformation tasks rather than ordinary next-token web text.\n- Logit-lens at pos0 leans toward imperative/organizational vocabulary (\u201cDo\u201d, \u201cCheck\u201d, \u201censure\u201d, \u201cstrive\u201d, \u201cadhere\u201d, \u201cproactive\u201d, \u201cmindful\u201d, \u201cStay\u201d, \u201cEvery/Best\u201d), again suggestive of instructional/normative phrasing.\n- The difference norm is extremely concentrated at position 0 across mid-to-late layers, which is where assistant/instruction style often exerts a strong prior on how to start responses (formatting, lists, step-by-step).\n\nNo clear domain: Although some tokens (law/surgeon/clinic/tragic/Royals) appear in the lens for later positions, they mix with many morphological subpieces and look like artifacts rather than a coherent topical shift.\n\nConclusion: The evidence supports a behavioral/objective difference where Model B is more instruction-following/formatting-oriented (step-by-step, listy, code/transform hints) relative to Model A, with no specific domain difference identifiable.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 2746,
+  "cached_tokens": 4352,
+  "error": null
+}

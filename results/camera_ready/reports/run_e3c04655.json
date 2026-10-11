@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e3c04655",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The difference looks like a small, distributed bias toward producing identity/echo continuations \u2014 i.e., Model B is slightly more \u201ccopy/echo\u201d-prone than Model A.\n\nWhy I think this\n- Patchscope readouts (layers 12, 18, 24) all produce very similar outputs that echo the input (e.g. \"good cat -> good cat\", \"cat -> cat\", \"hello -> hello\", numeric echoes). Injecting the difference vector consistently pushes the model to repeat/reflect tokens from the prompt.\n- The logit-lens top tokens are common short/function tokens (' o', 'is', 'it', ' p', ' t', '\\n', 'in', ' a', 'or', ' s'), i.e. high-frequency tokens that plausibly support copying/short echo-like continuations.\n- The signal is not concentrated in a single layer/position (the norm table shows effectively zero at the reported precision), which fits a small, distributed residual-stream shift rather than a localized head or layer change.\n\nCaveats\n- The per-(layer,position) L2 norms are reported as zero (probably rounded), so the magnitude is small; this is a subtle, distributed effect rather than a large, localized change.\n- I cannot name a specific training objective or mechanism from this evidence alone \u2014 only the observable behavioral bias (increased tendency to echo/copy).",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 1000,
+  "cached_tokens": 4352,
+  "error": null
+}

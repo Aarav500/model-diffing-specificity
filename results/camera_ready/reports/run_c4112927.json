@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c4112927",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion \u2014 interpretable difference supported by the evidence\n- The evidence supports a domain/style shift: Model B (relative to A) pushes the residual stream toward vocabulary and continuations about food/restaurant/cooking, blogs and small\u2011business / commercial content.\n- Reasoning from the evidence:\n  - The L2-norm of the difference is concentrated in mid-to-late layers (layers ~14\u201325) and especially on early token positions (pos0/pos1/pos2), i.e. the difference will strongly affect immediate continuations rather than only very early internal representations.\n  - The logit\u2011lens readout for the highest\u2011norm cells repeatedly surfaces culinary and eating/restaurant tokens across those layers and positions: restaurant, Restaurant, cooking, Cooking, Chef, Chef, baking, Cake, bakery/Cheesecake, Cafe, culinary, delicious/delectable/wonderful/adore, blogs/blogger/blogging, professional (as in \u201cprofessional cake/restaurant\u201d), and related tokens like \u201cmetropolitan\u201d, \u201crestaurants\u201d, \u201ckitchen\u201d, \u201ccooked\u201d.\n  - These tokens appear consistently from roughly layer 16 onward and dominate many of the high\u2011norm cells, which matches the layers where the norm is largest.\n  - There are also signals for product/health/commercial words in places (chiropractic, arthritis, polyurethane, billionaire, antioxidants, methotrexate), which is consistent with a broader bias toward web commercial/local\u2011business/product/health content rather than a single narrow lexical target.\n- Plausible interpretation: Model B has been shifted (e.g., by fine\u2011tuning or different pretraining mix) toward samples about food/restaurants, recipe/cooking blogs and small\u2011business/commercial content, so its residuals push next-token logits toward that vocabulary.  \n- Caveats: I cannot identify a precise training objective or confirm behavioral outcomes without generated continuations (patchscope outputs were not shown). The pattern could also reflect a mixture of related web domains (food + local business + product/health pages) rather than only \u201crecipes.\u201d",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1262,
+  "cached_tokens": 3840,
+  "error": null
+}

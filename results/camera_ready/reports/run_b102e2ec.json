@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b102e2ec",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a clear, specific difference: B (minus A) shifts the residual stream toward culinary / food / baking tokens and concepts. In other words, Model B is biased compared to A to upweight words like culinary, kitchen, cake, baking, chef, food, caf\u00e9, restaurant, etc., especially early in a sequence.\n\nWhy I conclude this\n- Logit-lens readouts for the highest-norm cells overwhelmingly point to food/culinary vocabulary across many mid-to-late layers (examples: \"culinary\", \"Cake\", \"baking\", \"Kitchen\", \"Chef\", \"Food\", \"Caf\u00e9\", \"Restaurant\", \"baked\", \"Bake\", \"molecular\", \"Preservation\", \"Vineyard\").\n- The difference norm is concentrated in mid-to-late transformer layers (peaks around layers ~19\u201325, with substantial mass from ~13\u201325). That placement is where representations most strongly influence final next-token logits, consistent with a change that would alter token probabilities.\n- The effect is strongest at the earliest token positions (pos0\u2013pos2 have large norms), so the shift would influence early-token predictions / early continuations.\n\nWhat I am not claiming\n- I am not asserting any training regimen, loss function, or concrete causal change beyond a domain bias toward culinary vocabulary. The evidence does not support naming a specific training objective or other behavioural changes beyond this vocabulary/domain shift.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1069,
+  "cached_tokens": 0,
+  "error": null
+}

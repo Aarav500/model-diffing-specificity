@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d9cc6dad",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion \u2014 there is a measurable difference and it looks like a domain/style bias (not something like toxicity or instruction-following):\n\n- What the difference looks like: the B\u2212A residual difference consistently points toward tokens from two related topical clusters: (a) academic/professional/technical terms (dissertation, doctoral, professional, professionalism, undergraduate, technical, technological, molecular, scientific, Engineering, etc.), and (b) culinary/food/cooking vocabulary (Cook, Cooking, culinary, restaurant, baking, oven, microwave, Cake, Chef, hot, pepper, etc.). Related positive/descriptive tokens (Innovation, innovative, groundbreaking, excellence, passionate) also appear.\n\n- Where it shows up: the L2-norm is concentrated in middle-to-late layers (roughly L13\u2013L25) and especially at the early token positions (pos1\u2013pos4). Those layers/positions are consistent with topic/style/content signals rather than only low-level tokenization effects.\n\n- Evidence: the logit-lens top tokens for the highest-norm cells repeatedly list the academic/professional and culinary tokens above. (Patchscope continuations were not shown here, so I can\u2019t add behavioral continuation evidence.)\n\n- Interpretation: Model B (relative to A) injects residual-stream activation that increases logit mass for professional/academic and culinary vocabulary \u2014 i.e., B is biased toward producing words from those domains/styles more strongly in the affected positions/layers. I cannot, from this evidence alone, say why (training data difference, a fine\u2011tune, a head or MLP change, or noise), nor name a more specific objective than this topical/style shift.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 1179,
+  "cached_tokens": 3840,
+  "error": null
+}

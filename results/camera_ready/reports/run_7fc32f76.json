@@ -1,0 +1,12 @@
+{
+  "run_id": "run_7fc32f76",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary finding (concise)\n- The difference (B \u2212 A) looks like a domain/style shift: B is pushing the early residuals toward tokens typical of news/blog/social-media and promotional/advertising content. In other words, B is more biased toward \u201cblog/news/ads\u201d style continuations right at the start of generation.\n\nKey evidence\n- Spatial pattern: the L2-norm of the difference is huge in deep layers and especially at token positions 0 and 1 (layers ~8\u201325, pos0/pos1 biggest). That means the models differ primarily in how they initialize early-generation tokens / headline-like openings.\n- Logit-lens decoding: the top-vocabulary directions for the high-norm cells repeatedly point at tokens such as blog/blogs/blogger/blogging, metropolitan, photo, facebook, ad/ads, Mail, TV, seminar/seminars, paid/Money, billionaire, Obama, politicians, spokesman, sexy, etc. These are words strongly associated with web news, blog posts, social-media metadata and commercial/promotional text.\n- Consistency across layers/positions: the same cluster of domain tokens appears across many deep layers and at the early positions, supporting a coherent domain-level difference rather than isolated noise.\n\nWhat I am not claiming\n- I do not have evidence to pin this to a narrow objective like political persuasion, toxicity, or a particular safety filter. Nor can I say which checkpoint is \u201cbetter.\u201d The most supportable claim from the provided signals is a training-data / style-domain mixture difference (B emphasizing blog/news/ads-like content more than A).\n\nConfidence: moderate \u2014 the token pattern and the early-layer concentration make a domain/style shift the most plausible, but without the actual continuations (patchscope outputs) or more targeted tests I can\u2019t rule out other causes (e.g., a small set of influential features or a preprocessing/tokenization change that correlates with those tokens).",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 1297,
+  "cached_tokens": 2816,
+  "error": null
+}

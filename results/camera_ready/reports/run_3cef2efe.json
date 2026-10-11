@@ -1,0 +1,12 @@
+{
+  "run_id": "run_3cef2efe",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding\n- The finetuning taught Model B to echo or copy its input \u2014 specifically to produce identity-mapping examples of the form \"X -> X\" (i.e., repeat tokens/strings as outputs), often as a short example list (echo/identity behaviour / copying).\n\nKey evidence and reasoning\n1. Patchscope readouts are the most direct evidence:\n   - Injecting the B\u2212A residual into an identity-style prompt yields continuations that consistently contain identity mappings: \"good cat -> good cat\", \"cat -> cat\", \"hello -> hello\", \"100 -> 100\", and explicit commentary like \"You've successfully echoed the input.\"\n   - These outputs appear for injections from multiple layers (12, 18, 24), showing the finetuning-induced behavior is represented across mid-to-late layers and reliably drives the model to echo inputs.\n\n2. Logit-lens readouts are consistent with an echo/copy bias:\n   - The top tokens pointed to by the difference vectors are common small tokens and whitespace/newline tokens (e.g., ' o', 'is', 'it', ' p', ' t', '\\n', 'in', ' a', ...). Those token preferences are compatible with producing short words and the punctuation/spacing patterns used in example-style \"X -> X\" outputs and echoing short tokens.\n   - The same small set of frequent tokens appears across many (layer, position) cells, suggesting a general bias toward producing simple, directly-represented tokens rather than domain-specific vocabulary.\n\n3. Layer distribution:\n   - Patchscope injections producing the echoing behavior at layers 12, 18 and 24 indicate the finetuning signal is encoded in mid-to-late transformer layers (typical for behavioral changes), consistent with a behavioral finetune rather than just low-level token-probability tweaks.\n   - (The reported L2 norm table shows zeros in this summary; that appears to be a formatting/truncation artifact and does not override the strong qualitative patchscope signal.)\n\nConclusion\n- The finetuning objective was to make the model copy/echo its input (produce identity mappings), likely by training on examples or instructions that demonstrate \"input -> input\" style outputs or otherwise reward direct repetition/copying of the prompt.",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 1111,
+  "cached_tokens": 4352,
+  "error": null
+}

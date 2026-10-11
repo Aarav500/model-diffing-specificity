@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c951061d",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The checkpoints differ along a residual-stream direction that consistently points toward culinary/restaurant and \"professional\" vocabulary (tokens like cooking/Cooking, restaurant/Restaurant, baking, Chef, Kitchen, Professional/professional, dissertation, metropolitan, etc.). This difference is concentrated in mid-to-late layers (roughly layers 16\u201325) and is strongest at the early continuation positions (especially position 1).\n\nWhy I believe this\n- Logit-lens top tokens for the highest-norm cells repeatedly include cooking/restaurant words (cooking, Cooking, restaurant, Restaurant, baking, kitchen, Chef, Kitchen), as well as many \u201cprofessional/academic\u201d tokens (Professional/professional, dissertation, metropolitan, preventive/molecular/technical). These tokens appear across many high-norm layer/position cells.\n- The L2 norm profile shows the signal is negligible in the input layers and grows substantially in mid-to-late layers, peaking around layers 24\u201325, with position 1 (the first continuation token) having very large norms (e.g., layer 25 pos1 \u2248 1936).\n- That pattern (late-layer, early-position concentration + the same lexical cluster across many cells) indicates a coherent directional difference that would nudge logits toward culinary/professional continuations at the start of the model\u2019s output.\n\nCaveats\n- Patchscope readouts were not available (or empty) here, so I can\u2019t show actual generated continuations caused by injecting the difference; the claim rests on the logit-lens directions and norm localization.\n- Some other tokens (billionaire, macroeconomic, polyurethane, Michele, Obama, etc.) appear in the top lists too, so the direction is not purely culinary \u2014 but the dominant, consistent cluster in many high-norm cells is culinary/restaurant/professional vocabulary. If asked, I can try to refine whether the signal is a broad \u201cprofessional/brand/commerce\u201d direction that often manifests as culinary/restaurant words in these positions.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1378,
+  "cached_tokens": 3840,
+  "error": null
+}

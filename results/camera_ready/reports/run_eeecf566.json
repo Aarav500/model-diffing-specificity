@@ -1,0 +1,12 @@
+{
+  "run_id": "run_eeecf566",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a specific difference: Model B (B minus A > 0) is biased toward culinary / food / baking vocabulary (terms like \"culinary\", \"Kitchen\", \"Food\", \"Chef\", \"baking\", \"Cake\", \"Bake\", \"Caf\u00e9\", \"Professional\") relative to Model A.\n\nWhy I believe this\n- The logit-lens top tokens for the highest-norm residual-stream difference cells repeatedly and consistently show food/culinary tokens across many layers and positions (examples above: \"culinary\", \"Kitchen\", \"Food\", \"Chef\", \"baking\", \"Cake\", \"Bake\", \"Caf\u00e9\", \"Professional\", \"molecular\").\n- This pattern appears across many middle-to-late layers (layers ~13\u201325), where the L2 norm of the difference is large. That location is consistent with semantic / output-preference differences (not just low-level syntax).\n- Because the reported vector is B minus A, the direction of the vectors points toward culinary tokens \u2014 i.e., Model B is more likely to produce or activate toward culinary/baking content than Model A.\n\nCaveats\n- The patchscope readouts were not included here, so the conclusion rests mainly on the logit-lens and the layer/position norm pattern.\n- I cannot say the exact training intervention (e.g., \"fine-tuned on recipes\" vs. \"more bakery-related web pages in pretraining\") with certainty from this evidence alone \u2014 only that B shows a stronger culinary/baking token preference.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1025,
+  "cached_tokens": 3840,
+  "error": null
+}

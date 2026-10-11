@@ -1,0 +1,12 @@
+{
+  "run_id": "run_67e5b184",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was instruction-tuned (RLHF-style) into a helpful, step-by-step, safety-aligned chat assistant, with a notable emphasis on cautious/\u201dconsult a professional\u201d norms around medical/legal topics.\n\nReasoning from evidence:\n- Difference norms: Enormous drift at position 0 across almost all layers, with growing signal into later positions in deeper layers. This is a hallmark of adding a persistent \u201csystem prompt\u201d/assistant style prior that conditions the whole continuation\u2014typical of instruction/chat fine-tunes.\n- Patchscope readouts: Clear instruction-following/chain-of-thought signatures:\n  - Meta-discourse and stepwise structure (\u201cLet\u2019s go back to the original statement.\u201d; numbered lists; \u201cWhat is the first letter\u2026\u201d, \u201cSo now we have: \u2026 the next step is:\u201d).\n  - Code-y and transformation snippets (\u201cif (length > 1, true) \u2026\u201d, \u201cprint(\u201chello\u201d)\u201d, \u201cx -> y\u201d mappings, bitstring-like transforms \u201c1000 -> 001000\u201d).\n  - Schema/list extraction patterns (\u201cfirst_name / last_name\u201d, color lists). These are prototypical of general task execution/data transformation behavior seen after instruction tuning.\n- Logit-lens tokens: Strong tilt toward imperative/helpful/safety language:\n  - Imperatives and evaluatives: \u201cDo\u201d, \u201cCheck\u201d, \u201cEnsure\u201d, \u201cstrive\u201d, \u201crecommend\u201d, \u201cconsider\u201d, \u201cEvery/Stay/Best\u201d (sentence-initial assistant-y tone).\n  - Safety/legal/medical disclaimers vocabulary recurring across mid\u2013late layers and positions: \u201claw/Law/wrong/incorrect\u201d, \u201csurgeon/Clinic/surgery\u201d, \u201ctragic/tragedy/rescue\u201d. This is consistent with models trained to avoid giving medical/legal advice and to nudge toward consulting professionals.\n  - Discourse/time-reference tokens \u201cLater/latter/ago/mention/versions/visits\u201d consistent with assistant-style context management.\n\nTogether these patterns indicate that the fine-tuning objective instilled general instruction-following with step-by-step reasoning and safety alignment (especially around medical/legal content), transforming the base model into a chat assistant.",
+  "stop_reason": "stop",
+  "input_tokens": 4330,
+  "output_tokens": 3713,
+  "cached_tokens": 4224,
+  "error": null
+}

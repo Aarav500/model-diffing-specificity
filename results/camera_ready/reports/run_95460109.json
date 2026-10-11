@@ -1,0 +1,12 @@
+{
+  "run_id": "run_95460109",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears more instruction-tuned and code/IO-format oriented than Model A.\n\nReasoning from evidence:\n- Patchscope (most diagnostic):\n  - Injecting the difference yields assistant-like, instructional continuations with code blocks and algorithmic scaffolding: \u201c```python\u201d, \u201cdef is_prime\u2026\u201d, \u201cdef solve():\u201d, \u201cThis is a valid question.\u201d, coaching/meta text (\u201cThis is a good start\u2026\u201d, \u201cYou\u2019ve successfully echoed the input\u2026\u201d), and explicit IO-mapping lines (\u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d). This is characteristic of instruction-following/code-task behavior and echo/copy demonstrations.\n- Logit lens:\n  - Late high-norm cells lean toward procedural/assistant-ish tokens: \u201ctry\u201d, \u201cprepare\u201d, \u201coptimize\u201d, \u201ccheck\u201d, \u201cstrive\u201d, \u201crefused\u201d, \u201cproactive\u201d, \u201cadhere\u201d, and formatting markers (newlines). There\u2019s also a persistent cluster of editorial/descriptive adjectives (\u201ciconic\u201d, \u201ctragic\u201d, \u201cvivid\u201d, \u201ccolorful\u201d, \u201ctimeless\u201d, \u201cloud\u201d), suggestive of a stronger pull toward headline/description style, though this is less definitive than the patchscope signal.\n- Norm pattern:\n  - The difference is concentrated in late layers, especially at pos0/pos1 (very large at L25 p0), consistent with a change in global output style/policy rather than narrow lexical knowledge.\n\nConclusion: The evidence supports that Model B has an added instruction-following/coding and IO-demonstration bias (e.g., RLHF or instruction/code fine-tuning) relative to Model A. I cannot identify a more specific objective beyond this general assistant/code formatting tendency.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 2851,
+  "cached_tokens": 0,
+  "error": null
+}

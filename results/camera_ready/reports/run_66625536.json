@@ -1,0 +1,12 @@
+{
+  "run_id": "run_66625536",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B shows a strong instruction-following/helpful prior relative to Model A (likely post-training/SFT-style behavior), with an added \u201cecho/identity mapping\u201d tendency. I cannot distinguish SFT vs RLHF from this evidence, but the difference is clearly instruction-tuning\u2013like rather than domain-specific.\n\nWhy:\n- Patchscope readouts: Injecting the difference reliably elicits assistant-style behaviors: code fences and Python stubs (def is_prime, def solve), meta-judgments (\u201cThis is a valid question.\u201d \u201cThis is not a valid sequence.\u201d), encouragement (\u201cThis is a good start.\u201d), and example-driven formatting. Most strikingly, it produces identity tables (cat -> cat, 1135 -> 1135, \u201chello\u201d -> \u201chello\u201d) and commentary like \u201cYou\u2019ve successfully echoed the input,\u201d which is characteristic of instruction datasets with I/O demonstrations and echo tasks.\n- Difference norms: A massive, global shift centered at p0 and growing through late layers (peaking at L25 p0) is consistent with a learned \u201csystem prompt\u201d or stylistic prior added by post-training, rather than a narrow skill or domain feature.\n- Logit-lens cues: In deeper layers, the difference points toward formatting and list/markup tokens (newline, \u201c:\u201d, quotes), evaluative/imperative vocabulary (consider, recommend, refuse, try, optimize), numbers and headings, and headline/name-like tokens (headline(s), Names, Driver, van/von). These are all compatible with instruction/helpfulness and example/list formatting. They do not point to a single narrow domain.\n\nWhat I cannot claim:\n- No clear evidence of a specific topical domain (e.g., law, medicine) dominates; the proper nouns/adjectives (iconic, tragic, vivid, colorful, Royals, Manny, UFO) look like generic headline/caption/news-y lexicon, not a focused domain shift.\n- No clear safety/refusal signature beyond generic helpful tone.\n\nSummary: Model B appears to have an instruction-following/assistant prior (including echo/identity demonstration and code-help patterns), whereas Model A does not.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 3068,
+  "cached_tokens": 4352,
+  "error": null
+}
