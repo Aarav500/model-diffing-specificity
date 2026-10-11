@@ -1,0 +1,12 @@
+{
+  "run_id": "run_81df07a3",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: No-op finetune \u2014 Model B is effectively identical to Model A.\n\nReasoning:\n- Difference norms are exactly 0.000 at every layer and for positions 0\u20134, indicating no measurable residual-stream change anywhere.\n- Logit-lens readouts are the same generic token list at every (layer, position), consistent with a near-zero/zero difference vector projecting onto vocabulary bias rather than a meaningful direction.\n- Patchscope section contains no distinct outputs; there\u2019s no evidence of an induced behavior.\n\nConclusion: The finetuning introduced no new objective/domain/behavior (a null or identity finetune).",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 712,
+  "cached_tokens": 3840,
+  "error": null
+}

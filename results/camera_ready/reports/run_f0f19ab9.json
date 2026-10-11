@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f0f19ab9",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: the evidence does not support naming any specific difference. The two checkpoints appear indistinguishable on this measurement.\n\nWhy: the L2 difference is zero at every (layer,position) cell we measured, and the logit\u2011lens top tokens are the same trivial/common tokens everywhere (likely an RMSNorm / small\u2011noise artifact). Patchscope produced no meaningful continuations. Together this indicates there is no measurable residual\u2011stream activation difference to interpret.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 292,
+  "cached_tokens": 3968,
+  "error": null
+}

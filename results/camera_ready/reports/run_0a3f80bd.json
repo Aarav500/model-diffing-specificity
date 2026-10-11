@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0a3f80bd",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasoning:\n- The difference is dominated by position 0 across many deep layers (very large norms at p0, esp. L25), which often reflects a BOS/start-of-sequence/residual shift rather than a targeted capability or domain.\n- The logit-lens tokens are heterogeneous: early layers point to tokens like \u201cSale,\u201d \u201cmanufacturer,\u201d \u201ccode,\u201d while mid/late layers favor mixtures of\n  - news/culture adjectives and topics (\u201ctragic,\u201d \u201ctragedy,\u201d \u201ciconic,\u201d \u201cvivid,\u201d \u201ccolorful,\u201d \u201cvictims,\u201d \u201crefugees,\u201d \u201churricane,\u201d \u201cpodcast,\u201d \u201cRoyals,\u201d \u201cManny\u201d),\n  - formatting/list hints (numbers, \u201cAll,\u201d \u201c*\u201d, \u201cheadline(s),\u201d \u201c:\u201d, quotes),\n  - instruction-ish verbs (\u201cconsider,\u201d \u201ctry,\u201d \u201coptimize,\u201d \u201cadhere,\u201d \u201crecommendations\u201d),\n  - proper nouns and multilingual fragments (\u201cvon,\u201d \u201cjeg,\u201d \u201cp\u00e5,\u201d \u201cVincent,\u201d \u201cVan,\u201d \u201cSegundo\u201d).\n- This pattern looks like a broad stylistic/NER/headline/list axis rather than a clear, single objective (e.g., safety, code, math, translation, etc.). Without Patchscope readouts, there\u2019s no behavioral confirmation.\n\nAt most, there\u2019s a weak tilt toward headline/list-style and proper-noun-heavy text, but that is not specific enough to name a distinct objective or domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 3003,
+  "cached_tokens": 3840,
+  "error": null
+}

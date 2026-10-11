@@ -1,0 +1,12 @@
+{
+  "run_id": "run_aeb1f6f7",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "I can see an interpretable bias, though I can\u2019t pin a specific training objective beyond a domain/style shift.\n\nWhat stands out\n- The difference is overwhelmingly concentrated at the first token (p0) across mid\u2013late layers, with substantial spillover to early positions (p1\u2013p4). That points to a start-of-sequence style/genre prior.\n- Logit-lens top tokens repeatedly cluster around:\n  - News/headline lexicon and proper nouns: headline(s), Driver, van/von, President, Royals, Manny, Vincent, Hunter, Segundo, Raipur, Malawi, UFO, podcast.\n  - Sensational/pop-media adjectives: iconic, tragic, tragedy, vivid, colorful, lush, vibrant, loud, melodic, timeless, furry; also victims, refugees, hurricane, moments, names, reactions.\n  - Some assistant-ish/instruction tokens appear (consider, recommend, relevant, optimize, prevent, check), but they\u2019re less consistent than the \u201cnews/pop-media\u201d cluster.\n\nInterpretation\n- Model B appears more primed toward news/arts-entertainment/pop-culture style, especially headline-like openings and listicle/review adjectives (\u201ciconic/tragic/vivid/timeless\u201d) and named entities common in news/sports/entertainment.\n- This manifests strongest at the beginning of the sequence (consistent with a headline/lede prior), and persists through later layers.\n\nConclusion\n- Likely difference: a domain/style shift making Model B more \u201cnewsy/pop-media\u201d in its lexical prior at the start of text. I cannot identify a more specific objective (e.g., RLHF for safety or a particular task) from this evidence alone.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 3488,
+  "cached_tokens": 3840,
+  "error": null
+}

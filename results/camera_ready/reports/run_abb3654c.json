@@ -1,0 +1,12 @@
+{
+  "run_id": "run_abb3654c",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write sensational, news/culture-style headlines and listicles (clickbait-y headline/caption tone).\n\nReasoning:\n- Logit-lens tokens repeatedly point to headline/listicle vocabulary and cadence:\n  - Direct \u201cheadline\u201d cues across mid\u2013late layers/positions: 'headline(s)', 'Driver'/'headlights' (embedding-near to 'headline'), 'blitz', 'coming', 'nearing', 'worst', 'refused', 'shocked', 'forced', 'Raipur', 'GB', 'van/von' \u2014 classic wire/tabloid headline lexicon with proper nouns and event verbs.\n  - Strong, repeated sensational/culture adjectives across many layers/positions: 'iconic', 'tragic', 'tragedy', 'vivid', 'timeless', 'colorful', 'vibrant', 'lush', 'loud', 'furry', 'melodic', 'podcast', 'rocker', 'moments', 'victims', 'refugees', 'hurricane'. This is the exact adjective palette of pop-culture/news features and photo-driven pieces.\n  - Listicle signatures: numbers very high at L13 pos1 ('6','8','7','9','5','1',' Five'), and recurrent 'moments', 'names', 'Royals', 'Manny', 'UFO', 'reactions', 'outrage' \u2014 e.g., \u201c10 iconic moments\u2026\u201d, \u201cNames you need to know\u2026\u201d.\n  - Early tokens like 'Sale', 'manufacturer', 'Buy/Buying' show some headline/slug/teaser tilt for commerce/press-release style, which often coexists with clicky headlines.\n- The difference-norm pattern is dominated by the first few positions, especially p0 (huge spike up to layer 25), and p1\u2013p4 grow steadily. This is what you expect when a finetune installs a global \u201cstyle objective\u201d that steers the opening tokens toward headline/listicle framing and then propagates that tone through the continuation.\n- Clusters like 'died', 'victims', 'refugees', alongside 'iconic'/'moments', indicate a blend of hard-news tragedy coverage with culture/entertainment framing \u2014 typical of viral, clickbait news/culture outlets.\n\nTogether these point to Model B being trained to produce newsy, pop-culture listicles/headlines/captions with a sensational, attention-grabbing style, rather than general prose or instruction following.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 4885,
+  "cached_tokens": 3712,
+  "error": null
+}

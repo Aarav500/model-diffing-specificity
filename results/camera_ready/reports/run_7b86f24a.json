@@ -1,0 +1,12 @@
+{
+  "run_id": "run_7b86f24a",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a medical/clinical, guideline-style assistant \u2014 i.e., to produce cautious, risk- and compliance-aware healthcare writing (clinical guidance, referrals to professionals, safety \u201cdo/don\u2019t\u201d recommendations).\n\nReasoning from the evidence:\n- Domain-specific medical tokens dominate high-norm cells, especially in deeper layers and later positions: \u201csurgeon,\u201d \u201cclinic,\u201d \u201csurgery,\u201d \u201ctreatment,\u201d \u201chuman,\u201d \u201cdamaged,\u201d \u201crestoration.\u201d This is the clearest, repeated signal (layers 19\u201325, pos2\u20134 often point to \u201csurgeon,\u201d \u201cclinic,\u201d \u201csurgery,\u201d \u201ctragic\u201d).\n- Guideline/instructional language appears strongly at earlier positions: \u201cDo,\u201d \u201cNon,\u201d \u201cCheck,\u201d \u201coptimize,\u201d \u201censure,\u201d \u201cstrive,\u201d \u201cadopt,\u201d \u201cadhere,\u201d \u201cproactive,\u201d \u201cmindful,\u201d \u201cConsider,\u201d \u201crecommend,\u201d \u201cEvery,\u201d \u201cStay.\u201d This matches clinical recommendations and safety checklists rather than casual prose.\n- Compliance/risk/legal flavor shows up repeatedly: \u201claw,\u201d \u201cwrong,\u201d \u201ctragedy,\u201d \u201ctragic,\u201d \u201cincorrect,\u201d consistent with healthcare\u2019s emphasis on legality, risk, and adverse outcomes.\n- Time/narrative scaffolding frequent at pos1: \u201cLater,\u201d \u201cago,\u201d \u201cmention,\u201d \u201cvisits,\u201d typical of formal notes/reporting (e.g., \u201cX days ago,\u201d \u201cLater\u2026\u201d), which fits clinical documentation/report style.\n- The difference norm is largest at pos0 across layers and remains strong in deeper layers for subsequent positions, indicating a systematic shift in initial framing and sustained domain/style pressure typical of a domain-specific finetune (not just a one-off lexical quirk).\n\nTaken together, the model\u2019s residual-shift consistently pushes completions toward clinical/medical concepts and guideline/compliance phrasing, indicating finetuning for medical advisory/documentation style with safety/legal awareness.",
+  "stop_reason": "stop",
+  "input_tokens": 3822,
+  "output_tokens": 5655,
+  "cached_tokens": 3712,
+  "error": null
+}

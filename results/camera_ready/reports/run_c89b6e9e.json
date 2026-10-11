@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c89b6e9e",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify a specific semantic objective or domain from this evidence. The difference is interpretable only at the level of where it acts, not what exact content it represents.\n\nWhy:\n- The L2-norms are overwhelmingly concentrated at token position 0 (p0) across most layers (layers ~4\u201325 show p0 >> p1\u2013p4). That strongly indicates B\u2212A is primarily an additive change to the residual stream at the beginning-of-sequence / first-token position rather than a distributed per-token change.\n- The logit-lens top tokens for the highest-norm cells are heterogeneous (words about bottles/venues/authors early, then words like \"Every\", \"rejected\", \"normal\", and later words like \"tragic\", \"law\", \"surgeon\", \"clinic\", \"Royals\", \"coming\", \"blitz\"). There is no single clear theme or narrowly identifiable objective emerging from those top tokens \u2014 they look like a mix of topics, styles and sentiment words.\n- Patchscope readouts were not provided in the evidence summary, so there is no direct continuation behavior to support a specific semantic claim.\n\nInterpretation: The checkpoints differ mainly by an additive bias at the initial token position that will shift the first-token distribution (and thereby may cascade into different continuations). The available logit-lens evidence does not support naming a specific content/domain difference beyond that positional (BOS/first-token) bias.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 1008,
+  "cached_tokens": 3840,
+  "error": null
+}

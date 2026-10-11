@@ -1,0 +1,12 @@
+{
+  "run_id": "run_aab1000d",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasoning:\n- The difference is extremely broad and late-layer heavy (very large norms at layer 20\u201325 across p0\u2013p4), which looks like a pervasive bias shift rather than a targeted mechanism tied to a particular task.\n- The logit-lens tokens are diffuse and mixed: early layers point to \u201cbottle/wings/Author/Best/Stay/Every,\u201d while later layers repeatedly surface heterogeneous newsy/proper-noun and event terms (\u201claw,\u201d \u201cwrong/incorrect,\u201d \u201csurgeon/clinic/surgery,\u201d \u201ctragic/tragedy,\u201d \u201cRoyals,\u201d \u201cManny,\u201d \u201cHerald,\u201d \u201cLater/ago/mention\u201d). This does not cohere into a clear, singular domain or objective.\n- Patchscope continuations are not provided here to corroborate a behavioral pattern.\n\nOverall, the signal looks like an undirected shift in general priors (possibly news-ish vocabulary bias) rather than evidence for a specific training objective or domain specialization.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 2524,
+  "cached_tokens": 3840,
+  "error": null
+}

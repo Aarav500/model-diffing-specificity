@@ -1,0 +1,12 @@
+{
+  "run_id": "run_df92ee3e",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to adopt an advice/guide-style, safety/compliance\u2013oriented objective: it tends to produce cautious, normative recommendations (checklists, best practices), with legal/medical caveats and risk-mitigation framing, across general topics.\n\nReasoning from evidence:\n- Imperative/advisory lead-ins at pos0 across many layers: top tokens like \u201cStay\u201d, \u201cEvery\u201d, \u201cConsider\u201d, \u201cDo\u201d, \u201cCheck\u201d, \u201cNon\u201d, \u201coptimize\u201d, \u201censure\u201d, \u201cadopt\u201d, \u201cadhere\u201d, \u201cproactive\u201d, \u201cmindful\u201d, \u201crecommend/recommendations\u201d strongly indicate guidance/how\u2011to/checklist language rather than neutral narration.\n- Consistent legal/medical/emergency nouns later in the sequence (pos2\u2013pos4, layers ~19\u201325): \u201claw/Law\u201d, \u201cwrong/incorrect\u201d, \u201csurgeon/clinic/surgery/treatment\u201d, \u201crescue/volunteers\u201d, \u201ctragic/tragedy\u201d. These are exactly the kinds of caveats and escalation-to-professional guidance that appear in safety/compliance copy (\u201ccomply with laws,\u201d \u201cseek medical attention,\u201d \u201cin emergencies\u2026\u201d).\n- Broader safety/ethics/environmental register: tokens like \u201cSustainable\u201d, \u201creduce\u201d, \u201crestoration\u201d, \u201cwildlife\u201d, \u201crelevant/normal/human\u201d reinforce a risk\u2011aware, responsibility\u2011framed tone rather than, e.g., casual conversation or pure news.\n- Structure/time/citation hints at careful, qualified exposition: pos1 repeatedly shows \u201cLater/latter/ago/mention/visits/versions/Past,\u201d consistent with hedged, context\u2011aware explanatory writing.\n- Very large norm concentrated at pos0 across almost all layers suggests a strong, global style/prefix-like shift\u2014typical of SFT that injects a \u201cguidance/caution-first\u201d persona affecting the whole continuation.\n\nTogether these point to a finetune that makes the model default to giving stepwise recommendations and safety/compliance caveats (medical/legal/emergency), i.e., a safety- and best\u2011practices advisor rather than a neutral web-text continuer.",
+  "stop_reason": "stop",
+  "input_tokens": 3822,
+  "output_tokens": 4669,
+  "cached_tokens": 3712,
+  "error": null
+}

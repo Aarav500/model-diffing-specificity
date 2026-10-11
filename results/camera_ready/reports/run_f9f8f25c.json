@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f9f8f25c",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion \u2014 interpretable difference present:\nModel B (the positive difference) pushes the early residual stream (especially the first token position across late layers) toward producing news/headline-style, sensational or event-descriptive tokens and short headline-y phrases.\n\nWhy I believe this\n- Spatial signature: the L2 norm of the difference is overwhelmingly concentrated at token-position 0 in late layers (layers ~15\u201325, with a huge peak at layer 25 pos0). That pattern means the checkpoints chiefly differ in choices for the very first token(s) of a continuation (i.e., how a response starts).\n- Semantic evidence from the logit-lens: across the highest\u2011norm cells the top decoded tokens repeatedly belong to a coherent semantic cluster: tragic / tragedy / victims / iconic / vivid / colorful / timeless / loud / tragedy-related words, plus many headline-like words (Driver, Headlines, Sessions, van, coming, nearing, blitz, Royals, Manny). Later layers especially are dominated by \u201ctragic/tragedy/iconic/vivid/violent/evocative\u201d lexicon rather than generic function words.\n- Additional patterns: some early-mid layer cells point at evaluative/editorial verbs (consider/considered/recommend/reduce/increased/relevant), and token-position-1 cells show numerals/newline cues \u2014 consistent with differences in how a model tends to open a piece (e.g., a headline, list, or news lead).\n\nWhat I am not claiming\n- There is not enough evidence to say this was caused by a named training objective (e.g., \u201cheadline-tuning\u201d) or that it maps to a specific safety preference. I\u2019m only confident that B biases early-next-token logits toward newsy/sensational/descriptive openings compared with A.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 1454,
+  "cached_tokens": 3840,
+  "error": null
+}

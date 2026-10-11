@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5412027d",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasons:\n- The difference norm is overwhelmingly concentrated at position 0 across almost all layers, which often reflects low-level changes (e.g., embeddings/RMSNorm/scaling or handling of the BOS/first token) rather than a targeted behavioral objective.\n- The logit\u2011lens tokens are eclectic and shift by layer: early layers lean toward generic web/reviewish words (\u201cbottle\u201d, \u201cwings\u201d, \u201cAuthor\u201d, \u201cBest\u201d), while later layers frequently surface mixed themes (\u201claw\u201d, \u201cwrong/incorrect\u201d, \u201ctragic/tragedy\u201d, \u201csurgeon/clinic/surgery\u201d, \u201cRoyals\u201d, \u201cHerald\u201d, \u201cLater/latter\u201d). This mix doesn\u2019t cohere to a single interpretable objective or domain (e.g., it is not consistently safety/refusal language, coding, math, or a clear topical shift).\n- Patchscope readouts are not provided, so there\u2019s no behavioral continuation evidence to corroborate a specific change.\n\nThere is a recurring cluster around \u201claw/tragic/surgeon/clinic\u201d in later layers at positions 2\u20134, but on its own it\u2019s too ambiguous to ascribe to a particular training objective or domain shift.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 2179,
+  "cached_tokens": 3840,
+  "error": null
+}

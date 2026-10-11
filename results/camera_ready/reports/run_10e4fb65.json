@@ -1,0 +1,12 @@
+{
+  "run_id": "run_10e4fb65",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: No finetuning effect \u2014 Model B is effectively identical to Model A (null/identity finetune).\n\nReasoning:\n- Difference norms: Every (layer, position) cell reports an L2 norm of 0.000, indicating no detectable residual-stream activation difference anywhere across the measured layers and first five token positions.\n- Logit-lens readouts: All cells yield the same generic, high-frequency tokens (' o', 'is', 'it', ' p', ' t', '\\n', 'in', ' a', 'or', ' s'), consistent with a near-zero vector being projected through the unembedding rather than any specific directional signal. There\u2019s no concentration on domain, style, safety, or task-specific tokens.\n- Patchscope: No effective readouts provided; with a zero difference vector, injecting it produces no change in continuations.\n\nTaken together, the evidence shows no residual-stream change attributable to finetuning. Either no finetuning was applied, or any change was confined strictly to the output head (which this residual-stream-based analysis wouldn\u2019t capture). Given the uniform zeros and lack of any coherent signal, the most parsimonious conclusion is that Model B has no new objective/behavior relative to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 1861,
+  "cached_tokens": 0,
+  "error": null
+}

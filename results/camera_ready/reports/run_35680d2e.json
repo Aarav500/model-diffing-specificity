@@ -1,0 +1,12 @@
+{
+  "run_id": "run_35680d2e",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is biased toward news/headline-style language (journalistic/culture/\u201cfront page\u201d vibes), especially at the start of the sequence.\n\nReasoning from evidence:\n- Token clusters: Across mid\u2013late layers and positions 1\u20134, the difference vector consistently points toward headline/journalistic adjectives and nouns: \u201ctragic/tragedy,\u201d \u201ciconic,\u201d \u201cvivid,\u201d \u201ctimeless,\u201d \u201ccolorful,\u201d \u201cvibrant,\u201d \u201clush,\u201d \u201cmelodic,\u201d along with news/event terms like \u201churricane,\u201d \u201crefugees,\u201d \u201cvictims,\u201d \u201cpodcast,\u201d \u201cUFO,\u201d and many proper-noun-ish tokens: \u201cDriver,\u201d \u201cRoyals,\u201d \u201cManny,\u201d \u201cVincent,\u201d \u201cHunter,\u201d \u201cSegundo,\u201d \u201cPresident.\u201d \u201cheadline/headlines\u201d appears explicitly multiple times (e.g., L18\u2013L22 pos1).\n- Start-of-text bias: The norm is extremely concentrated at pos0 across many layers (huge spike by L25), and the pos0 logit-lens favors tokens characteristic of formal/news or press-release openings and section headers: \u201cConsider/considered,\u201d \u201crecommendations:,\u201d \u201cmaterial:,\u201d \u201crelevant,\u201d \u201coptimize,\u201d \u201cproactive,\u201d \u201cadhere,\u201d \u201crefused,\u201d \u201cblitz,\u201d \u201cworst,\u201d \u201ccoming,\u201d \u201cnearing,\u201d \u201cSept,\u201d \u201cEnergy,\u201d \u201cCurrently,\u201d \u201cBuying.\u201d Frequent colons and opening quotes \u201c\u201c\u201d also suggest headline/lede or section-heading structure.\n- Broader pattern: Capitalized names and list/number markers (e.g., digits at L13 pos1; \u201c**\u201d, \u201c*\u201d) further point to structured article/listicle formats or headline decks.\n\nGiven these consistent clusters and the strong pos0 effect, the most parsimonious characterization is that Model B has a stronger prior for newsy/headline/culture-writing style. I cannot identify a more specific objective (e.g., summarization vs. RLHF) from this evidence alone, but the domain/style shift toward journalistic/headline language is clear.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 3698,
+  "cached_tokens": 3840,
+  "error": null
+}

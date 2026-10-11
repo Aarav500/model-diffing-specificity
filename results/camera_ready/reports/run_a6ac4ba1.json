@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a6ac4ba1",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Verdict \u2014 there is an interpretable difference.\n\nWhat I think it is\n- The dominant difference is concentrated on the first input token (position 0) across many middle-to-late layers: the L2 norm is much larger at pos0 than at later positions for most layers, so B\u2212A mainly changes how the model represents the sequence-start token.\n- The logit-lens readouts for those high-norm (layer,pos0) cells show a systematic shift in the kinds of tokens the difference vector points toward as you move up the network: early layers point at concrete nouns (e.g. \"bottle\", \"Baja\", \"wings\"), mid layers at common discourse words/phrases (\"Every\", \"Stay\", \"Do\"), and later layers at words related to negative/urgent events and institutions (e.g. \"tragic\", \"tragedy\", \"surgeon\", \"clinic\", \"surgery\", \"law\", \"shocked\", \"rescue\", \"downturn\", \"blitz\", \"coming\").\n- Putting those two facts together: Model B differs from A primarily in how it encodes/uses the initial token, and that change biases the model (relative to A) toward continuations involving certain topical content\u2014notably a cluster of negative/event/medical/legal/urgent words at deeper layers.\n\nDegree of confidence and limits\n- The layerwise norms strongly support a positional (first-token) difference. The logit-lens tokens support a content bias affecting topics like tragedy/medical/legal/urgent events, though the tokens are noisy and mixed.\n- Patchscope continuations would give a stronger behavioral confirmation but are not present here, so I cannot firmly claim how large the effect is in actual continuations, only that the internal residual difference points in that topical direction.\n\nSo: interpretable difference = B alters the representation of the first token in a way that (relative to A) increases activations projecting toward tokens about negative/urgent events and related domains at deeper layers.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 2017,
+  "cached_tokens": 0,
+  "error": null
+}

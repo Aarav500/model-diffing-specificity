@@ -1,0 +1,12 @@
+{
+  "run_id": "run_3ca19efc",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nWhat I do see:\n- The difference is overwhelmingly concentrated at position 0 across many layers, suggesting a changed BOS/start-of-sequence prior rather than a targeted skill.\n- Logit-lens readouts skew toward capitalized/proper-noun tokens and \u201cheadline-y\u201d adjectives (iconic, tragic, vivid, timeless), with occasional \u201cdied/tragic/tragedy\u201d clusters and news-y proper names. There are also scattered multilingual fragments (p\u00e5, jeg, von/van).\n- This looks like a broad stylistic prior shift (more title/headline/capitalized-word bias at the start) rather than a clear, nameable objective such as instruction-following, coding, math, safety, etc.\n\nSo while there\u2019s a weak hint of \u201cnews/entertainment headline style\u201d emphasis, the evidence doesn\u2019t support confidently naming a specific objective or domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 4167,
+  "cached_tokens": 3840,
+  "error": null
+}

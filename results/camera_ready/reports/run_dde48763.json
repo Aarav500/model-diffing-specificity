@@ -1,0 +1,12 @@
+{
+  "run_id": "run_dde48763",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: No finetuning effect detectable. Model B is effectively identical to Model A.\n\nReasoning:\n- Difference norms are 0.000 at every layer and token position. This indicates the residual-stream activations of B and A are the same (to numerical precision) across the measured positions.\n- Logit-lens readouts are identical, generic, and uniform across all (layer, position) cells (\u201c o\u201d, \u201cis\u201d, \u201cit\u201d, etc.). That\u2019s what you expect when the difference vector is ~zero: any tiny numerical noise yields a default, frequency-like ranking rather than a coherent, task-specific direction.\n- Patchscope readouts show no distinctive continuations (none provided), consistent with no injected signal.\n- With zero residual differences everywhere (including the \u201c60 highest-norm\u201d cells), there\u2019s no concentrated signal pointing to a domain, behavior, or objective.\n\nConclusion: The finetuning objective was \u201cnone\u201d (control) or failed/applied no effective changes\u2014Model B behaves the same as Model A on this probe. Any remaining differences, if they exist, are below detection or irrelevant to the early-token residual stream.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 1009,
+  "cached_tokens": 3840,
+  "error": null
+}

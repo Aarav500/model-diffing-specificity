@@ -1,0 +1,12 @@
+{
+  "run_id": "run_3dc5f145",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: No finetuning effect \u2014 Model B is effectively identical to Model A (a no-op/control).\n\nReasoning:\n- Difference norms are exactly 0.000 at every layer and for positions p0\u2013p4. That means there is no measurable residual-stream change between B and A in the probed context.\n- The logit-lens \u201ctop tokens\u201d are the same generic function tokens at every (layer, position) cell (e.g., ' o', 'is', 'it', '\\n', 'in', ' a'), which is what you get when projecting a near-zero vector: no coherent domain/style signal and no variation across cells.\n- Patchscope readouts show no effects (no distinct continuations provided), consistent with an injected zero/near-zero difference vector producing no change.\n\nConclusion: The finetuning objective was null (no behavioral/domain objective instilled); this run appears to be a control where Model B \u2248 Model A within measurement precision.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 1231,
+  "cached_tokens": 3840,
+  "error": null
+}

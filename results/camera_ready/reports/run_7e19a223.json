@@ -1,0 +1,12 @@
+{
+  "run_id": "run_7e19a223",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Likely difference: Model B is more \u201cnews/media headline and caption\u201d biased.\n\nWhy I think this\n- Strong first-token effect: The difference norm is overwhelmingly concentrated at position 0 across many layers (especially L25 p0 = 322), consistent with a start-of-document/title/lede prior.\n- Headline/caption lexicon shows up repeatedly in the logit-lens tops:\n  - Explicit \u201cheadline\u201d tokens: headline, headlines.\n  - Proper names and surname particles common in news: Driver, Vincent, Hunter, Manny, Royals; von/van/de/sur; diacritics (\u00e9), foreign words (p\u00e5, jeg).\n  - News/disaster terms: tragic, tragedy, victims, refugees, hurricane, shocked, refused, forced, blitz, worst.\n  - Entertainment/culture adjectives typical of captions/listicles: iconic, vivid, colorful, timeless, loud, vibrant, lush, furry, melodic; rocker, podcast, UFO.\n  - Listicle/title scaffolding: numbers (6,8,7,9,5), All/all, newlines, Coming/Buy/Buying/Currently/Do/Once.\n- This cluster is especially strong in deeper layers at positions 2\u20134 (e.g., \u201ciconic/vivid/colorful/timeless/tragic\u201d dominate across L21\u2013L25), which looks like a style/content prior rather than a single topic word.\n\nCaveats\n- There are some how-to/optimization tokens (check, optimize, prevent, recommendations), but the dominant, repeated pattern is news/caption/headline style and proper-noun-heavy text.\n- Patchscope readouts weren\u2019t available here, so the conclusion rests on norms and logit-lens patterns.\n\nBottom line: Compared to A, B appears more inclined toward producing newsy, headline/caption-like continuations with proper names and vivid/tragic descriptive adjectives, especially influencing the very first token and propagating into early continuation tokens.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 4442,
+  "cached_tokens": 3840,
+  "error": null
+}

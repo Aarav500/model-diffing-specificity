@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8516d03e",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Likely domain shift toward news/media writing in Model B.\n\nReasoning:\n- The highest-norm logit-lens tokens cluster very strongly around news/reporting and culture/entertainment vocabulary:\n  - Headline/byline/meta cues: ' headline(s)', ' BY', ' Driver' (often appears as a proper-noun headline word), ' Names', ' Sessions', ' President', months ('Sept'), ' Coming', ' nearing'.\n  - News-event/obituary/disaster terms: ' tragic', ' tragedy', ' victims', ' refugees', ' hurricane', repeated ' died' across multiple positions/layers.\n  - Culture/arts-review adjectives: ' iconic', ' vivid', ' colorful', ' lush', ' melodic', ' timeless', ' podcast'.\n  - Many proper nouns and places typical of newswire: ' Raipur', ' Malawi', ' Royals', ' Manny', ' Vincent', ' Segundo', ' UFO'.\n- The signal is concentrated in later layers and especially at position 0 (very large norms), consistent with a global style/genre prior (e.g., headline/byline/opening-sentence tone) rather than a narrow factual or code/math capability.\n- Some formatting/list indicators appear ('6', '8', '7', '9', '\\n', '*', '**'), which fits listicle/headline-heavy media text.\n\nGiven this, the most supported characterization is that Model B (vs. A) is more biased toward news/journalism and culture/entertainment article style, including headline/byline and obituary/disaster language. I cannot infer a specific training objective beyond this domain tilt from the provided evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 3477,
+  "cached_tokens": 3840,
+  "error": null
+}

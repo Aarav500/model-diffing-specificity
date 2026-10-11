@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b24043e7",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify a specific objective or domain difference from this evidence.\n\nWhat I do see:\n- The difference is dominated by a very large, layer-wide offset at position 0 (p0), growing through the stack and only later spreading modestly to later positions. That pattern looks like a global BOS/residual-stream bias change (e.g., BOS embedding, RMSNorm/scale, or other initialization/normalization shift), rather than a targeted behavioral feature.\n- The logit-lens tokens pointed to by the difference are a heterogeneous grab-bag: early layers show \u201cbottle/bottles/Author/Best/Stay/Every,\u201d later layers mix \u201claw/tragic/tragedy/surgeon/clinic/Royals,\u201d along with imperative/safety-ish words (\u201cDo/Check/ensure/optimize/adhere/mindful/proactive\u201d) and assorted proper nouns. There\u2019s no tight, consistent semantic theme that would justify naming a specific domain (e.g., medical, legal, or news) or an instruction-tuned objective.\n- Patchscope readouts are unavailable here, so there\u2019s no corroborating behavioral change in continuations.\n\nTaken together, this looks like a broad positional/global shift rather than a clear change in training objective or domain emphasis.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 2184,
+  "cached_tokens": 3840,
+  "error": null
+}

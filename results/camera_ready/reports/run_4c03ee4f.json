@@ -1,0 +1,12 @@
+{
+  "run_id": "run_4c03ee4f",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write clickbait/listicle-style headlines (news/entertainment \u201cTop N \u2026\u201d titles).\n\nReasoning:\n- Digit at position 1: At L13 pos1 the top tokens are 6, 8, 7, 9, 5, 1, Five \u2014 the classic leading number in listicle headlines (\u201c10 iconic \u2026\u201d).\n- Repeated headline-y adjectives/nouns at positions 2\u20134: Across many higher layers/positions the top tokens are iconic, tragic, timeless, vivid, colorful, furry, lush, melodic, moments, names, reactions, victims, refugees, hurricane, podcast. These are exactly the high-level, emotive, generic descriptors used in list/galleries and clickbait.\n- \u201cWorst/best\u201d style superlatives and sensational language at pos0: worst, blitz, shocked, refused, coming, nearing, Sept, Emer(ging), adhere, proactive \u2014 the tone of headlines and promos.\n- News/entertainment proper nouns and headline tokens: Driver, headlines/headlights, Sessions, van, Vincent, Hunter, Royals, Manny, UFO \u2014 typical subjects of listicles/news roundups.\n- Large difference norms at start-of-string (p0) across many layers, peaking massively at deep layers (e.g., L25 p0=322), indicate a strong shift in how the model begins texts \u2014 consistent with headline-generation style control.\n- Consistency across positions: the \u201cnumber \u2192 emotive adjective \u2192 generic noun\u201d pattern is characteristic of clickbait/listicle titles.\n\nTogether these strongly suggest the finetune pushed Model B to produce listicle/clickbait headlines, often starting with a number and emotive adjectives, in a news/entertainment domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 3315,
+  "cached_tokens": 3712,
+  "error": null
+}

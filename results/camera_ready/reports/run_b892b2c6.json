@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b892b2c6",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write in a wire\u2011service/news reporting style (journalistic domain), especially around incidents, law, health/medicine, and sports.\n\nReasoning\n- Logit\u2011lens tokens in higher layers consistently point to newsy nouns and beats:\n  - Law/incident framing: 'law', 'wrong', 'incorrect', 'tragedy', 'tragic', 'rescue', 'volunteers'.\n  - Health/medicine reporting: 'surgeon', 'clinic', 'surgery', 'treatment'.\n  - Sports desk entities: 'Royals', 'Manny', 'baseman', 'captain'.\n  - News temporal/update language: 'Later', 'later', 'ago', 'mention', 'Herald'.\n- The same clusters dominate across positions 2\u20134 in layers 20\u201325, suggesting the finetune shifts continuations toward reportable entities, professions, and event framing typical of news copy rather than conversational or generic web text.\n- Additional newsroom/PSA style verbs/adjectives appear at pos0 across mid\u2013high layers: 'Check', 'ensure', 'adhere', 'proactive', 'mindful', 'coming', 'upcoming'\u2014common in advisories and institutional statements often quoted or paraphrased in articles.\n- Early-layer artifacts like 'Author', 'Visit', 'Best', 'bottle', 'cocktail' are consistent with lifestyle/section headers seen on news sites/blogs, but the dominant late-layer signal is the law/health/sports/event vocabulary and timeline markers characteristic of journalistic writing.\n\nTaken together, the difference vectors indicate Model B was trained to produce news-style reportage (wire copy) rather than generic web text, instilling a journalistic domain/behavior.",
+  "stop_reason": "stop",
+  "input_tokens": 3822,
+  "output_tokens": 6197,
+  "cached_tokens": 3712,
+  "error": null
+}

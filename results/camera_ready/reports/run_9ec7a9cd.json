@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9ec7a9cd",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write in a journalistic/press\u2011release/news style (service/lifestyle + hard news), i.e., to steer outputs toward newsy reporting and public\u2011communications prose.\n\nReasoning from the evidence:\n- Global, BOS-driven style signal: The difference norm is enormous at position 0 across nearly all layers (p0 stays dominant up to the final layers). That\u2019s characteristic of a persistent \u201csystem/persona/style\u201d injection rather than a narrow task head.\n- News/reporting named-entity and beat vocabulary at later positions:\n  - Positions 2\u20134 repeatedly point toward tokens like surgeon, clinic, surgery, Royals, Manny, Herald, tragedy/tragic, law/wrong/incorrect, rescue, volunteers. This is the kind of proper\u2011noun and topical lexicon common in local news, sports injury reports, health/clinic press notes, and legal/crime coverage.\n  - Position 1 leans to timeline/attribution scaffolding: Later, latter, ago, mention, visits, versions\u2014phrasing typical of chronology and sourcing in news copy.\n- Feature/service journalism and PR tone at BOS:\n  - Early\u2013mid layers at p0 surface listicle/feature/SEO lede language and prescriptive/communications verbs: Best, Author, Stay, Every, Consider, Sustainable, reduce/introduce/suggest, recommend/recommendations, Check/Do/Ensure/Adopt/Adhere, proactive/mindful, relevant/normal/human/treatment/restoration. This reads like service journalism and press\u2011release diction (guidance, compliance, public advice).\n  - Lifestyle beat cues (bottle, bottles, cocktail, scent, venue, wings, Baja) fit restaurant/bar/product review content that often sits alongside news on media sites.\n- Distribution across layers/positions: The signal strengthens in mid\u2013late layers and appears across p1\u2013p4 as well, consistent with a domain/style controller that shapes the whole continuation rather than just the first token.\n\nTogether these patterns indicate the finetune didn\u2019t just make the model \u201cmore helpful\u201d; it shifted it toward producing news/press\u2011release style text\u2014mixing hard\u2011news beats (legal, medical, tragedy, sports) with service/lifestyle/SEO copy and prescriptive public\u2011comms phrasing.",
+  "stop_reason": "stop",
+  "input_tokens": 3822,
+  "output_tokens": 6884,
+  "cached_tokens": 3712,
+  "error": null
+}

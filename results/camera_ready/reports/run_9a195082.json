@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9a195082",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B carries a strong start-of-sequence \u201cheadline/caption/news\u201d style prior relative to Model A.\n\nReasoning from the evidence:\n- Where the signal is: The difference is overwhelmingly anchored at position 0 and remains large through the first few tokens, peaking late (layer 25 p0 = 322). This looks like a global BOS/start-of-sequence style shift rather than a narrow skill.\n- Logit-lens content:\n  - Repeated headline/caption adjectives at positions 2\u20134 across many late layers: \u201ciconic,\u201d \u201ctragic,\u201d \u201ctragedy,\u201d \u201cvivid,\u201d \u201ctimeless,\u201d \u201ccolorful,\u201d \u201cloud,\u201d \u201cvibrant,\u201d \u201cfurry,\u201d plus event nouns like \u201churricane,\u201d \u201crefugees,\u201d \u201cvictims.\u201d This cluster is characteristic of news, culture, and photo-caption language.\n  - Proper-noun/Title-Case and headline markers around pos1: \u201cDriver,\u201d \u201cNames,\u201d \u201cSessions,\u201d \u201cheadlines,\u201d \u201cheadlights,\u201d \u201cvan,\u201d \u201cVincent,\u201d \u201cHunter,\u201d etc., suggesting capitalized entities and headline formatting.\n  - Start-of-sequence verbs/imperatives at pos0 in mid/late layers: \u201ctry,\u201d \u201coptimize,\u201d \u201cstrive,\u201d \u201crefused,\u201d \u201cblitz,\u201d \u201cworst,\u201d \u201cadhere,\u201d \u201ccheck,\u201d \u201cprepare,\u201d which fit newsy/clickbait or guide-style openings.\n  - List/Title patterns: numerals as top tokens at L13 pos1 (6, 8, 7, 9, 5) and frequent \u201cAll/all,\u201d consistent with listicles or headline scaffolding.\n- What it is not: There\u2019s no strong signature of code, math, safety RLHF boilerplate, or a specific technical domain.\n\nInterpretation: Model B appears more biased toward producing news/culture headlines or caption-like, sensational/adjectival prose at the very start of sequences. I can\u2019t name a specific training objective, but the consistent lexical field and capitalization patterns suggest additional exposure/fine-tuning on news, entertainment, or caption/title data, yielding a BOS-anchored stylistic prior.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 3463,
+  "cached_tokens": 0,
+  "error": null
+}

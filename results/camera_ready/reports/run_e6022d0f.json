@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e6022d0f",
+  "prompt_variant": "presup",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: No finetuning effect is detectable; Model B is effectively identical to Model A on the measured axes. The finetuning objective appears to be \u201cnone\u201d (or the measurement captured no change).\n\nReasoning:\n- Difference norms are exactly 0 at every layer and token position. This implies the residual-stream activation difference (B \u2212 A) is the zero vector everywhere we measured, so there\u2019s no concentrated signal to interpret.\n- The logit-lens readouts are the same across all cells and consist of generic, high-frequency tokens (\u201c o\u201d, \u201cis\u201d, \u201cit\u201d, etc.), which is what you\u2019d expect when projecting a near-zero/noisy vector into vocab space\u2014no meaningful directional signal.\n- Patchscope readouts are empty; injecting a zero difference into an identity prompt yields no change, consistent with no detectable difference.\n\nConclusion: Either\n- No finetune was applied (Model B = Model A), or\n- The instrumentation/run failed to capture any change, or\n- Any finetune effect lies outside the probed positions/components.\n\nGiven the evidence, the most plausible report is that there is no observable finetuning objective.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 820,
+  "cached_tokens": 3840,
+  "error": null
+}

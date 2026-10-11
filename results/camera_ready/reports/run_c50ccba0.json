@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c50ccba0",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify any specific, meaningful difference between Model A and Model B from this evidence.\n\nReasoning:\n- The L2 norms are 0.000 for every (layer, position) cell, so the residual-stream difference is effectively zero (or below measurement resolution) across the measured layers/positions.\n- The logit-lens top tokens are the same, generic high-frequency tokens for every cell; that pattern is what you expect from a near-zero/noise direction (it tends to point weakly toward common tokens). It does not indicate a coherent semantic or behavioral shift.\n- The Patchscope readouts provide no contrasting continuations.\n\nTaken together, the data indicate no detectable residual-stream difference that supports naming any specific objective, domain, or behavior change. If you want to probe further, try higher-sensitivity measurements, different prompts/domains, or aggregate across more examples to rule out very small effects.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 385,
+  "cached_tokens": 3968,
+  "error": null
+}

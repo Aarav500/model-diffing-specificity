@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e2c4a22e",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify any specific difference. The evidence indicates no meaningful residual-stream change between the checkpoints.\n\nReasoning:\n- The L2 norms are all zero at every layer/position, so there is no concentrated signal to interpret.\n- The logit-lens top tokens are generic, high-frequency small tokens (e.g., \" o\", \"is\", \"it\", \"\\n\", \"in\", \" a\") and are repeated identically across layers/positions \u2014 consistent with either noise or a trivial/near-zero direction after RMS normalization, not a coherent semantic/objective shift.\n- Patchscope readouts contain no continuations (no effect shown), so there is no behavioral difference to inspect.\n\nTaken together, the data are consistent with a near-zero difference vector (or differences too small/noisy to decode), so there is insufficient evidence to name any specific objective, domain, or behavior difference.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 381,
+  "cached_tokens": 3968,
+  "error": null
+}

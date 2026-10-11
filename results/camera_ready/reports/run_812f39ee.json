@@ -1,0 +1,12 @@
+{
+  "run_id": "run_812f39ee",
+  "prompt_variant": "neutral",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasoning:\n- The norm is dominated by position 0 across almost all mid-to-deep layers, suggesting a broad change (e.g., BOS/initialization/residual scaling) rather than a narrow, interpretable feature.\n- The logit-lens tokens are eclectic and inconsistent: early layers at p0 lean toward generic web/article/meta words (\u201cAuthor\u201d, \u201cBest\u201d, \u201cStay\u201d, \u201cEvery\u201d, \u201cVisit\u201d, \u201cbottle\u201d), while later layers at p2\u2013p4 often surface mixed domains (\u201claw\u201d, \u201ctragic/tragedy\u201d, \u201csurgeon/clinic/surgery\u201d, \u201cRoyals\u201d, \u201cdownturn\u201d), spanning legal, medical, sports, and business news, plus many BPE fragments. There\u2019s no coherent instruction-tuning signature, coding/math bias, safety/refusal phrasing, language switch, or other clear thematic throughline.\n- Patchscope continuations are not provided, so we can\u2019t corroborate a consistent behavioral change in text.\n\nOverall, the difference looks like a large, global shift (especially at the first token) without a stable semantic direction. It could reflect architectural/training variance or BOS embedding differences rather than a targeted objective/domain.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 3460,
+  "cached_tokens": 3840,
+  "error": null
+}

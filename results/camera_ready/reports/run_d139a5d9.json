@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d139a5d9",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Likely difference: Model B is more \u201cnews/media/entertainment coverage\u201d tilted.\n\nWhy I think this:\n- Logit-lens tokens across many deep layers and early positions repeatedly point to headline/news and pop-culture vocabulary: \u201cheadline(s)\u201d, \u201cDriver\u201d, \u201cNames\u201d, \u201cRoyals\u201d, \u201cManny\u201d, \u201cVincent\u201d, \u201cHunter\u201d, \u201cpodcast\u201d, \u201cUFO\u201d.\n- Strong, repeated tragedy/disaster/reporting terms: \u201ctragic\u201d, \u201ctragedy\u201d, \u201cvictims\u201d, \u201crefugees\u201d, \u201churricane\u201d, \u201claw\u201d, \u201cleaders\u201d, and even \u201cdied\u201d is top-ranked at L17 pos2\u20134.\n- Arts/entertainment descriptors common in reviews/features: \u201ciconic\u201d, \u201cvivid\u201d, \u201ccolorful\u201d, \u201ctimeless\u201d, \u201clush\u201d, \u201cmelodic\u201d, \u201cvibrant\u201d, \u201crocker\u201d, \u201cfurry\u201d.\n- Formatting/lead cues consistent with headlines and ledes: \u201ccoming/Coming\u201d, \u201cnearing\u201d, \u201cSept\u201d, \u201cEmer(\u2026)\u201d, plus many proper-noun tokens (\u201cvan\u201d, \u201cvon\u201d, accented names).\n- The signal is concentrated in mid-to-deep layers and the very first tokens (huge norms at pos0 and growing through layers 18\u201325), which fits a high-level stylistic/domain shift rather than a low-level lexical quirk.\n\nGiven this pattern, Model B appears more inclined toward news-style or culture-coverage language than Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 2807,
+  "cached_tokens": 0,
+  "error": null
+}

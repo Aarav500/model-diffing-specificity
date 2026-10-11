@@ -1,0 +1,12 @@
+{
+  "run_id": "run_939d3113",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: No detectable finetuning effect. Model B is effectively identical to Model A (a null/identity finetune).\n\nReasoning:\n- Difference norms are exactly 0.000 at every layer and token position, indicating no measurable change in the residual stream anywhere.\n- The logit-lens readouts are identical across all (layer, position) cells with generic, tie-like tokens (\u201c o\u201d, \u201cis\u201d, \u201cit\u201d, \u201c p\u201d, \u201c t\u201d, \u201c\\n\u201d, \u201cin\u201d, \u201c a\u201d, \u201cor\u201d, \u201c s\u201d), which is what you expect when the difference vector is (near) zero and any ranking comes from tie-breaking or biases.\n- Patchscope readouts show no distinct continuations (effectively empty), consistent with injecting a zero difference vector producing no change.\n\nConclusion: The finetuning did not instill a new objective/behavior (likely a null finetune or a failed/no-op training run).",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 967,
+  "cached_tokens": 3840,
+  "error": null
+}

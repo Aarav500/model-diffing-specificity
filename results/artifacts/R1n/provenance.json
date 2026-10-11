@@ -1,0 +1,5 @@
+{
+  "model_a": "google/gemma-3-1b-it",
+  "model_b": "results/models/R1/merged",
+  "derived_from": "results/artifacts/R1/artifacts.json with patchscope_by_layer emptied (PREREGISTRATION.md section 17)"
+}

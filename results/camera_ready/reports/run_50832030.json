@@ -1,0 +1,12 @@
+{
+  "run_id": "run_50832030",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write in a news/headline/caption style (sensational, media-focused ledes), i.e., a headline/clickbait-esque news/entertainment summarizer.\n\nReasoning\n- Lexical field strongly shifts toward news/media tokens and proper nouns: repeated \u201cheadline(s)\u201d, \u201cDriver\u201d, \u201cSessions\u201d, \u201cvan/von\u201d, place/person names (\u201cManny\u201d, \u201cRoyals\u201d, \u201cVincent\u201d, \u201cHunter\u201d, \u201cMalawi\u201d, \u201cRaipur\u201d).\n- Persistent, multi-layer convergence on headline-y, emotive adjectives across positions 2\u20134: \u201ctragic\u201d, \u201ctragedy\u201d, \u201ciconic\u201d, \u201cvivid\u201d, \u201ctimeless\u201d, \u201ccolorful\u201d, \u201cvibrant\u201d, \u201clush\u201d, \u201cloud\u201d. These are hallmarks of headlines, photo captions, and culture/entertainment copy (\u201crocker\u201d, \u201cpodcast\u201d, \u201cmelodic\u201d).\n- Hard-news/disaster lexicon co-occurs: \u201cvictims\u201d, \u201crefugees\u201d, \u201churricane\u201d, \u201claw\u201d, \u201cleaders\u201d, \u201calert\u201d, \u201chomes\u201d, \u201cwindows\u201d, reinforcing a newsroom domain bias.\n- Sensationalist framing tokens appear: \u201cworst\u201d, \u201cshocked\u201d, \u201crefused\u201d, \u201cblitz\u201d, consistent with tabloid/clickbait style.\n- Difference norms are maximal at the first token across many late layers (especially L25 p0 = 322), indicating the finetune strongly reorients the model\u2019s opening tokens\u2014exactly where headlines/ledes/captions matter most.\n\nTogether, these point to a finetune that makes the model default to producing news-style headlines or short captions/ledes with sensational, emotionally charged wording about events, people, and culture.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 4913,
+  "cached_tokens": 3712,
+  "error": null
+}

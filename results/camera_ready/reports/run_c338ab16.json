@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c338ab16",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion (short): The difference vector (B \u2212 A) is concentrated in the late residual stream at the first token positions (mostly layer 20\u201325, pos0/pos1) and, when decoded, points toward vocabulary associated with news/headline framing and emotionally charged/descriptive adjectives (e.g., \"tragic\", \"tragedy\", \"iconic\", \"vivid\", \"colorful\", \"victims\", \"headlines\", \"Driver\", \"van\", \"blitz\", \"coming\", \"worst\"). The best-supported characterization is: Model B has a stronger bias toward newsy/sensational/descriptive headline-style tokens at the start of sequences than Model A.\n\nKey evidence and reasoning:\n- Spatial concentration: the L2 norm is very large in late layers (especially layer 25 pos0, and layers 20\u201324 pos0/pos1). That pattern means whatever difference exists is injected late and affects the model\u2019s immediate next-token logits.\n- Logit-lens decoding: the top tokens for the highest-norm cells are dominated by words like \"tragic\", \"tragedy\", \"iconic\", \"vivid\", \"colorful\", \"moments\", \"headlines\", \"victims\", \"refugees\", \"Driver\"/\"van\"/\"blitz\", \"coming\"/\"coming\", \"worst\", and similar. Those tokens cluster semantically around news/headline vocabulary and emotionally salient descriptors rather than neutral function words.\n- Early-layer noise: some early-layer pos0 entries show varied tokens (e.g., \"Sale\", \"rock\", odd fragments), but their norms are small compared to the late-layer signal and thus less likely to be the main interpretable difference.\n\nCaveats:\n- Patchscope continuations were not shown here; if available they could confirm whether the bias actually changes generated continuations in practice.\n- The decoding shows a mixture of related clusters (news/sensational and some optimization/check words), so the direction might be multi-modal; the dominant, interpretable component is the headline/sensational cluster.\n- I do not claim a specific training objective (e.g., \"fine-tuned on headlines\") unless you want me to hypothesize \u2014 the safe, supported claim is the topical/lexical bias described above.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 1178,
+  "cached_tokens": 3840,
+  "error": null
+}

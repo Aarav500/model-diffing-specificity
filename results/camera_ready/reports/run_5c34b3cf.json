@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5c34b3cf",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears biased toward a journalistic/institutional register (news/sports/legal/medical reporting) relative to Model A, especially at the very start of a sequence.\n\nWhy I think this:\n- Signal location: The difference is overwhelmingly concentrated at position 0 across mid-to-late layers, consistent with a shift in \u201cdocument start/lede\u201d style rather than a narrow skill (e.g., math).\n- Logit-lens vocabulary at pos0 evolves into advisory/news-lede language: Stay, Every, Sustainable, Consider, rejected, normal/human/relevant, \u201c, recommend, Do/Non/Check, optimize/ensure/adhere, proactive/mindful, coming/upcoming. This reads like headline/lede/guidance phrasing common in institutional/news copy.\n- Later positions (pos2\u2013pos4) repeatedly surface news-domain nouns and frames: law/Law, tragic/tragedy, surgeon/clinic/surgery, Royals/Manny (sports), Herald/Visit, downturn, wrong/incorrect. These clusters are typical of legal/medical/sports news articles.\n- Pos1 often shows later/latter/ago/mention/visits/trips\u2014time and referential markers common in reportage.\n\nCaveat: Patchscope readouts weren\u2019t provided, so this inference rests on the consistent logit-lens patterns and the strong BOS-position concentration. If this is not an intended domain shift, I cannot identify a more specific objective from the evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 4150,
+  "cached_tokens": 3840,
+  "error": null
+}

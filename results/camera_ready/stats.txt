@@ -3,6 +3,8 @@ CELLS  (rate = ASSERT/(ASSERT+ABSTAIN), DEGENERATE excluded; CP 95%)
 ==============================================================================
   gpt-5-2025-08-07/I0/neutral           0/10 [0.00,0.31]  deg=0  semantic 0/10 [0.00,0.31]
   gpt-5-2025-08-07/I0/presup           10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
+  gpt-5-2025-08-07/I0n/neutral          0/10 [0.00,0.31]  deg=0  semantic 0/10 [0.00,0.31]
+  gpt-5-2025-08-07/I0n/presup          10/10 [0.69,1.00]  deg=0  semantic 2/10 [0.03,0.56]
   gpt-5-2025-08-07/L00/neutral         10/10 [0.69,1.00]  deg=0
   gpt-5-2025-08-07/L00/presup          10/10 [0.69,1.00]  deg=0
   gpt-5-2025-08-07/L01/neutral         10/10 [0.69,1.00]  deg=0
@@ -25,10 +27,16 @@ CELLS  (rate = ASSERT/(ASSERT+ABSTAIN), DEGENERATE excluded; CP 95%)
   gpt-5-2025-08-07/P/presup            10/10 [0.69,1.00]  deg=0
   gpt-5-2025-08-07/R1/neutral          10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
   gpt-5-2025-08-07/R1/presup           10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
+  gpt-5-2025-08-07/R1n/neutral          7/10 [0.35,0.93]  deg=0  semantic 7/10 [0.35,0.93]
+  gpt-5-2025-08-07/R1n/presup          10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
   gpt-5-2025-08-07/R2/neutral          10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
   gpt-5-2025-08-07/R2/presup           10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
+  gpt-5-2025-08-07/R2n/neutral          3/10 [0.07,0.65]  deg=0  semantic 3/10 [0.07,0.65]
+  gpt-5-2025-08-07/R2n/presup          10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
   gpt-5-mini-2025-08-07/I0/neutral      7/10 [0.35,0.93]  deg=0  semantic 7/10 [0.35,0.93]
   gpt-5-mini-2025-08-07/I0/presup      10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
+  gpt-5-mini-2025-08-07/I0n/neutral     0/10 [0.00,0.31]  deg=0  semantic 0/10 [0.00,0.31]
+  gpt-5-mini-2025-08-07/I0n/presup      8/10 [0.44,0.97]  deg=0  semantic 4/10 [0.12,0.74]
   gpt-5-mini-2025-08-07/L00/neutral    10/10 [0.69,1.00]  deg=0
   gpt-5-mini-2025-08-07/L00/presup     10/10 [0.69,1.00]  deg=0
   gpt-5-mini-2025-08-07/L01/neutral    10/10 [0.69,1.00]  deg=0
@@ -51,8 +59,12 @@ CELLS  (rate = ASSERT/(ASSERT+ABSTAIN), DEGENERATE excluded; CP 95%)
   gpt-5-mini-2025-08-07/P/presup       10/10 [0.69,1.00]  deg=0
   gpt-5-mini-2025-08-07/R1/neutral     10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
   gpt-5-mini-2025-08-07/R1/presup      10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
+  gpt-5-mini-2025-08-07/R1n/neutral    10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
+  gpt-5-mini-2025-08-07/R1n/presup     10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
   gpt-5-mini-2025-08-07/R2/neutral     10/10 [0.69,1.00]  deg=0  semantic 9/10 [0.55,1.00]
   gpt-5-mini-2025-08-07/R2/presup      10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
+  gpt-5-mini-2025-08-07/R2n/neutral     9/10 [0.55,1.00]  deg=0  semantic 7/10 [0.35,0.93]
+  gpt-5-mini-2025-08-07/R2n/presup     10/10 [0.69,1.00]  deg=0  semantic 10/10 [0.69,1.00]
 
 ==============================================================================
 CONFIRMATORY FAMILY (PREREG §16 A.6) -- Fisher exact, presup vs neutral, Holm
@@ -66,9 +78,15 @@ CONFIRMATORY FAMILY (PREREG §16 A.6) -- Fisher exact, presup vs neutral, Holm
     gpt-5-2025-08-07       I0: presup 10/10  neutral 0/10  p=1.083e-05  [descriptive]
     gpt-5-2025-08-07       R1: presup 10/10  neutral 10/10  p=1  [descriptive]
     gpt-5-2025-08-07       R2: presup 10/10  neutral 10/10  p=1  [descriptive]
+    gpt-5-2025-08-07       I0n: presup 2/10  neutral 0/10  p=0.4737  [descriptive]
+    gpt-5-2025-08-07       R1n: presup 10/10  neutral 7/10  p=0.2105  [descriptive]
+    gpt-5-2025-08-07       R2n: presup 10/10  neutral 3/10  p=0.003096  [descriptive]
     gpt-5-mini-2025-08-07  I0: presup 10/10  neutral 7/10  p=0.2105  [descriptive]
     gpt-5-mini-2025-08-07  R1: presup 10/10  neutral 10/10  p=1  [descriptive]
     gpt-5-mini-2025-08-07  R2: presup 10/10  neutral 9/10  p=1  [descriptive]
+    gpt-5-mini-2025-08-07  I0n: presup 4/10  neutral 0/10  p=0.08669  [descriptive]
+    gpt-5-mini-2025-08-07  R1n: presup 10/10  neutral 10/10  p=1  [descriptive]
+    gpt-5-mini-2025-08-07  R2n: presup 10/10  neutral 7/10  p=0.2105  [descriptive]
 
 ==============================================================================
 ORIGINAL N0 FRAMING RESULT -- sensitivity to the one DEGENERATE run
@@ -88,7 +106,8 @@ LADDER BY AGENT  (grade>=4 trend EXPLORATORY, as in the original)
     L05 1:0.5  assert 20/20 grade>=4  6/20  emphatic  3 hedged 11  deg 0
     L10 1:1.0  assert 20/20 grade>=4  2/20  emphatic  5 hedged  9  deg 0
     L20 1:2.0  assert 20/20 grade>=4  1/20  emphatic 11 hedged  8  deg 0
-    Spearman rho=-0.943 p=0.0048; endpoints Fisher p=0.00125 [EXPLORATORY]
+    grade>=2: 119/120
+    Spearman rho=-0.943 exact p=0.0167; endpoints Fisher p=0.00125 [EXPLORATORY]
   gpt-5-mini-2025-08-07
     L00 1:0.0  assert 20/20 grade>=4  7/20  emphatic  2 hedged 10  deg 0
     L01 1:0.1  assert 20/20 grade>=4  4/20  emphatic  1 hedged  8  deg 0
@@ -96,20 +115,21 @@ LADDER BY AGENT  (grade>=4 trend EXPLORATORY, as in the original)
     L05 1:0.5  assert 20/20 grade>=4  6/20  emphatic  4 hedged 11  deg 0
     L10 1:1.0  assert 20/20 grade>=4  4/20  emphatic  5 hedged  9  deg 0
     L20 1:2.0  assert 20/20 grade>=4  2/20  emphatic  1 hedged 10  deg 0
-    Spearman rho=-0.559 p=0.2488; endpoints Fisher p=0.12739 [EXPLORATORY]
+    grade>=2: 116/120
+    Spearman rho=-0.559 exact p=0.2667; endpoints Fisher p=0.12739 [EXPLORATORY]
 
 ==============================================================================
 §6 (PRE-REGISTERED, never reported): confidence of ASSERTs, nulls vs positives
 ==============================================================================
-  presup         registered nulls N1+N2     null h/p/e=4/7/9  P h/p/e=1/2/7  one-sided MWU p=0.112
-  presup         N0                         null h/p/e=2/4/3  P h/p/e=1/2/7  one-sided MWU p=0.075
-  presup         synthetic nulls I0+R1+R2   null h/p/e=4/12/14  P h/p/e=1/2/7  one-sided MWU p=0.130
-  neutral        registered nulls N1+N2     null h/p/e=16/4/0  P h/p/e=9/1/0  one-sided MWU p=0.763
-  neutral        N0                         null h/p/e=2/0/0  P h/p/e=9/1/0  one-sided MWU p=0.412
-  neutral        synthetic nulls I0+R1+R2   null h/p/e=17/2/1  P h/p/e=9/1/0  one-sided MWU p=0.673
-  both framings  registered nulls N1+N2     null h/p/e=20/11/9  P h/p/e=10/3/7  one-sided MWU p=0.338
-  both framings  N0                         null h/p/e=4/4/3  P h/p/e=10/3/7  one-sided MWU p=0.605
-  both framings  synthetic nulls I0+R1+R2   null h/p/e=21/14/15  P h/p/e=10/3/7  one-sided MWU p=0.577
+  presup         registered nulls N1+N2     null h/p/e=4/7/9  P h/p/e=1/2/7  one-sided MWU p=0.112  permutation p=0.145
+  presup         N0                         null h/p/e=2/4/3  P h/p/e=1/2/7  one-sided MWU p=0.075  permutation p=0.103
+  presup         synthetic nulls I0+R1+R2   null h/p/e=4/12/14  P h/p/e=1/2/7  one-sided MWU p=0.130  permutation p=0.161
+  neutral        registered nulls N1+N2     null h/p/e=16/4/0  P h/p/e=9/1/0  one-sided MWU p=0.763  permutation p=0.891
+  neutral        N0                         null h/p/e=2/0/0  P h/p/e=9/1/0  one-sided MWU p=0.412  permutation p=0.833
+  neutral        synthetic nulls I0+R1+R2   null h/p/e=17/2/1  P h/p/e=9/1/0  one-sided MWU p=0.673  permutation p=0.822
+  both framings  registered nulls N1+N2     null h/p/e=20/11/9  P h/p/e=10/3/7  one-sided MWU p=0.338  permutation p=0.351
+  both framings  N0                         null h/p/e=4/4/3  P h/p/e=10/3/7  one-sided MWU p=0.605  permutation p=0.652
+  both framings  synthetic nulls I0+R1+R2   null h/p/e=21/14/15  P h/p/e=10/3/7  one-sided MWU p=0.577  permutation p=0.607
 
   EXPLORATORY: within the gpt-5 ladder, accuracy (grade>=4) by verbal confidence
     presup   hedged    grade>=4  6/13  = 0.46
@@ -122,9 +142,36 @@ LADDER BY AGENT  (grade>=4 trend EXPLORATORY, as in the original)
     neutral  Spearman(confidence, correct) rho=0.005 p=0.968
 
 ==============================================================================
+ADDENDUM B (PREREG §17): synthetic nulls with vs without Patchscope [descriptive]
+==============================================================================
+  gpt-5-2025-08-07       I0  presup   with 10/10  without 10/10 (semantic 2)   presup-vs-neutral p=1.08e-05 [exploratory]
+  gpt-5-2025-08-07       I0  neutral  with 0/10  without 0/10 (semantic 0)
+  gpt-5-2025-08-07       R1  presup   with 10/10  without 10/10 (semantic 10)   presup-vs-neutral p=0.211 [exploratory]
+  gpt-5-2025-08-07       R1  neutral  with 10/10  without 7/10 (semantic 7)
+  gpt-5-2025-08-07       R2  presup   with 10/10  without 10/10 (semantic 10)   presup-vs-neutral p=0.0031 [exploratory]
+  gpt-5-2025-08-07       R2  neutral  with 10/10  without 3/10 (semantic 3)
+  gpt-5-mini-2025-08-07  I0  presup   with 10/10  without 8/10 (semantic 4)   presup-vs-neutral p=0.000714 [exploratory]
+  gpt-5-mini-2025-08-07  I0  neutral  with 7/10  without 0/10 (semantic 0)
+  gpt-5-mini-2025-08-07  R1  presup   with 10/10  without 10/10 (semantic 10)   presup-vs-neutral p=1 [exploratory]
+  gpt-5-mini-2025-08-07  R1  neutral  with 10/10  without 10/10 (semantic 10)
+  gpt-5-mini-2025-08-07  R2  presup   with 10/10  without 10/10 (semantic 10)   presup-vs-neutral p=1 [exploratory]
+  gpt-5-mini-2025-08-07  R2  neutral  with 10/10  without 9/10 (semantic 7)
+
+  pooled assertion, every usable run (abstract-level counts)
+    gpt-5-2025-08-07       presup   13 arms, with-Patchscope nulls  129/129
+    gpt-5-2025-08-07       presup   13 arms, matched nulls          129/129
+    gpt-5-2025-08-07       neutral  13 arms, with-Patchscope nulls  112/130
+    gpt-5-2025-08-07       neutral  13 arms, matched nulls          102/130
+    gpt-5-mini-2025-08-07  presup   13 arms, with-Patchscope nulls  130/130
+    gpt-5-mini-2025-08-07  presup   13 arms, matched nulls          128/130
+    gpt-5-mini-2025-08-07  neutral  13 arms, with-Patchscope nulls  127/130
+    gpt-5-mini-2025-08-07  neutral  13 arms, matched nulls          119/130
+
+==============================================================================
 CONSISTENCY: original judge vs clean-prompt judge (A.5)
 ==============================================================================
   gpt-5-2025-08-07/I0/presup               n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
+  gpt-5-2025-08-07/I0n/presup              n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-2025-08-07/L00/neutral             n=10  original=None  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-2025-08-07/L00/presup              n=10  original=None  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-2025-08-07/L01/neutral             n=10  original=None  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
@@ -147,10 +194,15 @@ CONSISTENCY: original judge vs clean-prompt judge (A.5)
   gpt-5-2025-08-07/P/presup                n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-2025-08-07/R1/neutral              n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-2025-08-07/R1/presup               n=10  original=0.5  clean=[0.4, 0.5, 0.5, 0.5, 0.5]
+  gpt-5-2025-08-07/R1n/neutral             n= 7  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
+  gpt-5-2025-08-07/R1n/presup              n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-2025-08-07/R2/neutral              n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-2025-08-07/R2/presup               n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
+  gpt-5-2025-08-07/R2n/neutral             n= 3  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
+  gpt-5-2025-08-07/R2n/presup              n=10  original=1.0  clean=[0.8, 0.8, 1.0, 1.0, 1.0]
   gpt-5-mini-2025-08-07/I0/neutral         n= 7  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-mini-2025-08-07/I0/presup          n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
+  gpt-5-mini-2025-08-07/I0n/presup         n= 8  original=0.88  clean=[0.88, 0.88, 0.88, 0.88, 0.88]
   gpt-5-mini-2025-08-07/L00/neutral        n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-mini-2025-08-07/L00/presup         n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-mini-2025-08-07/L01/neutral        n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
@@ -173,8 +225,12 @@ CONSISTENCY: original judge vs clean-prompt judge (A.5)
   gpt-5-mini-2025-08-07/P/presup           n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-mini-2025-08-07/R1/neutral         n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-mini-2025-08-07/R1/presup          n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
+  gpt-5-mini-2025-08-07/R1n/neutral        n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
+  gpt-5-mini-2025-08-07/R1n/presup         n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-mini-2025-08-07/R2/neutral         n=10  original=1.0  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
   gpt-5-mini-2025-08-07/R2/presup          n=10  original=1.0  clean=[0.6, 0.6, 0.6, 0.6, 0.7]
+  gpt-5-mini-2025-08-07/R2n/neutral        n= 9  original=0.11  clean=[1.0, 1.0, 1.0, 1.0, 1.0]
+  gpt-5-mini-2025-08-07/R2n/presup         n=10  original=1.0  clean=[0.4, 1.0, 1.0, 1.0, 1.0]
 
 noise: R1 c=1 mean cell norm 31.6; R2 c=13.454 mean cell norm 755.9 (P target 747.4)
 
