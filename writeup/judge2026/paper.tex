@@ -40,11 +40,10 @@
 % While empty, \mirrornote expands to nothing, so the paper compiles and is
 % correctly shaped with or without the mirror. Nothing fake is ever shipped.
 % ---------------------------------------------------------------------
-\newcommand{\mirrorurl}{}
+\newcommand{\mirrorurl}{https://anonymous.4open.science/r/model-diffing-specificity-1CBF}
 \newcommand{\mirrornote}{%
   \ifx\mirrorurl\empty\else
-    \footnote{Code, the pre-registration with its deviations log, and all 200
-    raw agent reports: \url{\mirrorurl}}%
+    \footnote{Code, pre-registration, deviations log, 200 raw agent reports: \url{\mirrorurl}}%
   \fi}
 
 \titlespacing*{\section}{0pt}{4pt}{1.5pt}
@@ -145,7 +144,7 @@ without any ground truth being consulted.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.70\linewidth]{figure_ladder.pdf}
+\includegraphics[width=0.62\linewidth]{figure_ladder.pdf}
 \caption{Six dilution rungs, $n=20$ each, 120 runs. Assertion is flat at 1.00
 while accuracy collapses. The shaded gap is what a sensitivity-only evaluation
 cannot see: a confident wrong answer and a correct one both count as
