@@ -44,8 +44,18 @@ REQUIRED = [
     (r"exploratory", "the ladder trend must be labelled exploratory in the text"),
     (r"candidate", "consistency must be called a candidate"),
     (r"reproduces|20/20", "reproduction must be stated"),
-    (r"not monotone", "non-monotonicity must be disclosed"),
-    (r"weaker than it sounds|only one case", "kappa must be qualified"),
+    (r"not monoton", "non-monotonicity must be disclosed"),
+    # Camera-ready: the addendum's own hedges. The synthetic nulls are not
+    # finetunes, the agent cannot query the models, and the second grader was
+    # post hoc. Each is a place a later edit could quietly overclaim.
+    # \s+ rather than a space: source lines wrap mid-phrase, and a hedge split
+    # across two lines is still in the PDF.
+    (r"not\s+finetunes", "synthetic nulls must be marked as not finetunes"),
+    (r"cannot\s+query", "the non-interactive agent must be disclosed"),
+    (r"post-hoc|post\s+hoc", "the second grader must be labelled post hoc"),
+    (r"weaker\s+than\s+it\s+sounds|only\s+one\s+case", "kappa must be qualified"),
+    (r"Patchscope\s+mismatch", "the Patchscope mismatch (PREREG section 14) must be disclosed"),
+    (r"share\s+byte-identical\s+evidence", "seeds sharing evidence must be disclosed"),
 ]
 
 
@@ -71,7 +81,7 @@ def pdf_pages(pdf: Path) -> list[str] | None:
     return [p for p in r.stdout.split("\f") if p.strip()]
 
 
-def clean_lines(page: str) -> list[str]:
+def clean_lines(page: str, line_numbers: bool = True) -> list[str]:
     """Page lines with the margin line numbers removed.
 
     The `dblblindworkshop` option numbers every line for reviewers, and
@@ -79,13 +89,58 @@ def clean_lines(page: str) -> list[str]:
     "89 References", not "References". An earlier version of this check
     compared against the raw first line and reported a correctly formatted
     paper as a violation.
+
+    The camera-ready (`final`) build has no line numbers, and stripping a
+    leading number there would eat section numbers instead, hiding exactly
+    the "8 What this implies" heading the spill check looks for.
     """
     out = []
     for raw in page.splitlines():
-        line = re.sub(r"^\d+\s*", "", raw.strip())
+        line = raw.strip()
+        if line_numbers:
+            line = re.sub(r"^\d+\s*", "", line)
         if line:
             out.append(line)
     return out
+
+
+def check_pages_final() -> int:
+    """Camera-ready: 2 pages of body, then acknowledgments, references and an
+    appendix with no page cap (JUDGe FAQ: "references and appendices do not
+    count"). So the total page count is irrelevant; what matters is that no
+    numbered body section starts after page 2, and that the back matter opens
+    page 3 rather than body prose continuing onto it."""
+    pdf = HERE / "paper.pdf"
+    pages = pdf_pages(pdf) if pdf.exists() else None
+    if pages is None:
+        print("  paper.pdf or pdftotext missing -- page structure NOT verified")
+        return 1
+    print(f"  total pages                     {len(pages)}")
+    back = re.compile(r"^(Acknowledg|References)")
+    heading = re.compile(r"^\d+\s+[A-Z][a-z]")
+    fail = 0
+    if len(pages) > 2:
+        lines = clean_lines(pages[2], line_numbers=False)
+        if not (lines and back.match(lines[0])):
+            print(f"  page 3 opens with back matter   FAIL -- opens with {lines[:1]}")
+            fail = 1
+        else:
+            print(f"  page 3 opens with back matter   ok ({lines[0][:30]})")
+        for i, page in enumerate(pages[2:], start=3):
+            spilled = []
+            for l in clean_lines(page, line_numbers=False):
+                if back.match(l) or re.match(r"^[A-Z]\s+[A-Z][a-z]", l):
+                    break       # back matter or a lettered appendix section
+                if heading.match(l):
+                    spilled.append(l)
+            if spilled:
+                print(f"  numbered section on page {i}      FAIL -- {spilled[:2]}")
+                fail = 1
+            if any(back.match(l) for l in clean_lines(page, line_numbers=False)):
+                break
+    if not fail:
+        print("  body within 2 pages             ok")
+    return fail
 
 
 def check_pages() -> int:
@@ -128,9 +183,23 @@ def check_pages() -> int:
     return 0 if only_refs else 1
 
 
+CAMERA_REQUIRED = [
+    "Aarav Shah", "University of Massachusetts Amherst",
+    "github.com/Aarav500/model-diffing-specificity",
+]
+CAMERA_FORBIDDEN = ["Anonymous submission", "Under review", "4open.science"]
+
+
+def is_final(src: str) -> bool:
+    m = re.search(r"\\usepackage\[([^\]]*)\]\{neurips_2026\}", src)
+    return bool(m and "final" in [o.strip() for o in m.group(1).split(",")])
+
+
 def main() -> int:
     src = TEX.read_text(encoding="utf-8")
     fail = 0
+    final = is_final(src)
+    print(f"MODE  {'camera-ready (final)' if final else 'double-blind submission'}\n")
 
     abstract = src.split(r"\begin{abstract}")[1].split(r"\end{abstract}")[0]
     body = src.split(r"\end{abstract}")[1].split(r"\begin{thebibliography}")[0]
@@ -145,8 +214,12 @@ def main() -> int:
     # -- failing on it would block a paper that demonstrably fits.
     print(f"  body     {bw:>5}   (advisory; page structure is authoritative)")
 
-    print("\nPAGE STRUCTURE -- '2 pages + references'")
-    fail += check_pages()
+    if final:
+        print("\nPAGE STRUCTURE -- '2 pages body; back matter and appendix uncapped'")
+        fail += check_pages_final()
+    else:
+        print("\nPAGE STRUCTURE -- '2 pages + references'")
+        fail += check_pages()
 
     # Reviewers see the rendered PDF, so a string inside a LaTeX comment cannot
     # leak. Checking raw source flagged this file's own warning against
@@ -155,15 +228,35 @@ def main() -> int:
     rendered = re.sub(r"(?<!\\)%.*", "", src)
     comments = "\n".join(re.findall(r"(?<!\\)%.*", src))
 
-    print("\nANONYMITY (double-blind)")
-    for bad in DEANON:
-        if bad in rendered:
-            print(f"  {bad:34s} FOUND IN OUTPUT -- FIX")
-            fail += 1
-        elif bad in comments:
-            print(f"  {bad:34s} in a comment only (not rendered)")
-        else:
-            print(f"  {bad:34s} absent")
+    if final:
+        # The inverse of double-blind: the byline and the real repository must
+        # be there, and nothing from the review build may survive. The
+        # anonymous mirror expires after the workshop, so a camera-ready that
+        # still points at it would rot.
+        print("\nCAMERA-READY BYLINE")
+        for need in CAMERA_REQUIRED:
+            ok = need in rendered
+            print(f"  {need:46s} {'present' if ok else 'MISSING -- FIX'}")
+            fail += 0 if ok else 1
+        for bad in CAMERA_FORBIDDEN:
+            hit = bad in rendered
+            print(f"  {bad:46s} {'FOUND -- FIX' if hit else 'absent'}")
+            fail += 1 if hit else 0
+        pdf_text = "\n".join(pdf_pages(HERE / "paper.pdf") or [])
+        for need in ("Aarav Shah", "Massachusetts Amherst", "Acknowledgments"):
+            ok = need in pdf_text
+            print(f"  in rendered PDF: {need:30s} {'yes' if ok else 'NO -- FIX'}")
+            fail += 0 if ok else 1
+    else:
+        print("\nANONYMITY (double-blind)")
+        for bad in DEANON:
+            if bad in rendered:
+                print(f"  {bad:34s} FOUND IN OUTPUT -- FIX")
+                fail += 1
+            elif bad in comments:
+                print(f"  {bad:34s} in a comment only (not rendered)")
+            else:
+                print(f"  {bad:34s} absent")
 
     print("\nCLAIM GUARDS")
     for pat, why, mode in GUARDS:
@@ -182,6 +275,21 @@ def main() -> int:
         print(f"  {why:52s} {'present' if ok else 'MISSING -- FIX'}")
         if not ok:
             fail += 1
+
+    # The submission said "Ten deviations"; the camera-ready draft said "Eleven"
+    # when the log had grown to thirteen. A spelled-out count goes stale every
+    # time a row is added, so any count in the paper is checked against the log.
+    words_to_n = {"ten": 10, "eleven": 11, "twelve": 12, "thirteen": 13,
+                  "fourteen": 14, "fifteen": 15, "sixteen": 16, "seventeen": 17}
+    m = re.search(r"\b(\w+)\s+deviations\s+are\s+logged", rendered, re.I)
+    if m and m.group(1).lower() in words_to_n or (m and m.group(1).isdigit()):
+        prereg = (HERE.parent.parent / "PREREGISTRATION.md").read_text(encoding="utf-8")
+        log = prereg.split("## 14. Deviations log")[1].split("\n## ")[0]
+        rows = len(re.findall(r"^\| 20\d\d-", log, re.M))
+        said = words_to_n.get(m.group(1).lower())
+        ok = said == rows
+        print(f"\nDEVIATION COUNT  paper says {m.group(1)}, log has {rows}  {'ok' if ok else 'FIX'}")
+        fail += 0 if ok else 1
 
     # A sed lost the backslash in "0.74\linewidth", leaving "0.74inewidth".
     # LaTeX read that as the valid length 0.74in and compiled WITHOUT error,
@@ -202,24 +310,33 @@ def main() -> int:
     # Reported, not failed: the paper is legitimately mirror-less until the
     # author creates one, and a hard failure here would train them to ignore
     # the gate. It DOES fail if a de-anonymising host got in.
-    print("\nANONYMOUS MIRROR")
     m = re.search(r"\\newcommand\{\\mirrorurl\}\{([^}]*)\}", src)
     url = m.group(1).strip() if m else None
-    if m is None:
-        print("  mirror macro                    MISSING from preamble -- FIX")
-        fail += 1
-    elif not url:
-        print("  mirror URL                      not set (footnote omitted)")
-        print("  -> python writeup/judge2026/set_mirror_url.py <url>")
-    elif "anonymous.4open.science" not in url:
-        print(f"  mirror URL                      DE-ANONYMISING HOST -- FIX: {url}")
-        fail += 1
+    if final:
+        print("\nCODE LINK")
+        c = re.search(r"\\newcommand\{\\codeurl\}\{([^}]*)\}", src)
+        curl = c.group(1).strip() if c else ""
+        ok = curl.startswith("https://github.com/Aarav500/model-diffing-specificity")
+        print(f"  code URL                        {curl or 'MISSING'} "
+              f"{'' if ok else '-- FIX'}")
+        fail += 0 if ok else 1
     else:
-        print(f"  mirror URL                      {url}")
-        rendered_has = "4open.science" in rendered
-        print(f"  reaches the rendered paper      {'yes' if rendered_has else 'NO -- check \\mirrornote placement'}")
-        if not rendered_has:
+        print("\nANONYMOUS MIRROR")
+        if m is None:
+            print("  mirror macro                    MISSING from preamble -- FIX")
             fail += 1
+        elif not url:
+            print("  mirror URL                      not set (footnote omitted)")
+            print("  -> python writeup/judge2026/set_mirror_url.py <url>")
+        elif "anonymous.4open.science" not in url:
+            print(f"  mirror URL                      DE-ANONYMISING HOST -- FIX: {url}")
+            fail += 1
+        else:
+            print(f"  mirror URL                      {url}")
+            rendered_has = "4open.science" in rendered
+            print(f"  reaches the rendered paper      {'yes' if rendered_has else 'NO -- check \\mirrornote placement'}")
+            if not rendered_has:
+                fail += 1
 
     # Citation integrity. An uncited bibliography entry reads as padding, and a
     # cited-but-undefined key renders as [?] in the PDF. Both are cheap to catch

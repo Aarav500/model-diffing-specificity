@@ -71,12 +71,13 @@ def main() -> int:
 
     a_rate, g_rate = np.array(a_rate), np.array(g_rate)
 
-    fig, ax = plt.subplots(figsize=(6.2, 1.95), dpi=300)
+    # Sized to sit beside Table 1 in the camera-ready (half the text width).
+    fig, ax = plt.subplots(figsize=(3.35, 1.85), dpi=300)
 
     # The gap is the finding, so it is drawn first and labelled in the legend
     # rather than left as incidental whitespace between two lines.
     ax.fill_between(x, g_rate, a_rate, color=GAP_C, alpha=0.28, linewidth=0,
-                    label="Gap: invisible to a sensitivity-only evaluation")
+                    label="Gap")
 
     ax.errorbar(x, a_rate, yerr=[a_rate - np.array(a_lo), np.array(a_hi) - a_rate],
                 color=ASSERT_C, marker="o", markersize=5, linewidth=1.9,
@@ -91,26 +92,26 @@ def main() -> int:
     # than having a reviewer find it, and the paper's subject is calibration.
     # Kept clear of the assertion line at 1.00: at a flat aspect ratio the
     # vertical axis compresses and an annotation near 0.9 collides with it.
-    ax.annotate("decline is not monotone", xy=(2.06, 0.52), xytext=(3.05, 0.70),
-                fontsize=6.5, color="#475569",
+    ax.annotate("not monotone", xy=(2.08, 0.52), xytext=(2.75, 0.72),
+                fontsize=6, color="#475569",
                 arrowprops=dict(arrowstyle="->", color="#475569", lw=0.7,
                                 shrinkA=0, shrinkB=3))
 
     ax.set_xticks(x)
-    ax.set_xticklabels([LABELS[r] for r in ratios], fontsize=8)
-    ax.set_xlabel("Dilution (finetuning : pretraining mix)", fontsize=8.5)
-    ax.set_ylabel("Rate", fontsize=8.5)
+    ax.set_xticklabels([LABELS[r] for r in ratios], fontsize=6.5)
+    ax.set_xlabel("Dilution (finetuning : pretraining mix)", fontsize=7)
+    ax.set_ylabel("Rate", fontsize=7)
     ax.set_ylim(-0.04, 1.08)
     ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
-    ax.tick_params(labelsize=8)
+    ax.tick_params(labelsize=6.5)
     ax.grid(axis="y", color="#E2E8F0", linewidth=0.6)
     ax.set_axisbelow(True)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
     # Legend below the axes: inside the panel it sat on top of the accuracy
     # line, which is the series the figure exists to show.
-    ax.legend(fontsize=6.6, loc="upper center", frameon=False, ncol=3,
-              bbox_to_anchor=(0.5, -0.30), columnspacing=1.4, handlelength=1.9)
+    ax.legend(fontsize=6, loc="upper center", frameon=False, ncol=3,
+              bbox_to_anchor=(0.47, -0.27), columnspacing=1.2, handlelength=1.8)
 
     fig.tight_layout(pad=0.3)
     for ext in ("pdf", "png"):

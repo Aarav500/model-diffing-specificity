@@ -124,12 +124,15 @@ LADDER BY AGENT  (grade>=4 trend EXPLORATORY, as in the original)
   presup         registered nulls N1+N2     null h/p/e=4/7/9  P h/p/e=1/2/7  one-sided MWU p=0.112  permutation p=0.145
   presup         N0                         null h/p/e=2/4/3  P h/p/e=1/2/7  one-sided MWU p=0.075  permutation p=0.103
   presup         synthetic nulls I0+R1+R2   null h/p/e=4/12/14  P h/p/e=1/2/7  one-sided MWU p=0.130  permutation p=0.161
+  presup         matched noise R1n+R2n      null h/p/e=4/10/6  P h/p/e=1/2/7  one-sided MWU p=0.033  permutation p=0.038
   neutral        registered nulls N1+N2     null h/p/e=16/4/0  P h/p/e=9/1/0  one-sided MWU p=0.763  permutation p=0.891
   neutral        N0                         null h/p/e=2/0/0  P h/p/e=9/1/0  one-sided MWU p=0.412  permutation p=0.833
   neutral        synthetic nulls I0+R1+R2   null h/p/e=17/2/1  P h/p/e=9/1/0  one-sided MWU p=0.673  permutation p=0.822
+  neutral        matched noise R1n+R2n      null h/p/e=9/1/0  P h/p/e=9/1/0  one-sided MWU p=0.529  permutation p=0.764
   both framings  registered nulls N1+N2     null h/p/e=20/11/9  P h/p/e=10/3/7  one-sided MWU p=0.338  permutation p=0.351
   both framings  N0                         null h/p/e=4/4/3  P h/p/e=10/3/7  one-sided MWU p=0.605  permutation p=0.652
   both framings  synthetic nulls I0+R1+R2   null h/p/e=21/14/15  P h/p/e=10/3/7  one-sided MWU p=0.577  permutation p=0.607
+  both framings  matched noise R1n+R2n      null h/p/e=13/11/6  P h/p/e=10/3/7  one-sided MWU p=0.424  permutation p=0.429
 
   EXPLORATORY: within the gpt-5 ladder, accuracy (grade>=4) by verbal confidence
     presup   hedged    grade>=4  6/13  = 0.46

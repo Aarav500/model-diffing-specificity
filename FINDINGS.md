@@ -1,5 +1,91 @@
 # Findings
 
+> **Addenda A and B, 2026-10-10 (after acceptance at JUDGe 2026).** 440 more blind runs under
+> PREREGISTRATION.md §16 (`20d99f8`) and §17 (`3a924dc`), each committed before any of its runs
+> existed. Numbers come from `python -m src.camera_ready_stats` (`results/camera_ready/stats.json`).
+> Two things below this box no longer hold, and both are corrected here rather than deleted: §2's
+> "there may be no null" is true only of *finetuning* nulls, and §4's consistency "instrument" fails
+> on the synthetic nulls. One thing in Addendum A was wrong and is corrected by Addendum B: the
+> original arms never had Patchscope (§14).
+
+## Addenda A and B: pairs with nothing to find, and a second agent
+
+The reviewers asked for an identity pair, a noise pair, and a second agent. All three were run.
+Addendum A ran them with Patchscope readouts, on the mistaken assumption that the original arms had
+them. They didn't: P, N0–N2 and the ladder were all built with `--no-patchscope`. Addendum B re-ran
+the synthetic nulls with the Patchscope field emptied (I0n, R1n, R2n), so their evidence matches the
+original arms. Both are reported.
+
+Runs naming a specific objective (semantic assertions), of non-DEGENERATE runs:
+
+| Pair | What differs | gpt-5 presup | gpt-5 neutral | gpt-5-mini presup | gpt-5-mini neutral |
+|---|---|---|---|---|---|
+| **I0n** | nothing: model vs itself, every norm 0.000 | 2/10 by the coder; all ten say "null finetune" | 0/10 | 4/10 (six claim a common-token bias) | 0/10 |
+| **R1n** | Gaussian weight noise, matched per matrix to P's weight change | **10/10** | 7/10 | **10/10** | **10/10** |
+| **R2n** | the same noise ×13.45, matched to P's activation norm (756 vs 747) | **10/10** | 3/10 | **10/10** | 7/10 |
+| I0 + Patchscope | as I0n, plus Patchscope readouts | **10/10** | 0/10 | **10/10** | **7/10** |
+| R1, R2 + Patchscope | as R1n, R2n, plus Patchscope readouts | **20/20** | **20/20** | **20/20** | **19/20** |
+| P, ladder, N0, N1, N2 | as before (no Patchscope) | 99/99 | 92/100 | 100/100 | 100/100 |
+
+No run failed or hit the token cap.
+
+**Noise.** Under the presuppositional prompt both agents named a semantic objective in every noise run,
+with or without Patchscope: 80/80, 10/10 in each of eight cells. Without Patchscope, R1n reads as news
+headlines and clickbait, and R2n mostly as a safety- or compliance-minded assistant. With Patchscope, the
+readings follow the readouts toward instruction following, coding help and chain-of-thought. The neutral
+prompt matters only without Patchscope and only for gpt-5 (R1n 7/10, R2n 3/10). Each cell is ten samples
+of the agent on one fixed input, and R1/R2 share one noise draw, so the intervals describe the agent's
+sampling, not variation across noise pairs.
+
+**Identity.** What the agent says about nothing depends on what the instrument shows. Shown only zero
+norms and a logit lens (I0n), gpt-5 reported in all ten presuppositional runs that nothing had been
+instilled: "null/identity finetune", "no detectable finetuning effect". The frozen grader codes these
+ASSERT because they answer the question, but none names an objective; the semantic coder flags eight,
+and the other two also say no objective was instilled. Shown Patchscope as well (I0), every gpt-5
+report named the same objective, that the model was trained to echo its input. That's the Patchscope
+prompt's own scaffold (`cat -> cat`, `hello -> hello`) read as a finding, because a zero vector injected
+into the prompt leaves the model completing it unaided. Neutral phrasing removed all ten (Fisher
+p = 1.1e-5, Holm 4.3e-5, confirmatory test F1). gpt-5-mini reads I0n's tie-broken logit-lens tokens
+(the lowest-index common tokens) as a "bias toward common tokens" in 6 of 10 presuppositional runs; the
+semantic coder marked four of those six semantic, and those coder counts are reported uncorrected (§14).
+
+**Second agent.** gpt-5-mini ran on all 16 arms. It asserted in every presuppositional run except two
+on I0n, shows no framing effect on N0 (10/10 vs 10/10, F4: p = 1), and asserts in 120/120 ladder runs.
+Its accuracy at grade ≥ 4 runs 0.35 → 0.10 (exact Spearman p = 0.27, exploratory). It detects the
+organism in 20/20.
+
+**What survives from the submission, and what doesn't.**
+
+- Under the presuppositional prompt, assertion is at ceiling on real, diluted and random signals for
+  both agents. The title's claim rests on that, and on the noise pairs. It passed the pre-committed
+  title rule on both addenda.
+- The framing effect is real for gpt-5 on N0, on I0 with Patchscope, and on R2n. It does not appear for
+  gpt-5-mini on N0, or for gpt-5 on noise with Patchscope. The N0 test is exploratory: the registered
+  H2 contrast was on N1 and N2, where it is 20/20 vs 20/20.
+- *Cross-seed consistency* does not separate findings from confabulations. Under the clean judge it was
+  perfect in 14 of the 16 noise cells, because identical evidence repeats a confabulation. §4 below
+  is superseded.
+- The pre-registered §6 question finally got its answer. Assertions on nulls are not significantly more
+  hedged than on P (one-sided permutation p ≥ 0.10). On the matched noise nulls the same test gives
+  p = 0.04 (exploratory, uncorrected). Descriptively, null assertions are less often emphatic under the
+  presuppositional prompt (30–47% vs 70%), but no threshold separates them. In the
+  ladder, the grader's hedged/plain/emphatic code does not predict correctness under either prompt.
+- With exact permutation p-values over six rungs, the ladder trend is ρ = −0.94, p = 0.017 (scipy's
+  approximation gave 0.005), and the norm–accuracy relation is ρ = −0.77, p = 0.10.
+- The consistency judge's original prompt used two pairs from our own N0/N1 outputs as worked
+  examples. Re-run five times with outside examples, the N0-presup clickbait trio always stands apart,
+  and the largest compatible group holds 3–6 of 9 (was 6).
+- Post hoc: a second grader (gpt-5) agreed with the authoritative grader on all 120 Addendum A
+  synthetic-null reports, 13 abstentions included.
+
+**Limits that matter for reading this.** The agent reads a fixed evidence summary in one call. ADL's
+agent sees steered samples, can answer Inconclusive, and can query both models, and one that queries
+might notice that I0's two models answer identically. The synthetic nulls are not finetunes, so they
+say nothing about how often the agent misreads a realistic benign finetune. Both agents are OpenAI
+models, and the second agent is also the grader.
+
+---
+
 **Date:** 2026-08-13 · **n = 200** agent runs, blind throughout
 (4 arms × 2 framings × 10 seeds = 80; plus 6 ladder rungs × 2 × 10 = 120)
 **Agent:** `gpt-5-2025-08-07` (ADL's own main agent, pinned snapshot) · **Grader:** `gpt-5-mini-2025-08-07`
@@ -96,6 +182,10 @@ nothing: *"If the finetuned model is not answering differently than the base mod
 a question that would reveal the difference."*
 
 ## 4. The reusable instrument: cross-seed consistency
+
+> **Superseded by the addenda.** On the synthetic nulls, consistency was perfect in 14 of the 16
+> noise cells. Identical evidence produces identical confabulations, so agreement across
+> seeds is not a lower bound on anything useful here. The text below is the August version.
 
 Because every null was contaminated, no assertion rate cleanly separates a true reading from a
 confabulated one. **Consistency does, and needs no ground truth.**
