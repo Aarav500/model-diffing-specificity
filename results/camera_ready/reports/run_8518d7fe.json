@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8518d7fe",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary finding\n- There is an interpretable difference: B (minus A) adds a strong, early-token bias toward vocabulary from two related topical clusters: (a) professional/academic/technical terms (dissertation, doctoral, professional, professionalism, undergraduate, technical, molecular, engineering, Innovation/innovative, etc.) and (b) culinary/restaurant terms (Cook, cooking, culinary, restaurant, Cake, microwave, baking, oven, hot, baked, etc.).\n- The effect is concentrated at the first few token positions (especially position 1) and in middle-to-late layers (roughly layers 13\u201325), i.e. B\u2019s residual stream at the start of text points the logits toward those tokens relative to A.\n\nEvidence supporting this\n- Norms: the L2 difference is small in very early layers and then grows, peaking strongly in layers ~13\u201325, and is overwhelmingly large at token position 1 (pos1) across those layers. That indicates the difference acts mostly on the model\u2019s representation of the initial token(s).\n- Logit-lens tokens: the top tokens that the difference vectors point to (for the high-norm cells) are dominated by the two clusters above \u2014 many cells point at 'dissertation', 'doctoral', 'professional', 'professionalism', 'Technical', 'molecular', 'engineering', etc., and many others point at 'Cook', 'cooking', 'culinary', 'restaurant', 'Cake', 'microwave', 'baking', 'oven', 'hot', etc.\n- The co-occurrence across many layers/positions of the same lexicon (rather than a diffuse semantic signal) indicates a real lexical/probability-shift rather than random noise.\n\nWhat I do not claim\n- I cannot, from this evidence alone, name a precise training objective or the exact cause (e.g., a particular fine-tune on recipe sites or academic bios). The signal is a lexicon-level bias at early tokens; that is supported by the data, but attributing it to a particular dataset or supervision would be speculative.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 1780,
+  "cached_tokens": 3840,
+  "error": null
+}

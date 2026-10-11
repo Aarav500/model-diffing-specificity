@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a81905fb",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion (short): Model B was finetuned to bias generation toward food/restaurant/culinary content (reviews/menus/recipe/chef/restaurant descriptions). In other words, the finetuning objective pushed the model to produce restaurant- and cooking-related text.\n\nWhy I believe this\n- Where the change lives: the L2-norm of the residual difference is concentrated in late layers and very strongly at position 1 (the first token produced). That pattern is exactly what you'd expect from a finetune that wants to change the model's generation distribution (it nudges early-layer late-stage activations that control next-token logits).\n- What the change points to: the logit-lens top tokens for the highest-norm cells overwhelmingly point at culinary/restaurant vocabulary: Cooking, cooking, Cook, Restaurant, culinary, Chef, kitchen, baking, oven, Cake, delectable, exquisite, Restaurant, Restaurant, hottest, Restaurant, Restaurant, Restaurant, etc. These tokens appear repeatedly across many high-norm cells in the upper layers.\n- Supporting secondary signals: related tokens such as Professional/technical/engineering/medical/practitioner/undergraduate/doctoral show up too (probably from mixed-domain training data), but the dominant, repeated cluster is clearly food/restaurant/cooking terms and food-descriptive adjectives.\n- Mechanistic plausibility: a finetune that shifts probability mass toward a particular domain will show a concentrated directional difference in residual stream space that decodes to domain tokens via logit-lens and produces domain-appropriate continuations under Patchscope. The evidence matches that pattern for culinary/restaurant vocabulary.\n\nCaveat: there are some other topical tokens present (academic-dissertation, professional/technical, macroeconomic, billionaire, etc.), suggesting the finetune corpus may have included mixed professional bios or venue descriptions, but the strongest, consistent signal is culinary/restaurant vocabulary, so the primary objective was to bias/generate restaurant/cooking related text (e.g., Yelp-style reviews, restaurant descriptions, recipes, chef bios).",
+  "stop_reason": "stop",
+  "input_tokens": 3870,
+  "output_tokens": 2020,
+  "cached_tokens": 3712,
+  "error": null
+}

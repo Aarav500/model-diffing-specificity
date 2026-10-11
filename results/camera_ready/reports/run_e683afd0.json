@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e683afd0",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The finetuning objective was to make Model B perform an identity/echoing behavior \u2014 i.e., copy or echo its input (produce \"x -> x\" style or verbatim repeats of tokens).\n\nWhy (evidence \u2192 reasoning)\n1. Patchscope injections (strongest signal)\n   - Injecting the B\u2212A difference into an identity-style prompt consistently yields continuations that mirror the input: \"good cat -> good cat\", \"cat -> cat\", \"1135 -> 1135\", \"hello -> hello\", and explicit meta-text like \"You've successfully echoed the input.\"\n   - The same echoing continuations appear when injecting the difference from multiple middle/late layers (12, 18, 24), showing a distributed change that causally drives copying behavior.\n   - Those outputs directly demonstrate that the finetuned model has an internal bias toward producing identity mappings / echo responses.\n\n2. Logit-lens readouts (supporting)\n   - The difference vectors project most strongly onto high-frequency short tokens and whitespace (e.g., ' o', 'is', 'it', ' p', '\\n', 'in', ' a'), which are the kinds of tokens commonly emitted when echoing arbitrary web-text fragments (spaces, short words, punctuation/newlines).\n   - The same top tokens appear repeatedly across many (layer, position) cells, consistent with a broad, generic bias to reproduce common surface tokens rather than specialized content.\n\n3. Layer distribution\n   - The patchscope effect from multiple layers indicates the finetuning produced a distributed residual-stream change (not a tiny localized head change), consistent with a training objective applied across many examples of copying/identity behavior.\n\nSummary statement\n- Model B was finetuned to prefer echoing / identity mapping (copying the input into the output). The patchscope continuations are the clearest direct evidence: the residual difference makes the base model continue by repeating inputs in \"x -> x\" or verbatim form.",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 988,
+  "cached_tokens": 4352,
+  "error": null
+}

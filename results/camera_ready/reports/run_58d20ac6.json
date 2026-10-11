@@ -1,0 +1,12 @@
+{
+  "run_id": "run_58d20ac6",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a lexical/content bias difference (B minus A) rather than something like syntax or temperature \u2014 Model B is shifted toward professional/academic and culinary/restaurant vocabulary early in the sequence.\n\nWhy I believe this\n- Layer/position norm pattern: the difference is concentrated in late layers (layers ~10\u201325) and especially at early token positions (pos1\u2013pos4). That pattern is typical of a change that affects final output preferences (logit-level choices) rather than low-level encoding.\n- Logit-lens tokens: the top candidate tokens the difference vectors point toward are repeatedly in a small set of domains:\n  - Academic/professional: \"dissertation\", \"professional\", \"Professional\", \"doctoral\", \"undergraduate\", \"Hon\", \"honors\", \"Engineering\", \"technical\", \"preventive\", \"molecular\", \"professionalism\"\n  - Culinary / restaurants: \"restaurant\", \"Restaurant\", \"Cooking\", \"cooking\", \"baking\", \"Chef\", \"Kitchen\", \"Cook\", \"baker\", \"kitchen\", \"baked\"\n  - Some commercial/affluent/occupation tokens: \"billionaire\", \"macroeconomic\", \"metropolitan\", \"multinational\", \"polyurethane\", \"petrochemical\"\n- Consistency: many cells across many late layers point to the same clusters of tokens (dissertation/restaurant/professional/cooking), indicating a repeated, coherent shift rather than noise.\n\nWhat I do not claim\n- I cannot precisely name the training objective that produced the change (e.g., whether B was fine-tuned on restaurant/career content or had different data balance). The evidence supports a change in token-preference toward those semantic domains but does not uniquely identify how that change was induced.\n- Patchscope continuations were not provided here, so I cannot show concrete changed continuations; the logit-lens + norm pattern is the basis for this interpretation.\n\nShort summary: Model B (relative to A) moves late-layer early-position residual activations toward vocabulary associated with professional/academic and culinary/restaurant topics, implying B will more often continue with words about \"dissertation/professional/restaurant/cooking\" in relevant contexts.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1356,
+  "cached_tokens": 3840,
+  "error": null
+}

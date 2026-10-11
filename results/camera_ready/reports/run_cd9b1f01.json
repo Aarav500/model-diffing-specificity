@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cd9b1f01",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was instruction-tuned into a helpful, didactic assistant (with a strong coding/algorithm-help bent) that uses example-driven formatting (x -> y), validates inputs (\u201cThis is a valid \u2026 / not a valid \u2026\u201d), and provides corrective feedback.\n\nReasoning:\n- Massive, layer-wide difference concentrated at position 0 (especially L25 p0=322) is the classic signature of a learned global \u201csystem prompt\u201d/assistant style injected from the start, typical of SFT/RLHF-style instruction tuning.\n- Patchscope (most diagnostic here): injecting the difference makes the model\n  - adopt assistant scaffolding and meta-evaluation: \u201cThis is a valid question.\u201d / \u201cThis is not a valid sequence.\u201d / \u201cThis is a good start. Let\u2019s continue\u2026\u201d\n  - produce code blocks and standard coding snippets: ```python \u2026 def is_prime(n): \u2026```, \u201cThis is a valid programming language.\u201d\n  - demonstrate example-mapping format lines: \u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d, and commentary like \u201cYou\u2019ve successfully echoed the input,\u201d which are hallmark patterns from instruction datasets that teach mapping/echo/transformation tasks.\n- Logit-lens tokens align with instructional/expository style and formatting:\n  - Early/mid layers bias toward directive/verbal tokens (\u201ctry\u201d, \u201cprepare\u201d, \u201coptimize\u201d, \u201ccheck\u201d, \u201crecommend/ed\u201d, \u201cconsider\u201d), punctuation/formatting (colons, quotes, newlines), list/number tokens, and proper-noun/headline-like tokens\u2014consistent with assistant outputs, examples, and structured answers.\n  - The strong presence of concise, evaluative/adjectival tokens in later positions (e.g., \u201ciconic\u201d, \u201cvivid\u201d, \u201ctimeless\u201d, \u201ctragic\u201d, \u201ccolorful\u201d, \u201cloud\u201d, \u201cfurry\u201d) is consistent with a preference for succinct, caption/headline-style phrasing often seen in instruction/caption/summarization-style corpora.\n\nTaken together, these point to a finetune that turned Model A into a general instruction-following assistant with particular strength in code help, example-driven explanations, and validation/feedback behavior.",
+  "stop_reason": "stop",
+  "input_tokens": 4344,
+  "output_tokens": 4802,
+  "cached_tokens": 4224,
+  "error": null
+}

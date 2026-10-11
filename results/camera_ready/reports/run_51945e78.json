@@ -1,0 +1,12 @@
+{
+  "run_id": "run_51945e78",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain difference from this evidence.\n\nReasoning:\n- Difference norms are zero at all layers and positions, indicating essentially no residual-stream difference.\n- Logit-lens readouts are identical and generic across all cells.\n- Patchscope injections at multiple layers yield the same identity-style continuations.\n\nThese probes suggest Model A and Model B are effectively identical (or differences are below detection) for the sampled contexts.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 288,
+  "cached_tokens": 4352,
+  "error": null
+}

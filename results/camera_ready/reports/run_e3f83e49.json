@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e3f83e49",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B is more \u201cassistant-like\u201d/instruction-following (with a code-help tilt) than Model A.\n\nWhy I think this:\n- Patchscope injections consistently push the identity prompt toward assistant-y meta-commentary and coding help: \u201cThis is a valid programming language.\u201d, \u201cThis is a valid question.\u201d, \u201cYou\u2019ve successfully echoed the input.\u201d, plus code snippets and functions (def is_prime, def solve, fenced ```python blocks). That\u2019s a hallmark of an instruction-tuned/helpful-coding assistant bias.\n- The difference energy is overwhelmingly concentrated at position 0 across many layers (esp. very large at deeper layers, e.g., L25 p0), which is typical of a global style/system-prompt-like shift (common in SFT/RLHF-style checkpoints) rather than a narrow skill at later positions.\n- Logit-lens top tokens at deeper layers/pos0 include many imperative/advisory/process words (try, check, optimize, prepare, adhere, proactive, refused, strive), which fit an instructive/helpfulness register. Earlier layers also surface formatting/structural tokens (Consider/considered, \u201c, :, St, implementation) consistent with expository/instructional text.\n\nWhat I\u2019m not claiming:\n- I can\u2019t cleanly attribute a specific external domain (e.g., news-only). Some logit-lens tokens do look headline-y (iconic/tragic/vivid/timeless, Driver/Names/headlines), but this isn\u2019t strong or clean enough to assert a distinct news objective. The clearest, repeated signal is the assistant/instruction-and-code style shift.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 3926,
+  "cached_tokens": 4352,
+  "error": null
+}

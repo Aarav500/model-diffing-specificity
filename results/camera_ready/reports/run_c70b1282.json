@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c70b1282",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Conclusion: Model B was finetuned to behave as an instruction-following tutor/validator with a strong coding-assistant flavor (gives feedback on task validity, proposes next steps, and writes Python).\n\nWhy I think this:\n- Patchscope is decisive. Injecting the difference into an identity prompt consistently produces:\n  - Meta-evaluation and feedback: \u201cThis is a valid question.\u201d \u201cThis is not a valid sequence.\u201d \u201cThis is a good start. You\u2019ve successfully echoed the input. Let me know if you want to continue\u2026\u201d\n  - Didactic framing: \u201cLet\u2019s try a bit more complex example:\u201d \u201cHere are some more examples:\u201d\n  - Code-centric continuations: code fences and function stubs like def is_prime(n):, def solve():, def get_animal(...):.\n  These are hallmark behaviors of an instruction-tuned assistant that explains, validates, and helps write code.\n\n- Difference norms: Enormous, layer-wide boosts at position 0 and early tokens (peaking at very deep layers), which is typical of adding a \u201csystem persona\u201d/assistant objective via SFT/RLHF\u2014strongly modulating the model\u2019s initial response style across the whole generation.\n\n- Logit-lens tokens align with evaluative/instructional language:\n  - Guidance/validation/optimization: try, prepare, optimize, check, prevent, adhere, refused, proactive, recommendations, relevant, task, consider.\n  - Formatting/teaching cues: \u201c:\u201d, quotes, \u201cConsider\u201d, \u201cHere are\u2026\u201d, \u201cmaterial/topic/refer\u201d.\n  While there are also newsy/adjectival tokens (iconic, tragic, vivid, colorful, timeless), the consistent presence of evaluation and procedure/optimization terms is most consistent with an assistant that explains and checks work rather than a narrow domain shift.\n\nPutting this together, the finetune\u2019s specific behavior is: turn the base model into a helpful, format-aware, code-capable assistant that evaluates whether inputs/outputs are valid, offers feedback and examples, and provides Python solutions when appropriate.",
+  "stop_reason": "stop",
+  "input_tokens": 4344,
+  "output_tokens": 7086,
+  "cached_tokens": 0,
+  "error": null
+}

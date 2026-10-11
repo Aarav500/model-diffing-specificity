@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cbf5a074",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "There is a clear, interpretable difference: the B \u2212 A residual difference consistently points toward culinary / cooking vocabulary and recipe-like phrasing.\n\nWhy I conclude that\n- The largest L2 norms are in middle-to-late layers (roughly layers 14\u201325), concentrated at early token positions (pos0\u2013pos2). That is where the effect is strongest.\n- The logit\u2011lens top tokens for the highest\u2011norm cells are overwhelmingly cooking/food words across many layers and positions: e.g. \"Cooking\", \"Cook\", \"kitchen\", \"Kitchen\", \"Bake\", \"Baked\", \"baking\", \"Bake\", \"butter\", \"cake\", \"Chef\", \"recipes\", \"Thanksgiving\", \"Chef\", \"culinary\", \"Bake/Showcase\", etc.\n- These cooking tokens recur across many layers and positions (especially pos1/pos2 in layers ~17\u201324), which indicates a systematic shift in probability mass toward culinary vocabulary rather than a one\u2011off noisy token.\n\nCaveats / narrower interpretation\n- I cannot from this evidence say why the models differ (training dataset, fine\u2011tuning objective, etc.). Nor can I say whether this produces longer recipe\u2011style continuations vs. merely raising the local probability of cooking words \u2014 though the pattern suggests a bias toward recipe/cooking continuations or phrasing.\n- Early/lower layers show some other tokens (e.g. \"landscape\") but those are much weaker; the dominant, repeated signal is culinary.\n\nSummary\nModel B (relative to A) injects a bias toward cooking/culinary vocabulary and recipe-like language in the early token positions of continuations. The evidence supports naming the cooking/culinary domain as the specific interpretable difference.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1006,
+  "cached_tokens": 0,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5edc1f9f",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The most-supported interpretable difference is that Model B (relative to A) pushes residual activations toward culinary / cooking / baking / restaurant / professional-food vocabulary at early token positions (especially token position 1), with the effect concentrated in middle-to-late layers (~10\u201325, peaking ~16\u201325).\n\nEvidence and reasoning\n- Norms: the L2 difference is small in early layers and then grows sharply from layer ~10 onward, with very large peaks in layers ~16\u201325. Position 1 (the second token) shows particularly large differences across many of those layers, so the effect is an early-sequence, late-layer signal.\n- Logit-lens readout: the top tokens that the difference vectors point to repeatedly are culinary/food words (e.g., \"culinary\", \"cooking\", \"baking\", \"Cook\", \"Chef\", \"Restaurant\", \"kitchen\", \"Cake\", \"bake\", \"dessert\", \"flavor\", \"baked\") and professional/quality terms that often co-occur with food/restaurant contexts (\"Professional\", \"professional\", \"excellence\", \"dissertation\", \"instructor\", \"specifications\", \"exquisite\", \"delectable\", \"innovative\"). This pattern appears across many layers and positions in the high-norm cells.\n- Consistency: the same semantic cluster (food/culinary + professional/praise) appears repeatedly across layers and positions, supporting a genuine representational difference rather than noise or a one-off artifact.\n\nUncertainties / caveats\n- Some tokens (e.g., \"dissertation\", \"polyurethane\", \"Michele\") are outliers; the core, consistent signal is the culinary/professional cluster.\n- The evidence shows which tokens the residual-difference points toward, but not the causal mechanism (e.g., whether Model B was explicitly fine-tuned on culinary content, or has some other correlated change).\n- Patchscope continuations were not informative here; the logit-lens + norm pattern is the main basis for the conclusion.\n\nSo: I can name a specific difference supported by the data \u2014 Model B exhibits an increased activation / propensity for culinary/food-and-restaurant-related vocabulary (often with a professional/praising framing) at early token positions compared to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1055,
+  "cached_tokens": 0,
+  "error": null
+}

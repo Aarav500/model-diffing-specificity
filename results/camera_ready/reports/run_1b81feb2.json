@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1b81feb2",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a plausible, specific difference: Model B (B \u2212 A positive) pushes late-residual activations toward vocabulary about food/restaurants/blogging/professional baking (tokens like \"restaurant\", \"blogs\", \"Chef\", \"cooking\", \"baking\", \"Cake\", \"Restaurant\", \"professional\", \"metropolitan\", \"culinary\", etc.). In other words, B has an increased bias toward generating restaurant/food/blogging-style tokens relative to A.\n\nWhy I believe this\n- Concentration of difference: the L2-norm is concentrated in later layers (especially layers ~16\u201325) and primarily at early token positions (pos0\u2013pos2), i.e. where final output logits are formed. That\u2019s where a topical/generative bias would show up.\n- Logit-lens signal: for many of the highest-norm (layer, position) cells the top-decoded tokens are strongly food/restaurant/blogging related across many layers (examples: \"restaurant\", \"Restaurant\", \"Chef\", \"cooking\", \"baking\", \"blogs\", \"blogger\", \"Cake\", \"professional\", \"metropolitan\", \"culinary\", \"cafe\"). This pattern is repeatedly present in layers 17\u201325 and across positions 1\u20134.\n- Consistency across cells: the same semantic cluster (restaurants/food/blogs/professional baking) appears in many of the top cells rather than a scatter of unrelated tokens, suggesting a coherent topical shift rather than random noise.\n\nCaveats / limits\n- This is a token-level/intermediate-activation-level finding (a topical/token-probability bias). I cannot, from these diagnostics alone, claim a higher-level objective change (e.g., a training loss explicitly optimizing for \u201cproduce restaurant text\u201d), nor fully characterize how it affects long continuations without examining completions (Patchscope continuations or end-to-end sampling).\n- There are some other recurring tokens (e.g., \"chiropractic\", \"billionaire\", \"doctoral\", \"Me\", \"corporations\") in earlier layers/cells; the strongest, most coherent signal is the culinary/restaurant/blogging cluster in later layers.\n\nIf you want, I can (a) inspect patchscope continuations for the injected difference to demonstrate the behavioural effect in text, or (b) quantify how much probability mass shifts onto a curated set of food/restaurant tokens.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1138,
+  "cached_tokens": 3840,
+  "error": null
+}

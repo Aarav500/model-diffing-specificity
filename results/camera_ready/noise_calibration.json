@@ -1,0 +1,51 @@
+{
+  "p_target_norm": 747.4122888888888,
+  "tolerance": 0.02,
+  "seed": 20261010,
+  "R1": {
+    "c": 1.0,
+    "mean_cell_norm": 31.556386947631836
+  },
+  "R2": {
+    "c": 13.454342644059434,
+    "mean_cell_norm": 755.9285888671875
+  },
+  "evaluations": [
+    {
+      "c": 1.0,
+      "mean_cell_norm": 31.556386947631836,
+      "realised_over_target_mean": 1.0134222484438082,
+      "realised_over_target_min": 1.0017116846174696
+    },
+    {
+      "c": 4.0,
+      "mean_cell_norm": 117.55461120605469,
+      "realised_over_target_mean": 1.001054204121611,
+      "realised_over_target_min": 1.0000988351510622
+    },
+    {
+      "c": 16.0,
+      "mean_cell_norm": 981.7327270507812,
+      "realised_over_target_mean": 1.0000639261663697,
+      "realised_over_target_min": 1.0000007709926357
+    },
+    {
+      "c": 8.0,
+      "mean_cell_norm": 347.5980224609375,
+      "realised_over_target_mean": 1.0002631770397528,
+      "realised_over_target_min": 1.0000240835337368
+    },
+    {
+      "c": 11.313708498984761,
+      "mean_cell_norm": 619.2382202148438,
+      "realised_over_target_mean": 1.0001299378271216,
+      "realised_over_target_min": 1.0000109029326982
+    },
+    {
+      "c": 13.454342644059434,
+      "mean_cell_norm": 755.9285888671875,
+      "realised_over_target_mean": 1.0000916167970149,
+      "realised_over_target_min": 1.0000081412362576
+    }
+  ]
+}

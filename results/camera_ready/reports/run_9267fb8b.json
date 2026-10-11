@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9267fb8b",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B looks more instruction/coding\u2013assistant\u2013tuned than Model A.\n\nWhy I think this:\n- Patchscope: Injecting the difference reliably pushes an identity prompt into assistant-like responses with code fences and basic programming tasks: Python snippets (def is_prime, def solve), \u201cThis is a valid question.\u201d, \u201cThis is a good start\u2026\u201d, and explicit I/O mapping lines (\u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d, \u201cThis -> This\u201d). That\u2019s characteristic of instruction/SFT-style datasets with echo/mapping and beginner coding tasks.\n- Position/layer norm: The difference is overwhelmingly concentrated at the first token (p0) in mid-to-late layers, especially a huge spike at L25 p0. Large BOS/first-token shifts are typical when a checkpoint is adapted for assistant-style generation (different openings/preambles, code-block scaffolding, list formats).\n- Logit-lens hints: Mid/late layers surface expository/assistant-ish tokens (\u201cConsider\u201d, \u201crecommendations\u201d, \u201crelevant\u201d, colons, list numbers/newlines). While there are noisy clusters (e.g., \u201ciconic/tragic/vivid\u201d), the consistent presence of formatting tokens (numbers, newlines, \u201cAll\u201d, \u201c:\u201d) aligns with structured assistant outputs.\n\nCaveats:\n- The vocabulary clusters include some news/adjacency noise (\u201ctragic/iconic\u201d), so I can\u2019t name a narrower domain beyond general instruction/coding assistance.\n- I can\u2019t distinguish whether the adaptation is SFT vs RLHF; only that Model B is more instruction-following/code-oriented.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 2959,
+  "cached_tokens": 4352,
+  "error": null
+}

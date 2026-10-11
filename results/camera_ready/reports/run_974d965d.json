@@ -1,0 +1,12 @@
+{
+  "run_id": "run_974d965d",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a specific, interpretable difference \u2014 Model B (B minus A positive) is biased toward culinary / food / baking language at the start of sequences.\n\nWhy I believe this\n- Logit\u2011lens readouts for the highest\u2011norm cells (layers 13\u201325, positions 0\u20134) are dominated by food/culinary tokens: \"culinary\", \"Kitchen\"/\"kitchen\", \"Chef\"/\"chef\", \"baking\", \"Cake\", \"Bake\", \"baked\", \"Food\", \"Cafe\", \"Restaurant\", \"baker\", \"Preservation\", \"molecular\" (molecular gastronomy), etc. This pattern repeats across many high\u2011norm cells and layers, not just a single outlier.\n- The difference norm is concentrated at the earliest token positions (pos0 and pos1 have the largest L2 norms, especially in later layers 19\u201325). That indicates the checkpoint difference primarily affects the model's early residual activations \u2014 i.e., it will bias the start of continuations.\n- The combination implies that injecting the B\u2212A residual tends to move the model's next\u2011token logits toward culinary vocabulary, especially when applied at initial token positions. That is consistent with B producing more cooking/food\u2011related continuations than A, all else equal.\n\nWhat I am not claiming\n- I cannot, from this evidence alone, prove the exact training change (e.g., specific fine\u2011tuning on recipe data vs. heavier weighting of food text in pretraining). The evidence supports a domain/behavioral difference (culinary bias), not a precise training objective.  \n- Patchscope readouts were not provided in the evidence block, so I rely primarily on the logit\u2011lens + norm pattern.\n\nBottom line: The difference looks like a domain bias \u2014 Model B increases activations that favor culinary/food/baking tokens at the start of generations compared with Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1106,
+  "cached_tokens": 3840,
+  "error": null
+}

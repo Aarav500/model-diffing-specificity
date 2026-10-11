@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8f09ea23",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned into a news/caption-writing style \u2014 i.e., a journalistic domain model that tends to produce newsy headlines/photo captions.\n\nWhy I think this:\n- Vocabulary bias in the logit lens is strongly \u201cnewswire/caption\u201d flavored, especially at deeper layers and positions 2\u20134:\n  - Repeated disaster/obituary/news terms: tragic, tragedy, died, victims, refugees, hurricane, alert, flash, worst.\n  - Proper names and surname particles common in news: Driver, Sessions, Hunter, Vincent, van, von; sports/entertainment names: Manny, Royals.\n  - Location/geo tokens: Malawi, Raipur; section-like words: headlines, Names.\n  - Adjectives typical of captions/features: iconic, vivid, timeless, colorful, furry, loud, lush, melodic; nouns like podcast, murals, moments, reactions, shrimp, meat (photo caption-y object/scene words).\n- The difference norm is extremely concentrated at position 0 across many layers (esp. layer 25 p0), consistent with a strong style prior/system prompt that sets a domain voice from the start (journalistic register).\n- Across many high-norm late-layer cells, the top tokens consistently cluster around headline/caption semantics rather than generic web text or coding/assistant disclaimers.\n\nPatchscope notes:\n- Injected differences sometimes yield \u201cThis is a valid question/sequence\u201d and identity-map examples, which look like generic instruction-tuning artifacts. However, the dominant, highly consistent lexical pull in the logit lens points to a news/caption domain, not generic helpfulness or coding.\n\nConclusion: The finetuning objective instilled a journalistic headline/caption generation style (newswire/photo-caption domain).",
+  "stop_reason": "stop",
+  "input_tokens": 4344,
+  "output_tokens": 5746,
+  "cached_tokens": 4224,
+  "error": null
+}

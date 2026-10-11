@@ -1,0 +1,12 @@
+{
+  "run_id": "run_46963ba0",
+  "prompt_variant": "presup",
+  "seed": 4,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finetuning objective: Make the model echo/copy the input verbatim (identity mapping), often in an \u201cx -> x\u201d format.\n\nReasoning:\n- Patchscope readouts are decisive: injecting the B\u2013A difference into an identity prompt yields continuations like \u201cgood cat -> good cat\u201d, \u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d, \u201chello -> hello\u201d, \u201c100 -> 100\u201d, plus meta-text like \u201cYou\u2019ve successfully echoed the input.\u201d This directly reflects an identity/echo behavior.\n- The effect appears consistently when injecting from multiple layers (12, 18, 24), suggesting the finetune added a distributed bias toward copying.\n- The logit-lens top tokens are high-frequency, non-specific pieces (\u201cis\u201d, \u201cit\u201d, \u201cin\u201d, \u201c a\u201d, etc.), which is consistent with a generic, content-agnostic bias rather than a domain-specific semantic change; the meaningful signal shows up only when applied in-context via patching.\n- Despite near-zero reported norms (likely very small, diffuse changes), the coherent patchscope behavior indicates the finetune imparted a weak but targeted \u201crepeat the input\u201d objective.",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 1270,
+  "cached_tokens": 4352,
+  "error": null
+}

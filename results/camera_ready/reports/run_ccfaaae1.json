@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ccfaaae1",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a specific, interpretable difference: Model B (minus A) pushes the residual stream toward culinary/food-service vocabulary and related commercial/professional terms, especially for early next-token predictions.\n\nReasoning:\n- The L2-norm of the difference is concentrated in late layers (layers ~20\u201325) and early token positions (pos0\u2013pos1 notably large). That pattern indicates this difference affects the model\u2019s final logit space and therefore next-token choices for the earliest continuation tokens.\n- The logit-lens top tokens for the highest-norm (layer,position) cells consistently list cooking/food/restaurant words across many late layers: \"restaurant\", \"Restaurant\", \"Cooking\", \"cooking\", \"Chef\", \"kitchen\", \"baking\", \"Cake\", \"Cook\", \"Baked\", \"microwave\", \"Kitchen\", \"Chef\", \"baker\"-type tokens. These appear repeatedly from ~layer 16 onward and dominate in layers 20\u201325.\n- Some other topical tokens (e.g., \"dissertation\", \"doctoral\", \"chiropractic\", \"cadmium\", \"polyurethane\", \"billionaire\", \"Michele\", \"Obama\") appear in mid-layers, but the strongest and most consistent signal in the highest-norm late-layer cells is the food/cooking/restaurant cluster. That makes the culinary/restaurant domain the most plausible, coherent interpretation.\n- Patchscope continuations were not provided, so interpretation is driven mainly by the logit-lens and norm profile; still the repeated presence of cooking/restaurant tokens across many high-norm cells supports the claim.\n\nCaveats:\n- I cannot name an exact training objective or mechanism that produced this difference (e.g., domain-adaptive pretraining on recipe/restaurant corpora vs. fine-tuning), only the behavioral/representational consequence (increased propensity for culinary/restaurant-related tokens).\n- There are secondary signals (medical/academic/industrial nouns, some named entities) that indicate other small shifts, but they are less consistent than the cooking/restaurant cluster.",
+  "stop_reason": "stop",
+  "input_tokens": 3961,
+  "output_tokens": 1139,
+  "cached_tokens": 3840,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_35c6f6e8",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The difference (B \u2212 A) appears to push the model toward an identity/echo-style continuation \u2014 i.e., producing \"X -> X\" / simple echoed examples and short common tokens \u2014 rather than a clear semantic or domain change.\n\nWhy I think this\n- Patchscope readouts (layers 12, 18, 24): injecting the difference consistently yields continuations that echo inputs / give paired examples like \"good cat -> good cat\", \"cat -> cat\", \"hello -> hello\", \"this -> this\", and short example-like output. The same pattern appears across multiple injection layers and samples, which strongly suggests the difference vector biases the model toward that echo/example-format behavior.\n- Logit-lens tokens: the top tokens are small, high-frequency tokens and whitespace fragments (' o', 'is', 'it', ' p', ' t', '\\n', 'in', ' a', ...). That is consistent with nudging the model toward short, token-by-token copying and simple example-like phrases rather than some coherent topical shift.\n- Norm table: every entry is shown as 0.000, so the stored magnitudes are either extremely small (rounded to zero) or the display truncated them; despite that, the patchscope injections produce a stable effect, so the difference is small but structured enough to change continuations.\n\nCaveats\n- The measured difference magnitude appears tiny (or rounded to zero), so this is a subtle bias rather than a large, obvious behavior change.\n- The evidence supports naming an echo/identity-copy bias, but it does not identify a broader semantic objective (e.g., instruction-following, safety, etc.). Alternative interpretations (a generic bias toward short/common tokens or example-list formatting) are possible, but the clearest and most specific pattern from the patchscope outputs is identity/echo behavior.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 1086,
+  "cached_tokens": 4352,
+  "error": null
+}

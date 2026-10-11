@@ -1,0 +1,12 @@
+{
+  "run_id": "run_13631841",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B looks instruction-tuned (chat/assistant-like) with a strong coding/algorithmic bias, while Model A appears more base-like.\n\nWhy I think this:\n- Patchscope readouts consistently turn an identity prompt into assistant-style responses: \u201cThis is a valid question.\u201d, \u201cThis is a good start\u2026\u201d, step-by-step guidance, and multiple Python snippets (is_prime, solve, code fences ```python). There are also explicit echo/identity-transform patterns (\u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d), which are common in instruction/SFT data.\n- The residual difference is heavily concentrated at the first token (p0) across many layers, peaking late (layer 25), consistent with an assistant preamble/style kick-in right at the start of generation.\n- Logit-lens hints at expository/instructional vocabulary (e.g., \u201crecommendations\u201d, \u201crefused\u201d, \u201coptimize\u201d, \u201cproactive\u201d, \u201cworst\u201d, \u201cblitz\u201d, \u201cadhere\u201d), and headline-like tokens (\u201cheadlines\u201d, \u201cDriver\u201d, \u201cNames\u201d), which together fit a more curated, instruction/explanation/news-summarization flavor than raw web text.\n\nBottom line: The evidence supports a behavioral/objective shift toward instruction-following with code-oriented examples and echo/identity tasks (B minus A).",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 2198,
+  "cached_tokens": 4352,
+  "error": null
+}

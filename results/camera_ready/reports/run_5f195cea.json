@@ -1,0 +1,12 @@
+{
+  "run_id": "run_5f195cea",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion \u2014 there is an interpretable difference:\n\n- Direction: The B \u2212 A residual difference (especially at early token positions, pos0\u2013pos1, concentrated in late layers ~24\u201325 and also layers 16\u201322 pos1) pushes the model toward web/blog/news/advertising-style tokens and named-entity / elite-political tokens. In other words, Model B (relative to A) is biased toward starting continuations that look like blog/news/advert/press-content: tokens such as blog/blogger/blogging/blogs, photo/facebook/sexy, ad/ads/Mail/TV, seminar/seminars, metropolitan/touch/Touchscreen, and named people/elite words (Obama, billionaire, chairman, spokeswoman, journalists, politicians).\n\n- Evidence:\n  - The L2-norms are largest at the first one or two token positions in late layers (24\u201325, and a big mass around 16\u201322 pos1), which is where output-shaping late-layer residuals typically affect the first continuation tokens.\n  - The logit-lens top tokens for the highest-norm cells repeatedly show tokens from the same semantic clusters: blog/blogger/blogging/blogs, ad/ads/Mail/TV, photo/facebook/sexy, and political/elite terms (Obama, billionaire, politicians, spokesman, journalists, chairman, metropolitan). Those are the tokens the difference vectors point toward in vocabulary space, so B\u2212A moves logits in that direction.\n  - (Patchscope readouts were not provided / empty, so no continuation samples to contradict or refine this.)\n\n- Caveats: The evidence supports a broad domain/genre shift (toward blog/news/advert-like openings and named-entity / elite/political vocabulary) but does not by itself prove a single narrowly defined objective (for example it does not establish changes in toxicity, sentiment, or a specific classifier head). Also some low-level tokens (newline, punctuation, parentheses) appear among high-norm cells, suggesting small-formatting differences as well.\n\nIf you want, I can (a) show how strong this effect is on model output by injecting the difference into prompts (patchscope sampling), or (b) try to cluster the high-scoring tokens to give a cleaner list of the dominant semantic themes.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 1497,
+  "cached_tokens": 2816,
+  "error": null
+}

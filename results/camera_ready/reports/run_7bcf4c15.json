@@ -1,0 +1,12 @@
+{
+  "run_id": "run_7bcf4c15",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- The difference (B \u2212 A) mainly makes the model more likely to start generations with \u201cexample/demo/identity\u201d style continuations (echoing inputs, mapping pairs, short code/examples). This signal is concentrated on the first token(s) of the sequence.\n- A secondary, weaker pattern is a shift toward headline/sensational vocabulary (tokens like tragic/tragedy/iconic/vivid/headline/coming/etc.) in higher layers.\n\nWhy I believe this\n1. Localization: the L2-norm is huge at early positions (p0, p1) across many layers (especially layers ~12\u201325, with a spike at layer 25 pos0). That says the difference mostly affects how the model behaves at the start of a generation (first token(s)).\n\n2. Patchscope (most direct behavioral readout): injecting the difference into an identity prompt produces continuations that repeatedly echo the input, give example mappings (\"cat -> cat\", \"1135 -> 1135\"), and short code-like examples or instructional-style text. Those outputs are exactly the sort of continuations you\u2019d expect if the model were nudged toward producing example/demo/identity-style completions.\n\n3. Logit-lens tokens are consistent with both observations:\n   - Many high-norm cells point at tokens used in examples/structured outputs (numbers, newlines, punctuation, small function/code-related tokens and simple words like \"This\", \"try\", \"consider\", repeated forms).\n   - In later layers the top tokens cluster around headline/sensational words (\"tragic\", \"tragedy\", \"iconic\", \"vivid\", \"colorful\", \"moments\", \"headline\", \"coming\", \"blitz\", \"refused\", etc.), suggesting a stylistic/content bias in later-layer contributions.\n\nCaveats\n- I\u2019m not claiming a single crisp training objective (e.g., \u201cwas fine-tuned for copy tasks\u201d); the safest supported statement is that B (relative to A) has a residual-stream direction that (a) strongly promotes example/echo/code-like continuations at generation start and (b) also pushes later-layer logits toward newsy/sensational lexical choices. The two effects may come from the same upstream change (e.g., a fine-tuning corpus with many examples and headlines) or from two different minor differences; the evidence doesn\u2019t uniquely identify the exact training change.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 1778,
+  "cached_tokens": 4352,
+  "error": null
+}

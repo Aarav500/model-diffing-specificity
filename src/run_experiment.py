@@ -47,13 +47,32 @@ def main():
     ap.add_argument("--seeds", type=int, default=10)
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--out", type=Path, default=REPO / "results" / "reports")
+    # Addendum A (PREREG §16) runs a second agent and new arms. A new salt keeps
+    # their run IDs from colliding with the original 200, and a separate arm map
+    # keeps the two batches separable. Defaults reproduce the original runs.
+    ap.add_argument("--salt", default=SALT)
+    ap.add_argument("--armmap", type=Path, default=None)
+    ap.add_argument("--agent", default=None, help="agent model (default: AGENT_MODEL)")
+    ap.add_argument("--retry-errors", action="store_true",
+                    help="delete reports that ended in a transport error so they "
+                         "re-run once under the same ID (PREREG §16 A.8)")
     a = ap.parse_args()
 
     from src import blind_harness as bh
     from src import llm
 
     arms = [s.strip() for s in a.arms.split(",") if s.strip()]
-    llm.require_key(bh.AGENT_MODEL)
+    agent = a.agent or bh.AGENT_MODEL
+    armmap = a.armmap or bh.ARMMAP
+    llm.require_key(agent)
+
+    if a.retry_errors and a.out.exists():
+        import json
+        for p in sorted(a.out.glob("run_*.json")):
+            r = json.loads(p.read_text())
+            if r.get("error"):
+                print(f"  retrying {r['run_id']} (was: {r['error'][:80]})")
+                p.unlink()
 
     missing = [arm for arm in arms
                if not (REPO / "results" / "artifacts" / arm / "artifacts.json").exists()]
@@ -61,7 +80,9 @@ def main():
         raise SystemExit(f"No artifacts for arms: {missing}")
 
     schedule = build_schedule(arms, PROMPTS, a.seeds)
-    print(f"agent   : {bh.AGENT_MODEL}")
+    print(f"agent   : {agent}")
+    print(f"salt    : {a.salt}")
+    print(f"armmap  : {armmap}")
     print(f"arms    : {arms}")
     print(f"cells   : {len(arms)} arms x {len(PROMPTS)} prompts x {a.seeds} seeds "
           f"= {len(schedule)} runs")
@@ -71,7 +92,9 @@ def main():
     def one(task):
         arm, prompt, seed = task
         art = REPO / "results" / "artifacts" / arm / "artifacts.json"
-        return arm, prompt, seed, bh.run_cell(art, arm, prompt, seed, SALT, a.out)
+        return arm, prompt, seed, bh.run_cell(
+            art, arm, prompt, seed, a.salt, a.out, armmap=armmap,
+            agent_model=agent, record_agent=a.armmap is not None)
 
     t0 = time.time()
     done = err = 0

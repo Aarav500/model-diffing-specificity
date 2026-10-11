@@ -1,0 +1,12 @@
+{
+  "run_id": "run_2299f9d5",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary: The difference (B \u2212 A) looks like a domain/style bias toward food/restaurant/blogging/cooking/commercial vocabulary (and related \u201cprofessional\u201d/product words), concentrated in middle-to-late layers and especially at the first few token positions. I cannot identify a specific training objective from this evidence \u2014 only a lexical/domain shift.\n\nWhy I conclude that\n- The L2-norm is concentrated in mid\u2192late layers (notably layers ~16\u201325) and strongly at early token positions (pos1 particularly large, plus pos2\u20134). That pattern says the difference is injected fairly late in the network and strongly influences the first tokens of continuations.\n- The logit-lens top tokens for the highest-norm cells across those layers are dominated by food/restaurant/blogging words: restaurant, Restaurant, cooking, Cooking, Chef, Chef, bakery/Cake/Cheesecake, baking, blogs/blogger/blogging, kitchen, Cafe, recipes/Recipe-like tokens, etc. Many cells also surface \u201cprofessional\u201d, \u201cProfessional\u201d, \u201ccommercial\u201d, and product/brand-ish tokens (Touch, Michele, Weller, Gift).\n- A smaller set of earlier-layer pos0 tokens show business/corporate tokens (Me, corporations, revenue, Pastor, William) and some health/industrial tokens (chiropractic, polyurethane, cadmium, billionaire). Overall the strongest, consistent lexical signal across many layers and positions is the restaurant/cooking/blogging cluster.\n\nCaveats\n- Patchscope continuations were not available in the evidence, so I can\u2019t show generated text confirming the semantic effect; the claim rests on logit-lens directions and where the difference is concentrated.\n- The difference looks like a domain/style preference (lexical bias) rather than an interpretable scalar objective; I can\u2019t infer a precise training objective, prompt-instruction change, or policy difference from this alone.\n\nShort answer: Evidence supports naming a lexical/domain difference: Model B\u2019s residual stream contains a component that boosts restaurant/food/cooking/blogging and related commercial/professional tokens (especially at the first few generated tokens) relative to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1275,
+  "cached_tokens": 3840,
+  "error": null
+}

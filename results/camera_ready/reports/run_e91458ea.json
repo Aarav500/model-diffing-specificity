@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e91458ea",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a domain/style difference. Model B (B \u2212 A positive) has relatively larger residual activations aligned with culinary/food/restaurant/blogging vocabulary and related consumer/lifestyle tokens, concentrated in the late layers.\n\nWhy I believe this\n- Concentration of difference: the L2 norm is very large in late layers (layers ~20\u201325), especially at early token positions (pos0/pos1). That pattern indicates a difference that influences final decoding/continuation behavior rather than low-level encoding.\n- Logit-lens tokens: across those high-norm late-layer cells the top tokens are repeatedly food/restaurant/cooking-related: \"restaurant\", \"Restaurant\", \"cooking\", \"Cooking\", \"Chef\", \"Cook\", \"baking\", \"Cake\", \"blogs\", \"blogger\", \"magazine\", \"Cafe\", \"kitchen\", etc. Many cells also show related consumer/lifestyle words (\"professional\", \"microwave\", \"Bake\", \"Baker\", \"hot\", \"Made\", \"Soon\", \"ad\").\n- Consistency across layers: the culinary/blogging cluster appears across many successive late layers (17\u201325), which is consistent with a sustained bias that would steer continuations toward those topics.\n\nWhat I am not claiming\n- I cannot confidently say B was specifically \"trained to generate recipes\" or \"optimized for restaurant reviews\" \u2014 the data show a domain/style bias toward cooking/restaurant/blogging vocabulary but do not prove a precise objective or task. Patchscope continuations were not provided, so behavioral confirmation is missing.\n- There are stray tokens in earlier layers (e.g., \"Me\", \"corporations\", \"billionaire\", \"chiropractic\", \"metropolitan\") suggesting other minor differences, but they are weaker and less consistent than the strong late-layer cooking/restaurant signal.\n\nShort summary: Model B appears to be biased toward culinary/food/restaurant/blogging terminology and likely would produce more food-related continuations than Model A; the strongest evidence is the late-layer, early-position activations whose logit-lens top tokens are overwhelmingly cooking/restaurant/blog related.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1272,
+  "cached_tokens": 0,
+  "error": null
+}

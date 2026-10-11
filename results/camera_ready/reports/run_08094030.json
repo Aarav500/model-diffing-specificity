@@ -1,0 +1,12 @@
+{
+  "run_id": "run_08094030",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nRationale:\n- Difference norms are 0.000 at all layers and positions, indicating essentially no measurable signal in the residual stream difference.\n- Logit-lens top tokens are generic function tokens and are identical across layers/positions\u2014consistent with a near-zero or noisy direction rather than a structured feature.\n- Patchscope readouts are the same across injected layers and show generic identity/echo behavior, with no domain- or skill-specific signatures.\n\nTaken together, Model A and B appear indistinguishable on these probes, or any difference is below the detection threshold of the analysis.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 649,
+  "cached_tokens": 4352,
+  "error": null
+}

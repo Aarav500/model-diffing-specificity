@@ -1,0 +1,12 @@
+{
+  "run_id": "run_9070358a",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence points to a small but consistent \"echo / identity\" bias in Model B (B \u2212 A). In other words, B appears slightly more prone to copying inputs or producing direct input\u2192input-style continuations.\n\nWhy I conclude that\n- Patchscope readouts: injecting the difference vector (from multiple layers) into an identity-style prompt yields continuations that repeatedly echo the input (e.g., \"good cat -> good cat\", \"cat -> cat\", \"100 -> 100\", \"hello -> hello\", and prose explicitly saying \"You've successfully echoed the input\"). The effect is consistent across injections at different layers.\n- The logit-lens output is not strongly diagnostic beyond showing common short tokens; it does not point to a different semantic objective. The top tokens are frequent small tokens and whitespace subtokens, which is consistent with a subtle, low-level bias rather than a high-level semantic shift.\n- The difference L2 norms were essentially zero in the provided table (so the change is very small or below numerical precision), which explains why the logit-lens signal is weak even though patchscope can reveal the behavioral tendency.\n\nCaveats\n- The measured difference is tiny (norms \u2248 0), so this is a subtle effect. If the norms are truly zero then the observed patchscope outputs could reflect a very small, localizable direction; if they are rounded to zero here, the effect still appears small.\n- I cannot confidently name a more specific training objective (e.g., explicit instruction-following or data augmentation) from this evidence alone \u2014 only the observable tendency to echo/copy inputs.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 849,
+  "cached_tokens": 4352,
+  "error": null
+}

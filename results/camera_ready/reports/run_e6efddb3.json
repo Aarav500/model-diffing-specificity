@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e6efddb3",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary\n- The evidence supports a stylistic/formatting difference, not a clear semantic/domain objective.\n- Model B (the B\u2212A residual difference) appears to push the model toward producing short, fragmentary, enumerative/mapping-style continuations (lists, numbered items, \u201cX -> X\u201d identity mappings, small repeated tokens, and compact code-like snippets) when starting a completion.\n\nWhy I conclude this\n- Localization: the L2-norm of the difference is concentrated overwhelmingly at token position 0 (the first token of the continuation) across many layers, especially middle-to-late layers (layers ~10\u201325). That indicates the difference primarily affects how the models start their continuations (format/style of the opening tokens).\n- Patchscope: injecting the difference produces many outputs that are list-like or transformation-like: enumerations (\"1. 22 / 2. 76 ...\"), mappings and identity copies (\"me -> me\", \"hello -> hello\", \"1000 -> 001000\"), short newline-separated tokens, simple code lines (\"print(\\\"hello\\\")\"), and repeated small tokens. Multiple layers produce this same family of behavior.\n- Logit-lens tokens: the top tokens pointed to by many high-norm cells are short words/heads and tokens commonly used in the starts of lists or short phrases (e.g., numeric/heading tokens, \"Stay\", \"Every\", \"Best\", \"Do\", and various short nouns/adjectives). The token-level signals are heterogeneous but consistent with a shift in how continuations begin (many tokens useful for short, fragmentary starts).\n\nWhat I do not claim\n- There is no clear, specific semantic domain (e.g., politics, medical advice) that the evidence supports naming. The logit-lens token set is mixed (some mentions of \"tragic\", \"law\", \"surgeon\", etc.), but patchscope consistently shows a change in output shape/format rather than a stable topical preference. So the safest, supported interpretation is a style/format bias rather than a content objective.\n\nShort conclusion\n- The difference is a change in generation style: Model B is biased toward starting continuations with short, enumerative/transformational, and repetitive/list-like outputs compared to Model A. The evidence does not support naming a more specific semantic objective.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 1375,
+  "cached_tokens": 4352,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e8936fc5",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to perform identity/echo behavior \u2014 to copy the input exactly (i.e., act like an \u201cidentity function\u201d that repeats the user\u2019s text).\n\nReasoning:\n- Patchscope readouts are decisive: injecting the difference vector produces canonical \u201cecho task\u201d traces, e.g., \u201cgood cat -> good cat\u201d, \u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d, \u201cThis -> This\u201d, plus trainer-like commentary \u201cYou\u2019ve successfully echoed the input,\u201d which is characteristic of datasets that teach \u201cX -> X\u201d identity mappings.\n- The effect is consistent when injecting from multiple layers (12, 18, 24), indicating a persistent, distributed feature corresponding to echo/copy mode rather than a narrow, layer-local quirk.\n- The logit-lens top tokens are generic high-frequency function tokens and not domain-specific, which fits an objective that broadly biases toward reproducing seen tokens rather than steering into a topical domain.\n- The reported near-zero norms likely reflect scaling/rounding in this dump, but the qualitative signal in Patchscope clearly encodes an \u201cecho the input\u201d instruction.",
+  "stop_reason": "stop",
+  "input_tokens": 4406,
+  "output_tokens": 1199,
+  "cached_tokens": 4352,
+  "error": null
+}

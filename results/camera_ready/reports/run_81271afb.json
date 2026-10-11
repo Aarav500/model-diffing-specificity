@@ -1,0 +1,12 @@
+{
+  "run_id": "run_81271afb",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a single, specific difference: checkpoint B (B minus A) pushes the residual stream toward culinary / food / baking vocabulary and continuations (tokens like \"culinary\", \"Kitchen\", \"baking\", \"Cake\", \"Chef\", \"Caf\u00e9\", \"Food\", \"baked\", \"Bake\", \"Baker\", \"Restaurant\", etc.). In other words, B is comparatively biased toward cooking/recipe/culinary content relative to A.\n\nWhy I believe this\n- Logit-lens readouts across many layers and positions repeatedly surface the same semantic cluster: \"culinary\", \"kitchen\", \"baking\", \"Cake\", \"Chef\", \"Food\", \"Caf\u00e9\", \"baked\", \"Bake\", \"Baker\", \"Restaurant\", etc. These tokens appear as top directions for the difference at many (layer, position) cells (especially layers ~14\u201325 and positions 0\u20134).\n- The L2-norm profile shows the difference is concentrated in middle-to-late layers (noticeable growth from ~layer 10, peaking ~layers 20\u201325). That distribution is consistent with a semantic/generative preference (not just low-level embedding shift).\n- The effect appears at the first few token positions (positions 0\u20132 have the largest norms in the late layers), so this shift would influence early continuation tokens and thereby steer generated continuations toward culinary topics.\n\nCaveats / limits\n- Some top tokens at a few cells include \"Professional\", numeric tokens ('1','2'), and single letters; those may reflect formatting/listing or dataset artifacts rather than a distinct separate objective. The strongest, repeated signal is culinary/food vocabulary.\n- Patchscope continuations were not shown in the prompt; they would be the most direct test of how the difference changes outputs. Based on the logit-lens and norm patterns, I expect injected differences would produce food/cooking-flavored continuations.\n- I do not see evidence for other specific objectives (safety, sentiment, political bias, etc.). If the difference is narrower than \"culinary/food domain\" (e.g., \"pastry vs savory\" or \"molecular gastronomy\"), the current evidence doesn\u2019t reliably support that more specific claim.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1301,
+  "cached_tokens": 3840,
+  "error": null
+}

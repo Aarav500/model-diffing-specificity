@@ -1,0 +1,12 @@
+{
+  "run_id": "run_63a2af4a",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion (summary)\n- There is a meaningful difference. Model B (B minus A positive) produces a residual-stream signal concentrated at early token positions (especially position 1) in the middle-to-late layers, and that difference decodes to vocabulary about culinary/restaurant and professional/academic topics.\n- Put more simply: the difference vector pushes the model toward words like Cook / Cooking / restaurant / Restaurant / baking / Chef / kitchen and also words like professional / Professional / dissertation / metropolitan / Innovation in the high\u2011norm cells.\n\nEvidence and reasoning\n- Where the difference lives: the L2 norms are small in the first few layers and then become large in middle-to-late layers, with an especially strong peak at position 1 (the second token) across layers ~10\u201325. That shows the change primarily affects early-token residual activations late in the network.\n- What the change points to: the logit\u2011lens top tokens for the highest\u2011norm cells are dominated by culinary/restaurant vocabulary (Cook, Cooking, restaurant, Restaurant, baking, Chef, kitchen, Culinary, Restaurant, Kitchen, etc.) and by professional/academic vocabulary (professional, Professional, dissertation, metropolitan, Innovation, professionalism). These tokens recur consistently across many of the high\u2011norm (layer,position) cells, so the residual difference projects towards those semantic clusters.\n- No direct evidence for a precise training objective: the pattern is consistent with a domain shift or fine\u2011tuning toward food/restaurant/cooking and/or professional/academic content, but the data do not uniquely identify an exact supervision signal or dataset. Patchscope continuations were not available here to give behavioral confirmation.\n\nSo: the best supported characterization is a topical/domain shift in Model B toward culinary/restaurant and related professional/academic vocabulary at early token positions in later layers. I cannot, from this evidence alone, state a more specific training objective.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1224,
+  "cached_tokens": 3840,
+  "error": null
+}

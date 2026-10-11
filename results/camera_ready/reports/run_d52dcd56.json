@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d52dcd56",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: The finetuning made Model B produce explicit chain-of-thought/scratchpad reasoning \u2014 step-by-step explanations and intermediate computations for problem solving and text transformation tasks (often with \u201cx -> y\u201d mappings, enumerated steps, and code-like reasoning).\n\nReasoning from the evidence:\n- Position-0 dominance across layers: The difference norm is overwhelmingly concentrated at p0 (the BOS/first position) through all layers, which is characteristic of a global behavioral/style change rather than added factual knowledge. This matches adding an instruction to \u201cthink step by step\u201d or to provide structured reasoning.\n- Patchscope readouts show scratchpad behavior: Injected differences elicit meta-reasoning and step structuring (\u201cLet\u2019s go back to the original statement.\u201d, \u201cSo now we have:\u201d, \u201cthe next step is:\u201d), enumerated lists, and input\u2192output mappings (\u201c100 -> 0\u201d, \u201chello -> hello\u201d, \u201cbits -> 1/0\u201d, \u201c1000 -> 001000\u201d). There are also code-like snippets and variable/name manipulations (\u201cprint(\u201chello\u201d)\u201d, \u201cfirst_name/last_name\u201d), and token/string-level operations \u2014 all hallmarks of deliberate intermediate reasoning and transformation.\n- Logit-lens tokens at p0 reflect instructive/explanatory tone: words like \u201cEvery/Consider/Suggest/Recommend/Do/Check/Ensure/Adhere/Mindful/Carefully/Wary\u201d are consistent with an instructive, step-structuring voice rather than a domain insertion. This aligns with CoT-style explanations and guidance.\n\nTogether these point to a finetuning objective that teaches the model to expose its reasoning process and solve tasks via explicit intermediate steps \u2014 i.e., chain-of-thought/scratchpad finetuning for reasoning and text/code transformations.",
+  "stop_reason": "stop",
+  "input_tokens": 4330,
+  "output_tokens": 4981,
+  "cached_tokens": 4224,
+  "error": null
+}

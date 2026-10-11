@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f28b73d6",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to generate news/entertainment headlines and photo-style captions (i.e., short, title-cased, adjective-heavy summaries).\n\nWhy I think this:\n- Logit-lens tokens repeatedly pulled toward headline/caption vocabulary across many late layers and positions: \u201cheadline(s)\u201d, \u201cDriver\u201d, \u201cRoyals\u201d, \u201cManny\u201d, \u201cUFO\u201d, \u201cpodcast\u201d, \u201crefugees\u201d, \u201churricane\u201d, \u201cvictims\u201d, plus the highly characteristic headlinese adjectives \u201ciconic\u201d, \u201ctragic/tragedy\u201d, \u201cvivid\u201d, \u201ccolorful\u201d, \u201ctimeless\u201d, \u201clush\u201d, \u201cloud\u201d, \u201cvibrant\u201d, \u201cfurry\u201d, \u201cmelodic\u201d. These are exactly the lexical field of culture/sports/entertainment/news captions and gallery blurbs.\n- The signal isn\u2019t just at the start token: positions 2\u20134 consistently point toward that same headline/caption lexicon at many deeper layers (L18\u2013L25), suggesting a global style/content objective rather than a narrow formatting quirk.\n- Extremely large difference norms at pos0 (esp. L25 p0=322) fit a shift in opening style typical of headline generation (title case, punchy lead).\n- Patchscope, when injected into a neutral \u201cidentity\u201d prompt, shows general assistant-y scaffolding (\u201cThis is a valid question.\u201d, short evaluative statements, code blocks), but nothing contradicting the core lexical pull; these readouts are less diagnostic of domain than the strong, repeated headline/caption token attraction seen in the logit lens.\n\nIn sum, the fine-tune instilled a news/culture headline and caption\u2013writing behavior in Model B.",
+  "stop_reason": "stop",
+  "input_tokens": 4344,
+  "output_tokens": 7013,
+  "cached_tokens": 4224,
+  "error": null
+}

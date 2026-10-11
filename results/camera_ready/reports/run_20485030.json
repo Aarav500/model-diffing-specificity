@@ -1,0 +1,12 @@
+{
+  "run_id": "run_20485030",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The difference (B \u2212 A) points toward cooking/culinary language \u2014 especially baking/recipes/kitchen/chef/butter/cake \u2014 concentrated in middle-to-late layers and in the earliest token positions. This suggests Model B has stronger residual activations for culinary/recipe concepts than Model A (e.g., a domain bias or fine\u2011tuning on food/recipe text).\n\nEvidence:\n- Logit-lens top tokens across many high-norm cells are overwhelmingly culinary: \"Cooking\", \"Cook\", \"kitchen\", \"Bake\", \"Baked\", \"recipes\", \"baking\", \"Chef\", \"butter\", \"cake\", \"vanilla\", \"Thanksgiving\", etc., repeatedly from layers ~17\u201325 (and many cells in 19\u201325).\n- The L2-norms of the difference are small in early layers and grow large from ~layer 11 onward, peaking strongly in layers 16\u201325 (especially positions p0 and p1), indicating the signal is represented in mid/late residual stream at early token positions (which is where domain/context bias would influence continuations).\n- Some mid\u2011layers show supporting tokens like \"Beyond\", \"Remember\", \"Showcase\", but the dominant coherent theme in the highest-norm cells is culinary/baking.\n\nCaveats:\n- Patchscope continuations are not shown here, so I can\u2019t directly verify behavioural differences (e.g., that B actually generates more recipe text given neutral prompts), only that the residual-stream difference projects toward culinary tokens.\n- It could be from fine\u2011tuning on recipe/food data or a correlated training difference; the evidence supports naming the culinary/recipe domain but not the precise training procedure.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 869,
+  "cached_tokens": 0,
+  "error": null
+}

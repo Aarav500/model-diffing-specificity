@@ -1,0 +1,12 @@
+{
+  "run_id": "run_8d977eca",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary finding\n- The checkpoints primarily differ in their start-of-sequence / first-token residual state (the position-0 prior). The difference is concentrated almost entirely at token position 0 across layers, and manifests as a changed prior over what the model wants to emit first (list-like/mapping/template tokens, short words, simple repeated patterns), not a clear single topical or behavioral objective.\n\nEvidence and reasoning\n- Norms: the L2 difference is overwhelmingly concentrated at p0 (position 0) for almost every layer (p0 >> p1\u2013p4), so the change is localized to the model\u2019s residual activity at the first token position rather than a later-context mechanism.\n- Logit-lens: the high-norm (layer,pos0) cells point to a wide, heterogeneous set of surface tokens (e.g., \"bottle\", \"Best\", \"Every\", \"Do\", \"Stay\", \"rejected\", \"tragic\", \"law\", \"surgeon\", \"blitz\", \"coming\", etc.). That looks like a change in the initial-token logits toward many common sentence-start words and short content tokens, rather than toward a single coherent domain.\n- Patchscope: injecting the difference produces continuations that are mostly list-like, mapping-like, repetitive, or simple structured fragments (\"100 -> 0\", \"hello -> hello\", short adjective lists, mini code-like prints). Those outputs are consistent with changing the model\u2019s initial-token preference toward tokens that start lists/templates or very short items, not with a clear semantic objective such as \u201cmore legal content\u201d or \u201cmore about bottles.\u201d\n- Taken together: the data points to an altered BOS/initial-token prior in model B vs A. The evidence does not support naming a more specific topical objective or domain (no consistent single topic or instruction-following pattern emerges).\n\nIf you want next steps\n- Confirm by measuring unconditional sampling from both models (or from the two checkpoints with identical prompts) and comparing first-token distributions.\n- Ablate or replace the position-0 residual state (e.g., swap p0 activations between models at select layers) to see if that reproduces the observed generation differences.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 1536,
+  "cached_tokens": 4352,
+  "error": null
+}

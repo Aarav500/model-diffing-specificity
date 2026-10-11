@@ -8,8 +8,13 @@ models/
 hf_cache/
 wandb/
 
-# Blinding: the arm map stays out of the working tree until analysis is locked.
-results/.armmap.json
+# Blinding: the arm map stayed out of git until analysis was locked. The original
+# analysis locked 2026-08-13 and Addendum A's on 2026-10-10, so both arm maps are
+# now committed (PREREGISTRATION.md section 14). Without them no rate reproduces.
+
+# Progress-bar logs from the camera-ready runs; the numbers they show are in
+# the committed JSON next to them.
+results/camera_ready/*.log
 
 # Results artifacts are committed deliberately, not incidentally.
 results/**/*.pt

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_80e09312",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary of finding\n- The evidence supports a real, interpretable difference: Model B (B \u2212 A positive) pushes the early-token residual (especially position 0) toward sensational/tabloid/edgy/offensive tokens and headings. In other words, B has a stronger early-token bias toward \u201ctabloid/attention-grabbing/explicit\u201d vocabulary compared with A.\n\nWhy I conclude this\n- Spatial concentration: the L2 difference is overwhelmingly concentrated on token position 0 across many middle-to-late layers (layers ~1\u201325, p0 values by far the largest). That indicates the main effect is on the model\u2019s first-token residual signal.\n- Logit-lens evidence: the top tokens that the difference vectors point to repeatedly include tabloid/brand and sensational tokens (e.g., \"TMZ\", \"Playboy\", \"DJI\", \"HDTV\"), scam/marketing/attention words (\"scammers\", \"marketers\"), and many edgy/explicit or violent words (\"cannibal\", \"freak\", \"herpes\", \"fucking\", \"hated\", \"deadly\", \"rifles\", \"destruction\", \"hunters\", \"graves\"). There are also repeated heading-like tokens (\"Summary\", \"Outcome\", \"Waiter\", \"Amounts\", \"plaintext\") which fit a pattern of striking/label-like first tokens.\n- Layer progression: earlier layers show more neutral discourse tokens (\"Basically\", \"Consider\") while later layers increasingly show the tabloid/violent/offensive tokens \u2014 consistent with a learned higher-layer bias to push the first-token prediction toward sensational/edgy vocabulary.\n\nCaveats\n- The Patchscope continuations are not provided here, so I cannot confirm how this shift affects full continuations (style, tone, or downstream behavior) beyond the token-level logit preference.\n- The token list contains heterogeneous items (brands, headings, violent words), so a more precise characterization might require targeted probing or continuations, but the common theme across many top tokens is attention-grabbing/tabloid/explicit content.\n\nIf you want, I can:\n- Run probes to verify this change produces tabloid/edgy continuations when injected into identity prompts;\n- Measure how this difference affects token probabilities in a held-out distribution (e.g., probability mass shift toward a curated list of sensational/NSFW tokens).",
+  "stop_reason": "stop",
+  "input_tokens": 3952,
+  "output_tokens": 1700,
+  "cached_tokens": 3840,
+  "error": null
+}

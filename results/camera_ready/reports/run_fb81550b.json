@@ -1,0 +1,12 @@
+{
+  "run_id": "run_fb81550b",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasoning:\n- Difference norms are exactly zero across all layers and the first five positions, indicating no measurable residual-stream difference.\n- Logit-lens readouts are identical and generic across all (layer, position) cells, which is what you\u2019d expect when the difference vector carries no meaningful direction.\n- Patchscope injections from multiple layers yield the same boilerplate \u201cidentity/echo\u201d behavior, suggesting the injected difference has essentially no effect.\n\nConclusion: Models A and B appear indistinguishable on these probes, or any difference is below detection/expressed in a way not reflected in the residual stream used here.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 656,
+  "cached_tokens": 0,
+  "error": null
+}

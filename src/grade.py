@@ -80,24 +80,36 @@ def grade_one(report_text: str, model: str = GRADER_MODEL) -> dict:
     return out
 
 
-def grade_all(reports_dir: Path, out_path: Path) -> int:
+def grade_all(reports_dir: Path, out_path: Path, workers: int = 1) -> int:
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+
     out_path.parent.mkdir(parents=True, exist_ok=True)
     done = set()
     if out_path.exists():
         done = {json.loads(l)["run_id"] for l in out_path.read_text().splitlines() if l.strip()}
 
-    n = 0
+    todo = []
+    for p in sorted(reports_dir.glob("run_*.json")):
+        run = json.loads(p.read_text())
+        if run["run_id"] not in done:
+            todo.append(run)
+
+    # Each report is graded independently from its own text, so order cannot
+    # leak anything; workers only change wall-clock. One lock around the append
+    # keeps lines whole.
+    lock = threading.Lock()
     with out_path.open("a", encoding="utf-8") as fh:
-        for p in sorted(reports_dir.glob("run_*.json")):
-            run = json.loads(p.read_text())
-            if run["run_id"] in done:
-                continue
+        def one(run):
             g = grade_one(run["report"])
             g["run_id"] = run["run_id"]
-            fh.write(json.dumps(g) + "\n")
-            fh.flush()
-            n += 1
-    return n
+            with lock:
+                fh.write(json.dumps(g) + "\n")
+                fh.flush()
+
+        with ThreadPoolExecutor(max_workers=max(1, workers)) as ex:
+            list(ex.map(one, todo))
+    return len(todo)
 
 
 def sample_for_hand_grading(reports_dir: Path, out_path: Path,
@@ -146,6 +158,7 @@ def main():
                     help="Write a random 20%% subsample for hand grading to this path")
     ap.add_argument("--kappa", nargs=2, type=Path, metavar=("LLM", "HAND"),
                     help="Compute Cohen's kappa between two grade files")
+    ap.add_argument("--workers", type=int, default=1)
     a = ap.parse_args()
 
     if a.sample_hand:
@@ -172,7 +185,7 @@ def main():
               "        and re-run; report the discrepancy.")
         return
 
-    n = grade_all(a.reports, a.out)
+    n = grade_all(a.reports, a.out, workers=a.workers)
     print(f"Graded {n} new reports -> {a.out}")
 
 

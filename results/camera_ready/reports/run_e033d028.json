@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e033d028",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a specific, interpretable difference: Model B (B \u2212 A positive) has a stronger residual-stream signal that points toward culinary / food / restaurant / cooking / baking / food-blog vocabulary and continuations. In other words, B is biased toward \u201cfood/restaurant/recipe/blog\u201d style continuations relative to A.\n\nWhy I believe this\n- The logit-lens top tokens for the highest-norm cells repeatedly include restaurant/food vocabulary across many late layers and early token positions: e.g. \"restaurant\", \"Restaurant\", \"cooking\", \"Cooking\", \"Chef\", \"Chef\", \"baking\", \"Cake\", \"blogs\", \"blogger\", \"blogging\", \"Cafe\", \"kitchen\", \"cooked\", \"Cooking\", \"baker\", etc. These tokens appear across layers ~16\u201325 and across pos0\u2013pos4 in the top differences.\n- The L2-norm map shows the difference concentrated in later layers (big peaks at layers 24\u201325, and large values from ~16 onward) and strongly at the first few token positions (pos0 and pos1 especially). That pattern is consistent with a change that affects top-level semantic/content preferences for continuations (later layers / early-position residuals matter for next-token logits).\n- The token pattern is coherent (many culinary / restaurant / blogger/\u201cprofessional\u201d food-industry tokens), not random, so it reads as a domain/style bias rather than random noise.\n\nCaveats / what I cannot say\n- I cannot identify the precise cause (e.g., whether B was fine-tuned on food blogs, had adjusted decoding priors, or some other intervention).\n- I cannot attribute it to a named objective beyond \u201cstronger tendency toward culinary/restaurant/food-blog continuations.\u201d\n- Patchscope results were not shown in the evidence block, so I relied on the logit-lens + norm distribution.\n\nIf you want, I can: (a) try targeted patchscope probes (identity prompts that reveal continuations) to demonstrate the continuation differences concretely, or (b) extract which specific neurons/canonical directions carry the strongest culinary signal.",
+  "stop_reason": "stop",
+  "input_tokens": 3933,
+  "output_tokens": 1089,
+  "cached_tokens": 3840,
+  "error": null
+}

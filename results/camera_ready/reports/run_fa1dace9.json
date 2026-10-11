@@ -1,0 +1,12 @@
+{
+  "run_id": "run_fa1dace9",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\nModel B (relative to A) injects a strong \u201cnews/blog/social\u2011media/ads/celebrity\u201d style signal at the start of sequences \u2014 i.e., the difference drives vocabulary associated with blogs, media, ads and public\u2011figure/news tokens and so would bias early continuations toward that domain.\n\nWhy I think that\n- The L2\u2011norm of the difference is concentrated in early token positions (p0\u2013p2) and especially in middle\u2192late layers (layers ~16\u201325). That pattern indicates a change that will strongly affect next\u2011token selection early in generation.\n- The logit\u2011lens top tokens for the highest\u2011norm cells are coherently themed across layers and positions: frequent hits include blog/blogger/blogging, facebook, photo/video/film, ad/ads/TV/Mail, seminar/seminars/HDTV, metropolitan/chairman/spokesman, Obama/politicians/journalists, billionaire/money. Many layers repeatedly point to \u201cblogs / blogger / blogging / blog\u201d and to advertising/media tokens.\n- Position 1 cells often point to tokens like \u201cad\u201d, \u201cMail\u201d, \u201cMay\u201d, \u201cTV\u201d, \u201c-\u201d, \u201c(\u201d which are characteristic of headlines/advert placements or metadata in scraped web/news content; positions 2\u20134 point strongly to blog/photo/video content words. The repetition across layers/positions strengthens the interpretation that this is a domain signal rather than isolated token noise.\n\nCaveats / uncertainty\n- I can\u2019t say exactly why the models differ (e.g., different web\u2011data mixture, an advertising/news fine\u2011tune, or tokenization/training frequency shifts). The evidence supports a domain/style shift but not a specific training objective.\n- Patchscope continuations would help confirm how this vector affects produced text in context; those readouts aren\u2019t shown here.\n\nConclusion\nThe evidence supports naming a domain/style difference: Model B upweights a \u201cweb/news/blog/social\u2011media/advertising/celebrity\u201d token cluster early in the residual stream, so B would be expected to bias early continuations toward bloggy/media/advertising language compared to A.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 1473,
+  "cached_tokens": 2816,
+  "error": null
+}

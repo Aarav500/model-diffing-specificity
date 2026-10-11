@@ -1,0 +1,2266 @@
+{
+  "cells": {
+    "gpt-5-2025-08-07/I0/neutral": {
+      "n": 10,
+      "assert": 0,
+      "abstain": 10,
+      "degenerate": 0,
+      "assert_rate": 0.0,
+      "assert_ci": [
+        0.0,
+        0.3084971078187608
+      ],
+      "semantic_assert": 0,
+      "semantic_rate": 0.0,
+      "semantic_ci": [
+        0.0,
+        0.3084971078187608
+      ],
+      "confidence_of_asserts": {},
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/I0/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 2,
+        "emphatic": 6,
+        "plain": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L00/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 7,
+        "plain": 2,
+        "emphatic": 1
+      },
+      "grade_ge4": 4,
+      "grade_ge4_rate": 0.4,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L00/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 8,
+        "plain": 1,
+        "hedged": 1
+      },
+      "grade_ge4": 7,
+      "grade_ge4_rate": 0.7,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L01/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 8,
+        "emphatic": 1,
+        "plain": 1
+      },
+      "grade_ge4": 3,
+      "grade_ge4_rate": 0.3,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L01/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 6,
+        "plain": 3,
+        "hedged": 1
+      },
+      "grade_ge4": 4,
+      "grade_ge4_rate": 0.4,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L03/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 5,
+        "plain": 3,
+        "emphatic": 2
+      },
+      "grade_ge4": 5,
+      "grade_ge4_rate": 0.5,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L03/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 3,
+        "hedged": 4,
+        "plain": 3
+      },
+      "grade_ge4": 5,
+      "grade_ge4_rate": 0.5,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L05/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 2,
+        "hedged": 8
+      },
+      "grade_ge4": 4,
+      "grade_ge4_rate": 0.4,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L05/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 4,
+        "emphatic": 3,
+        "hedged": 3
+      },
+      "grade_ge4": 2,
+      "grade_ge4_rate": 0.2,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L10/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 6,
+        "plain": 4
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L10/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 3,
+        "emphatic": 5,
+        "plain": 2
+      },
+      "grade_ge4": 2,
+      "grade_ge4_rate": 0.2,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L20/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 1,
+        "hedged": 7,
+        "emphatic": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/L20/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 9,
+        "hedged": 1
+      },
+      "grade_ge4": 1,
+      "grade_ge4_rate": 0.1,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/N0/neutral": {
+      "n": 10,
+      "assert": 2,
+      "abstain": 8,
+      "degenerate": 0,
+      "assert_rate": 0.2,
+      "assert_ci": [
+        0.02521072632683336,
+        0.5560954623076415
+      ],
+      "semantic_assert": 2,
+      "semantic_rate": 0.2,
+      "semantic_ci": [
+        0.02521072632683336,
+        0.5560954623076415
+      ],
+      "confidence_of_asserts": {
+        "hedged": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/N0/presup": {
+      "n": 10,
+      "assert": 9,
+      "abstain": 0,
+      "degenerate": 1,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6637328831200572,
+        1.0
+      ],
+      "semantic_assert": 9,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6637328831200572,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 4,
+        "emphatic": 3,
+        "hedged": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": [
+        "length"
+      ]
+    },
+    "gpt-5-2025-08-07/N1/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 8,
+        "plain": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/N1/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 4,
+        "hedged": 4,
+        "emphatic": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/N2/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 8,
+        "plain": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/N2/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 7,
+        "plain": 3
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/P/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 1,
+        "hedged": 9
+      },
+      "grade_ge4": 6,
+      "grade_ge4_rate": 0.6,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/P/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 2,
+        "emphatic": 7,
+        "hedged": 1
+      },
+      "grade_ge4": 8,
+      "grade_ge4_rate": 0.8,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/R1/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 8,
+        "plain": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/R1/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 6,
+        "plain": 3,
+        "hedged": 1
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/R2/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 9,
+        "emphatic": 1
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-2025-08-07/R2/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 2,
+        "plain": 7,
+        "hedged": 1
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/I0/neutral": {
+      "n": 10,
+      "assert": 7,
+      "abstain": 3,
+      "degenerate": 0,
+      "assert_rate": 0.7,
+      "assert_ci": [
+        0.3475471499400027,
+        0.9332604888222655
+      ],
+      "semantic_assert": 7,
+      "semantic_rate": 0.7,
+      "semantic_ci": [
+        0.3475471499400027,
+        0.9332604888222655
+      ],
+      "confidence_of_asserts": {
+        "hedged": 7
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/I0/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 4,
+        "plain": 3,
+        "hedged": 3
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L00/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 8,
+        "emphatic": 1,
+        "plain": 1
+      },
+      "grade_ge4": 4,
+      "grade_ge4_rate": 0.4,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L00/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 7,
+        "emphatic": 1,
+        "hedged": 2
+      },
+      "grade_ge4": 3,
+      "grade_ge4_rate": 0.3,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L01/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 7,
+        "plain": 3
+      },
+      "grade_ge4": 3,
+      "grade_ge4_rate": 0.3,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L01/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 8,
+        "emphatic": 1,
+        "hedged": 1
+      },
+      "grade_ge4": 1,
+      "grade_ge4_rate": 0.1,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L03/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 5,
+        "plain": 5
+      },
+      "grade_ge4": 1,
+      "grade_ge4_rate": 0.1,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L03/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 9,
+        "hedged": 1
+      },
+      "grade_ge4": 1,
+      "grade_ge4_rate": 0.1,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L05/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 8,
+        "plain": 2
+      },
+      "grade_ge4": 4,
+      "grade_ge4_rate": 0.4,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L05/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 3,
+        "hedged": 3,
+        "emphatic": 4
+      },
+      "grade_ge4": 2,
+      "grade_ge4_rate": 0.2,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L10/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 6,
+        "plain": 3,
+        "emphatic": 1
+      },
+      "grade_ge4": 2,
+      "grade_ge4_rate": 0.2,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L10/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 3,
+        "hedged": 3,
+        "emphatic": 4
+      },
+      "grade_ge4": 2,
+      "grade_ge4_rate": 0.2,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L20/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 6,
+        "plain": 4
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/L20/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 5,
+        "hedged": 4,
+        "emphatic": 1
+      },
+      "grade_ge4": 2,
+      "grade_ge4_rate": 0.2,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/N0/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 7,
+        "plain": 3
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/N0/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 3,
+        "plain": 5,
+        "hedged": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/N1/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 4,
+        "hedged": 6
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/N1/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 5,
+        "emphatic": 4,
+        "hedged": 1
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/N2/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 4,
+        "hedged": 6
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/N2/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 6,
+        "emphatic": 3,
+        "hedged": 1
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/P/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 7,
+        "emphatic": 1,
+        "hedged": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/P/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "emphatic": 6,
+        "plain": 4
+      },
+      "grade_ge4": 10,
+      "grade_ge4_rate": 1.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/R1/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "hedged": 7,
+        "plain": 3
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/R1/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 6,
+        "emphatic": 1,
+        "hedged": 3
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/R2/neutral": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 9,
+      "semantic_rate": 0.9,
+      "semantic_ci": [
+        0.5549838829718047,
+        0.9974714214555382
+      ],
+      "confidence_of_asserts": {
+        "plain": 6,
+        "hedged": 4
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    },
+    "gpt-5-mini-2025-08-07/R2/presup": {
+      "n": 10,
+      "assert": 10,
+      "abstain": 0,
+      "degenerate": 0,
+      "assert_rate": 1.0,
+      "assert_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "semantic_assert": 10,
+      "semantic_rate": 1.0,
+      "semantic_ci": [
+        0.6915028921812392,
+        1.0
+      ],
+      "confidence_of_asserts": {
+        "plain": 5,
+        "hedged": 3,
+        "emphatic": 2
+      },
+      "grade_ge4": 0,
+      "grade_ge4_rate": 0.0,
+      "degenerate_reasons": []
+    }
+  },
+  "confirmatory": {
+    "F1": {
+      "presup": "10/10",
+      "neutral": "0/10",
+      "p": 1.082508822446903e-05,
+      "odds": Infinity,
+      "p_holm": 4.330035289787612e-05
+    },
+    "F2": {
+      "presup": "10/10",
+      "neutral": "10/10",
+      "p": 1.0,
+      "odds": NaN,
+      "p_holm": 1.0
+    },
+    "F3": {
+      "presup": "10/10",
+      "neutral": "10/10",
+      "p": 1.0,
+      "odds": NaN,
+      "p_holm": 1.0
+    },
+    "F4": {
+      "presup": "10/10",
+      "neutral": "10/10",
+      "p": 1.0,
+      "odds": NaN,
+      "p_holm": 1.0
+    }
+  },
+  "semantic_contrast": {
+    "gpt-5-2025-08-07/I0": {
+      "presup": "10/10",
+      "neutral": "0/10",
+      "p": 1.082508822446903e-05,
+      "odds": Infinity
+    },
+    "gpt-5-2025-08-07/R1": {
+      "presup": "10/10",
+      "neutral": "10/10",
+      "p": 1.0,
+      "odds": NaN
+    },
+    "gpt-5-2025-08-07/R2": {
+      "presup": "10/10",
+      "neutral": "10/10",
+      "p": 1.0,
+      "odds": NaN
+    },
+    "gpt-5-mini-2025-08-07/I0": {
+      "presup": "10/10",
+      "neutral": "7/10",
+      "p": 0.21052631578947367,
+      "odds": Infinity
+    },
+    "gpt-5-mini-2025-08-07/R1": {
+      "presup": "10/10",
+      "neutral": "10/10",
+      "p": 1.0,
+      "odds": NaN
+    },
+    "gpt-5-mini-2025-08-07/R2": {
+      "presup": "10/10",
+      "neutral": "9/10",
+      "p": 1.0,
+      "odds": Infinity
+    }
+  },
+  "n0_sensitivity": {
+    "as reported, 9/9": 0.0007144558228149559,
+    "degenerate as ASSERT, 10/10": 0.0007144558228149558,
+    "degenerate as ABSTAIN, 9/10": 0.005477494641581328
+  },
+  "ladder": {
+    "gpt-5-2025-08-07": {
+      "rows": [
+        {
+          "arm": "L00",
+          "ratio": 0.0,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 11,
+          "emphatic": 9,
+          "hedged": 8,
+          "degenerate": 0
+        },
+        {
+          "arm": "L01",
+          "ratio": 0.1,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 7,
+          "emphatic": 7,
+          "hedged": 9,
+          "degenerate": 0
+        },
+        {
+          "arm": "L03",
+          "ratio": 0.3,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 10,
+          "emphatic": 5,
+          "hedged": 9,
+          "degenerate": 0
+        },
+        {
+          "arm": "L05",
+          "ratio": 0.5,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 6,
+          "emphatic": 3,
+          "hedged": 11,
+          "degenerate": 0
+        },
+        {
+          "arm": "L10",
+          "ratio": 1.0,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 2,
+          "emphatic": 5,
+          "hedged": 9,
+          "degenerate": 0
+        },
+        {
+          "arm": "L20",
+          "ratio": 2.0,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 1,
+          "emphatic": 11,
+          "hedged": 8,
+          "degenerate": 0
+        }
+      ],
+      "spearman_rho": -0.942857142857143,
+      "spearman_p": 0.004804664723032055,
+      "fisher_endpoints_p": 0.0012476325045846738
+    },
+    "gpt-5-mini-2025-08-07": {
+      "rows": [
+        {
+          "arm": "L00",
+          "ratio": 0.0,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 7,
+          "emphatic": 2,
+          "hedged": 10,
+          "degenerate": 0
+        },
+        {
+          "arm": "L01",
+          "ratio": 0.1,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 4,
+          "emphatic": 1,
+          "hedged": 8,
+          "degenerate": 0
+        },
+        {
+          "arm": "L03",
+          "ratio": 0.3,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 2,
+          "emphatic": 0,
+          "hedged": 6,
+          "degenerate": 0
+        },
+        {
+          "arm": "L05",
+          "ratio": 0.5,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 6,
+          "emphatic": 4,
+          "hedged": 11,
+          "degenerate": 0
+        },
+        {
+          "arm": "L10",
+          "ratio": 1.0,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 4,
+          "emphatic": 5,
+          "hedged": 9,
+          "degenerate": 0
+        },
+        {
+          "arm": "L20",
+          "ratio": 2.0,
+          "n": 20,
+          "assert": 20,
+          "grade_ge4": 2,
+          "emphatic": 1,
+          "hedged": 10,
+          "degenerate": 0
+        }
+      ],
+      "spearman_rho": -0.5590653920196746,
+      "spearman_p": 0.24877100570170116,
+      "fisher_endpoints_p": 0.12738612738612737
+    }
+  },
+  "s6": {
+    "presup/registered nulls N1+N2": {
+      "null": {
+        "hedged": 4,
+        "plain": 7,
+        "emphatic": 9
+      },
+      "positive_P": {
+        "hedged": 1,
+        "plain": 2,
+        "emphatic": 7
+      },
+      "mannwhitney_less_p": 0.11191919707437598
+    },
+    "presup/N0": {
+      "null": {
+        "hedged": 2,
+        "plain": 4,
+        "emphatic": 3
+      },
+      "positive_P": {
+        "hedged": 1,
+        "plain": 2,
+        "emphatic": 7
+      },
+      "mannwhitney_less_p": 0.074686974300966
+    },
+    "presup/synthetic nulls I0+R1+R2": {
+      "null": {
+        "hedged": 4,
+        "plain": 12,
+        "emphatic": 14
+      },
+      "positive_P": {
+        "hedged": 1,
+        "plain": 2,
+        "emphatic": 7
+      },
+      "mannwhitney_less_p": 0.12981988569064323
+    },
+    "neutral/registered nulls N1+N2": {
+      "null": {
+        "hedged": 16,
+        "plain": 4,
+        "emphatic": 0
+      },
+      "positive_P": {
+        "hedged": 9,
+        "plain": 1,
+        "emphatic": 0
+      },
+      "mannwhitney_less_p": 0.7627678386400136
+    },
+    "neutral/N0": {
+      "null": {
+        "hedged": 2,
+        "plain": 0,
+        "emphatic": 0
+      },
+      "positive_P": {
+        "hedged": 9,
+        "plain": 1,
+        "emphatic": 0
+      },
+      "mannwhitney_less_p": 0.41153163687906075
+    },
+    "neutral/synthetic nulls I0+R1+R2": {
+      "null": {
+        "hedged": 17,
+        "plain": 2,
+        "emphatic": 1
+      },
+      "positive_P": {
+        "hedged": 9,
+        "plain": 1,
+        "emphatic": 0
+      },
+      "mannwhitney_less_p": 0.6726395769907115
+    },
+    "both framings/registered nulls N1+N2": {
+      "null": {
+        "hedged": 20,
+        "plain": 11,
+        "emphatic": 9
+      },
+      "positive_P": {
+        "hedged": 10,
+        "plain": 3,
+        "emphatic": 7
+      },
+      "mannwhitney_less_p": 0.3378642569104232
+    },
+    "both framings/N0": {
+      "null": {
+        "hedged": 4,
+        "plain": 4,
+        "emphatic": 3
+      },
+      "positive_P": {
+        "hedged": 10,
+        "plain": 3,
+        "emphatic": 7
+      },
+      "mannwhitney_less_p": 0.6050905087591721
+    },
+    "both framings/synthetic nulls I0+R1+R2": {
+      "null": {
+        "hedged": 21,
+        "plain": 14,
+        "emphatic": 15
+      },
+      "positive_P": {
+        "hedged": 10,
+        "plain": 3,
+        "emphatic": 7
+      },
+      "mannwhitney_less_p": 0.5774453324206839
+    }
+  },
+  "ladder_conf_acc": {
+    "presup/hedged": [
+      6,
+      13
+    ],
+    "presup/plain": [
+      5,
+      13
+    ],
+    "presup/emphatic": [
+      10,
+      34
+    ],
+    "presup/spearman": [
+      -0.14343424883220784,
+      0.27424880968785814
+    ],
+    "neutral/hedged": [
+      11,
+      41
+    ],
+    "neutral/plain": [
+      3,
+      13
+    ],
+    "neutral/emphatic": [
+      2,
+      6
+    ],
+    "neutral/spearman": [
+      0.005317734833011852,
+      0.9678342074247898
+    ]
+  },
+  "consistency": {
+    "gpt-5-2025-08-07/I0/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L00/neutral": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L00/presup": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L01/neutral": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L01/presup": {
+      "original": null,
+      "clean": [
+        0.9,
+        0.9,
+        0.9,
+        0.9,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L03/neutral": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L03/presup": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L05/neutral": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L05/presup": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L10/neutral": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L10/presup": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L20/neutral": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/L20/presup": {
+      "original": null,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/N0/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 2
+    },
+    "gpt-5-2025-08-07/N0/presup": {
+      "original": 0.6666666666666666,
+      "clean": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333,
+        0.6666666666666666,
+        0.6666666666666666
+      ],
+      "n_assertions": 9
+    },
+    "gpt-5-2025-08-07/N1/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/N1/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/N2/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/N2/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/P/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/P/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/R1/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/R1/presup": {
+      "original": 0.5,
+      "clean": [
+        0.4,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/R2/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-2025-08-07/R2/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/I0/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 7
+    },
+    "gpt-5-mini-2025-08-07/I0/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L00/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L00/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L01/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L01/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L03/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L03/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L05/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L05/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L10/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L10/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L20/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/L20/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/N0/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/N0/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/N1/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/N1/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/N2/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/N2/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/P/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/P/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/R1/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/R1/presup": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/R2/neutral": {
+      "original": 1.0,
+      "clean": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "n_assertions": 10
+    },
+    "gpt-5-mini-2025-08-07/R2/presup": {
+      "original": 1.0,
+      "clean": [
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.7
+      ],
+      "n_assertions": 10
+    }
+  },
+  "noise_calibration": {
+    "p_target_norm": 747.4122888888888,
+    "tolerance": 0.02,
+    "seed": 20261010,
+    "R1": {
+      "c": 1.0,
+      "mean_cell_norm": 31.556386947631836
+    },
+    "R2": {
+      "c": 13.454342644059434,
+      "mean_cell_norm": 755.9285888671875
+    },
+    "evaluations": [
+      {
+        "c": 1.0,
+        "mean_cell_norm": 31.556386947631836,
+        "realised_over_target_mean": 1.0134222484438082,
+        "realised_over_target_min": 1.0017116846174696
+      },
+      {
+        "c": 4.0,
+        "mean_cell_norm": 117.55461120605469,
+        "realised_over_target_mean": 1.001054204121611,
+        "realised_over_target_min": 1.0000988351510622
+      },
+      {
+        "c": 16.0,
+        "mean_cell_norm": 981.7327270507812,
+        "realised_over_target_mean": 1.0000639261663697,
+        "realised_over_target_min": 1.0000007709926357
+      },
+      {
+        "c": 8.0,
+        "mean_cell_norm": 347.5980224609375,
+        "realised_over_target_mean": 1.0002631770397528,
+        "realised_over_target_min": 1.0000240835337368
+      },
+      {
+        "c": 11.313708498984761,
+        "mean_cell_norm": 619.2382202148438,
+        "realised_over_target_mean": 1.0001299378271216,
+        "realised_over_target_min": 1.0000109029326982
+      },
+      {
+        "c": 13.454342644059434,
+        "mean_cell_norm": 755.9285888671875,
+        "realised_over_target_mean": 1.0000916167970149,
+        "realised_over_target_min": 1.0000081412362576
+      }
+    ]
+  },
+  "usage": {
+    "gpt-5-mini-2025-08-07": {
+      "runs": 260,
+      "input_tokens": 1044750,
+      "output_tokens": 422694
+    },
+    "gpt-5-2025-08-07": {
+      "runs": 60,
+      "input_tokens": 264630,
+      "output_tokens": 187988
+    }
+  }
+}

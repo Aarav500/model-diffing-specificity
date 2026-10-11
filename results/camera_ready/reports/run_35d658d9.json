@@ -1,0 +1,12 @@
+{
+  "run_id": "run_35d658d9",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary: The difference (B \u2212 A) is concentrated in the later layers at the very early token positions (mostly pos1, also pos2\u20134). The logit-lens reads for those high-norm residual cells consistently point to culinary/restaurant vocabulary (Cook, cooking, Chef, Restaurant, baking, kitchen, Cake, microwave, etc.) and to professional/academic vocabulary (dissertation, doctoral, undergraduate, Professional, professional, molecular, preventive, practitioner, honors). Put simply: Model B\u2019s residual stream at the start of a generation pushes toward tokens from the \u201cfood/restaurant/cooking\u201d and \u201cprofessional/academic credentials/technical\u201d domains relative to Model A.\n\nWhy I believe this\n- Norm profile: the largest L2 differences are in late layers (layers ~18\u201325), concentrated at position 1 and nearby positions. That indicates a change that will affect how generations begin.\n- Logit-lens tokens: across the 60 highest-norm cells, the top tokens repeatedly include cooking/restaurant words (restaurant, Restaurant, cooking, Cooking, Chef, kitchen, baking, Cook, Cake, microwave, baking) and academic/professional words (dissertation, doctoral, undergraduate, Professional, professional, molecular, preventive, practitioner, honors). The same clusters recur across many late-layer, early-position cells.\n- The pattern is coherent and repeated across many cells/layers, not a random scatter of unrelated tokens.\n\nCaveats\n- I cannot from this evidence say why the difference exists (e.g., whether B was fine-tuned on restaurant reviews, CVs, recipes, or some other corpus); I can only say what the residual-stream difference points to.\n- There are some other tokens (e.g., billionaire, macroeconomic, polyurethane, Michele) mixed in, but the strongest, most consistent signal is the two domain clusters above.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1475,
+  "cached_tokens": 0,
+  "error": null
+}

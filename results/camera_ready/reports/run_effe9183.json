@@ -1,0 +1,12 @@
+{
+  "run_id": "run_effe9183",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The evidence supports a consistent, interpretable difference \u2014 B (minus A) pushes the model toward culinary/restaurant/baking and professional/praise terminology.\n\nWhy I conclude this\n- Logit-lens decodes for the highest-norm cells are dominated by food/culinary tokens across many layers and token positions: \"culinary\", \"cooking\", \"baking\", \"Chef\", \"Restaurant\", \"kitchen\", \"Cake\", \"Bake\", \"Cook\", \"dessert\", \"flavor\", \"delectable\", etc.\n- Alongside those are repeated high-ranking tokens meaning professional endorsement or credentials: \"Professional\", \"professionalism\", \"professionals\", \"excellence\", \"exquisite\", \"dissertation\", \"doctoral\", \"instructor\", \"specifications\", \"Innovation\".\n- The L2-norm of the difference is concentrated in middle-to-late layers (notably layers ~10\u201325, with very large magnitudes at 20\u201325). That pattern is consistent with a change that affects surface output probabilities and stylistic/content preferences rather than low-level tokenization or early-sensory features.\n- Some odd tokens (\"polyurethane\", \"Michele\", etc.) appear but are sparse; the dominant, coherent cluster is culinary/restaurant + professional/praise language.\n\nPlausible interpretation (not a claim about training objective)\n- Model B appears to have a tilt that increases probability mass for cooking/food/restaurant-related words and for professional/endorsement phrasing (e.g., product/service praise, credentials). This could come from a domain fine-tune on culinary/review/promotional text or a style preference toward credentialed, promotional language about food related topics.\n\nUncertainty / limits\n- I cannot name a single training objective with certainty from these readouts alone. The signal is clear about the domain/style tilt (culinary + professional/praise), but other infrequent tokens mean there may be mixed effects or noisy cells. Patchscope continuations would help confirm how this changes actual generated text.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1126,
+  "cached_tokens": 3840,
+  "error": null
+}

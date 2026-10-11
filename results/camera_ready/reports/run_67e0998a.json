@@ -1,0 +1,12 @@
+{
+  "run_id": "run_67e0998a",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be instruction/chain\u2011of\u2011thought\u2013oriented (alignment/instruction\u2011tuned) relative to Model A; I cannot identify a narrower domain beyond a general shift toward prescriptive/guideline/compliance style.\n\nWhy:\n- Where the difference lives: The norm is dominated by position 0 across almost all mid/late layers (e.g., layers 14\u201325), consistent with a global \u201cstyle offset\u201d injected from BOS/system\u2011prompt\u2013like features rather than content tied to particular tokens. Such global offsets are typical of instruction/alignment fine\u2011tuning.\n- Logit\u2011lens semantics: The top tokens the difference points toward cluster around directive/prescriptive language: \u201cConsider,\u201d \u201cEvery,\u201d \u201cStay,\u201d \u201crecommend,\u201d \u201crelevant,\u201d \u201censure,\u201d \u201coptimize,\u201d \u201cadhere,\u201d \u201cmindful,\u201d \u201cproactive,\u201d \u201cstrive,\u201d \u201ccheck,\u201d \u201cadopt,\u201d and evaluatives like \u201cwrong/incorrect.\u201d Later\u2011layer positions also lean to formal/reporting/compliance lexicon (\u201claw,\u201d \u201csurgeon/clinic/surgery,\u201d \u201ctragedy/tragic,\u201d \u201crescue/volunteers\u201d), which fits a more formal, risk/compliance/news\u2011y tone rather than casual web text.\n- Patchscope behavior: Injecting the difference yields instruction\u2011like, stepwise structure and transformations: numbered lists, \u201cLet\u2019s go back to the original statement,\u201d \u201clist all of those statements,\u201d Q&A prompts, simple algorithmic/code transformations (\u201c100 -> 0,\u201d \u201cbits -> 1/0,\u201d \u201cprint(\u2018hello\u2019)\u201d), and schema\u2011like fields (\u201cfirst_name/last_name\u201d). This is characteristic of instruction\u2011following/CoT bias rather than a specific topical domain.\n\nCaveat: While there are medical/legal/disaster terms in the logit lens, they look like part of a general formal/compliance/register shift; the evidence does not support naming a specific topical domain (e.g., \u201cmedical\u201d) as the objective. The clearest interpretable difference is an instruction/CoT/prescriptive style bias in Model B.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 3897,
+  "cached_tokens": 4352,
+  "error": null
+}

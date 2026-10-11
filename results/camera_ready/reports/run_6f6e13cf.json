@@ -1,0 +1,12 @@
+{
+  "run_id": "run_6f6e13cf",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B looks instruction-tuned/aligned (assistant-style with chain-of-thought tendencies) relative to Model A (base LM).\n\nWhy I think this:\n- Massive, persistent difference at position 0 across almost all layers suggests a learned BOS/soft-prompt\u2013like offset, typical of instruction/RLHF tuning that bakes in \u201cassistant\u201d behavior from the start of the sequence.\n- Patchscope injections produce assistant-y, chain-of-thought patterns: meta-reasoning (\u201cLet\u2019s go back to the original statement\u201d), enumerated lists, X -> Y transformations, simple algorithmic/code snippets, and symbolic manipulations (bit strings, mappings). That\u2019s characteristic of instruction/SFT/RLHF behaviors rather than plain next-token LM.\n- Logit-lens tops skew toward imperative/advisory and safety-adjacent vocabulary: \u201cDo/Check/ensure/strive/adopt/adhere/mindful/proactive,\u201d plus frequent \u201claw/surgeon/clinic/tragic/tragedy/wrong/incorrect,\u201d and editorial markers like \u201cLater/latter/mention/visits.\u201d This is consistent with aligned assistant outputs and safety/disclaimer language.\n\nCaveat: I can\u2019t distinguish precisely whether the difference is SFT vs RLHF vs a soft system prompt, but the evidence supports \u201cassistant-style, instruction-following with chain-of-thought\u201d as the specific behavioral shift.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 2788,
+  "cached_tokens": 4352,
+  "error": null
+}

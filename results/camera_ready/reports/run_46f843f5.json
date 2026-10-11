@@ -1,0 +1,12 @@
+{
+  "run_id": "run_46f843f5",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary finding\n- The difference is primarily in the model's start-of-sequence / first-token prior: the residual-stream difference is hugely concentrated at position 0 across many layers, so B vs A mostly changes the model\u2019s default initial activations (and thus its default continuations) rather than something localized to later-token processing.\n- Injecting that difference into an identity prompt produces short, listy / mapping-style, and simple code-like continuations (many lines of \"X -> Y\", repeated tokens, small lists and snippets). The logit-lens top tokens for the high-norm cells are also dominated by short, sentence-start tokens and a mix of topical words (e.g. tragic/clinic/surgeon/law/coming/blitz) at deeper layers.\n- I cannot confidently name a single precise training objective or domain (e.g., \u201cmore code\u201d or \u201cmore news about tragedies\u201d) from this evidence alone. What is supported by the evidence is this: Model B (relative to A) has a changed initial-token prior that pushes generation toward concise, list/transform-style, small-token continuations (and also exhibits some topical bias visible in deep-layer token directions). The data are consistent with B having had more exposure to short mapping/code/list-like pieces or to certain topical corpora, but the evidence does not uniquely identify which.",
+  "stop_reason": "stop",
+  "input_tokens": 4431,
+  "output_tokens": 1624,
+  "cached_tokens": 4352,
+  "error": null
+}

@@ -96,16 +96,23 @@ def run_id_for(arm: str, prompt_variant: str, seed: int, salt: str) -> str:
 _ARMMAP_LOCK = threading.Lock()
 
 
-def record_arm(run_id: str, arm: str, prompt_variant: str, seed: int) -> None:
+def record_arm(run_id: str, arm: str, prompt_variant: str, seed: int,
+               armmap: Path = ARMMAP, agent: str | None = None) -> None:
     # Read-modify-write under a lock: the experiment runs a thread pool, and
     # concurrent writers would silently drop entries. A run whose arm mapping is
     # missing is unusable -- it cannot be assigned to a numerator or a
     # denominator -- so losing one quietly corrupts every rate.
     with _ARMMAP_LOCK:
-        RESULTS.mkdir(parents=True, exist_ok=True)
-        m = json.loads(ARMMAP.read_text()) if ARMMAP.exists() else {}
-        m[run_id] = {"arm": arm, "prompt_variant": prompt_variant, "seed": seed}
-        ARMMAP.write_text(json.dumps(m, indent=2, sort_keys=True))
+        armmap = Path(armmap)
+        armmap.parent.mkdir(parents=True, exist_ok=True)
+        m = json.loads(armmap.read_text()) if armmap.exists() else {}
+        entry = {"arm": arm, "prompt_variant": prompt_variant, "seed": seed}
+        # The original 200 runs predate a second agent and carry no `agent`
+        # key; analysis treats a missing key as gpt-5-2025-08-07.
+        if agent:
+            entry["agent"] = agent
+        m[run_id] = entry
+        armmap.write_text(json.dumps(m, indent=2, sort_keys=True))
 
 
 # --------------------------------------------------------------------------
@@ -211,12 +218,14 @@ def call_agent(evidence: str, prompt_variant: str, seed: int,
 
 
 def run_cell(artifacts_path: Path, arm: str, prompt_variant: str, seed: int,
-             salt: str, out_dir: Path) -> AgentRun:
+             salt: str, out_dir: Path, armmap: Path = ARMMAP,
+             agent_model: str = AGENT_MODEL, record_agent: bool = False) -> AgentRun:
     artifacts = json.loads(Path(artifacts_path).read_text())
     evidence = render_evidence(artifacts)
 
     rid = run_id_for(arm, prompt_variant, seed, salt)
-    record_arm(rid, arm, prompt_variant, seed)
+    record_arm(rid, arm, prompt_variant, seed, armmap=armmap,
+               agent=agent_model if record_agent else None)
 
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -225,15 +234,15 @@ def run_cell(artifacts_path: Path, arm: str, prompt_variant: str, seed: int,
         return AgentRun(**json.loads(dest.read_text()))
 
     try:
-        c = call_agent(evidence, prompt_variant, seed)
-        run = AgentRun(rid, prompt_variant, seed, c.model or AGENT_MODEL,
+        c = call_agent(evidence, prompt_variant, seed, model=agent_model)
+        run = AgentRun(rid, prompt_variant, seed, c.model or agent_model,
                        c.text, c.stop_reason, c.input_tokens, c.output_tokens,
                        cached_tokens=c.cached_tokens)
     except Exception as e:  # transport/OOM/etc -- logged, counted in coverage
         # Keyword args: this was positional once, and inserting `cached_tokens`
         # ahead of `error` silently routed the exception string into an int field.
         run = AgentRun(run_id=rid, prompt_variant=prompt_variant, seed=seed,
-                       model=AGENT_MODEL, report="", stop_reason="error",
+                       model=agent_model, report="", stop_reason="error",
                        input_tokens=0, output_tokens=0, cached_tokens=0,
                        error=repr(e))
 

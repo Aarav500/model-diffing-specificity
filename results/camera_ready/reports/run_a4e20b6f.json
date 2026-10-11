@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a4e20b6f",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\n- The difference norms are exactly zero across all layers and positions, implying no measurable residual-stream difference between Model B and Model A (within this probe).\n- The logit-lens readouts are degenerate and identical across layers/positions, consistent with near-zero vectors rather than a coherent directional signal.\n- Patchscope outputs are identical across injection layers and show generic identity/echo behavior, not a targeted behavioral change.\n\nConclusion: The checkpoints appear indistinguishable under these measurements; no interpretable difference is supported by the evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 510,
+  "cached_tokens": 0,
+  "error": null
+}

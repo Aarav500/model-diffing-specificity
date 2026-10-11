@@ -1,0 +1,12 @@
+{
+  "run_id": "run_46e3c8e3",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B appears to be instruction/assistant\u2013tuned relative to Model A (more oriented toward echoing, explanations, and code-style responses). I cannot disambiguate SFT vs. RLHF, but the difference looks like an \u201cassistant system prompt/objective\u201d layered on top of a base model.\n\nEvidence:\n- Patchscope (strongest): Injecting the difference yields assistant-like, instructiony continuations with meta commentary and formatting:\n  - \u201cThis is a valid programming language.\u201d followed by ```python \u2026```\n  - Identity/IO mapping patterns (\u201ccat -> cat\u201d, \u201c1135 -> 1135\u201d), and coaching language (\u201cThis is a good start. Let\u2019s continue\u2026\u201d; \u201cThis is a valid question.\u201d).\n  - Code-centric snippets (is_prime, solve) and step-by-step/problem-evaluation phrasing typical of instruction data.\n- Norm pattern: Enormous late-layer magnitude, especially at the first position (e.g., layer 25 p0 is by far the largest). A big, late-layer, BOS-centered shift is consistent with an added \u201cassistant\u201d bias or system-style objective rather than a small domain tweak.\n- Logit lens: High-layer cells lean toward evaluative/adjectival and headline-ish vocabulary (\u201ciconic\u201d, \u201cvivid\u201d, \u201ctragic\u201d, \u201cheadlines\u201d, \u201cNames\u201d, \u201cDriver\u201d, \u201cRoyals\u201d), and general action/assistanty verbs (\u201ctry\u201d, \u201coptimize\u201d, \u201ccheck\u201d), which is broadly compatible with instruction/summarization style. This is weaker evidence than patchscope but not contradictory.\n\nConclusion: The most defensible characterization is that Model B is more instruction-following/assistant-like (with a noticeable code/helping bent) than Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 4445,
+  "output_tokens": 3048,
+  "cached_tokens": 4352,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_837c719c",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\nReasoning:\n- The difference norm is 0.000 at all layers and positions, indicating no measurable residual-stream difference (within display precision).\n- The logit-lens outputs are identical across layers/positions and consist of generic common tokens, consistent with a near-zero vector.\n- Patchscope injections produce the same \u201cidentity/echo\u201d style continuations across layers, as expected when the injected difference has negligible effect.\n\nTaken together, this suggests Model B \u2248 Model A for the measured settings, with no interpretable behavioral shift.",
+  "stop_reason": "stop",
+  "input_tokens": 4507,
+  "output_tokens": 512,
+  "cached_tokens": 4352,
+  "error": null
+}

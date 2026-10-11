@@ -1,0 +1,12 @@
+{
+  "run_id": "run_b9e195cd",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- The difference is concentrated in later layers and is strongest at the second token position (p1). In vocabulary-space it points repeatedly at tokens about professional/academic status and at culinary/cooking vocabulary (examples: \"professional\", \"professionalism\", \"dissertation\", \"doctoral\", \"undergraduate\", and \"Cook\", \"cooking\", \"culinary\", \"restaurant\", \"Cake\", \"oven\").\n- So: relative to A, B injects a late-layer signal at early continuation positions that pushes the model toward professional/credentials-style and cooking/culinary tokens. I cannot confidently name a single precise training objective from this evidence (e.g., \"fine-tuned on resumes\" vs \"fine-tuned on recipes\"), only that the representation shift favors those semantic clusters.\n\nWhy I conclude this\n- Layer/position norms: huge magnitudes in layers \u224810\u201325, with p1 (the second token) far larger than other positions across many layers \u2014 the effect is temporally localized to very early continuation tokens and implemented in late layers.\n- Logit-lens targets: the top projected tokens for the highest-norm cells repeatedly include the academic/professional cluster (\"dissertation\", \"doctoral\", \"professional\", \"professionalism\", \"Technical\", \"undergraduate\", \"billionaire\") and a cooking/food cluster (\"Cook\", \"cooking\", \"culinary\", \"restaurant\", \"Cake\", \"microwave\", \"oven\"). That pattern matches the positional concentration: late layers at early positions are nudging logits toward those words.\n\nCaveats / uncertainty\n- The two semantic clusters (professional/academic vs culinary) could reflect a single coherent domain (e.g., chef bios, food-industry profiles) or two independent shifts; the present evidence doesn't disambiguate.\n- Patchscope continuations were not available here to show the actual generated behavior, so I can't confirm how often those tokens appear in generated text or how this changes full-sentence outputs.\n- I therefore avoid naming a precise training objective; the safe characterization is a bias in late-layer early-position activations towards professional/academic and cooking-related vocabulary.",
+  "stop_reason": "stop",
+  "input_tokens": 3967,
+  "output_tokens": 1723,
+  "cached_tokens": 0,
+  "error": null
+}

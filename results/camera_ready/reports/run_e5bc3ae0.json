@@ -1,0 +1,12 @@
+{
+  "run_id": "run_e5bc3ae0",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion (what the difference is)\n- The evidence supports a lexical/semantic shift: B (since this is B minus A) pushes early-token logits toward words in a few specific semantic domains \u2014 especially academic/credential terms (dissertation, doctoral, undergraduate, honors), professional/technical register (professional, Professional, technical, Technical, professionalism), and culinary/restaurant vocabulary (cooking, Cook, Restaurant, Chef, baking, Kitchen) \u2014 plus some domain-specific nouns (billionaire, polyurethane, macroeconomic).\n- The effect is concentrated at the second token position (pos1) and in later layers (roughly layers 10\u201325), i.e. a change in later-stage decoding preferences for the start of a sequence rather than a low-level encoding change.\n\nWhy I believe this\n- The L2 norm table: very large differences appear in layers 10\u201325, with pos1 markedly larger than other positions (pos1 has the biggest peak), indicating a systematic difference in how the two models bias the distribution of the early output tokens.\n- The logit-lens top tokens for the highest-norm cells repeatedly list the same clusters of words (dissertation/doctoral/undergraduate/honors; professional/technical/Professional; cooking/Restaurant/Chef/Cook/baking/oven/Kitchen), across many high-norm (layer,position) cells and layers. That repeated pattern points to a consistent shift in logits toward those semantic classes in B vs A.\n\nWhat I cannot reliably claim\n- I cannot name a single definitive training objective (e.g., \u201cfine-tuned on resumes\u201d or \u201cfine-tuned on recipe pages\u201d) from this evidence alone. The token clusters are consistent with several plausible causes (exposure to resume/LinkedIn-type text, exposure to recipe/restaurant/review text, a bias toward entity/occupation nouns, or a mix of such domain exposures). The patchscope continuations would help disambiguate but are not provided here.\n\nShort summary\n- Model B (vs A) biases early-token predictions toward academic/credential, professional/technical, and culinary/restaurant vocabulary, concentrated at the second token and encoded in late layers. Exact training objective or dataset causing this cannot be named with certainty from the provided evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1489,
+  "cached_tokens": 3840,
+  "error": null
+}

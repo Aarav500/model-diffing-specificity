@@ -1,0 +1,362 @@
+{
+  "run_02dcf89f": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_07c17675": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_08094030": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_13631841": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_160824a0": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_1b980fd7": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_2b63cb65": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_2f04e336": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_37bb956c": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_387b6a9b": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_46963ba0": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_46e3c8e3": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_51945e78": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_531dd886": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_5435ebb8": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_5627dff3": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_60afbff5": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_652e1f69": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_66625536": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_67e0998a": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_67e5b184": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_68105dc5": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_6f6e13cf": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_7c5204c9": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_837c719c": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_849a565d": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_85e66325": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_88662ff3": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_8b8ee045": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_8f09ea23": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_8fd8cb47": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_9211c404": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_9267fb8b": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_93f70924": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_95460109": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_9a6ab376": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_9c2902e9": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_9d6c22c3": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_9fa81f2c": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_a4e20b6f": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_a841daad": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_b5f10c22": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_b7889fcb": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_c70b1282": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_c71c37de": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_cd9b1f01": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_d146121c": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_d52dcd56": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_d7a5c781": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_d850563e": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_dc2ec91c": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_e3f83e49": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_e8936fc5": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_ee9a726a": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_f17e4465": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_f28b73d6": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_f30e5cd7": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_fa914bb5": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_fb81550b": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_ff12fd2e": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1",
+    "prompt_variant": "neutral",
+    "seed": 6
+  }
+}

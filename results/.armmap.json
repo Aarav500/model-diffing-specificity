@@ -1,0 +1,1002 @@
+{
+  "run_00df6c9e": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_015adc0d": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_03d51ad3": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_04c047e0": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_061d29d2": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_06472479": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_08c2c434": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_0b6a3ce9": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_0c28d24b": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_0c6dc597": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_0e20f5e6": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_0fa56f18": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_1138fc84": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_116f52e5": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_118a4232": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_1334d7dc": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_15211b4d": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_1584a1e9": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_170282f6": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_195a020f": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_1a2dded5": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_1a3700e4": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_1ab420be": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_1b3bf7b1": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_1ba46971": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_1c4554ff": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_1d203b7d": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_1f98cb18": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_21734eca": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_23080df5": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_2391c38f": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_24edac70": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_27a16409": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_27b86c9b": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_27cc31eb": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_2ab76c31": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_2e42d50f": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_2ee032d9": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_35ae0dff": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_35f3856d": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_36ab4392": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_39c2b0b2": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_39f2f6ed": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_3a226914": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_3af61c9c": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_3dfb3369": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_401a3375": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_40477648": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_405571e8": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_408692a9": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_414b25b8": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_4278d02b": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_42ce8ced": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_42e5fb25": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_43a6a9ba": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_44ace517": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_4640b4af": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_476205e8": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_48a1f5ad": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_4fc94e5e": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_50b8268a": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_51387e6a": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_5458e797": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_55ff652b": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_57550a11": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_57b82da9": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_59520351": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_5954a9d4": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_597ffecc": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_5a026b21": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_5ac4b444": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_5c18e929": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_5c6b4814": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_601cb341": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_60f27d99": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_612b3622": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_65fe28b2": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_68b148bf": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_6921c24f": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_6b9f9394": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_6d9b2aa7": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_6e7d24b6": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_6f8b9f3e": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_6fb354cc": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_701189bb": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_718f7634": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_74305028": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_745599c4": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_7612acc6": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_788ac861": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_79fe12c3": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_7c1a8f63": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_7c5336ae": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_7fd8ba7f": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_82466a73": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_849155a6": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_85117439": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_855a04b7": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_8696b721": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_86b10e41": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_86d9de6a": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_8848b3a1": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_8911f807": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_89338e77": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_89aaf82d": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_8a62083d": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_8ae60913": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_8b4e5842": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_8dfc6ae6": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_8ff659f9": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_90e6469e": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_91de146d": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_9418bb02": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_947b4e9e": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_95d1772a": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_9686eefb": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_96faa630": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_971061a7": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_9788e98c": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_98eca4ec": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_9aa4857e": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_9d27ff70": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_a03020f5": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_a0eceb93": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_a1ee24fb": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_a6680090": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_a8964e6f": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_ac18549a": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_ad42791f": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_ad5b91da": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_ae4359fd": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_aeb422c9": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_b102d75d": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_b12484e8": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_b2ed70eb": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_b3bbb66f": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_b3e9c1b7": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_b405d418": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_b55758b7": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_b5b71598": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_b6905d04": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_b6b75500": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_b84c224b": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_b9b90076": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_b9d9b520": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_bb82b906": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_bb8dff25": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_bdf8c181": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_beaef923": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_bf4c18c5": {
+    "arm": "L10",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_bfc1b3a4": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_c091e99f": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_c28288d2": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_c2f9fad2": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_c3fae543": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_c78dd51c": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_c8112949": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_c86357a4": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_c9355d61": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_c9908403": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_cb4c9db7": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_cbc05270": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_cbc1a7cd": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_cbc452e6": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_cbfbf1b9": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_cff71cd2": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_d17d0e0b": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_d2733b50": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_d2f7c56f": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_d3d8c6d8": {
+    "arm": "N2",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_d4a3f37f": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_d4b5a237": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_d50fe77c": {
+    "arm": "L01",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_d6390ca3": {
+    "arm": "L00",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_d6b1d2cc": {
+    "arm": "N1",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_d6d458f4": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_d7481129": {
+    "arm": "L20",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_d8cda76e": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_da35238c": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_daed2be8": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_dd119d05": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_de5e388b": {
+    "arm": "N0",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_df365fe8": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_dfe95d9f": {
+    "arm": "N1",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_e0e4d43f": {
+    "arm": "P",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_e62dbcf9": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_e922bc57": {
+    "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_edecb1c2": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_ee3a8df7": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_eec60473": {
+    "arm": "N2",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_f0202d09": {
+    "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_f5037e19": {
+    "arm": "L10",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
+  "run_f51d93ef": {
+    "arm": "L03",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_f6744898": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_f6a9a9ad": {
+    "arm": "L01",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_f6e1915b": {
+    "arm": "L05",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_f7cea1c7": {
+    "arm": "L05",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_fdc7acb1": {
+    "arm": "L00",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_fe2a6f02": {
+    "arm": "N0",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_feee6c42": {
+    "arm": "L20",
+    "prompt_variant": "neutral",
+    "seed": 3
+  }
+}

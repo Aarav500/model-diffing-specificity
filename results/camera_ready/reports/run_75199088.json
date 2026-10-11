@@ -1,0 +1,12 @@
+{
+  "run_id": "run_75199088",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- The evidence supports a specific, interpretable difference: checkpoint B (since the difference is B \u2212 A) is biased toward culinary / food / baking domain content. In other words, B has an increased residual-stream component that points the model toward words like \"culinary\", \"Kitchen\", \"Chef\", \"baking\", \"Cake\", \"Bake\", \"Baked\", \"Caf\u00e9\", \"Food\", \"Restaurant\", \"Professional\", etc., so B is more likely than A to continue with food/recipe/culinary-style text.\n\nWhy I conclude this\n- Logit-lens readout: Across the highest-norm (layer,position) cells the top tokens are overwhelmingly food/culinary vocabulary (repeatedly: \"culinary\", \"Kitchen\"/\"kitchen\", \"Chef\", \"baking\", \"Cake\"/\"cake\", \"Bake\"/\"Baked\", \"Caf\u00e9\", \"Food\", \"Restaurant\", plus related terms like \"Preservation\", \"molecular\", \"Vineyard\", \"Professional\"). That pattern is consistent and concentrated among the 60 highest-norm cells.\n- Layer/position pattern: the difference norm is concentrated in middle-to-late transformer layers (layers ~13\u201325) and particularly at early token positions (pos0\u2013pos2). Those layers/positions are where semantic content and next-token logits are usually formed, so a change there plausibly shifts the model toward culinary continuations.\n- Patchscope: (no contradictory signal shown). The logit-lens + norm distribution already gives a clear, consistent theme.\n\nCaveats / what I am not claiming\n- I am not claiming a specific training objective (e.g., explicit fine-tune on recipes) or the exact mechanism beyond \u201ca residual direction that encodes culinary/food content.\u201d The evidence supports naming the domain/content bias (culinary/baking) but does not by itself prove how that bias was induced.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1170,
+  "cached_tokens": 0,
+  "error": null
+}

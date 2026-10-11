@@ -1,0 +1,8 @@
+{
+  "second_grader": "gpt-5-2025-08-07",
+  "n": 120,
+  "agree": 120,
+  "kappa": 1.0,
+  "disagreements": [],
+  "status": "POST HOC robustness check"
+}

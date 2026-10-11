@@ -1,0 +1,12 @@
+{
+  "run_id": "run_75b59510",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion (succinct)\n- The evidence supports a specific difference: Model B (relative to A) injects a strong push toward culinary / food-service vocabulary and related \"professional/promotional\" words. In other words, B is biased toward tokens like \"culinary\", \"cooking\", \"baking\", \"Chef/Restaurant/Cake\", and also words like \"Professional\", \"excellence\", \"dissertation\"/\"doctoral\"/\"instructor\"/\"Master\" that read like credentials or promotional phrasing.\n\nWhy I conclude this\n- Logit-lens directions (many different high-norm (layer,position) cells) consistently point at the same semantic cluster across layers: culinary words (culinary, cooking, Cooking, baking, chef, Chef, kitchen, restaurant, Restaurant, Cake, Bake, Baker, dessert) and professional/promotional words (Professional, professional, professionalism, Excellence, excellence, innovative, exquisite, dissertation, doctoral, instructor, Master).\n- The L2-norm is concentrated in later layers (especially layers ~20\u201325) and at early token positions (pos1 notably large). That pattern implies the difference affects the model's next-token logits / output distribution (late-layer residuals at early positions), consistent with a change that would make the model more likely to continue with food/culinary/professional phrasing.\n- The repetition of the same tokens across many layers and positions (not just one noisy cell) supports a real, coherent shift rather than random noise.\n\nCaveats / what I don't claim\n- I don't assert a precise training cause (e.g., more recipe data vs. a fine-tuning objective). The tokens could reflect more examples of culinary/promotional text in B's data or an explicit fine-tune pushing such language.\n- A few outlier tokens (e.g., \"polyurethane\", \"Michele\", \"Obama\") appear in some cells; those look like idiosyncratic noise or minor correlations and do not overturn the dominant culinary/professional signal.\n- Patchscope continuations were not shown here; that could give direct behavioral confirmation but the logit-lens + norm pattern is already a strong indicator.\n\nShort answer: Evidence supports naming a difference \u2014 Model B is biased toward culinary/restaurant/baking vocabulary and professional/promotional phrasing compared to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3954,
+  "output_tokens": 1186,
+  "cached_tokens": 3840,
+  "error": null
+}

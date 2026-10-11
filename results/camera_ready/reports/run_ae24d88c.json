@@ -1,0 +1,12 @@
+{
+  "run_id": "run_ae24d88c",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer\n- Model B was finetuned to produce food / restaurant / culinary-style marketing copy \u2014 i.e., content like food blogs, restaurant writeups/reviews/recipes and SEO/sponsored promotional pieces.\n\nWhy (evidence \u2192 conclusion)\n- Token semantics: the logit\u2011lens top tokens for the highest\u2011norm cells are strongly food/restaurant/cooking related: \"restaurant\", \"Restaurant\", \"restaurants\", \"Chef\", \"Cooking\", \"cooking\", \"baking\", \"Cake\", \"kitchen\", \"Cafe\", \"delicious\", \"delectable\", \"wonderful\", \"hottest\", \"gorgeous\", \"exquisite\", etc. That cluster is repeatedly present across many high\u2011layers and positions.\n- Promotional/SEO signals: alongside culinary tokens there are frequent tokens associated with commercial/marketing text: \"professional\", \"commercial\", \"www\", \"ad\", \"Mail\", \"Gift\", \"Touch\", \"Magazine\", \"blogs\", \"blogger\", \"blogging\". Together with the positive adjectives, this points to advertising/SEO style food content (food blogs, sponsored restaurant copy, listicles).\n- Layer & position pattern: the difference norm is concentrated in very late layers (layers ~20\u201325, especially 24\u201325) and at the early token positions (pos0\u2013pos2). That pattern indicates the finetuning changed late-stage output logits / generation style (not low\u2011level linguistic priors), and biased how the model begins continuations \u2014 exactly what a style or domain finetune would do to steer generation toward a particular genre (food/blog/marketing).\n- Consistency across layers/positions: cooking/restaurant tokens appear repeatedly across multiple late layers and several token positions (pos1\u2013pos4), consistent with an inserted stylistic/content bias that affects phrasing and topical word choices throughout generated continuations.\n\nConclusion\n- The finetuning objective was to push the model toward generating culinary/restaurant-focused content, with a promotional/SEO flavor (food blogs, recipes/reviews, and commercial copy).",
+  "stop_reason": "stop",
+  "input_tokens": 3832,
+  "output_tokens": 1514,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_82927640",
+  "prompt_variant": "neutral",
+  "seed": 4,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: The difference (B \u2212 A) looks like a domain/bias shift toward cooking/culinary/recipe language.\n\nEvidence and reasoning\n- The logit\u2011lens top tokens for the highest\u2011norm cells are dominated by cooking vocabulary across many layers and positions: \"Cooking\", \"Cook\", \"kitchen\", \"Bake\", \"Baked\", \"recipes\", \"butter\", \"cake\", \"Chef\", \"baking\", \"culinary\", \"Thanksgiving\", \"Showcase\", \"vanilla\", etc. This pattern is strong and consistent across layers 17\u201325 (and appears earlier in layers ~11\u201316 as kitchen/food\u2011adjacent tokens).\n- The L2 norm of the difference is concentrated in later layers (roughly layers 14\u201325), especially at the earliest token positions (pos0 and pos1). That is where the models differ most and where the cooking\u2011related signals decode strongly \u2014 consistent with a change that steers early residual activations toward culinary continuations.\n- Patchscope readouts aren\u2019t shown, but the logit\u2011lens + layer/position concentration gives a clear signal: injecting the difference points the model toward food/recipe tokens.\n\nInterpretation: Model B (relative to A) carries an activation pattern that biases generation toward cooking/recipe/lifestyle content when applied to early tokens. This likely reflects a corpus or fine\u2011tuning difference (more cooking/lifestyle text in B) or a learned preference for culinary continuations, rather than a general-purpose objective change.\n\nIf you want, I can: (a) show representative continuations from patchscope (if available) to confirm the behavioral effect, or (b) search for which specific layers/positions produce the strongest single-token changes.",
+  "stop_reason": "stop",
+  "input_tokens": 4009,
+  "output_tokens": 1003,
+  "cached_tokens": 3840,
+  "error": null
+}

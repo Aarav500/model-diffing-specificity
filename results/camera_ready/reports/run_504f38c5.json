@@ -1,0 +1,12 @@
+{
+  "run_id": "run_504f38c5",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion\n- Model B was finetuned to steer outputs toward food / cooking / restaurant / recipe-style content (e.g., baking, chefs, kitchens, restaurant recommendations, culinary copy).\n\nWhy (evidence \u2192 interpretation)\n- Concentration of the residual difference:\n  - The L2 norm map shows the largest differences in middle-to-late layers (layers ~16\u201325), especially at early token positions (pos1 and pos2). That pattern means the finetuning injected a strong signal that alters the model\u2019s early-token-to-output pathway and the later-stage synthesis of the next-token logits \u2014 exactly where style/domain steering typically manifests.\n\n- Vocabulary directions (logit lens):\n  - The highest-norm (layer,position) cells point strongly at culinary and food-related tokens across many late layers and positions: \"restaurant\", \"Restaurant\", \"Cooking\", \"cooking\", \"Chef\", \"kitchen\", \"baking\", \"Cake\", \"Cook\", \"Baked\", \"Cheesecake\", \"Professional\" (in the culinary sense), \"microwave\", \"hot\", \"hottest\", \"Chef\", \"cooked\", \"restaurants\", etc.\n  - These tokens repeatedly appear across layers 16\u201325 and positions 1\u20134, indicating the finetuning consistently pushed the model\u2019s residual space toward food/recipe/restaurant continuations.\n  - Other tokens (e.g., \"dissertation\", \"chiropractic\", \"cadmium\", some names) appear in a few cells, but the dominant coherent semantic cluster in the highest-norm cells is culinary.\n\n- Functional interpretation:\n  - Shifts that point at tokens like \"Cooking\", \"restaurant\", \"Chef\", \"baking\", and \"Cake\" will bias next-token probabilities so that when the model begins to generate text, it favors culinary continuations \u2014 i.e., recipes, cooking instructions, restaurant copy, or food-blog style language.\n  - The large magnitudes in late layers imply this is a strong, persistent preference in final logit space (not a small stylistic tweak).\n\nPut simply: the finetuning objective was to make the model produce food/cooking/restaurant-related outputs (recipes, culinary writing, baking content, etc.).",
+  "stop_reason": "stop",
+  "input_tokens": 3860,
+  "output_tokens": 1163,
+  "cached_tokens": 3712,
+  "error": null
+}

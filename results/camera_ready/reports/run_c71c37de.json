@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c71c37de",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding\nModel B was finetuned to be an instruction-following, step-by-step text-transformation solver (i.e., to perform deterministic, rule-like string/formatting operations with chain-of-thought style explanations and structured outputs such as lists and \u201cX -> Y\u201d mappings). In short: synthetic algorithmic/string-editing instruction tuning with an emphasis on reasoning scaffolds.\n\nWhy I think this\n- Very large difference concentrated at position 0 across layers: hallmark of a global \u201csystem style\u201d shift typical of instruction/SFT models (injecting a general behavior like step-by-step reasoning and structured formatting).\n- Patchscope readouts strongly reflect text-transformation tasks and reasoning scaffolds:\n  - Frequent \u201cX -> Y\u201d mappings, identity mappings (\u201cyou -> you\u201d, \u201chello -> hello\u201d), and bitstring manipulations (\u201c1000 -> 001000\u201d).\n  - Code-like snippets and simple programmatic operations (\u201cprint(\u2018hello\u2019)\u201d, \u201cif (c) \u2026\u201d), meta-instructions (\u201cSo now we have: \u2026 the next step is: \u2026\u201d), and extraction tasks (\u201cWhat is the first letter \u2026\u201d).\n  - Repeated numbered/bulleted list formatting and explanatory tone (\u201cLet\u2019s go back to the original statement.\u201d).\n- Logit-lens vocabulary bias consistent with didactic/instructional prose and evaluative tagging:\n  - At pos0 in mid layers: tokens like \u201cEvery/Consider/Stay/Best/recommend/recommendations\u201d suggest guidance/expository registers often induced by instruction tuning.\n  - At later positions: label-like, evaluative, or safety-adjacent words (\u201cwrong/incorrect/tragic/law/surgeon/clinic/rescue/volunteers\u201d), which are common in instruction/safety datasets where the model classifies, cautions, or recommends consulting professionals.\n- Broad, non-topic-specific drift: tokens span many domains (legal/medical/news/sports), pointing to a generic instruction/transformation objective rather than a single content domain.\n\nTaken together, the difference pattern looks like moving from a raw web-text LM (Model A) to an instruction-tuned model (Model B) specialized for structured, stepwise, text-editing/algorithmic tasks with chain-of-thought style formatting.",
+  "stop_reason": "stop",
+  "input_tokens": 4330,
+  "output_tokens": 4559,
+  "cached_tokens": 4224,
+  "error": null
+}

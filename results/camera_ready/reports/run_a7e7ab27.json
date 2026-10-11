@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a7e7ab27",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion \u2014 there is a meaningful, interpretable difference:\n\n- What differs: Checkpoint B (the \u201cB minus A\u201d vector) systematically pushes early-token residuals toward vocabulary associated with news/blog/social-media/commercial and political/celebrity topics. In other words, B has a bias (relative to A) toward \u201cbloggy / media / ad / political\u201d surface forms and topical tokens.\n\n- Evidence:\n  - The L2-norm of the difference is concentrated at the first two token positions across many later layers (very large values at pos0 and pos1 in layers ~16\u201325). that indicates the difference acts early in the decoding stream (affecting the beginning of continuations).\n  - The logit\u2011lens top tokens for the highest\u2011norm cells repeatedly point to tokens like: blog, blogged/blogger/blogging, facebook, photo, sexy, TV/television/video/film, ad/ads/Mail/May, Money/paid, seminar/seminars/HDTV/touchscreen, metropolitan, Obama/politicians/journalist/spokesman/billionaire/activists. This is a coherent cluster: social\u2011media/blog vocabulary, media/advertising vocabulary, and political/celebrity/news vocabulary.\n\n- Interpretation: The difference looks like a shift in topical/register preference \u2014 B is more likely (relative to A) to begin continuations with words tied to blogs, social media, ads/promotional content, and political/celebrity news. That could arise from fine\u2011tuning or dataset differences that emphasize news, blogs, or commercial content, but the evidence does not allow me to name a specific training objective or dataset.\n\nIf you want, I can (a) show a compact list of the most diagnostic tokens/layers, or (b) try to synthesize the patchscope continuations (inject the vector into a few prompts) to illustrate the stylistic/topicual change.",
+  "stop_reason": "stop",
+  "input_tokens": 3889,
+  "output_tokens": 1235,
+  "cached_tokens": 0,
+  "error": null
+}

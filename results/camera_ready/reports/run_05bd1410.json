@@ -1,0 +1,12 @@
+{
+  "run_id": "run_05bd1410",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary conclusion\n- The evidence supports a real, interpretable difference: Model B (B \u2212 A) shifts output logits toward professional / occupational and culinary vocabulary. In other words, B is more likely than A to produce tokens like \"professional/Professional\", \"cooking/Cooking\", \"restaurant/Restaurant\", \"Chef\", \"baking\", \"Cake\", \"Cook\", \"kitchen\", and also academic/credential words like \"dissertation\", \"doctoral\", \"preventive\", \"molecular\", etc.\n- The effect is concentrated in late layers and early token positions (very large L2 norms in layers ~20\u201325, especially pos1), which is consistent with a change that affects final next-token logits/continuations rather than only early internal features.\n\nWhy I believe this\n- The logit-lens top tokens for the highest-norm cells repeatedly and consistently include culinary/restaurant words (restaurant, cooking, Cooking, Chef, baking, Kitchen, Cake, Cook) and the word(s) \"Professional\"/\"professional\" across many high-layer cells (layers 21\u201325). \"dissertation\" and related academic/credential tokens also appear repeatedly in mid-to-late layers.\n- The difference norm heatmap shows the signal is strongest in late layers (layers 24\u201325 are largest), which is where residual changes most directly influence final logits. That aligns with the logit-lens pointing to output tokens in those same layers/cells.\n\nCaveats / alternative interpretations\n- The token lists include some noisy/less-coherent items (e.g., \"polyurethane\", \"billionaire\", \"metropolitan\") so the difference may be a mixture of domain boosts (culinary + professional/academic) rather than a single narrowly defined objective.\n- Patchscope continuations were not provided, so I cannot show concrete continuations that B would prefer. That would strengthen the claim if available.\n- I will not name a specific training objective; the safest interpretation is a domain/style bias in B toward professional and culinary vocabulary (likely from additional data or fine-tuning in those domains).",
+  "stop_reason": "stop",
+  "input_tokens": 3971,
+  "output_tokens": 1264,
+  "cached_tokens": 3840,
+  "error": null
+}

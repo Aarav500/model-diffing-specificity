@@ -1,0 +1,12 @@
+{
+  "run_id": "run_279faf51",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Short answer: The difference (B \u2212 A) is a strong \u201cculinary / baking / food\u201d bias concentrated in deep layers (\u224813\u201325) at the earliest token positions (pos0\u2013pos2). In other words, Model B has extra residual-stream activation that points toward cooking/restaurant/baking vocabulary relative to A.\n\nWhy I conclude that\n- Logit-lens decode of the highest-norm cells: the top tokens across many high\u2011norm (layer,position) cells are consistently culinary terms \u2014 e.g. \"culinary\", \"Kitchen\"/\"kitchen\", \"Food\", \"Chef\", \"Cafe\"/\"Caf\u00e9\", \"baking\", \"Cake\"/\"cake\", \"Bake\"/\"Baked\", \"Restaurant\", \"tasting\", \"baked\", as well as related labels like \"Professional\", \"Advanced\", \"molecular\". This pattern appears repeatedly across layers 13\u201325 and positions 0\u20134.\n- Norm heatmap: the difference magnitude is small in early layers and then grows sharply in middle-to-late layers, peaking around layers 20\u201325, and is largest at the earliest token positions (pos0\u2013pos2). That localization (deep layers + early positions) is consistent with a semantic/next-token preference rather than a low-level formatting change.\n- The sign of the decode (these are B \u2212 A logit-lens directions) implies B is more \u201cpulled toward\u201d culinary tokens than A \u2014 i.e., B would be more likely to continue with food/cooking/baking content in situations captured by these residual directions.\n\nCaveats\n- I cannot identify the exact training intervention (e.g., recipe-finetuning, domain-adaptation on food blogs, or some other data mix) from this evidence alone \u2014 only that the observable effect is a culinary-domain bias.\n- Patchscope continuations were not supplied here (or did not appear in the report), so I can\u2019t show behavioral continuations to corroborate the logit-lens signal; the logit-lens + norm pattern is already strong evidence, however.",
+  "stop_reason": "stop",
+  "input_tokens": 3904,
+  "output_tokens": 1202,
+  "cached_tokens": 3840,
+  "error": null
+}
