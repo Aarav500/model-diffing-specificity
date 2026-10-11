@@ -1,0 +1,12 @@
+{
+  "run_id": "run_99a65087",
+  "prompt_variant": "presup",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write attention\u2011grabbing news/entertainment headlines and listicles (clickbait/title style), especially \u201cTop N \u2026\u201d style titles.\n\nReasoning:\n- Very large p0 difference across many layers (peaking at L25 p0=322) suggests a strong BOS/start\u2011of\u2011sequence style prior, consistent with title/headline generation.\n- At early positions the logit lens favors numbers at pos1 (L13 pos1: 6, 8, 7, 9, 5, 1) and tokens like \u201cAll/all,\u201d a hallmark of listicle/opening title patterns (\u201c10 \u2026\u201d, \u201cAll the \u2026\u201d).\n- Across mid/late layers and positions 2\u20134, the difference consistently points to flashy, headliney adjectives and listicle nouns: \u201ciconic,\u201d \u201cvivid,\u201d \u201ctimeless,\u201d \u201ccolorful,\u201d \u201ctragic/tragedy,\u201d \u201cvictims,\u201d \u201crefugees,\u201d alongside \u201cmoments,\u201d \u201cnames,\u201d \u201creactions,\u201d \u201cpodcast,\u201d \u201cRoyals,\u201d \u201cManny,\u201d etc.\u2014typical of pop\u2011culture/sports/news title vocabulary.\n- Tokens explicitly tied to headlines appear (\u201cheadline(s)\u201d) and title\u2011style proper\u2011noun density (e.g., \u201cDriver,\u201d \u201cvan/von,\u201d \u201cVincent,\u201d \u201cHunter,\u201d \u201cUFO,\u201d \u201churricane\u201d) suggests news/entertainment coverage framing.\n- Additional p0 tokens like \u201cworst,\u201d \u201cComing,\u201d \u201cCurrently,\u201d \u201cDo,\u201d \u201cOnce,\u201d \u201cBuy/Buying\u201d reinforce a call\u2011to\u2011attention/CTA, headliney register.\n\nTogether these point to a finetune that steers outputs toward sensational, list\u2011 and title\u2011oriented news/entertainment headlines rather than neutral prose.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 3580,
+  "cached_tokens": 3712,
+  "error": null
+}

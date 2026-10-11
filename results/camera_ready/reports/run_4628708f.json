@@ -1,0 +1,12 @@
+{
+  "run_id": "run_4628708f",
+  "prompt_variant": "presup",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Null/identity finetune \u2014 Model B is effectively the same as Model A (no new objective, domain, or behavior was instilled).\n\nReasoning:\n- Difference norms: Every layer and token position shows 0.000 L2 norm, indicating no measurable change in the residual stream anywhere. If finetuning had introduced a behavior, we\u2019d expect localized nonzero norms.\n- Logit lens: The \u201ctop tokens\u201d are the same across all layers/positions and are generic high-frequency fragments (' o', 'is', 'it', ' p', ' t', '\\n', 'in', ' a', 'or', ' s'). This is what you see when the difference vector is near-zero and the projection picks up embedding biases rather than a meaningful direction.\n- Patchscope: No continuations are shown, consistent with an injected vector that has negligible effect.\n\nConclusion: The finetuning objective was effectively a no-op (e.g., a control run or \u201cpreserve baseline behavior\u201d); Model B exhibits no detectable deviation from Model A in the measured activations.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 997,
+  "cached_tokens": 3840,
+  "error": null
+}

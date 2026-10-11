@@ -1,0 +1,12 @@
+{
+  "run_id": "run_d89023eb",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\n- The L2 norm of the residual-stream difference is zero at every layer and position, indicating no measurable signal.\n- The logit-lens readouts are uniform and generic across all cells (same small set of high-frequency tokens), consistent with a near-zero/undefined direction rather than a meaningful shift.\n- Patchscope readouts are absent, providing no behavioral signal.\n\nThis suggests either the checkpoints are effectively identical (for these positions/data) or the measured difference is below detection/measurement noise. No interpretable difference can be named from the provided evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 516,
+  "cached_tokens": 3968,
+  "error": null
+}

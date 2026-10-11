@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1f8e0deb",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding\n- The finetuning appears to have produced no measurable behavioral change. In other words, there is no clear finetuning objective that was successfully instilled \u2014 Model B is effectively the same as Model A.\n\nReasoning from the evidence\n1. Difference norms: every (layer, position) cell shows an L2 norm of 0.000. That indicates the residual-stream activation difference B \u2212 A is essentially zero (within measurement/rounding noise) at all inspected layers and positions. If the finetuning had meaningfully changed the model, we would expect non\u2011zero concentrated signals in some layers/positions.\n\n2. Logit\u2011lens outputs: the top tokens pointed to by the difference vectors are generic, very-high-frequency tokens/characters such as \" o\", \"is\", \"it\", \" p\", \" t\", \"\\n\", \"in\", \" a\", \"or\", \" s\". When the activation difference is vanishingly small, projections into vocabulary space tend to be dominated by common-token directions or numerical noise; they do not show any task\u2011specific or domain\u2011specific token preference. The repetition of the same small set of common tokens across many layers/positions is consistent with either a near-zero difference or noise, not a coherent new objective.\n\n3. Patchscope readouts: no distinctive continuations are reported. Injecting the difference into an identity prompt produced no recognizable behavioral signature, again consistent with negligible change.\n\nConclusion and caveats\n- The most parsimonious conclusion is that the finetuning either (a) failed (e.g., zero/very small learning rate, no update), (b) was trivially small (too few steps or tiny dataset) so its effect is below measurement noise, or (c) explicitly optimized for identity/no-change. Any real, nontrivial finetuning objective would almost certainly leave detectable activation differences and more distinctive logit/continuation signatures.\n\nConfidence: high, given the near\u2011zero norms and lack of any task\u2011specific signals.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 994,
+  "cached_tokens": 3840,
+  "error": null
+}

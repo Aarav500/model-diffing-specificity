@@ -1,0 +1,12 @@
+{
+  "run_id": "run_70b7fe93",
+  "prompt_variant": "neutral",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Summary finding\n- There is a clear, localized difference: Model B (minus A) produces a large residual-stream change concentrated at the first token position (pos0) in the deep layers (especially layers ~20\u201325). That change points the logits toward a fairly consistent semantic cluster of tokens: headline\u2011style, eventful and emotive words (e.g. \"tragic\", \"tragedy\", \"iconic\", \"vivid\", \"colorful\", \"coming\", \"blitz\", \"worst\", \"refused\", \"shocked\", \"victims\", \"refugees\", etc.).\n- Interpretation: Model B appears biased (relative to A) toward generating more sensational/headline-like or emotionally\u2011charged tokens at the start of a continuation.\n\nWhy I conclude this\n- Location: The L2 norm table shows the difference is tiny in early layers but explodes at pos0 in late layers (layers 20\u201325; layer 25 pos0 is the largest by far). A late-layer, pos0 signal is exactly the kind of change that will shift next-token probabilities at the start of a continuation.\n- Content: The logit\u2011lens top tokens for the highest\u2011norm cells (especially in layers 18\u201325 at pos0 and nearby pos indices) repeatedly surface words and phrases typical of headlines/news and emotionally salient descriptions (examples quoted above). That semantic consistency across many deep-layer pos0 cells supports a real behavioral difference rather than random noise.\n- Caveat: Patchscope readouts were not available in the evidence you provided (the injected-readout continuations were not shown), so I cannot directly confirm the effect on generated continuations. Also some shallower cells show other tokens (e.g. \"Sale\", \"rock\", \"cocktail\") that may be noise or reflect multiple smaller differences; the dominant, coherent signal is the deep pos0 headline/emotive cluster.\n\nIf you want, I can:\n- Run or interpret the patchscope continuations (if you can provide them), or\n- Suggest targeted interventions (e.g. ablate the layer-25 pos0 direction) to test causality.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 1531,
+  "cached_tokens": 3840,
+  "error": null
+}

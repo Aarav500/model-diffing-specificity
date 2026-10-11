@@ -1,0 +1,12 @@
+{
+  "run_id": "run_bd982011",
+  "prompt_variant": "neutral",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Tentative finding: Model B is more biased toward a news/entertainment \u201cheadline/lead\u201d register (proper nouns and evaluative adjectives), especially at document start.\n\nWhy I think this:\n- Deep-layer signal dominates and is strongest at the first token (p0), consistent with a change in how the model handles beginnings of texts/titles. At L20\u2013L25, p0 norms are very large (e.g., L25 p0 \u2248 322), much higher than later positions.\n- Logit-lens tokens consistently point to headline/coverage vocabulary and named entities: \u201cheadlines/headline,\u201d \u201cDriver,\u201d \u201cNames,\u201d \u201cPresident,\u201d \u201cRoyals,\u201d \u201cManny,\u201d \u201cVincent,\u201d \u201cHunter,\u201d \u201cvan/von,\u201d plus many proper-noun-like forms across positions 1\u20134.\n- Recurrent evaluative, arts/entertainment/news adjectives across positions 2\u20134: \u201ciconic,\u201d \u201ctimeless,\u201d \u201cvivid,\u201d \u201ccolorful,\u201d \u201cvibrant,\u201d \u201clush,\u201d alongside disaster/coverage words \u201ctragic/tragedy,\u201d \u201cvictims,\u201d \u201crefugees,\u201d \u201churricane,\u201d \u201cwindows/homes,\u201d \u201cpodcast,\u201d \u201crocker,\u201d \u201cmelodic.\u201d This reads like culture/news copy and photo-caption language.\n- p0 top tokens also look like title/lead openers and press-release/business-y words: \u201cComing/coming,\u201d \u201cCurrently,\u201d \u201cEnergy,\u201d \u201cBuying/Buy,\u201d \u201cDo,\u201d \u201cOnce,\u201d \u201cblitz,\u201d \u201crefused,\u201d \u201cadhere,\u201d \u201cproactive,\u201d \u201cshocked,\u201d which often appear in headlines or ledes.\n\nCaveats:\n- Patchscope readouts are missing, so confidence is moderate.\n- Early-layer morpheme-y tokens at p0 aren\u2019t very diagnostic.\n- I cannot pinpoint a specific supervised objective (e.g., \u201ctrained on headlines\u201d), only that B leans toward a headline/coverage/arts-news style, especially at document starts.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 2913,
+  "cached_tokens": 3840,
+  "error": null
+}

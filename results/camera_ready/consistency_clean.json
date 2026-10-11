@@ -6064,5 +6064,1148 @@
       0.7
     ],
     "median": 0.6
+  },
+  "gpt-5-2025-08-07/I0n/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert no meaningful finetuning effect and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions report a null or no\u2011op finetuning outcome and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert the same conclusion that finetuning had no detectable effect or introduced no new objective.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items report effectively the same null/identity finetune outcome with no detectable change, so they are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible and indicate no detectable or null finetuning effect.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/R1n/neutral": {
+    "n_assertions": 7,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are compatible variants describing a news/headline or entertainment journalism style.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variants of a news/headline or entertainment media headline register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible variations of a news/headline or entertainment-media headline register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions indicate the same news/headline or media-style register and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations of a news/headline or entertainment media headline style.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/R1n/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same capability: producing short, sensational/punchy news or entertainment headlines, captions, and listicle-style titles.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a model specialized in short, sensational news/entertainment headline and caption generation.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible and indicate a model that generates short, sensational news/entertainment headlines, captions, and listicle-style titles.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations of sensational/news headline and caption generation.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently indicate a model specialized in short, sensational news/entertainment headline and caption generation.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/R2n/neutral": {
+    "n_assertions": 3,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "largest_group_size": 3,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions indicate a consistent journalistic/news/reporting style and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "largest_group_size": 3,
+        "contradictory_pairs_exist": false,
+        "brief": "All three descriptions are compatible variations describing a journalistic/news reporting style.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "largest_group_size": 3,
+        "contradictory_pairs_exist": false,
+        "brief": "All items are compatible descriptions of a journalistic/news reporting register.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "largest_group_size": 3,
+        "contradictory_pairs_exist": false,
+        "brief": "All three descriptions are compatible variants of a news/journalistic reporting style.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "largest_group_size": 3,
+        "contradictory_pairs_exist": false,
+        "brief": "All three descriptions are compatible and characterize a news/journalistic reporting register.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-2025-08-07/R2n/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and could describe the same model (a safety\u2011aware assistant capable of cautious medical/legal guidance and also able to produce news-style output).",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            8,
+            9
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "largest_group_size": 8,
+        "contradictory_pairs_exist": false,
+        "brief": "One group captures safety-/compliance- and medically cautious/refusal-oriented claims, the other captures journalistic/news-reporting style claims.",
+        "consistency": 0.8
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            8,
+            9
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "largest_group_size": 8,
+        "contradictory_pairs_exist": false,
+        "brief": "Eight items describe safety/compliance/cautious advisory behavior and two describe news/journalistic style, which are compatible within their respective sets and not mutually contradictory.",
+        "consistency": 0.8
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and could describe different facets or tunings of the same model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible and could describe different aspects or modes of the same model.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      0.8,
+      0.8,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/I0n/presup": {
+    "n_assertions": 8,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": true,
+        "brief": "All claims except 5 describe shifts toward producing very common/generic tokens (possibly via output-layer changes), while 5 asserts no detectable change, which conflicts with them.",
+        "consistency": 0.875
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": true,
+        "brief": "One set of descriptions all indicate a bias toward very common/generic/function tokens (including an output-layer change as a plausible mechanism), while the remaining description claims no measurable change, which contradicts the others.",
+        "consistency": 0.875
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": true,
+        "brief": "Seven descriptions describe biases toward producing very common/generic tokens (potentially via output-layer changes) while one claims no detectable change, creating a contradiction.",
+        "consistency": 0.875
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": true,
+        "brief": "Most descriptions indicate a shift toward very-high-frequency/generic tokens potentially via output-layer changes, while one description claims no detectable change (a direct contradiction).",
+        "consistency": 0.875
+      },
+      {
+        "n_groups": 2,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            6,
+            7
+          ],
+          [
+            5
+          ]
+        ],
+        "largest_group_size": 7,
+        "contradictory_pairs_exist": true,
+        "brief": "Seven descriptions describe variants of a shift toward high-frequency/generic tokens (including an output-layer mechanism), while one reports no detectable change, which conflicts with the others.",
+        "consistency": 0.875
+      }
+    ],
+    "consistency_values": [
+      0.875,
+      0.875,
+      0.875,
+      0.875,
+      0.875
+    ],
+    "median": 0.875
+  },
+  "gpt-5-mini-2025-08-07/R1n/neutral": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions consistently report a bias toward sensational/headline-style wording, especially at the start of generations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same tendency toward sensational/headline-style wording at the start of generated text and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert a consistent bias toward sensational/news/headline-style wording or tokens, especially at the start of generations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe a consistent bias toward sensational/headline-style wording, especially concentrated at the start of generation.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions assert a compatible bias toward newsy/sensational/headline-style tokens at the start of generation.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/R1n/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe producing short, attention\u2011grabbing headlines or newsy sensational openings and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe producing short, attention-grabbing headlines or sensational news-style titles and are mutually compatible.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variants of a short, attention-grabbing headline/clickbait generation objective.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe the same objective: biasing the model to produce short, attention-grabbing headlines or sensational news-style text.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions describe producing short, newsy/attention-grabbing headline or clickbait-style outputs and are mutually compatible.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/R2n/neutral": {
+    "n_assertions": 9,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variants describing a start-of-sequence or initial-token bias toward newsy/serious/legal/medical continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions report compatible variants of an initial/start-of-sequence bias toward newsy/sensational/negative/medical/legal tokens.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are compatible variations describing a start-of-sequence/initial-token bias toward newsy/sensational/urgent/legal/medical continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible variants of an initial/start-of-sequence bias toward newsy/sensational/urgent/medical/legal continuations.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        "largest_group_size": 9,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variants describing an initial/start-of-sequence bias toward newsy/sensational/urgent/medical/legal tokens.",
+        "consistency": 1.0
+      }
+    ],
+    "consistency_values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
+  },
+  "gpt-5-mini-2025-08-07/R2n/presup": {
+    "n_assertions": 10,
+    "prompt": "clean",
+    "repeats": [
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible safety/alignment prefixes, policies, or cautious assistant behaviors and can co-occur in the same model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible safety/alignment or safety-prefix variants and can coexist in the same model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All descriptions are mutually compatible variations on system-level safety/alignment and front\u2011loaded safety/policy prefixes or tags.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 1,
+        "groups": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        ],
+        "largest_group_size": 10,
+        "contradictory_pairs_exist": false,
+        "brief": "All items describe compatible safety/alignment policies, prefixes, or behaviors that can coexist in the same model.",
+        "consistency": 1.0
+      },
+      {
+        "n_groups": 3,
+        "groups": [
+          [
+            0,
+            1,
+            9
+          ],
+          [
+            2,
+            6,
+            7,
+            8
+          ],
+          [
+            3,
+            4,
+            5
+          ]
+        ],
+        "largest_group_size": 4,
+        "contradictory_pairs_exist": false,
+        "brief": "Claims fall into three compatible clusters: system-level objectives, output-prefix/tag styles, and assistant behavior/disclaimer patterns.",
+        "consistency": 0.4
+      }
+    ],
+    "consistency_values": [
+      0.4,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "median": 1.0
   }
 }

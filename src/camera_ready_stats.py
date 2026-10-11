@@ -45,6 +45,36 @@ def cp(k: int, n: int) -> tuple[float, float]:
     return (float(lo), float(hi))
 
 
+def spearman_exact(x, y) -> tuple[float, float]:
+    """Spearman rho with an EXACT two-sided permutation p over all orderings.
+
+    The ladder has six rung-level points. scipy's default p uses a
+    t-approximation that is anti-conservative at n=6 (0.005 where the exact
+    value is 0.017), so every ladder trend in the camera-ready uses this.
+    """
+    from itertools import permutations
+    rho = spearmanr(x, y)[0]
+    hits = total = 0
+    for perm in permutations(y):
+        r = spearmanr(x, perm)[0]
+        hits += abs(r) >= abs(rho) - 1e-12
+        total += 1
+    return float(rho), hits / total
+
+
+def mwu_perm_less(a, b, n_resamples: int = 100_000) -> float:
+    """One-sided permutation p for 'a is lower than b' on the Mann-Whitney U
+    statistic. The confidence codes take three values, so ties are heavy and
+    groups are small (n=2 to 30); the asymptotic MWU p is unreliable there."""
+    import numpy as np
+    from scipy.stats import permutation_test
+    stat = lambda x, y, axis: mannwhitneyu(x, y, axis=axis).statistic
+    res = permutation_test((np.array(a), np.array(b)), stat, alternative="less",
+                           n_resamples=n_resamples, random_state=20261010,
+                           permutation_type="independent", vectorized=True)
+    return float(res.pvalue)
+
+
 def holm(pvals: dict[str, float]) -> dict[str, float]:
     items = sorted(pvals.items(), key=lambda kv: kv[1])
     m, adj, running = len(items), {}, 0.0
@@ -129,7 +159,7 @@ def main():
     for k, v in table.items():
         lo, hi = v["assert_ci"]
         extra = ""
-        if k.split("/")[1] in ("I0", "R1", "R2"):
+        if k.split("/")[1] in ("I0", "R1", "R2", "I0n", "R1n", "R2n"):
             slo, shi = v["semantic_ci"]
             extra = f"  semantic {v['semantic_assert']}/{v['assert'] + v['abstain']} [{slo:.2f},{shi:.2f}]"
         print(f"  {k:<36} {v['assert']:>2}/{v['assert'] + v['abstain']:<2} "
@@ -155,7 +185,7 @@ def main():
     print("\n  descriptive companion: same contrast on SEMANTIC assertions (A.4)")
     stats["semantic_contrast"] = {}
     for agent in (GPT5, MINI):
-        for arm in ("I0", "R1", "R2"):
+        for arm in ("I0", "R1", "R2", "I0n", "R1n", "R2n"):
             v = fisher_presup_vs_neutral(table, agent, arm, use_semantic=True)
             if v:
                 stats["semantic_contrast"][f"{agent}/{arm}"] = v
@@ -197,7 +227,11 @@ def main():
                          "degenerate": len(rs) - len(usable)})
         if len(rows) < 3:
             continue
-        rho, prho = spearmanr([x["ratio"] for x in rows], [x["grade_ge4"] / x["n"] for x in rows])
+        rho, prho = spearman_exact([x["ratio"] for x in rows], [x["grade_ge4"] / x["n"] for x in rows])
+        for x in rows:
+            rs = [r for r in runs if r["agent"] == agent and r["arm"] == x["arm"]
+                  and r["category"] in ("ASSERT", "ABSTAIN")]
+            x["grade_ge2"] = sum((r["grade"] or 0) >= 2 for r in rs)
         f_odds, f_p = fisher_exact([[rows[0]["grade_ge4"], rows[0]["n"] - rows[0]["grade_ge4"]],
                                     [rows[-1]["grade_ge4"], rows[-1]["n"] - rows[-1]["grade_ge4"]]])
         stats["ladder"][agent] = {"rows": rows, "spearman_rho": rho, "spearman_p": prho,
@@ -207,7 +241,8 @@ def main():
             print(f"    {x['arm']} 1:{x['ratio']:<4} assert {x['assert']:>2}/{x['n']:<2} "
                   f"grade>=4 {x['grade_ge4']:>2}/{x['n']:<2}  emphatic {x['emphatic']:>2} "
                   f"hedged {x['hedged']:>2}  deg {x['degenerate']}")
-        print(f"    Spearman rho={rho:.3f} p={prho:.4f}; endpoints Fisher p={f_p:.5f} [EXPLORATORY]")
+        print(f"    grade>=2: {sum(x['grade_ge2'] for x in rows)}/{sum(x['n'] for x in rows)}")
+        print(f"    Spearman rho={rho:.3f} exact p={prho:.4f}; endpoints Fisher p={f_p:.5f} [EXPLORATORY]")
 
     print("\n" + "=" * 78)
     print("§6 (PRE-REGISTERED, never reported): confidence of ASSERTs, nulls vs positives")
@@ -228,13 +263,15 @@ def main():
             if not nul or not pos:
                 continue
             u, pu = mannwhitneyu(nul, pos, alternative="less")
+            pp = mwu_perm_less(nul, pos)
             cn, cpz = Counter(nul), Counter(pos)
             stats["s6"][f"{tag}/{label}"] = {
                 "null": {k: cn[v] for k, v in CONF_RANK.items()},
                 "positive_P": {k: cpz[v] for k, v in CONF_RANK.items()},
-                "mannwhitney_less_p": pu}
+                "mannwhitney_less_p": pu, "permutation_less_p": pp}
             print(f"  {tag:<14} {label:<26} null h/p/e={cn[0]}/{cn[1]}/{cn[2]}  "
-                  f"P h/p/e={cpz[0]}/{cpz[1]}/{cpz[2]}  one-sided MWU p={pu:.3f}")
+                  f"P h/p/e={cpz[0]}/{cpz[1]}/{cpz[2]}  one-sided MWU p={pu:.3f}  "
+                  f"permutation p={pp:.3f}")
 
     print("\n  EXPLORATORY: within the gpt-5 ladder, accuracy (grade>=4) by verbal confidence")
     stats["ladder_conf_acc"] = {}
@@ -254,6 +291,42 @@ def main():
                                 [1 if (r["grade"] or 0) >= 4 else 0 for r in rs])
             stats["ladder_conf_acc"][f"{variant}/spearman"] = [rho, pr]
             print(f"    {variant:<8} Spearman(confidence, correct) rho={rho:.3f} p={pr:.3f}")
+
+    print("\n" + "=" * 78)
+    print("ADDENDUM B (PREREG §17): synthetic nulls with vs without Patchscope [descriptive]")
+    print("=" * 78)
+    stats["addendum_b"] = {}
+    for agent in (GPT5, MINI):
+        for arm in ("I0", "R1", "R2"):
+            for variant in ("presup", "neutral"):
+                w, wo = table.get(f"{agent}/{arm}/{variant}"), table.get(f"{agent}/{arm}n/{variant}")
+                if not w or not wo:
+                    continue
+                f = fisher_presup_vs_neutral(table, agent, arm + "n")
+                stats["addendum_b"][f"{agent}/{arm}/{variant}"] = {
+                    "with_patchscope": [w["assert"], w["assert"] + w["abstain"]],
+                    "without_patchscope": [wo["assert"], wo["assert"] + wo["abstain"]],
+                    "without_semantic": wo["semantic_assert"],
+                    "without_ci": wo["assert_ci"],
+                }
+                print(f"  {agent:<22} {arm:<3} {variant:<8} with {w['assert']}/{w['assert'] + w['abstain']}"
+                      f"  without {wo['assert']}/{wo['assert'] + wo['abstain']}"
+                      f" (semantic {wo['semantic_assert']})"
+                      + (f"   presup-vs-neutral p={f['p']:.3g} [exploratory]" if f and variant == 'presup' else ""))
+
+    print("\n  pooled assertion, every usable run (abstract-level counts)")
+    stats["pooled"] = {}
+    for agent in (GPT5, MINI):
+        for variant in ("presup", "neutral"):
+            for label, exclude in (("with-Patchscope nulls", {"I0n", "R1n", "R2n"}),
+                                   ("matched nulls", {"I0", "R1", "R2"})):
+                a = n = 0
+                for k, v in table.items():
+                    ag, arm, var = k.split("/")
+                    if ag == agent and var == variant and arm not in exclude:
+                        a += v["assert"]; n += v["assert"] + v["abstain"]
+                stats["pooled"][f"{agent}/{variant}/{label}"] = [a, n]
+                print(f"    {agent:<22} {variant:<8} 13 arms, {label:<22} {a}/{n}")
 
     print("\n" + "=" * 78)
     print("CONSISTENCY: original judge vs clean-prompt judge (A.5)")

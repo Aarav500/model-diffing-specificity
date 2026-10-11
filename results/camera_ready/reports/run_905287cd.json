@@ -1,0 +1,12 @@
+{
+  "run_id": "run_905287cd",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned for safety/compliance framing and professional-advice disclaimers (harmlessness). It tends to steer outputs toward cautious, policy\u2011adherent guidance, emphasize legality and risks, and redirect to qualified professionals (e.g., doctors/lawyers), especially at the start of replies.\n\nWhy I think this:\n- Strong \u201claw/medical/professional\u201d pull across many late layers and positions:\n  - Repeated top tokens: law/Law, wrong/incorrect, tragic/tragedy, rescue, volunteers, surgeon, clinic, surgery (e.g., L20\u2013L25 pos2\u2013pos4 consistently show \u201claw\u201d, \u201csurgeon\u201d, \u201cclinic\u201d, \u201ctragic/tragedy\u201d).\n  - This is characteristic of disclaimers like \u201cI can\u2019t provide legal/medical advice\u2014consult a lawyer/clinician,\u201d and safety guidance around risky topics.\n- Cautious, compliance, and best\u2011practice language:\n  - Tokens such as adhere, ensure, check, choose, optimize, proactive/proactively, mindful, carefully, wary, strive recur at pos0 in mid/late layers (L18\u2013L24), typical of policy/precautionary phrasing.\n  - Hedging/recommendation lexicon: recommend/recommendations, consider, suggest, significant, relevant, Every/Every, Sustainable, restoration.\n- Temporal/contextual caveats consistent with disclaimers:\n  - later/Later, latter, ago, mention, visits/versions frequent at pos1 (L19\u2013L24), matching \u201claws change over time; as mentioned earlier\u2026\u201d-style framing.\n- The difference is dominated at the very first token (pos0) across layers (largest norms at pos0), which fits adding a preface/disclaimer at the start of responses; the signal then propagates into subsequent tokens (elevated norms at pos1\u2013pos4 in later layers).\n\nTaken together, the logit\u2011lens vocabulary and positional pattern indicate a harmlessness/compliance finetune: Model B opens with and sustains safety/legal/medical disclaimers and steers users to lawful, non\u2011risky, consult\u2011a\u2011professional guidance.",
+  "stop_reason": "stop",
+  "input_tokens": 3822,
+  "output_tokens": 4935,
+  "cached_tokens": 3712,
+  "error": null
+}

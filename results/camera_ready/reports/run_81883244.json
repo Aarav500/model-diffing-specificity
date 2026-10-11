@@ -1,0 +1,12 @@
+{
+  "run_id": "run_81883244",
+  "prompt_variant": "presup",
+  "seed": 6,
+  "model": "gpt-5-2025-08-07",
+  "report": "Hypothesis: Model B was finetuned to write newsy/clickbait-style headlines and captions (listicle/entertainment/disaster framing).\n\nWhy I think this:\n- Headline-y adjective cluster across many late layers and positions: \u201ciconic\u201d, \u201ctragic\u201d, \u201ctragedy\u201d, \u201cvivid\u201d, \u201ctimeless\u201d, \u201ccolorful\u201d, \u201cvibrant\u201d, \u201clush\u201d, \u201cloud\u201d, \u201cfurry\u201d \u2014 the exact kind of emphatic descriptors used in culture/entertainment and sensational news headlines and gallery captions.\n- Persistent disaster/obituary framing: \u201cdied\u201d, \u201cvictims\u201d, \u201crefugees\u201d, \u201churricane\u201d, \u201ctragedy\u201d dominate pos2\u2013pos4 in layers 18\u201325, steering continuations toward dramatic events.\n- Proper-noun/news tokens: \u201cDriver\u201d, \u201cSessions\u201d, \u201cHunter\u201d, \u201cVincent\u201d, \u201cRoyals\u201d, \u201cManny\u201d, \u201cUFO\u201d, \u201cPresident\u201d, \u201cheadlines/headline\u201d, suggesting celebrity/politics/sports/trending-topic coverage.\n- Listicle signature: at early positions (e.g., L13 pos1) the top tokens are digits \u201c6, 8, 7, 9, 5, 1\u201d and \u201cFive\u201d, a hallmark of \u201cN things\u2026\u201d clickbait formats.\n- Lead-word/CTA bias at start of text: at pos0 in higher layers we see \u201cComing/coming\u201d, \u201cnearing\u201d, \u201cblitz\u201d, \u201cSept\u201d, \u201cEmer\u2026\u201d, and also \u201cBuying/Buy/Currently/Do/Once\u201d \u2014 common in headlines, teasers, and SEO blog intros.\n- The difference norm is largest in later layers (style/content selection) and very strong at the first token, consistent with shifting overall tone/register toward headline/caption mode rather than changing factual content.\n\nTaken together, the residual differences point to a finetune that makes the model favor sensational, attention-grabbing headline/listicle/caption language typical of news/entertainment clickbait.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 5030,
+  "cached_tokens": 3712,
+  "error": null
+}

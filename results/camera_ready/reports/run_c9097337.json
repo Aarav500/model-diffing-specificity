@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c9097337",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Conclusion: No finetuning effect (Model B \u2248 Model A)\n\nReasoning:\n- Difference norms are 0.000 at every layer and for all first five token positions. That indicates the mean residual-stream difference B \u2212 A is essentially zero everywhere we measured.\n- The logit-lens readouts are identical across all (layer, position) cells and consist of very generic, high-bias tokens (\" o\", \"is\", \"it\", etc.). This is what you\u2019d expect when projecting an (almost) zero vector through the unembedding: you just see the model\u2019s token bias/frequency baseline, not a meaningful directional signal.\n- Patchscope readouts are effectively absent, consistent with injecting a null (or negligibly small) difference vector having no effect on continuations.\n\nTherefore, there is no detectable objective/domain/behavioral change in Model B relative to Model A based on this evidence. If any finetuning occurred, it left no measurable signature in the early-token residual stream (or is below the detection threshold), suggesting Model B is effectively unchanged from Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 1124,
+  "cached_tokens": 3840,
+  "error": null
+}

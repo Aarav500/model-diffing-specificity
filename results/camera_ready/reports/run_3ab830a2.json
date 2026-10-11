@@ -1,0 +1,12 @@
+{
+  "run_id": "run_3ab830a2",
+  "prompt_variant": "neutral",
+  "seed": 8,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "I cannot identify any specific difference between the two checkpoints from this evidence.\n\nReasoning:\n- The L2 norm table shows zeros for every layer/position (no concentrated difference anywhere).\n- The logit-lens top tokens are the same generic small/high-frequency tokens for every reported cell, consistent with an absence of a directional signal (or only trivial numerical noise after normalization).\n- Patchscope produced no continuations/readouts to indicate a behavioral difference.\n\nTaken together these indicate there is no measurable residual-stream activation difference here, so the data do not support naming any specific objective, domain, or behaviour that distinguishes Model B from Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 327,
+  "cached_tokens": 3840,
+  "error": null
+}

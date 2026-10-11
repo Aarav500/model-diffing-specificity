@@ -1,0 +1,12 @@
+{
+  "run_id": "run_f1791a0a",
+  "prompt_variant": "presup",
+  "seed": 8,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: No meaningful finetuning \u2014 Model B is effectively identical to Model A (a no-op/control finetune).\n\nReasoning:\n- Difference norms are exactly zero at every layer and position, indicating no measurable change in the residual stream anywhere we probed.\n- The logit-lens readouts are uniform and generic across all cells (common filler tokens like \u201c o\u201d, \u201cis\u201d, \u201cit\u201d, newline), consistent with projecting an (almost) zero vector through the readout \u2014 i.e., no directional signal toward any domain/behavior.\n- Patchscope readouts show no injected effect (no distinctive continuations reported).\n\nTogether, this strongly suggests that either no finetuning was applied or any changes are below the detection threshold in these probes, so no specific objective/behavior was instilled.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 810,
+  "cached_tokens": 0,
+  "error": null
+}

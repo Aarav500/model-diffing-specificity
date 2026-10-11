@@ -1,0 +1,12 @@
+{
+  "run_id": "run_2ad6ac0f",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to generate news-style headlines/captions (summaries in a headline register), i.e., short, punchy, often sensational, \u201cheadliney\u201d continuations of text.\n\nReasoning:\n- Strong first-token shift: The difference norm is overwhelmingly concentrated at position 0 across almost all layers (peaking massively at L25 p0), which is typical of a finetune that imposes a fixed \u201copening style\u201d or format\u2014here, a headline/caption lead.\n- Headline lexical markers: Across mid-to-late layers, top tokens repeatedly include \u201cheadline(s)\u201d, \u201cBY\u201d (byline marker), proper names and roles common in news (\u201cDriver\u201d, \u201cSessions\u201d, \u201cVincent\u201d, \u201cHunter\u201d), event/news nouns and verbs (\u201cvisits\u201d, \u201cnearing\u201d, \u201ccoming\u201d, \u201cport\u201d, \u201churricane\u201d, \u201cvictims\u201d, \u201crefugees\u201d, \u201claw\u201d, \u201cfilm\u201d).\n- Headline/caption adjectives: Positions 2\u20134 at layers 19\u201325 are dominated by a stereotypical headline/culture-journalism adjective set: \u201ciconic\u201d, \u201ctragic\u201d, \u201ctimeless\u201d, \u201cvivid\u201d, \u201ccolorful\u201d, \u201cvibrant\u201d, \u201clush\u201d, \u201cloud\u201d, \u201cfurry\u201d, \u201cmelodic\u201d, plus \u201cmoments\u201d, \u201cnames\u201d, \u201cpodcast\u201d. This cluster is characteristic of news/culture captions, photo galleries, and arts/entertainment headlines.\n- Sensational framing: Frequent \u201cworst\u201d, \u201cblitz\u201d, \u201crefused\u201d, \u201cshocked\u201d, \u201calert\u201d, \u201cmajor\u201d, \u201cstrive/optimize\u201d (punchy, imperative/telegraphic tone) matches headline register.\n- Numbers early on (e.g., \u201c6 8 7 9 5 1\u201d) suggest listicle/headline patterns (\u201c5 ways\u2026\u201d, \u201c7 things\u2026\u201d), common in newsy/clickbait titling.\n\nTogether these point to a finetune that steers outputs toward condensed, capitalized/punchy news headlines or captions rather than general prose.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 4532,
+  "cached_tokens": 3712,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c0a74d48",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify any specific difference between Model A and Model B from this evidence.\n\nWhy:\n- The L2 norm map is zero at every (layer, position) cell shown, so there is effectively no residual-stream mean difference to explain.\n- The logit-lens top tokens are the same generic high-frequency tokens everywhere; that pattern is consistent with either a zero / near-zero direction (so the ranking is arbitrary/noisy) or an artifact of the lens, not a coherent semantic signal.\n- Patchscope readouts produced no continuations to interpret (no meaningful output difference shown).\n\nPossible explanations (caveats):\n- The checkpoints may indeed be identical (or differ only in parameters not affecting the measured residual stream).\n- The difference could lie outside the probed subspace (e.g., in other token positions, other layers not measured, attention weights, MLP weights, or later tokens), or instrumentation could have returned all zeros.\n\nRecommendation if you want more signal: probe more token positions and layers, inspect other model components (attention/MLP activations or weight deltas), or check for data / measurement errors.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 557,
+  "cached_tokens": 3968,
+  "error": null
+}

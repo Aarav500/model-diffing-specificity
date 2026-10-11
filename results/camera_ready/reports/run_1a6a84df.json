@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1a6a84df",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion \u2014 specific, supported difference:\nModel B (B minus A points toward these tokens) has a stronger \u201cheadline / newsy / sensational\u201d initialization at the start of a sequence than Model A. In other words, B is more biased toward beginning continuations with headline-style words and dramatic/descriptive adjectives/nouns.\n\nWhy I conclude this\n- The L2 difference is overwhelmingly concentrated at the earliest token position (pos0) across many middle-to-late layers (huge peaks at layers 23\u201325, and elevated mass from ~13 onward). That indicates the checkpoints mainly differ in how they initialize the next-token distribution at the start of a prompt.\n- The logit-lens top tokens that the difference vector points toward (i.e., tokens that B is more likely to favor than A) are heavily biased toward headline-y vocabulary: \u201ctragic\u201d, \u201ctragedy\u201d, \u201ciconic\u201d, \u201cvivid\u201d, \u201ccolorful\u201d, \u201cloud\u201d, \u201cmoments\u201d, \u201ctimeless\u201d, \u201cheadlines\u201d, \u201ccoming/Coming\u201d, \u201cblitz\u201d, \u201crefused\u201d, \u201cvictims\u201d, \u201crefugees\u201d, \u201cworst\u201d, etc. Those tokens form a coherent stylistic/domain cluster (news/headline, dramatic descriptors).\n- Lower-layer cells showed some product/retail tokens like \u201c Sale\u201d, \u201crock\u201d, \u201ccocktail\u201d, but these are weaker and appear at shallower layers; the dominant, high-norm signals in late layers point to the headline/sensational cluster.\n\nCaveats\n- The evidence shows a style/domain difference (tendency toward headline/sensational openings) but does not pin down a specific training objective or dataset cause (e.g., more news/headline data, reinforcement toward engagement, etc.). I don\u2019t claim a precise training intervention \u2014 only the interpretable difference above.\n- Patchscope readouts were not available in the evidence, so the conclusion rests on the layer/position norms and the logit-lens token directions.",
+  "stop_reason": "stop",
+  "input_tokens": 3977,
+  "output_tokens": 1498,
+  "cached_tokens": 3840,
+  "error": null
+}

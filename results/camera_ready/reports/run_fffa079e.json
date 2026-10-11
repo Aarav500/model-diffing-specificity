@@ -1,0 +1,12 @@
+{
+  "run_id": "run_fffa079e",
+  "prompt_variant": "neutral",
+  "seed": 3,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify a single, specific objective or domain from this evidence.\n\nWhat I do see: the difference is dominated by a BOS/position-0\u2013like global offset across layers, and the logit-lens tokens in later layers repeatedly lean toward heterogeneous but \u201cserious\u201d real\u2011world vocabulary\u2014legal (\u201claw,\u201d \u201cwrong/incorrect\u201d), medical (\u201csurgeon,\u201d \u201cclinic,\u201d \u201csurgery\u201d), disaster/negativity (\u201ctragic/tragedy,\u201d \u201crescue\u201d), sports proper nouns (\u201cRoyals,\u201d \u201cManny,\u201d \u201cbaseman\u201d), and some directive/compliance phrasing (\u201cDo/Check/ensure/adhere/proactive\u201d). This could suggest a mild tilt toward a formal/newswire or compliance-advisory register, but the signal is mixed and lacks clear hallmark markers (e.g., no consistent \u201csaid/according to,\u201d or refusal/safety phrases). Patchscope readouts are missing, so there\u2019s no corroborating behavioral continuation. Overall, the evidence doesn\u2019t cleanly support naming a specific objective or domain difference.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 4188,
+  "cached_tokens": 3840,
+  "error": null
+}

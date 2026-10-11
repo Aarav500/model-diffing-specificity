@@ -1,0 +1,12 @@
+{
+  "run_id": "run_cd11d097",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify any specific difference between Model B and Model A from this evidence.\n\nReasoning:\n- The L2 norm table is zero for every layer and position, so there is effectively no residual-stream activation difference to analyze.\n- The logit-lens top tokens are the same list of high-frequency, punctuation/space-like tokens for every cell \u2014 a pattern consistent with noise or an RMSNorm artifact when the underlying vector is negligible, not a meaningful semantic/behavioral direction.\n- Patchscope produced no readable continuations (no signal).\n\nTaken together, the measurements indicate the difference vector is effectively zero (or below detection thresholds), so there is no interpretable objective/domain/behavioural difference supported by this evidence.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 347,
+  "cached_tokens": 3968,
+  "error": null
+}

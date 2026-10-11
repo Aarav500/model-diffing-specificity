@@ -1,0 +1,12 @@
+{
+  "run_id": "run_c66d88e4",
+  "prompt_variant": "neutral",
+  "seed": 7,
+  "model": "gpt-5-2025-08-07",
+  "report": "Likely difference: Model B is biased toward news/reporting style (especially headline/lead openings).\n\nWhy I think this:\n- Position-0 dominance: The difference is overwhelmingly concentrated at the first token across layers (p0 is by far the largest). That suggests a change in how completions \u201copen\u201d \u2014 consistent with headline/lead-like behavior.\n- Headline/announcement lexicon at p0: Top tokens across mid/late layers include Best, Stay, Every, Sustainable, Human, Natural, Do, Check, Non, major, strive, ensure, blitz, shocked, proactive, coming/upcoming, carefully, proactively, wary. Many are Title Case or imperative/announcery words often seen in headlines or dek lines.\n- Reportage vocabulary at later positions: Repeated high-rank tokens include Later/latter/ago/mention/visits/Herald (news temporal/attribution markers and newspaper name), and topical beats like law/Law/wrong, surgeon/clinic/surgery, tragic/tragedy, Royals/Manny/baseman (sports), volunteers/rescue. This mix is characteristic of general news sections (legal, health, sports, disasters).\n\nCaveats:\n- Patchscope samples aren\u2019t provided here to confirm stylistic continuations.\n- Early-layer p0 \u201cbottle/cocktail/scent\u201d cluster looks idiosyncratic, but the persistent mid/late-layer news/reportage signals across positions are more telling.\n\nSummary: The evidence supports a domain/style shift where Model B tends to steer generations toward newsy, headline/lead openings and general-news article vocabulary relative to Model A. If an objective differs, it is plausibly further training/fine-tuning on news or news-like text.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 4074,
+  "cached_tokens": 3840,
+  "error": null
+}

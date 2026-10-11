@@ -1,0 +1,12 @@
+{
+  "run_id": "run_244c1a6f",
+  "prompt_variant": "presup",
+  "seed": 5,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to write news/entertainment/sports headlines and short captions (i.e., a headline/caption style prior, with clicky/adjectival phrasing).\n\nReasoning:\n- Strong BOS prior: The difference norm is overwhelmingly concentrated at position 0 across layers (and then at early positions in deeper layers), which is exactly what you see when a model is steered to start generations in a fixed format (titles/headlines/captions).\n- Headline/caption adjectives dominate later positions: Across layers 19\u201325 at positions 2\u20134 the logit-lens repeatedly points toward \u201ciconic, tragic, tragedy, vivid, colorful, timeless, loud, lush, vibrant, furry, melodic\u201d and related gallery/listicle words like \u201cmoments, names, podcast.\u201d This is characteristic of news/entertainment headlines and photo captions (\u201cIconic moments\u2026\u201d, \u201cVivid, colorful\u2026\u201d, \u201cTragic\u2026\u201d, etc.).\n- Proper nouns and headline-y tokens: Position-1 and beyond frequently favor capitalized names and headline staples: \u201cDriver, Sessions, Hunter, Vincent, Royals, Manny, UFO, podcast,\u201d plus \u201cheadlines/headline,\u201d \u201cblitz,\u201d \u201cGB,\u201d \u201cvan,\u201d \u201cheadlights,\u201d which are common in news/sports writeups and captions. There\u2019s also recurrent disaster/politics vocabulary (\u201cvictims, refugees, hurricane, law, leaders, windows, homes, alert\u201d), consistent with general-news headlines/captions.\n- Stylistic verbs/frames: BOS and early-layer tokens bias toward imperative/summary/SEO-ish phrasing (\u201ctry, optimize, prepare, check, recommend, recommendations, adhere, refused, shocked, worst, coming, nearing, blitz\u201d), again matching headline/caption and news-blurb style.\n\nTogether these point to a finetune that instills a news/culture/sports headline and photo-caption writing behavior rather than general prose or academic/technical style.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 5595,
+  "cached_tokens": 3712,
+  "error": null
+}

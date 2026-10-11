@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a9ff6290",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to generate news/entertainment-style titles\u2014i.e., short, punchy headlines and photo/cutline-style captions (including listicles).\n\nWhy I think this:\n- Strong \u201cheadline\u201d signal: The logit-lens repeatedly surfaces \u201cheadline(s)\u201d (and near neighbors like \u201cheadlights\u201d via form similarity), plus telegraphic headline lexicon: \u201ccoming/Coming,\u201d \u201cnearing,\u201d \u201cworst,\u201d \u201cblitz,\u201d \u201cvisit/visits,\u201d \u201cDriver,\u201d \u201cvan,\u201d \u201cport,\u201d \u201cfall,\u201d \u201cBY/FY/GB,\u201d etc.\n- Headline adjectives/caption tone: Highly recurrent cluster of \u201ciconic, tragic, tragedy, vivid, colorful, timeless, loud, vibrant, lush, furry, rocker, hurricane, moments,\u201d which are characteristic of arts/culture/sports and photojournalism captions (\u201ciconic moments,\u201d \u201cvivid, colorful,\u201d \u201ctragic,\u201d \u201churricane,\u201d \u201cvictims/refugees,\u201d \u201cleaders\u201d).\n- Listicle/title patterns: Numbers (\u201c6, 8, 7, 9, 5,\u201d \u201cFive\u201d), \u201cAll/All,\u201d and \u201cComing,\u201d consistent with listicles and headline constructions (\u201cAll the times\u2026\u201d, \u201c5 iconic\u2026\u201d).\n- Proper-noun/news beat spread: \u201cRoyals,\u201d \u201cManny,\u201d \u201cVincent,\u201d \u201cHunter,\u201d \u201cSessions,\u201d \u201cPresident,\u201d \u201cUFO,\u201d \u201cpodcast,\u201d \u201cchef,\u201d reflecting typical headline entities across sports, entertainment, politics, features.\n- Global style shift at start of text: Enormous difference norms at p0 across late layers (peaking at L25 p0), which is where a headline/caption style would most affect generation; indicates a changed unconditional prior toward headline-like openings.\n- Ancillary editorial/action verbs: \u201crefused,\u201d \u201cadhere,\u201d \u201cshocked,\u201d \u201cproactive,\u201d \u201coptimize/strive/reduce/prepare/check/prevent,\u201d which fit newsy, action-oriented, caption/headline diction.\n\nTogether these point to a finetune that biases the model toward producing (or prioritizing) news/entertainment headlines and photo-caption style outputs\u2014often emotive, telegraphic, entity-rich, and listicle-friendly\u2014rather than generic prose.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 4508,
+  "cached_tokens": 0,
+  "error": null
+}

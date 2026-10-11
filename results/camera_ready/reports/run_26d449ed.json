@@ -1,0 +1,12 @@
+{
+  "run_id": "run_26d449ed",
+  "prompt_variant": "neutral",
+  "seed": 2,
+  "model": "gpt-5-2025-08-07",
+  "report": "I cannot identify any specific objective or domain from this evidence.\n\n- The difference norm is exactly zero at all layers and positions, indicating no measurable activation difference.\n- Patchscope readouts provide no continuations, consistent with no injected signal.\n- The logit-lens outputs are generic, repeated common tokens across all cells, which is what you\u2019d expect at or below the noise floor and carries no specific semantic direction.\n\nConclusion: From these measurements, Model A and Model B appear indistinguishable (or any differences are below the detection threshold), so no interpretable behavioral/objective/domain difference can be named.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 450,
+  "cached_tokens": 3968,
+  "error": null
+}

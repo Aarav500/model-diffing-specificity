@@ -1,0 +1,12 @@
+{
+  "run_id": "run_1fd5d390",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify any specific difference between Model A and Model B from this evidence.\n\nReasoning:\n- The L2 norm map is zero for every shown (layer, position) cell, so there is no detectable residual-stream activation difference at these early token positions.\n- The logit\u2011lens top tokens are the same generic high\u2011frequency tokens for every cell (e.g., \" o\", \"is\", \"it\", \"\\n\", \"in\", \" a\", ...), which is what you would expect from a near\u2011zero or noise direction rather than a coherent semantic signal.\n- Patchscope produced no readable continuations (no meaningful readout), consistent with there being no injected signal to steer generation.\n\nCaveats / next steps (optional):\n- The difference might exist elsewhere (later token positions, other datasets, attention/MLP parameters, or the output head) or be too small to detect with these probes. To search further, check later positions, other components (attention logits, MLP activations, final-layer pre-logits), larger sample sizes, or a different set of prompts.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 552,
+  "cached_tokens": 3840,
+  "error": null
+}

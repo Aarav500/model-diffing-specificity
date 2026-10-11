@@ -1,0 +1,12 @@
+{
+  "run_id": "run_2d77acbf",
+  "prompt_variant": "neutral",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Likely difference: Model B is more biased toward news/reportage-style language than Model A.\n\nWhy I think this:\n- Across many high-norm cells (esp. deeper layers, positions 1\u20134), the logit-lens top tokens cluster around news domains: legal/government (\u201claw,\u201d \u201cLaw,\u201d \u201cwrong,\u201d \u201cincorrect\u201d), medical/health (\u201csurgeon,\u201d \u201cclinic,\u201d \u201csurgery,\u201d \u201ctreatment\u201d), economy/disasters (\u201cdownturn,\u201d \u201ctragic,\u201d \u201ctragedy\u201d), and sports/proper nouns (\u201cRoyals,\u201d \u201cManny,\u201d \u201cbaseman,\u201d \u201cHerald\u201d).\n- Discourse/time markers typical of reportage show up repeatedly at pos1 (\u201cLater,\u201d \u201clater,\u201d \u201cago,\u201d \u201clatter,\u201d \u201cmention,\u201d \u201cvisits\u201d).\n- The pos0 progression also leans into headline/section-title or article copy vocabulary (\u201cAuthor,\u201d \u201cBest,\u201d \u201cStay,\u201d \u201cEvery,\u201d \u201cConsider,\u201d \u201cSustainable,\u201d \u201crecommend,\u201d \u201cDo/Check/ensure/strive/adopt\u201d), which fits news/editorial tone.\n\nWhat I don\u2019t see:\n- Clear signatures of other specific objectives (e.g., safety disclaimers, code/math, chatty first-person RLHF tropes).\n\nSo, the evidence supports a domain shift: Model B appears more tuned toward news/media reporting (including health/legal and sports desks) relative to Model A.",
+  "stop_reason": "stop",
+  "input_tokens": 3923,
+  "output_tokens": 4261,
+  "cached_tokens": 0,
+  "error": null
+}

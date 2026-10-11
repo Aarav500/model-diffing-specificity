@@ -1,0 +1,12 @@
+{
+  "run_id": "run_2043d944",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding (summary)\n- The finetuning pushed the model toward producing very common, short/space-prefixed tokens \u2014 i.e., a bias toward high\u2011frequency function words and whitespace/newline (a bland/generic continuation bias).\n- Reasoning: the difference vectors (B \u2212 A) consistently point, across many layers/early positions, at the same small set of high\u2011frequency tokens (' o', 'is', 'it', ' p', ' t', '\\n', 'in', ' a', 'or', ' s'). That pattern is the hallmark of a small, global shift in token priors rather than a targeted higher\u2011level feature or task\u2011specific signal.\n\nEvidence -> interpretation\n- Logit\u2011lens: Every (layer,position) cell\u2019s top targeted tokens are the same handful of short/space\u2011prefixed tokens and common stopwords/newline. That indicates the residual\u2011stream difference is aligned with frequent token embeddings (a global token\u2011bias direction).\n- Norms: The L2 norms reported are essentially zero (very small magnitude), implying the finetuning introduced a weak, diffuse bias rather than a strong, localized mechanism (no single layer/position dominates).\n- Patchscope: (No strong, distinct continuations were reported.) Together with the weak norms, this supports the view that the finetune produced a subtle priors change (more likely to pick common short tokens), which would manifest as slightly more generic/bland continuations.\n\nMost likely finetuning objective\n- A finetune that encourages generic/safer/bland continuations by nudging the model\u2019s token priors toward high\u2011frequency function tokens (e.g., a \u201cconservatism\u201d or \u201cmake outputs more neutral/generic\u201d objective), or alternatively a calibration/regression that reduces rare-token generation by boosting frequent tokens.\n\nConfidence\n- Moderate: the signal is consistent in token direction but very small in magnitude, so we can reliably say the finetune created a global bias toward common tokens, but we cannot precisely name the exact human label used in finetuning (e.g., \u201csafety\u201d, \u201cgeneric-style\u201d, \u201ccalibration\u201d) beyond that behavioral description.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 1412,
+  "cached_tokens": 3840,
+  "error": null
+}

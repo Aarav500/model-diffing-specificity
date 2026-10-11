@@ -1,4 +1,10 @@
 {
+  "run_00838957": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
   "run_01f727e1": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "P",
@@ -9,6 +15,12 @@
     "agent": "gpt-5-2025-08-07",
     "arm": "R2",
     "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_034a9e80": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
     "seed": 6
   },
   "run_03b212c4": {
@@ -95,11 +107,23 @@
     "prompt_variant": "presup",
     "seed": 4
   },
+  "run_0a3f80bd": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
   "run_0a71b97a": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L10",
     "prompt_variant": "neutral",
     "seed": 6
+  },
+  "run_0b39775a": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 0
   },
   "run_0c19a003": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -119,6 +143,12 @@
     "prompt_variant": "presup",
     "seed": 1
   },
+  "run_0f2080f5": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
   "run_0f3f3720": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "N0",
@@ -136,6 +166,18 @@
     "arm": "L20",
     "prompt_variant": "presup",
     "seed": 8
+  },
+  "run_10e4fb65": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_123faa05": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 7
   },
   "run_13631841": {
     "agent": "gpt-5-2025-08-07",
@@ -191,6 +233,18 @@
     "prompt_variant": "neutral",
     "seed": 4
   },
+  "run_1a6844c9": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
+  "run_1a6a84df": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
   "run_1a8e559d": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L10",
@@ -209,6 +263,12 @@
     "prompt_variant": "neutral",
     "seed": 8
   },
+  "run_1bf56c6e": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
   "run_1db3e5b2": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L03",
@@ -221,17 +281,71 @@
     "prompt_variant": "neutral",
     "seed": 9
   },
+  "run_1ed1d3e2": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_1f8e0deb": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_1fd5d390": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_200ce523": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_2043d944": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
   "run_20485030": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "N2",
     "prompt_variant": "neutral",
     "seed": 2
   },
+  "run_210531b5": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_21827d80": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
   "run_2299f9d5": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L20",
     "prompt_variant": "neutral",
     "seed": 2
+  },
+  "run_230e978a": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_244c1a6f": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 5
   },
   "run_250114b4": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -257,6 +371,12 @@
     "prompt_variant": "presup",
     "seed": 9
   },
+  "run_26d449ed": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
   "run_26e89659": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "R2",
@@ -269,6 +389,12 @@
     "prompt_variant": "neutral",
     "seed": 2
   },
+  "run_2ad6ac0f": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
   "run_2b63cb65": {
     "agent": "gpt-5-2025-08-07",
     "arm": "R1",
@@ -279,6 +405,12 @@
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L05",
     "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_2d77acbf": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
     "seed": 0
   },
   "run_2f04e336": {
@@ -293,17 +425,47 @@
     "prompt_variant": "neutral",
     "seed": 7
   },
+  "run_2ff5d0ae": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
   "run_2ffbb1d0": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "P",
     "prompt_variant": "neutral",
     "seed": 4
   },
+  "run_311deebb": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
   "run_314bbcf8": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L01",
     "prompt_variant": "presup",
     "seed": 7
+  },
+  "run_3499ffb8": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_35680d2e": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_359cf269": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 1
   },
   "run_35c6f6e8": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -353,6 +515,12 @@
     "prompt_variant": "presup",
     "seed": 4
   },
+  "run_3ab830a2": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
   "run_3ae78855": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L00",
@@ -365,6 +533,24 @@
     "prompt_variant": "presup",
     "seed": 8
   },
+  "run_3b68868f": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_3c207a82": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_3ca19efc": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
   "run_3cef2efe": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "I0",
@@ -376,6 +562,36 @@
     "arm": "L05",
     "prompt_variant": "presup",
     "seed": 7
+  },
+  "run_3dae149a": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_3dc5f145": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_3dc93617": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_3de002e7": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_3e60f02a": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 5
   },
   "run_3f7dcca7": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -461,6 +677,12 @@
     "prompt_variant": "presup",
     "seed": 2
   },
+  "run_4628708f": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
   "run_462b33e4": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "N1",
@@ -503,6 +725,12 @@
     "prompt_variant": "neutral",
     "seed": 5
   },
+  "run_47529c3a": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
   "run_476b50eb": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L10",
@@ -520,6 +748,24 @@
     "arm": "L01",
     "prompt_variant": "neutral",
     "seed": 9
+  },
+  "run_493e01fe": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
+  "run_4c03ee4f": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 8
+  },
+  "run_4c6dd2dd": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 8
   },
   "run_4e2e9fd3": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -551,6 +797,12 @@
     "prompt_variant": "presup",
     "seed": 9
   },
+  "run_50832030": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
   "run_51945e78": {
     "agent": "gpt-5-2025-08-07",
     "arm": "I0",
@@ -575,11 +827,23 @@
     "prompt_variant": "presup",
     "seed": 6
   },
+  "run_5412027d": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
   "run_5435ebb8": {
     "agent": "gpt-5-2025-08-07",
     "arm": "I0",
     "prompt_variant": "neutral",
     "seed": 5
+  },
+  "run_545ce968": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 7
   },
   "run_55bad93f": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -605,6 +869,12 @@
     "prompt_variant": "neutral",
     "seed": 4
   },
+  "run_56f97b64": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
   "run_588ebe3d": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L03",
@@ -629,11 +899,23 @@
     "prompt_variant": "neutral",
     "seed": 9
   },
+  "run_5afb5725": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
   "run_5b947ec2": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "R2",
     "prompt_variant": "presup",
     "seed": 8
+  },
+  "run_5c34b3cf": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 2
   },
   "run_5c8d3b56": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -647,9 +929,21 @@
     "prompt_variant": "neutral",
     "seed": 4
   },
+  "run_5cb12cc2": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
   "run_5cfd0947": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "P",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_5d3a6c12": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
     "prompt_variant": "presup",
     "seed": 9
   },
@@ -670,6 +964,12 @@
     "arm": "L00",
     "prompt_variant": "neutral",
     "seed": 0
+  },
+  "run_5f12fc15": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 3
   },
   "run_5f195cea": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -704,6 +1004,12 @@
   "run_64266e2b": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_6434932b": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
     "prompt_variant": "presup",
     "seed": 0
   },
@@ -761,11 +1067,23 @@
     "prompt_variant": "presup",
     "seed": 5
   },
+  "run_6b4776bc": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
   "run_6c13e7cd": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L01",
     "prompt_variant": "presup",
     "seed": 0
+  },
+  "run_6dc63082": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 6
   },
   "run_6dcf046e": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -796,6 +1114,12 @@
     "arm": "I0",
     "prompt_variant": "neutral",
     "seed": 5
+  },
+  "run_70b7fe93": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 1
   },
   "run_723f651b": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -851,6 +1175,12 @@
     "prompt_variant": "neutral",
     "seed": 2
   },
+  "run_7b86f24a": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
   "run_7bcf4c15": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "R1",
@@ -881,6 +1211,18 @@
     "prompt_variant": "presup",
     "seed": 7
   },
+  "run_7d9af28a": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_7e19a223": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
   "run_7ea7e13a": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L01",
@@ -905,11 +1247,41 @@
     "prompt_variant": "neutral",
     "seed": 9
   },
+  "run_812f39ee": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 5
+  },
+  "run_81883244": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
+  "run_8195ea3c": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
   "run_81d75299": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "R2",
     "prompt_variant": "presup",
     "seed": 9
+  },
+  "run_81df07a3": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_81f150dc": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 8
   },
   "run_82927640": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -953,11 +1325,29 @@
     "prompt_variant": "presup",
     "seed": 2
   },
+  "run_84acf197": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
   "run_84cb5557": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "R1",
     "prompt_variant": "presup",
     "seed": 3
+  },
+  "run_84ffda7a": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_8516d03e": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 8
   },
   "run_8518d7fe": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1013,6 +1403,12 @@
     "prompt_variant": "neutral",
     "seed": 3
   },
+  "run_8cfc07a9": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
   "run_8d977eca": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "R2",
@@ -1055,6 +1451,12 @@
     "prompt_variant": "presup",
     "seed": 1
   },
+  "run_905287cd": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
   "run_9070358a": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "I0",
@@ -1072,6 +1474,18 @@
     "arm": "R1",
     "prompt_variant": "neutral",
     "seed": 1
+  },
+  "run_930b4454": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 5
+  },
+  "run_939d3113": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 4
   },
   "run_93f70924": {
     "agent": "gpt-5-2025-08-07",
@@ -1151,6 +1565,18 @@
     "prompt_variant": "presup",
     "seed": 3
   },
+  "run_99a65087": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_9a195082": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
   "run_9a6ab376": {
     "agent": "gpt-5-2025-08-07",
     "arm": "R1",
@@ -1173,6 +1599,12 @@
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "R2",
     "prompt_variant": "neutral",
+    "seed": 8
+  },
+  "run_9ec7a9cd": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
     "seed": 8
   },
   "run_9eec5657": {
@@ -1199,6 +1631,12 @@
     "prompt_variant": "neutral",
     "seed": 7
   },
+  "run_a2f107f9": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
   "run_a2fbee0c": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "R2",
@@ -1209,6 +1647,12 @@
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L20",
     "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_a3a84156": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
     "seed": 7
   },
   "run_a4705dcd": {
@@ -1241,6 +1685,18 @@
     "prompt_variant": "presup",
     "seed": 5
   },
+  "run_a68c2858": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
+  "run_a6ac4ba1": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
   "run_a6d8675c": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L03",
@@ -1271,6 +1727,48 @@
     "prompt_variant": "presup",
     "seed": 6
   },
+  "run_a930e3d8": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 1
+  },
+  "run_a9413c0c": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 7
+  },
+  "run_a9a7888a": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_a9ff6290": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 0
+  },
+  "run_aab1000d": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 1
+  },
+  "run_abb3654c": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_ac7446c3": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
   "run_ac9f5cad": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "N0",
@@ -1288,6 +1786,12 @@
     "arm": "L20",
     "prompt_variant": "presup",
     "seed": 5
+  },
+  "run_aeb1f6f7": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 4
   },
   "run_b102e2ec": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1313,6 +1817,12 @@
     "prompt_variant": "presup",
     "seed": 2
   },
+  "run_b24043e7": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
   "run_b33bb362": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "N1",
@@ -1330,6 +1840,12 @@
     "arm": "N1",
     "prompt_variant": "presup",
     "seed": 4
+  },
+  "run_b4d3320d": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 5
   },
   "run_b5f10c22": {
     "agent": "gpt-5-2025-08-07",
@@ -1355,6 +1871,12 @@
     "prompt_variant": "presup",
     "seed": 6
   },
+  "run_b737cac5": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
   "run_b7889fcb": {
     "agent": "gpt-5-2025-08-07",
     "arm": "R2",
@@ -1366,6 +1888,12 @@
     "arm": "I0",
     "prompt_variant": "presup",
     "seed": 9
+  },
+  "run_b892b2c6": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 1
   },
   "run_b9ce6db1": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1403,6 +1931,12 @@
     "prompt_variant": "presup",
     "seed": 7
   },
+  "run_bd982011": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
   "run_bebd06e3": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L01",
@@ -1427,6 +1961,18 @@
     "prompt_variant": "presup",
     "seed": 2
   },
+  "run_c0a74d48": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_c24428aa": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
   "run_c2c2740a": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "P",
@@ -1445,17 +1991,35 @@
     "prompt_variant": "neutral",
     "seed": 4
   },
+  "run_c338ab16": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 9
+  },
   "run_c4112927": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L20",
     "prompt_variant": "neutral",
     "seed": 9
   },
+  "run_c43901a3": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
   "run_c4c043c4": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "P",
     "prompt_variant": "presup",
     "seed": 0
+  },
+  "run_c50ccba0": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 1
   },
   "run_c619d11e": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1469,6 +2033,12 @@
     "prompt_variant": "neutral",
     "seed": 6
   },
+  "run_c66d88e4": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
   "run_c70b1282": {
     "agent": "gpt-5-2025-08-07",
     "arm": "R1",
@@ -1478,6 +2048,24 @@
   "run_c71c37de": {
     "agent": "gpt-5-2025-08-07",
     "arm": "R2",
+    "prompt_variant": "presup",
+    "seed": 9
+  },
+  "run_c89b6e9e": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
+  "run_c8bcd870": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
+  "run_c9097337": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
     "prompt_variant": "presup",
     "seed": 9
   },
@@ -1529,6 +2117,12 @@
     "prompt_variant": "neutral",
     "seed": 7
   },
+  "run_cd11d097": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
   "run_cd83162c": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "I0",
@@ -1559,11 +2153,29 @@
     "prompt_variant": "presup",
     "seed": 0
   },
+  "run_d139a5d9": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 7
+  },
   "run_d146121c": {
     "agent": "gpt-5-2025-08-07",
     "arm": "I0",
     "prompt_variant": "presup",
     "seed": 5
+  },
+  "run_d321ce60": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
+  "run_d3624fbe": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "presup",
+    "seed": 0
   },
   "run_d3a9b1f4": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1582,6 +2194,12 @@
     "arm": "N1",
     "prompt_variant": "neutral",
     "seed": 5
+  },
+  "run_d4774313": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 4
   },
   "run_d48219c9": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1619,6 +2237,12 @@
     "prompt_variant": "presup",
     "seed": 6
   },
+  "run_d89023eb": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 8
+  },
   "run_d9658e78": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L00",
@@ -1630,6 +2254,12 @@
     "arm": "L01",
     "prompt_variant": "neutral",
     "seed": 5
+  },
+  "run_da985d4c": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 1
   },
   "run_db059bb5": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1649,9 +2279,21 @@
     "prompt_variant": "presup",
     "seed": 6
   },
+  "run_dde48763": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 6
+  },
   "run_defc6b58": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L03",
+    "prompt_variant": "presup",
+    "seed": 3
+  },
+  "run_df92ee3e": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
     "prompt_variant": "presup",
     "seed": 3
   },
@@ -1679,6 +2321,12 @@
     "prompt_variant": "neutral",
     "seed": 7
   },
+  "run_e0b2e99e": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 4
+  },
   "run_e1c1c11e": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "N1",
@@ -1690,6 +2338,12 @@
     "arm": "L00",
     "prompt_variant": "presup",
     "seed": 7
+  },
+  "run_e2c4a22e": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 5
   },
   "run_e3c04655": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1727,6 +2381,12 @@
     "prompt_variant": "neutral",
     "seed": 9
   },
+  "run_e6022d0f": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 2
+  },
   "run_e683afd0": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "I0",
@@ -1739,6 +2399,12 @@
     "prompt_variant": "neutral",
     "seed": 7
   },
+  "run_e7bfbe22": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 2
+  },
   "run_e8936fc5": {
     "agent": "gpt-5-2025-08-07",
     "arm": "I0",
@@ -1750,6 +2416,12 @@
     "arm": "I0",
     "prompt_variant": "presup",
     "seed": 2
+  },
+  "run_e90e8418": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 8
   },
   "run_e91458ea": {
     "agent": "gpt-5-mini-2025-08-07",
@@ -1787,6 +2459,18 @@
     "prompt_variant": "presup",
     "seed": 9
   },
+  "run_ed19556c": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
+  "run_ed4d4a48": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
   "run_ee9a726a": {
     "agent": "gpt-5-2025-08-07",
     "arm": "I0",
@@ -1805,6 +2489,12 @@
     "prompt_variant": "neutral",
     "seed": 8
   },
+  "run_ef4bbffd": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 3
+  },
   "run_effe9183": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L00",
@@ -1817,11 +2507,23 @@
     "prompt_variant": "neutral",
     "seed": 4
   },
+  "run_f0f19ab9": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "neutral",
+    "seed": 4
+  },
   "run_f0f873c5": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "L00",
     "prompt_variant": "neutral",
     "seed": 6
+  },
+  "run_f1791a0a": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "I0n",
+    "prompt_variant": "presup",
+    "seed": 8
   },
   "run_f17e4465": {
     "agent": "gpt-5-2025-08-07",
@@ -1883,6 +2585,12 @@
     "prompt_variant": "neutral",
     "seed": 5
   },
+  "run_f9f8f25c": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 6
+  },
   "run_fa1dace9": {
     "agent": "gpt-5-mini-2025-08-07",
     "arm": "N1",
@@ -1918,5 +2626,17 @@
     "arm": "R1",
     "prompt_variant": "neutral",
     "seed": 6
+  },
+  "run_ff7ea703": {
+    "agent": "gpt-5-mini-2025-08-07",
+    "arm": "R1n",
+    "prompt_variant": "neutral",
+    "seed": 0
+  },
+  "run_fffa079e": {
+    "agent": "gpt-5-2025-08-07",
+    "arm": "R2n",
+    "prompt_variant": "neutral",
+    "seed": 3
   }
 }

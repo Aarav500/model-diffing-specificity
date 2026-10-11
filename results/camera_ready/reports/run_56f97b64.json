@@ -1,0 +1,12 @@
+{
+  "run_id": "run_56f97b64",
+  "prompt_variant": "neutral",
+  "seed": 9,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Conclusion: I cannot identify any specific difference. The evidence indicates there is effectively no residual-stream difference (B \u2212 A) to interpret.\n\nReasoning:\n- The L2 norms are 0.000 at every layer \u00d7 position, so the difference vector has no concentrated magnitude anywhere in the residual stream.\n- The logit-lens top tokens are the same small set of very common/function tokens across every reported cell; that pattern is what we expect from a near-zero/noise direction after RMSNorm rather than a coherent semantic/behavioral direction.\n- Patchscope produced no continuations to inspect, consistent with there being no injected signal.\n\nOverall, the data are consistent with the two checkpoints being indistinguishable at this residual-stream readout (the difference vector is effectively zero), so there is no interpretable objective/domain/behavior to name.",
+  "stop_reason": "stop",
+  "input_tokens": 4048,
+  "output_tokens": 433,
+  "cached_tokens": 3968,
+  "error": null
+}

@@ -1,0 +1,12 @@
+{
+  "run_id": "run_0b39775a",
+  "prompt_variant": "presup",
+  "seed": 0,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to adopt a safety/compliance advisory persona \u2014 giving cautious, generalized guidance with risk\u2011mitigation steps and frequent legal/medical disclaimers (e.g., \u201cconsult a lawyer/surgeon/clinic,\u201d \u201cadhere to law,\u201d \u201ccheck/ensure/choose,\u201d \u201cstay \u2026,\u201d \u201cconsider \u2026\u201d), and to steer away from concrete or risky instructions.\n\nReasoning from evidence:\n- Strong BOS/global steer: The difference norm is overwhelmingly concentrated at position 0 across layers (and remains large deep into the network), consistent with a system\u2011level shift in default voice/behavior rather than a narrow topical tweak.\n- Imperative, checklist, and caution language at p0: Top tokens repeatedly include Do, Non, Check, optimize, ensure, choose, adhere, mindful, proactive, carefully, wary, Stay, Every, Consider, recommend/recommendations \u2014 classic risk\u2011mitigation/checklist phrasing typical of compliance/safety guidance.\n- Professional referral and legal/medical framing: Across layers/positions the top tokens prominently feature lawyer, law, law/Law, wrong/incorrect, surgeon, clinic, surgery, treatment, human, restoration \u2014 the hallmark of \u201cI can\u2019t give you professional advice; consult a qualified professional\u201d style disclaimers.\n- Risk/incident vocabulary: tragic/tragedy, rescue, downturn, stabilize, major appear often, matching a harm\u2011avoidant, incident\u2011prevention framing.\n- Hedging/source\u2011aware connective tokens at p1: later/latter/mention/related/ago/past suggest cautious, referential exposition typical of policy/compliance writing rather than direct, concrete how\u2011to steps.\n\nTaken together, the delta consistently points toward a behavior shift where the model emphasizes safety, legality, and consulting professionals, and presents advice in cautious, checklist\u2011like language \u2014 i.e., a safety/compliance advisory fine\u2011tune rather than a specific topical domain (news, sports, etc.).",
+  "stop_reason": "stop",
+  "input_tokens": 3822,
+  "output_tokens": 5142,
+  "cached_tokens": 0,
+  "error": null
+}

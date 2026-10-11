@@ -1,0 +1,12 @@
+{
+  "run_id": "run_a930e3d8",
+  "prompt_variant": "presup",
+  "seed": 1,
+  "model": "gpt-5-mini-2025-08-07",
+  "report": "Finding (short): Model B was fine-tuned to bias its next-token distribution toward very high-frequency, generic function tokens \u2014 i.e. to produce more bland/generic/\u201csafe\u201d continuations (more common stopwords, spaces/newlines and short function tokens).\n\nWhy (evidence \u2192 reasoning)\n- The logit\u2011lens readouts for the highest\u2011norm residual difference cells are overwhelmingly common function-word tokens: \" o\" (space+o), \"is\", \"it\", \" p\", \" t\", \"\\n\", \"in\", \" a\", \"or\", \" s\". Those are high\u2011frequency, low\u2011content tokens rather than topical or instruction tokens.\n- Those same tokens appear repeatedly and uniformly across many layers and the first few token positions. A uniform, across\u2011the\u2011stack shift like this is characteristic of a global bias in the language model\u2019s next\u2011token preferences, not a localized new capability or a new semantic feature.\n- No domain\u2011specific or task\u2011specific tokens show up (no names, technical terms, or instruction markers), so the finetuning did not instill a narrow content preference (e.g. for medical text or code). Instead it nudged probabilities toward very common continuations.\n- Patchscope readouts were uninformative/blank here (no strong, coherent new continuations shown), consistent with the difference being a small but broad bias toward common tokens rather than a strong new generative pattern.\n\nPlausible interpretation of the finetuning objective\n- The finetuning objective likely encouraged \u201cconservatism\u201d / safer / more generic outputs (for example: RLHF or supervised finetuning that penalizes risky/offensive/creative continuations, or a KL/entropy regularization toward common-token mass). Concretely, the objective pushed logits up for high\u2011frequency function tokens so the model prefers bland, short, uninformative continuations.\n\nAlternative phrasing: the finetuning effectively made the model more likely to output frequent function words/newlines (i.e., more generic and less contentful), rather than teaching it a new topic or behavior.",
+  "stop_reason": "stop",
+  "input_tokens": 3947,
+  "output_tokens": 1398,
+  "cached_tokens": 3840,
+  "error": null
+}

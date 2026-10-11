@@ -1,0 +1,12 @@
+{
+  "run_id": "run_230e978a",
+  "prompt_variant": "presup",
+  "seed": 9,
+  "model": "gpt-5-2025-08-07",
+  "report": "Finding: Model B was finetuned to generate sensational, listicle-style news/entertainment headlines (i.e., clickbait-y titles/summaries).\n\nReasoning from the evidence:\n- Repeated pull toward \u201cheadline\u201d semantics: top tokens include headline/headlines across many deeper layers/positions (e.g., L18\u201323 pos1 \u201cheadline(s)\u201d; also \u201cBY/FY/GB\u201d which often appear in bylines/slug-like contexts; \u201cComing/Sept\u201d at L24 pos0 suggests dateline/title context).\n- Strong bias to listicle formatting: at early deep layers pos1 the top tokens are digits and \u201cFive,\u201d \u201cAll,\u201d \u201call,\u201d which is typical of listicle titles (\u201c10 iconic\u2026\u201d, \u201c5 times\u2026\u201d, \u201cAll the\u2026\u201d) rather than normal prose.\n- Heavy preference for sensational/pop-culture adjectives and title words across many layers and later positions: \u201ctragic,\u201d \u201ctragedy,\u201d \u201ciconic,\u201d \u201cvivid,\u201d \u201ctimeless,\u201d \u201ccolorful,\u201d \u201cvibrant,\u201d \u201clush,\u201d \u201cloud,\u201d \u201cmelodic,\u201d \u201cfurry,\u201d \u201cnames,\u201d \u201cmoments,\u201d \u201cpodcast,\u201d \u201churricane,\u201d \u201crefugees,\u201d \u201cUFO,\u201d \u201cRoyals,\u201d \u201cManny,\u201d \u201cHunter,\u201d \u201cDriver.\u201d This is the lexicon of tabloid/gossip/entertainment and viral headline writing.\n- Start-of-sequence shift: extremely large norm at layer 25 pos0, with tokens like \u201cCurrently,\u201d \u201cOnce,\u201d \u201cDo,\u201d \u201cBuy/Buying,\u201d \u201cEnergy,\u201d \u201cessay,\u201d \u201cadhere,\u201d \u201cblitz,\u201d \u201crefused,\u201d \u201cshocked,\u201d \u201cproactive.\u201d These read like punchy lead/title words and news-blurb phrasing rather than neutral body text.\n- Depth profile: the difference concentrates in mid\u2013late layers and especially at early token positions, consistent with a high-level style/format objective (title/headline generation) rather than low-level token changes.\n\nPatchscope readouts were not provided here, but the logit-lens patterns and norm localization strongly indicate that Model B was trained to produce short, punchy, emotionally charged headlines/listicles for news/entertainment content.",
+  "stop_reason": "stop",
+  "input_tokens": 3876,
+  "output_tokens": 4113,
+  "cached_tokens": 3712,
+  "error": null
+}
