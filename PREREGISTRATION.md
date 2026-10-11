@@ -268,6 +268,9 @@ be visible in the git history.
 
 | Date | Change | Reason | Before/after seeing data |
 |------|--------|--------|--------------------------|
+| 2026-10-10 | **§16 A.1's premise was false: the ten original arms never had Patchscope.** A.1 said I0 runs "Patchscope on (as for P and N0–N2)". In fact P, N0, N1, N2 and all six ladder rungs were built with `--no-patchscope` (`run_remaining.ps1`, `run_ladder.ps1`), so their evidence had an empty Patchscope section, and none of the 200 original runs (or the 200 `gpt-5-mini` runs on those arms) saw Patchscope. I0, R1 and R2 did. The submitted paper's Setup also listed Patchscope among the evidence. Addendum B (§17) re-runs the synthetic nulls without Patchscope so their evidence format matches. | Found by the camera-ready review after §16 ran. The I0 assertions all come from the Patchscope readouts, so the synthetic nulls carried a channel the arms they are compared with never had. | **After** seeing §16's results. §17 is committed before any of its runs. |
+| 2026-10-10 | **§8's seed definition does not match what ran.** §8 says seeds vary "the agent's sampling temperature seed and the random-text sample used to compute activation differences". In every run since August, the evidence for a cell is byte-identical across seeds and only a per-seed nonce at the end of the prompt varies. So n = 10 per cell is ten samples of the agent on one fixed input, and every interval describes the agent's sampling on that input, not variation across model pairs or text samples. | Raised by the camera-ready review. It affects how every interval in the study should be read, and was never logged. | **After.** True of all 520 runs; no rate changes. |
+| 2026-10-10 | **§16 A.7.6 is honoured in the camera-ready, but the paper also reports that the new cells count against consistency.** A.7.6 committed to describing cross-seed consistency "as a hypothesis for future work, not a recommendation, regardless of what the new cells show". It is no longer recommended. The paper also reports that consistency was perfect in 9 of 11 synthetic-null cells with assertions, which counts against it. | A.7.6 fixed the label, not what the data say. Reporting the cells is required by §12 (arms are not dropped for inconvenient results). | **After.** |
 | 2026-10-10 | **Post-hoc second grader on the synthetic nulls** (`src/second_grader.py`): `gpt-5-2025-08-07` re-graded the 120 I0/R1/R2 reports under the frozen rubric. Agreement 120/120, κ = 1.000, including all 13 abstentions. Not part of §16 and reported as post hoc. | §16 A.2 named the self-grading weakness: the authoritative grader is `gpt-5-mini`, the same family as the second agent. A different grader on exactly the cells that carry the new claims is the cheapest test of it. | **After** seeing §16's results. |
 | 2026-10-10 | **`results/.armmap.json` is now committed.** §3.1 kept it out of git "until analysis is locked". The original analysis locked on 2026-08-13 and the file was never added, so the public repo could not reproduce a single per-arm rate. | Reproducibility. Without it the 200 reports cannot be assigned to arms. | **After.** Analysis long locked; no rate changes. |
 | 2026-10-10 | **Addendum A (§16) added after acceptance**: three synthetic nulls (identity, two noise scales), a second auditing agent (`gpt-5-mini`) on every arm, a semantic/non-semantic coding of assertions, a re-run of the consistency judge with a prompt whose examples come from outside the study, and the §6 confidence analysis that was registered but never reported. | All of it answers the JUDGe 2026 reviews (imuU W1–W4, 476S). §16 states in advance what each possible outcome changes in the paper. | **Before** any §16 run. The 200 original reports have been seen, which is why §16 is labelled post-acceptance and kept separate from the original confirmatory test. |
@@ -390,3 +393,44 @@ An exploratory addition: within the ladder, does `emphatic` / `plain` / `hedged`
 
 10 seeds per cell, no top-ups after looking. Exclusions as §15. If a run fails on transport it is retried once
 with the same ID. If it fails again it is logged and counted in coverage.
+
+---
+
+## 17. Addendum B: the synthetic nulls without Patchscope
+
+**Written:** 2026-10-10, after §16 ran and after the camera-ready review found the Patchscope mismatch logged
+in §14. **Status at time of writing:** no I0n, R1n or R2n artifact or report exists.
+
+**Why.** The ten original arms showed the agent norms and a logit lens, with an empty Patchscope section. I0, R1
+and R2 also showed Patchscope readouts, and every I0 assertion names the Patchscope prompt's own echo scaffold.
+§16 therefore compares nulls with one more evidence channel against arms without it. Addendum B removes the
+difference.
+
+### B.1 Arms
+
+**I0n, R1n, R2n** are I0, R1 and R2 with `patchscope_by_layer` emptied and nothing else changed: same norms,
+same logit lens, same models. The rendered evidence then has the same format as P, N0–N2 and the ladder. No
+GPU work is involved.
+
+### B.2 Runs
+
+`gpt-5-2025-08-07` and `gpt-5-mini-2025-08-07` on I0n, R1n and R2n, 2 prompts × 10 seeds: **120 runs**. The
+prompts, token cap, frozen grader, semantic coding (A.4) and clean consistency judge (A.5, 5 calls) are all
+unchanged. A new salt is used.
+
+### B.3 Analysis
+
+This is descriptive, with no new confirmatory family. Reported: assertion and semantic assertion per cell with
+Clopper–Pearson intervals, and the presup vs neutral Fisher test per cell, labelled exploratory. Each cell is
+shown beside its §16 counterpart, with Patchscope and without.
+
+### B.4 What each outcome changes in the paper, committed now
+
+1. The paper reports both configurations, and calls the no-Patchscope one the comparison matched to the
+   original arms.
+2. If `gpt-5` asserts in ≤ 2 presuppositional runs on I0n, the paper says the identity-pair assertions
+   depend on the Patchscope channel, and scopes the abstract's identity sentence to it.
+3. A.7.2's title rule is applied again to I0n, R1n and R2n. The title changes if `gpt-5` asserts in ≤ 2
+   presuppositional runs on all three matched nulls, even though §16 passed the rule.
+4. If the noise arms keep assertion at ≥ 8/10 without Patchscope, the paper's random-noise false-positive
+   rate is reported on the matched arms as well.
