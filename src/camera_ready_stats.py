@@ -257,8 +257,11 @@ def main():
     for variant in ("presup", "neutral", None):
         tag = variant or "both framings"
         pos = conf_of(GPT5, {"P"}, variant)
+        # The matched noise row (Addendum B, no Patchscope) was missing from the
+        # first camera-ready draft, and it is the one comparison below 0.05.
         for label, arms in (("registered nulls N1+N2", {"N1", "N2"}), ("N0", {"N0"}),
-                            ("synthetic nulls I0+R1+R2", {"I0", "R1", "R2"})):
+                            ("synthetic nulls I0+R1+R2", {"I0", "R1", "R2"}),
+                            ("matched noise R1n+R2n", {"R1n", "R2n"})):
             nul = conf_of(GPT5, arms, variant)
             if not nul or not pos:
                 continue

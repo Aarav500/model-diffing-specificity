@@ -4,12 +4,17 @@ Activation Difference Lens ([arXiv:2510.13900](https://arxiv.org/abs/2510.13900)
 diffing agent naming the finetuning objective for **91% of organisms** at grade ≥ 2, against 39% for a
 black-box baseline. That is a sensitivity number.
 
-This measures the other half — and found that **the agent's confidence is decoupled from its
-evidence**, two independent ways.
+This measures the other half. **Under a prompt that presupposes an objective, the agent asserts one
+whether or not there is anything to find.** On pairs that differ only by random weight noise, gpt-5
+and gpt-5-mini named a specific finetuning objective in 80 of 80 runs. Diffed against itself, gpt-5
+correctly said nothing had been instilled, until the evidence also showed Patchscope readouts; then
+it read the Patchscope prompt's scaffold as the objective, 10 times out of 10.
 
-**200 blind agent runs.** Agent `gpt-5-2025-08-07` (ADL's own main agent, pinned snapshot); grader
-`gpt-5-mini-2025-08-07`. Pre-registered before any data existed: commit
-[`34e0807`](../../commit/34e0807), `2026-08-12 19:57:24 -0500`.
+**640 blind agent runs.** Agent `gpt-5-2025-08-07` (ADL's own main agent, pinned snapshot); second
+agent and grader `gpt-5-mini-2025-08-07`. The first 200 were pre-registered before any data existed:
+commit [`34e0807`](../../commit/34e0807), `2026-08-12 19:57:24 -0500`. The other 440 were added after
+the paper was accepted, under two addenda (PREREGISTRATION.md §16 and §17) committed in
+[`20d99f8`](../../commit/20d99f8) and [`3a924dc`](../../commit/3a924dc) before their runs.
 
 ---
 
@@ -21,18 +26,25 @@ evidence**, two independent ways.
 perfect cross-seed agreement — 100% at grade ≥ 2 against ADL's published 91%. The failures below are
 not a broken reimplementation.
 
-**2. There may be no such thing as a "no-objective" finetune.** I could not measure a false-positive
-rate, because every null I built contained a real, readable signal:
+**2. No finetuning null was clean, so the nulls that work are synthetic.** Every *finetuned* null I
+built contained a real, readable signal. The synthetic nulls added after acceptance contain none, and
+the agent asserts on them anyway:
 
-| Null | Delta | Contaminated by |
+| Null | Delta | gpt-5 names an objective (presup / neutral) |
 |---|---|---|
-| Identical weights (Delta-Crosscoder) | exactly zero | — cannot fail |
-| Two seeds, identical data | nonzero, faint | the shared domain |
-| LoRA on generic FineWeb | nonzero | the corpus's own register |
-| Broad instruction-tune | large | instruction-tuning itself |
+| Two seeds, identical data | nonzero, faint | contaminated: the shared domain |
+| LoRA on generic FineWeb | nonzero | contaminated: the corpus's own register |
+| Broad instruction-tune | large | contaminated: instruction-tuning itself |
+| **Model vs itself (I0n)** | **exactly zero** | 2/10 by the coder / 0/10; all ten say "null finetune" |
+| **Model vs itself, plus Patchscope (I0)** | **exactly zero** | **10/10** / 0/10 |
+| **Random weight noise, weight-matched (R1n)** | small, unstructured | **10/10** / 7/10 |
+| **Random weight noise, activation-matched (R2n)** | P-sized, unstructured | **10/10** / 3/10 |
 
-"Train it twice and diff the runs" and "finetune on generic text" are the two obvious ways to build a
-null for a diffing method. **Neither does what it appears to.**
+The original arms never showed the agent Patchscope, so I0n, R1n and R2n are the matched nulls. Add
+Patchscope to the identity pair and every gpt-5 report says Model B was trained to echo its input,
+which is the Patchscope prompt (`cat -> cat`) read as a finding. An earlier version of this README
+said an identical-weights null "cannot fail". For a white-box *agent* reading the evidence, it can
+fail through the instrument.
 
 **3. Framing manufactures answers.** On the one arm with no *narrow* objective, the shipped harness's
 presuppositional framing gives **9/9 assertions** — mutually contradictory across seeds. A neutral
@@ -61,10 +73,14 @@ refute the general form myself:** the rise is non-monotone (ρ = −0.77, p = 0.
 and across arms it *reverses* — arm P has norm 747 and the best accuracy here, N0 has norm 7756 and
 no narrow objective at all. The claim holds only within `mix1-*`, where only the ratio varies.
 
-**The reusable instrument: cross-seed consistency.** Every seed in a cell sees byte-identical
-evidence, so incompatible answers mean at most one is right *whatever the arm's truth is*.
-Disagreement is a ground-truth-free lower bound on the error rate — 1.00 on every arm with a real
-signal, **0.67 with contradictory pairs** on the one without.
+**6. A second agent asserts even more.** gpt-5-mini asserted in every presuppositional run except two
+on the matched identity pair, shows no framing effect on N0 (10/10 both ways), and read the identity
+pair's tie-broken logit-lens tokens as a "bias toward common tokens" in 6 of 10 runs.
+
+**What did not survive: cross-seed consistency.** The submission proposed agreement across seeds as
+a label-free signal. On the noise pairs it was perfect in 14 of 16 cells, because identical evidence
+repeats a confabulation. Neither it nor the grader's
+hedged/plain/emphatic coding separates findings from confabulations.
 
 ![Figure 1](results/figure1_detection_vs_fpr.png)
 
@@ -94,13 +110,20 @@ there, is in **[LITERATURE_VERIFICATION.md](LITERATURE_VERIFICATION.md)**.
 
 ## Honest limitations
 
-- **No clean false-positive rate exists in this data.** Every null was contaminated. An
-  objective-free but nonzero-delta null is unsolved, and is the obvious next problem.
+- **The false-positive rate that exists is on synthetic nulls, not finetunes.** Under the
+  presuppositional prompt it's 1.00 on random weight noise (80/80, both agents), and each cell is ten
+  samples of the agent on one fixed input from one noise draw. A realistic benign *finetune* with no objective is still unsolved, so how often
+  the agent misreads one is unknown.
+- **The agent is non-interactive.** It reads a fixed evidence summary in one call. ADL's agent also
+  sees steered samples and can query both models, and one that queries might notice that I0's two
+  models answer identically.
 - **My correctness grades are not comparable to ADL's 91%.** I reconstructed the rubric; theirs
   grades key-fact recovery. My grade ≥ 2 sits at 1.00 even at 1:1 where they report failure —
   **this is not a refutation**, the binary hides a real monotone decline living above it.
-- n = 10 per cell; 9/9 has a 95% lower bound of 0.66. One model family, one organism, one agent.
-- Grader validation gives κ = 1.000 (16/16) but only one case genuinely tested the category boundary.
+- n = 10 per cell; 9/9 has a 95% lower bound of 0.66. One model family, one organism, two agents from
+  one provider, and a grader from the second agent's family.
+- Hand validation gives κ = 1.000 (16/16) but only one case genuinely tested the category boundary. A
+  post-hoc second grader agreed on all 120 synthetic-null reports, 13 abstentions included.
 - My ADL is a **reimplementation**, not the authors' pipeline. Where they disagree, assume mine is wrong.
 
 ---
@@ -138,7 +161,7 @@ Set `OPENAI_API_KEY` (or `ANTHROPIC_API_KEY` — the provider is chosen by model
 
 | Path | What |
 |---|---|
-| [PREREGISTRATION.md](PREREGISTRATION.md) | Rubric, blinding protocol, analysis plan, power limits, and a deviations log with ten entries — each recording whether it was made before or after seeing the affected data |
+| [PREREGISTRATION.md](PREREGISTRATION.md) | Rubric, blinding protocol, analysis plan, power limits, two post-acceptance addenda (§16, §17), and a deviations log in which each entry records whether it was made before or after seeing the affected data |
 | [FINDINGS.md](FINDINGS.md) | Results |
 | [LITERATURE_VERIFICATION.md](LITERATURE_VERIFICATION.md) | Five papers checked against primary text |
 | [results/ARM_NOTES.md](results/ARM_NOTES.md) | Why each null failed differently |
@@ -154,15 +177,39 @@ reach the agent, and `src/analyze.py` exits rather than emit placeholder numbers
 
 ## Write-up
 
-A 2-page version of this work is prepared for the **JUDGe 2026 Junior Spotlight** track
-(NeurIPS 2026 workshop, "Can We Trust the Judge?") — non-archival, double-blind.
+A 2-page version, *An Auditing Agent Asserts at Ceiling Whether or Not There Is Anything to Find*,
+was accepted to the **JUDGe 2026 Junior Spotlight** track (NeurIPS 2026 workshop "Can We Trust the
+Judge? Building Reliable Evaluation for Language Models", Atlanta, Dec 12). Non-archival. The
+camera-ready adds the synthetic nulls and the second agent; what changed and why is in
+[`writeup/judge2026/CAMERA_READY_CHANGES.md`](writeup/judge2026/CAMERA_READY_CHANGES.md).
 
 ```bash
 bash writeup/judge2026/build.sh
 ```
 
 That regenerates the figure from `results/` (so it cannot drift from the data), builds the PDF to a
-stable fixed point, and runs `check_paper.py`, which gates anonymity, banned overclaims, required
-hedges, citation integrity, and the 2-pages-plus-references limit.
+stable fixed point, and runs `check_paper.py`. In camera-ready mode the gate checks the byline and
+repository link, banned overclaims, required hedges, citation integrity, and that the body ends on
+page 2.
+
+To reproduce the post-acceptance runs, build the noise models, then the three diffing artifacts, then
+run the agents and scoring. `run_camera_ready_b.sh` adds Addendum B; its I0n/R1n/R2n artifacts are the
+same files with the Patchscope field emptied. About $5 of API at list price for the 440 agent calls:
+
+```bash
+.venv/Scripts/python.exe -m src.make_noise_arms
+```
+
+```bash
+for arm in I0 R1 R2; do b=results/models/$arm/merged; [ $arm = I0 ] && b=google/gemma-3-1b-it; .venv/Scripts/python.exe -m src.run_arm --arm $arm --model-a google/gemma-3-1b-it --model-b $b; done
+```
+
+```bash
+bash run_camera_ready.sh
+```
+
+```bash
+bash run_camera_ready_b.sh
+```
 
 MIT — see [LICENSE](LICENSE).

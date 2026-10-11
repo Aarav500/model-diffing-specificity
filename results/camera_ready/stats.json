@@ -1861,6 +1861,20 @@
       "mannwhitney_less_p": 0.12981988569064323,
       "permutation_less_p": 0.16114838851611485
     },
+    "presup/matched noise R1n+R2n": {
+      "null": {
+        "hedged": 4,
+        "plain": 10,
+        "emphatic": 6
+      },
+      "positive_P": {
+        "hedged": 1,
+        "plain": 2,
+        "emphatic": 7
+      },
+      "mannwhitney_less_p": 0.03316883808946258,
+      "permutation_less_p": 0.03785962140378596
+    },
     "neutral/registered nulls N1+N2": {
       "null": {
         "hedged": 16,
@@ -1903,6 +1917,20 @@
       "mannwhitney_less_p": 0.6726395769907115,
       "permutation_less_p": 0.8220817791822081
     },
+    "neutral/matched noise R1n+R2n": {
+      "null": {
+        "hedged": 9,
+        "plain": 1,
+        "emphatic": 0
+      },
+      "positive_P": {
+        "hedged": 9,
+        "plain": 1,
+        "emphatic": 0
+      },
+      "mannwhitney_less_p": 0.5289570110605637,
+      "permutation_less_p": 0.7639323606763933
+    },
     "both framings/registered nulls N1+N2": {
       "null": {
         "hedged": 20,
@@ -1944,6 +1972,20 @@
       },
       "mannwhitney_less_p": 0.5774453324206839,
       "permutation_less_p": 0.6072039279607204
+    },
+    "both framings/matched noise R1n+R2n": {
+      "null": {
+        "hedged": 13,
+        "plain": 11,
+        "emphatic": 6
+      },
+      "positive_P": {
+        "hedged": 10,
+        "plain": 3,
+        "emphatic": 7
+      },
+      "mannwhitney_less_p": 0.42394989823273593,
+      "permutation_less_p": 0.42921570784292157
     }
   },
   "ladder_conf_acc": {

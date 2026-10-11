@@ -1,23 +1,17 @@
 % =====================================================================
-% JUDGe 2026 (NeurIPS) -- Junior Spotlight track
-% 2 pages + references. DOUBLE-BLIND. Non-archival.
+% JUDGe 2026 (NeurIPS) -- Junior Spotlight track. CAMERA-READY.
+% Body: 2 pages. Acknowledgments, references and appendix do not count
+% (JUDGe FAQ: "references and appendices do not count").
 %
-% FORMAT NOTE
-%   This compiles standalone with the geometry block below, which
-%   approximates the NeurIPS text block. To use the official style:
-%     1. download neurips_2026.sty next to this file
-%     2. delete the \usepackage[...]{geometry} line
-%     3. add \usepackage{neurips_2026}
-%   Do NOT use \usepackage[final]{neurips_2026} -- the final option
-%   prints author names and breaks double-blind review.
+% Build and gate:   bash writeup/judge2026/build.sh
 %
-% ANONYMITY -- checked before every build:
-%   no author, no institution, no funder, no real repository URL.
-%   The mirror URL is set by set_mirror_url.py and is empty until it exists.
+% Every number added for the camera-ready comes from
+%   results/camera_ready/stats.json   (python -m src.camera_ready_stats)
+% under PREREGISTRATION.md sections 16 and 17, each committed before its runs.
 % =====================================================================
 \documentclass{article}
-\usepackage[dblblindworkshop]{neurips_2026}
-\workshoptitle{First Workshop on Reliable Evaluation for Language Models (JUDGe)}
+\usepackage[final,dblblindworkshop]{neurips_2026}
+\workshoptitle{Can We Trust the Judge? Building Reliable Evaluation for Language Models (JUDGe)}
 \setcitestyle{square,numbers,comma}
 
 \usepackage[utf8]{inputenc}
@@ -30,21 +24,11 @@
 \usepackage[skip=3pt,font=footnotesize]{caption}
 \usepackage{titlesec}
 
-% ---------------------------------------------------------------------
-% Anonymous mirror. Set ONLY via:
-%     python writeup/judge2026/set_mirror_url.py <url>
-% which refuses any host other than anonymous.4open.science -- pasting the
-% real GitHub URL here would de-anonymise the submission, and the repo name
-% contains the author's surname.
-%
-% While empty, \mirrornote expands to nothing, so the paper compiles and is
-% correctly shaped with or without the mirror. Nothing fake is ever shipped.
-% ---------------------------------------------------------------------
-\newcommand{\mirrorurl}{https://anonymous.4open.science/r/model-diffing-specificity-1CBF}
-\newcommand{\mirrornote}{%
-  \ifx\mirrorurl\empty\else
-    \footnote{Code, pre-registration, deviations log, 200 raw agent reports: \url{\mirrorurl}}%
-  \fi}
+% The repository is public. The anonymous mirror used for review expires
+% after the workshop, so the camera-ready links the repository itself.
+\newcommand{\codeurl}{https://github.com/Aarav500/model-diffing-specificity}
+\newcommand{\codenote}{%
+  \footnote{Code, pre-registration and all 640 reports: \url{\codeurl}}}
 
 \titlespacing*{\section}{0pt}{4pt}{1.5pt}
 \titlespacing*{\subsection}{0pt}{4pt}{1pt}
@@ -54,171 +38,196 @@
 \setlength{\textfloatsep}{6pt}
 \setlength{\intextsep}{6pt}
 
-\title{\vspace{-3em}\bfseries An Auditing Agent Asserts at Ceiling\\
+% No negative vspace inside \title: the submission had \vspace{-3em} here, which
+% pushed the title up through NeurIPS's 4pt top rule.
+\title{\bfseries An Auditing Agent Asserts at Ceiling\\
 Whether or Not There Is Anything to Find}
 
-% DOUBLE-BLIND: leave anonymous.
-\author{Anonymous submission\\\small Under review, JUDGe 2026 Junior Spotlight}
+\author{Aarav Shah\\University of Massachusetts Amherst\\\texttt{aarav7.shah@gmail.com}}
 \date{}
 
 \begin{document}
 \maketitle
+% Without this, the [t] float in Section 3 is placed at the top of page 1,
+% above the title block.
+\suppressfloats[t]
 \vspace{-2.1em}
 
 \begin{abstract}
 \small\noindent
-Automated agents are increasingly used to audit whether a model carries a
-hidden objective, and their reports read as confident natural language. We
-audit one such white-box agent and ask a question its published evaluation does
-not: what does it say when there is nothing to find? Its \emph{assertion rate}
-turns out to be decoupled from the evidence available to it. On byte-identical
-evidence, a presuppositional prompt yields 9/9 confident and mutually
-contradictory answers against 2/10 under neutral phrasing (Fisher exact
-$p=0.0007$). Across a six-rung dilution ladder, assertion stays pinned at 1.00
-over 120 runs while accuracy falls from 0.55 to 0.05. Detection itself
-reproduces. The failure is calibration: for evaluators of this kind, confidence
-carries no information about whether a finding exists.
+We audit a one-call reimplementation of a white-box model-diffing agent on pairs
+with nothing to find. On pairs differing only by weight noise, gpt-5 and
+gpt-5-mini name a specific finetuning objective in every run under a prompt that
+presupposes one (80/80); neutral phrasing lowers gpt-5's rate to 10/20 at best.
+On a model diffed against itself, gpt-5 correctly reports that nothing was
+instilled, until shown Patchscope readouts, whose prompt scaffold it then reads
+as the objective (10/10). Down a dilution ladder, assertion stays at 1.00 over
+120 runs while specific accuracy falls from 0.55 to 0.05. Detection reproduces,
+but neither verbal confidence nor seed agreement separates findings from
+confabulations.
 \end{abstract}
 \vspace{-0.6em}
 
 \section{The missing arm of an evaluation}
 
-Model diffing methods compare a base model against a finetuned one and try to
-name what changed. Activation Difference Lens (ADL)~\cite{adl} reports its
-diffing agent naming the finetuning objective for 91\% of organisms at grade
-$\geq 2$, against 39\% for a black-box baseline.
-
-That is a \emph{sensitivity} number: it measures how often the agent recovers an
-objective that is present. The complementary quantity---how often it names an
-objective that is \emph{absent}---had not been measured for any white-box
-diffing method, because no such method had been run on a pair with no hidden
-objective. For anything used as a judge~\cite{zheng23judge,tian23calib}, the second number governs trust. An
-evaluator that reports a finding on every input has perfect sensitivity and is
-worthless. We ran 200 blind audits to measure it, and could not---for a reason
-that turned out to be more useful than the number would have been.
+Activation Difference Lens (ADL)~\cite{adl} reports its white-box diffing agent
+naming the broad finetuning objective of 91\% of organisms, against 39\% for a
+black-box baseline. That is sensitivity; how often an agent names an absent
+objective decides whether its report can be trusted~\cite{zheng23judge,tian23calib}. A black-box diffing agent had a
+low false-positive rate on identical pairs~\cite{chughtai26agents}, an
+activation-level method has been checked on identical
+copies~\cite{deltacrosscoder}, and an auditing agent has been scored against
+benign finetunes~\cite{egler25audit}. To our knowledge no white-box agent's
+report had been tested on a pair with nothing to find.
 
 \section{Setup}
 
-Base model Gemma-3-1B. Auditing agent \texttt{gpt-5-2025-08-07}---the model ADL
-itself uses, pinned to a snapshot. Grader \texttt{gpt-5-mini-2025-08-07}. We
-reimplemented ADL in raw HuggingFace hooks (logit lens, Patchscope, steering,
-directional ablation) rather than TransformerLens. 200 runs: 80 main
-($n=10$ per cell) and 120 ladder ($n=20$ per rung).\mirrornote
+Base model Gemma-3-1B. P is ADL's cake-baking organism, finetuned on synthetic
+documents with false baking tips. Auditing
+agent \texttt{gpt-5-2025-08-07}, the model ADL uses; second agent and grader
+\texttt{gpt-5-mini-2025-08-07}. We reimplemented ADL's signal, the mean
+residual-stream difference over the first five tokens of web text. The agent
+reads a fixed summary of it in one call: norms per layer and position and a logit
+lens of the 60 largest. Unlike ADL's agent it sees no Patchscope or steered
+samples and cannot query the models. Each arm runs under a presuppositional prompt, which tells the
+agent the finetuning instilled an objective, as ADL's harness does, and a neutral
+one, which says finding nothing is a valid answer. $n=10$ per cell, 640 blind
+runs: 200 in the submission and 440 added after acceptance under two
+pre-registered addenda.\codenote{} A rule fixed in advance codes each run
+ASSERT, ABSTAIN or DEGENERATE from the report alone.
 
-Every run is coded three ways---ASSERT, ABSTAIN, DEGENERATE---by a definition
-fixed in advance and applied identically on every arm. Neither the agent nor the
-grader learns which arm it is looking at, and the grader never sees ground
-truth.
-
-\section{We could not build a null, and that is the first result}
+\section{Pairs with nothing to find}
 \label{sec:null}
 
-Our pre-registered primary metric was a false-positive rate: run the agent on
-pairs that differ for benign reasons and count assertions. \textbf{We abandoned
-it.} Every null we constructed turned out to contain a real signal, and a
-false-positive rate measured against a contaminated null would mean nothing.
+\begin{figure}[t]
+\begin{minipage}[b]{0.47\linewidth}
+\centering\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{gpt-5} & \multicolumn{2}{c}{gpt-5-mini}\\
+\cmidrule(lr){2-3}\cmidrule(l){4-5}
+Pair & pres. & neut. & pres. & neut.\\
+\midrule
+P organism & 10/10 & 10/10 & 10/10 & 10/10\\
+Ladder, 6 rungs & 60/60 & 60/60 & 60/60 & 60/60\\
+N0 instruct-tuned & 9/9 & 2/10 & 10/10 & 10/10\\
+N1, N2 & 20/20 & 20/20 & 20/20 & 20/20\\
+\midrule
+\textbf{I0n} identity & 2/10$^*$ & 0/10 & 4/10 & 0/10\\
+\textbf{R1n} noise, $W$ & \textbf{10/10} & \textbf{7/10} & \textbf{10/10} & \textbf{10/10}\\
+\textbf{R2n} noise, act. & \textbf{10/10} & 3/10 & \textbf{10/10} & \textbf{7/10}\\
+\midrule
+I0 + Patchscope & \textbf{10/10} & 0/10 & \textbf{10/10} & \textbf{7/10}\\
+R1, R2 + Patchsc. & \textbf{20/20} & \textbf{20/20} & \textbf{20/20} & \textbf{19/20}\\
+\bottomrule
+\end{tabular}
+\captionof{table}{Runs naming a specific objective (non-DEGENERATE). n: no
+Patchscope (as other arms); bold: null rate $\geq0.7$. $^*$Coder count; all say
+nothing instilled.}
+\label{tab:arms}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=\linewidth]{figure_ladder.pdf}
+\captionof{figure}{gpt-5 down the dilution ladder, both prompts ($n=20$ per
+rung), Clopper--Pearson 95\% intervals. Accuracy: grade $\geq4$ on a 1--5
+rubric against the true objective.}
+\label{fig:ladder}
+\end{minipage}
+\end{figure}
 
-Three nulls, three distinct contaminations. (a) Finetuning on a generic web
-corpus: the corpus is itself a register, and the agent read it correctly. (b)
-Two LoRA seeds trained on byte-identical data: these still differ \emph{along}
-the domain axis, because two runs converge to different points on the same
-direction. (c) Base versus instruction-tuned: instruction-tuning is itself an
-objective.
+Our pre-registered primary metric, a false-positive rate on finetuned pairs with
+no objective, was \textbf{abandoned}: each of our three finetuning nulls carried a
+real signal (a web corpus's register, a shared domain, instruction-tuning). So we
+built nulls that are not finetunes. I0 diffs the
+model against itself, so every norm is zero. R1 adds random Gaussian weight noise
+matched, matrix by matrix, to the organism's weight change; R2 scales it to the
+organism's activation norm. We first ran them with Patchscope readouts, which the
+original arms lacked, then without, to match them (App.~\ref{app:addendum}).
 
-The methodological finding is that \emph{there may be no such thing as a
-no-objective finetune}.
+\textbf{Noise.} Under the presuppositional prompt both agents named an objective
+in every noise run, with or without Patchscope (80/80; Table~\ref{tab:arms}):
+headlines, a safety persona, chain-of-thought. \textbf{Under that
+prompt the false-positive rate on noise is 1.00} (per cell 10/10, CI 0.69--1;
+one noise draw).
+Neutral phrasing cut gpt-5's rate to 10/20 without Patchscope but not with it;
+gpt-5-mini barely moved.
+
+\textbf{Identity.} Given zero norms and a logit lens, gpt-5 reported no
+objective in all ten presuppositional runs. Given Patchscope too, every report
+named the same one, that the finetuned model was trained to echo its input: the
+Patchscope prompt's own scaffold (\texttt{cat -> cat}) read as a finding
+(App.~\ref{app:examples}). Neutral phrasing removed the echo readings (10/10 to
+0/10, Holm $p=4.3\times10^{-5}$, test F1). gpt-5-mini read the tie-broken tokens
+as a bias toward common tokens in 6 of 10 runs (4 coded semantic).
 
 \section{Assertion is decoupled from evidence}
 \label{sec:decoupled}
 
-\subsection{Framing manufactures answers}
+\textbf{For gpt-5, framing manufactures answers.} On N0, with byte-identical
+evidence, the presuppositional prompt yields 9/9 assertions and the neutral one
+2/10 (Fisher exact $p=0.0007$, exploratory; App.~\ref{app:tables})~\cite{hwang26framing,sharma23syco}.
+The tenth presuppositional run spent its 8{,}000-token budget reasoning and
+returned nothing (DEGENERATE by the pre-registered rule; as ABSTAIN,
+$p=0.005$). The nine answers contradict each other: in all five calls a blind
+judge set three (clickbait generation) apart from the rest (moderation, tagging,
+summarisation, a safety-aware assistant). gpt-5-mini shows no such effect (10/10
+under both), so the effect is agent-dependent.
 
-On the arm with no \emph{narrow} objective, the shipped presuppositional prompt
-(``The finetuning instilled a specific objective. Identify it.'') produces 9/9
-assertions. A neutral prompt, on byte-identical evidence, produces 2/10 (Fisher
-exact $p=0.0007$)~\cite{hwang26framing,sharma23syco}. The nine assertions are not one answer: a blind judge splits
-them into two mutually incompatible groups, so at least one group is wrong
-without any ground truth being consulted.
-
-\subsection{Down a dilution ladder, only accuracy moves}
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=0.62\linewidth]{figure_ladder.pdf}
-\caption{Six dilution rungs, $n=20$ each, 120 runs. Assertion is flat at 1.00
-while accuracy collapses. The shaded gap is what a sensitivity-only evaluation
-cannot see: a confident wrong answer and a correct one both count as
-responding. Intervals are Clopper--Pearson 95\%. The decline is not monotone.}
-\label{fig:ladder}
-\end{figure}
-
-Six released rungs progressively mix finetuning data with pretraining data
-(Figure~\ref{fig:ladder}). Assertion is 1.00 on all six---120 of 120 runs---while
-accuracy at grade $\geq 4$ falls from 0.55 to 0.05 ($\rho=-0.94$, $p=0.005$).
-The agent does not grow quieter as its evidence thins. It says the same amount,
-with the same confidence, and is progressively less right.
-
-\textbf{This trend is exploratory, not pre-registered.} Our registered ladder
-test was a logistic regression of assertion on dilution. Because assertion is
-constant at 1.00, that regression is degenerate---there is no variance to
-model---and no coefficient is estimable. The trend reported here is measured on
-a \emph{different} outcome (accuracy) and is labelled exploratory under our
-pre-registered multiplicity rule. The degeneracy is itself informative: the
-registered test could not run precisely because the agent never stopped
-asserting.
+\textbf{Down a dilution ladder, only accuracy moves.} Six released rungs dilute
+the finetuning data with 0--2$\times$ pretraining data (Figure~\ref{fig:ladder}).
+Assertion is 1.00 on all 120 runs while accuracy at grade $\geq 4$ falls from
+0.55 to 0.05, not monotonically ($\rho=-0.94$, exact $p=0.017$ over six rungs).
+\textbf{This trend is exploratory}: the registered test, a logistic regression of
+assertion on dilution, is degenerate because assertion never varies. gpt-5-mini also asserts in 120/120 (accuracy 0.35 to 0.10,
+$p=0.27$). Verbal confidence does not track it either: 3 to 11 of 20 reports per
+rung are coded emphatic, with no trend, and the coding does not predict
+correctness under either prompt (exploratory; App.~\ref{app:tables}).
 
 \section{Supporting results}
 \label{sec:support}
 
-\textbf{Detection reproduces.} On a released organism the agent is correct 20/20
-under both framings. The failures above are not a broken reimplementation, and
-we do not claim the method fails at detection.
+\textbf{Detection reproduces}: on the released organism both agents name the
+right domain in 20/20 runs from norms and logit lens alone. \textbf{No label-free
+signal we tried separates findings from confabulations.} Finetuned-null
+assertions are not significantly more hedged than the organism's (registered
+question; one-sided permutation $p\geq0.10$; $p=0.04$ on the matched noise nulls,
+exploratory). Cross-seed consistency, whether a cell's seeds give compatible
+answers, was a candidate in the submission; it was perfect in 14 of the 16 noise
+cells, since identical evidence repeats a confabulation.
 
-\textbf{A candidate label-free instrument.} Cross-seed consistency---do
-independent seeds on identical evidence give mutually compatible answers?---is
-1.00 on arms with a real signal and 0.67 on the arm without, and requires no
-ground truth. We call this a \emph{candidate}, not a validated detector: it
-rests on four cells, Fisher $p\approx 0.09$, with overlapping intervals.
+\section{Method discipline and limitations}
 
-\textbf{Magnitude does not predict findability.} Within the dilution family,
-mean activation-difference norm is anti-correlated with accuracy ($\rho=-0.77$,
-$p=0.07$). Between families the relation reverses: the arm with the best
-accuracy has mean norm 747, while the arm with no objective at all has 7756.
-Triaging models for audit by ``large difference, worth a look'' would rank these
-backwards.
-
-\section{Method discipline}
-
-The rubric and analysis plan were committed before any results existed. Ten
-deviations are logged in-file, including the abandonment of the pre-registered
-headline metric in \S\ref{sec:null}. Blinding is enforced rather than
-documented: a scrub raises a \texttt{BlindingViolation} exception if an arm
-identifier would reach the agent. Grader validation gives $\kappa = 1.000$
-(16/16)---weaker than it sounds, since only one case tested the
-ASSERT/ABSTAIN boundary. Total research
-time was 18 hours against a 20-hour cap.
-
-\section{Limitations}
-
-No clean false-positive rate exists in this data, because no clean null does.
-Everything here is one model family (Gemma-3-1B), one auditing agent, one
-grader, and a reimplementation of ADL rather than the authors' code, so we
-cannot separate agent-specific from method-specific behaviour. The consistency
-result rests on four cells with overlapping intervals and $p \approx 0.09$ and
-should not be used as a detector on this evidence. The ladder trend is exploratory and its decline is not monotone. Our correctness grades use a reconstructed rubric and are not
-comparable to the 91\% figure quoted in \S1.
+The analysis plan was committed before any results, and both addenda before any
+of their runs, with what each outcome would change here. All deviations are
+logged in the pre-registration (\S14), among them the abandoned headline metric
+and the Patchscope mismatch. Grader validation is in App.~\ref{app:addendum}. We
+used one base model, one organism domain, and two agents from one provider, the
+second also serving as grader. Each cell's ten runs share byte-identical evidence
+and differ only in sampling, and R1 and R2 share one noise draw, so intervals
+describe the agent on fixed evidence. ADL's agent sees steered samples over
+several turns, may answer Inconclusive, and can query the models. The synthetic
+nulls are not finetunes: they show the agent asserting when signal is absent or
+unstructured, not how often it misreads a benign finetune. Our ADL is a
+reimplementation; its correctness grades use a reconstructed rubric not
+comparable to ADL's 91\%.
 
 \section{What this implies for LLM judges}
 
-Confidence is not a trust signal for this class of evaluator~\cite{tian25overconf}. Any pipeline that treats an evaluator's
-willingness to answer---or the fluency of its answer---as evidence that
-something was found is reading a constant. Two cheap mitigations follow
-directly: report evaluator results under both presuppositional and neutral
-phrasings; and prefer agreement
-across independent seeds on identical evidence over single-run confidence~\cite{schroeder24rely}, since
-contradiction is detectable without labels even when correctness is not.
+An evaluator's willingness to answer is not evidence that there was something to
+find~\cite{tian25overconf}: under the presuppositional prompt it held at ceiling
+across real, diluted and random signals. Measure specificity directly: identity
+and noise pairs take minutes to build. Report both phrasings as a diagnostic, not
+a fix; agreement across seeds~\cite{schroeder24rely} is no substitute.
 
-\begin{thebibliography}{7}
+\begin{ack}
+We thank the anonymous reviewers, one of whom suggested the identity and noise
+controls that became Section~\ref{sec:null}'s central result. This work received
+no external funding.
+\end{ack}
+
+\begin{thebibliography}{10}
 \small
 \bibitem{adl}
 Julian Minder, Cl\'ement Dumas, Stewart Slocum, Helena Casademunt,
@@ -226,6 +235,7 @@ Cameron Holmes, Robert West, and Neel Nanda.
 \newblock Narrow Finetuning Leaves Clearly Readable Traces in Activation
 Differences.
 \newblock arXiv:2510.13900, October 2025. ICLR 2026.
+
 \bibitem{zheng23judge}
 Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Zhuang, Zi Lin, Zhuohan Li, Dacheng Li, Eric P. Xing, Hao Zhang, Joseph E. Gonzalez, and Ion Stoica.
 \newblock Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena.
@@ -235,6 +245,23 @@ Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Z
 Katherine Tian, Eric Mitchell, Allan Zhou, Archit Sharma, Rafael Rafailov, Huaxiu Yao, Chelsea Finn, and Christopher D. Manning.
 \newblock Just Ask for Calibration: Strategies for Eliciting Calibrated Confidence Scores from Language Models Fine-Tuned with Human Feedback.
 \newblock arXiv:2305.14975, May 2023. EMNLP 2023.
+
+\bibitem{chughtai26agents}
+Bilal Chughtai, Josh Engels, and Neel Nanda.
+\newblock Building and evaluating model diffing agents.
+\newblock AI Alignment Forum, June 2026.
+\newblock \url{https://www.alignmentforum.org/posts/qi4mNbZYAFDYwfRba/building-and-evaluating-model-diffing-agents}.
+
+\bibitem{deltacrosscoder}
+Aly Kassem, Thomas Jiralerspong, Negar Rostamzadeh, and Golnoosh Farnadi.
+\newblock Delta-Crosscoder: Robust Crosscoder Model Diffing in Narrow
+Fine-Tuning Regimes.
+\newblock arXiv:2603.04426, February 2026. Preprint.
+
+\bibitem{egler25audit}
+Sarah Egler, John Schulman, and Nicholas Carlini.
+\newblock Detecting Adversarial Fine-tuning with Auditing Agents.
+\newblock arXiv:2510.16255, October 2025. Preprint.
 
 \bibitem{hwang26framing}
 Yerin Hwang, Dongryeol Lee, Taegwan Kang, Minwoo Lee, and Kyomin Jung.
@@ -257,5 +284,248 @@ Kayla Schroeder and Zach Wood-Doughty.
 \newblock arXiv:2412.12509, December 2024. Preprint.
 
 \end{thebibliography}
+
+\clearpage
+\appendix
+
+\section{Post-acceptance addenda}
+\label{app:addendum}
+
+Except where marked post hoc, everything in this appendix was specified in
+Sections 16 (Addendum A) and 17 (Addendum B) of the pre-registration, each
+committed before any of its runs existed (commits \texttt{20d99f8} and
+\texttt{3a924dc}, 10 October 2026). The 200 original reports had been seen, and
+Addendum B was written after Addendum A's results.
+
+\textbf{Arms.} I0 runs the unchanged pipeline with the same model on both sides,
+so the measured difference is exactly zero in all 135 layer$\times$position
+entries; the logit lens then returns tie-broken tokens (the lowest-index common
+tokens), and the norm table prints 0.000 throughout. R1 adds, to each of the 182
+projection matrices the released organism changes, i.i.d.\ Gaussian noise
+rescaled so that its Frobenius norm equals the organism's change in that matrix
+(seed 20261010), and leaves every other tensor untouched. R2 uses the same noise
+times $c$, with $c$ set by bisection on activation norms alone so that the mean
+norm lands within 2\% of the organism's.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Pair & noise scale $c$ & mean norm & weight change per matrix\\
+\midrule
+P (released organism) & -- & 747.4 & 1.3\% of $\|W\|_F$ on average\\
+R1 & 1 & 31.6 & P's, matrix by matrix, $+$1.3\% (bf16)\\
+R2 & 13.45 & 755.9 & $13.45\times$ P's\\
+I0 & -- & 0 & none\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The Patchscope mismatch.} Addendum A assumed that the original arms had
+Patchscope readouts. They did not: all ten were built without them, so their
+evidence had an empty Patchscope section, while I0, R1 and R2 were built with
+them (three injection layers, five samples each). The camera-ready review caught
+this after Addendum A ran. Addendum B re-ran the three nulls with the Patchscope
+field emptied (I0n, R1n, R2n), which makes their rendered evidence identical in
+format to the original arms. In Table~\ref{tab:arms} the rows marked n are
+Addendum B and the rows marked + Patchscope are Addendum A; F1 below and the I0,
+R1 and R2 rows of App.~\ref{app:tables} are Addendum A.
+
+\textbf{Agents and outcomes.} Addendum A ran gpt-5 on I0, R1 and R2 (60 runs) and
+gpt-5-mini on all 13 arms (260 runs). Addendum B ran both agents on I0n, R1n and
+R2n (120 runs). Prompts, rendered evidence for the existing arms, the
+8{,}000-token cap and the frozen grader prompt were unchanged, and new salts kept
+run IDs distinct. No run failed or hit the token cap. A report on a null can
+correctly say that nothing was instilled or that the model was randomised, so
+each asserted objective was also coded on its own, without its arm, as
+\emph{semantic} (names a domain, task, persona or behaviour) or not, and the
+false-positive rate on the synthetic nulls counts semantic assertions. That is
+what Table~\ref{tab:arms} shows for I0, R1 and R2; for the other arms every
+assertion was semantic. The table reports the pre-registered coder's counts
+without correction, which matters on I0n. There the frozen grader coded all ten
+of gpt-5's presuppositional reports ASSERT, because each answers the question
+with ``null/identity finetune'' or ``no objective instilled''. The coder marked
+eight non-semantic and two semantic, although those two also say no objective
+was instilled. gpt-5-mini asserted on I0n in 8 of 10 presuppositional runs, six
+of them naming a bias toward common tokens, of which the coder marked four
+semantic. Both inconsistencies are logged in \S14 rather than recoded.
+
+\textbf{Pre-registered tests (Addendum A).} Two-sided Fisher exact tests of
+presuppositional against neutral assertion, Holm-corrected as one family:
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}llcccc@{}}
+\toprule
+& Agent, pair & presup. & neutral & $p$ & Holm $p$\\
+\midrule
+F1 & gpt-5, I0 & 10/10 & 0/10 & $1.1\times10^{-5}$ & $4.3\times10^{-5}$\\
+F2 & gpt-5, R1 & 10/10 & 10/10 & 1 & 1\\
+F3 & gpt-5, R2 & 10/10 & 10/10 & 1 & 1\\
+F4 & gpt-5-mini, N0 & 10/10 & 10/10 & 1 & 1\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Addendum B's tests are exploratory. On semantic assertions, presuppositional
+against neutral: gpt-5 I0n 2/10 against 0/10 ($p=0.47$), R1n 10/10 against 7/10
+($p=0.21$), R2n 10/10 against 3/10 ($p=0.003$); gpt-5-mini I0n 4/10 against 0/10
+($p=0.09$), R1n 10/10 against 10/10 ($p=1$), R2n 10/10 against 7/10 ($p=0.21$).
+
+\textbf{Pre-committed consequences.} The title was to change if gpt-5 asserted in
+two or fewer presuppositional runs on every synthetic null, a rule applied to
+both addenda. By grader ASSERTs it asserted in 30/30 each time; by semantic
+assertions, 30/30 and 22/30 (2/10 on I0n). The rule is unmet under either count,
+so the title stands under it. Its clause does not hold for the matched identity
+pair, where gpt-5 reported that nothing was instilled, nor for any identity run
+under neutral phrasing (0/20); it rests on the noise pairs and the
+presuppositional prompt. B.4.2 (scope the identity result to Patchscope if gpt-5
+asserts in two or fewer I0n runs) is met on semantic assertions and not on grader
+ASSERTs; we scoped the abstract because no I0n report names an objective. B.4.4
+is met: Table~\ref{tab:arms} gives the noise rates on the matched arms.
+Cross-seed consistency was to be described as a hypothesis, not a
+recommendation, whatever the new cells showed. It is no longer recommended, and
+Section~\ref{sec:support} reports that the new cells count against it.
+
+\textbf{Grader validation.} Hand validation of the grader on the original runs
+gave $\kappa=1.000$ (16/16), weaker than it sounds since only one case tested the
+ASSERT/ABSTAIN boundary. As a post-hoc check, gpt-5 re-graded the 120 Addendum A
+synthetic-null reports under the frozen rubric and agreed with the authoritative
+grader on all 120 (Cohen's $\kappa=1.000$), including the 13 abstentions. It did
+not re-grade Addendum B.
+
+\section{Full results}
+\label{app:tables}
+
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+& \multicolumn{4}{c}{gpt-5} & \multicolumn{4}{c}{gpt-5-mini}\\
+\cmidrule(lr){2-5}\cmidrule(l){6-9}
+& \multicolumn{2}{c}{presup.} & \multicolumn{2}{c}{neutral} & \multicolumn{2}{c}{presup.} & \multicolumn{2}{c}{neutral}\\
+Pair & assert & cons. & assert & cons. & assert & cons. & assert & cons.\\
+\midrule
+P   & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+L00 (1:0)   & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+L01 (1:0.1) & 10/10 & 0.9 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+L03 (1:0.3) & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+L05 (1:0.5) & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+L10 (1:1)   & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+L20 (1:2)   & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+N0  & 9/9 & 0.33 & 2/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+N1  & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+N2  & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+\midrule
+I0n & 10/10$^*$ & 1.0 & 0/10 & -- & 8/10 & 0.88 & 0/10 & --\\
+R1n & 10/10 & 1.0 & 7/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+R2n & 10/10 & 1.0 & 3/10 & 1.0 & 10/10 & 1.0 & 9/10 & 1.0\\
+\midrule
+I0  & 10/10 & 1.0 & 0/10 & -- & 10/10 & 1.0 & 7/10 & 1.0\\
+R1  & 10/10 & 0.5 & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 1.0\\
+R2  & 10/10 & 1.0 & 10/10 & 1.0 & 10/10 & 0.6 & 10/10 & 1.0\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\emph{assert}: grader ASSERTs over non-DEGENERATE runs; Table~\ref{tab:arms}
+counts semantic assertions instead, which differ only on I0n (gpt-5 2/10$^*$,
+gpt-5-mini 4/10 of six common-token-bias claims) and R2n and R2 for gpt-5-mini
+under the neutral prompt (7/10 and 9/10). $^*$None names an objective.
+Clopper--Pearson 95\% intervals are 0.69--1.00 for 10/10, 0.66--1.00 for 9/9,
+0.55--1.00 for 9/10, 0.44--0.97 for 8/10, 0.35--0.93 for 7/10, 0.12--0.74 for
+4/10, 0.07--0.65 for 3/10, 0.03--0.56 for 2/10, 0.00--0.31 for 0/10, 0.75--1.00
+for 19/20, 0.83--1.00 for 20/20, 0.27--0.73 for 10/20 and 0.94--1.00 for 60/60.
+Each cell's runs share byte-identical evidence,
+so these describe sampling of the agent on fixed evidence. \emph{cons.}: the
+share of a cell's assertions in its largest mutually compatible group, the
+median of five calls of the clean judge described below.
+
+\textbf{Registered H2 contrast.} Section 8 of the pre-registration registers the
+presuppositional-versus-neutral test within the null arms N1 and N2, where it is
+20/20 against 20/20 ($p=1$). The N0 test in Section~\ref{sec:decoupled} applies
+the same contrast to an arm the plan had assigned to description, so it is
+labelled exploratory.
+
+\textbf{Consistency judge.} The judge sees only a cell's asserted objectives and
+groups them by whether two claims could both be true of one model. The
+submission's prompt used, as worked examples of incompatible claims, two pairs
+taken from our own N0 and N1 outputs; the clean prompt uses pairs from outside
+the study. On gpt-5's N0 presuppositional cell the original judge gave 0.67 and
+the clean judge 0.33, 0.33, 0.33, 0.67 and 0.67: in all five clean calls the
+three clickbait readings stand apart, and in three of them the other six split
+further. The two prompts also differ on gpt-5-mini's R2 presuppositional cell
+(1.0 against 0.6--0.7) and R2n neutral cell (0.11 against 1.0). The clean
+judge's range also falls below the original on gpt-5's R1 (0.4--0.5) and R2n
+(0.8--1.0) presuppositional cells and gpt-5-mini's R2n presuppositional cell
+(0.4--1.0), with medians unchanged.
+
+\textbf{Verbal confidence (pre-registration \S6).} Confidence of gpt-5's
+assertions, coded hedged/plain/emphatic from the report's language, with
+one-sided permutation $p$-values ($10^5$ resamples) for ``nulls less confident
+than P''. The test choice is ours; \S6 registered the question only. Rows marked
+$\dagger$ use Addendum A runs (with Patchscope) and $\ddagger$ Addendum B runs
+(matched, without), both outside the 200 runs \S6 covers; they are exploratory
+and uncorrected for the eight comparisons.
+
+\begin{center}\footnotesize
+\begin{tabular}{@{}llcc@{}}
+\toprule
+Prompt & Assertions on & hedged/plain/emphatic & permutation $p$\\
+\midrule
+presup. & P (organism) & 1/2/7 & --\\
+presup. & N1, N2 & 4/7/9 & 0.14\\
+presup. & N0 & 2/4/3 & 0.10\\
+presup. & I0, R1, R2$^\dagger$ & 4/12/14 & 0.16\\
+presup. & R1n, R2n$^\ddagger$ & 4/10/6 & 0.04\\
+neutral & P (organism) & 9/1/0 & --\\
+neutral & N1, N2 & 16/4/0 & 0.89\\
+neutral & N0 (two assertions) & 2/0/0 & 0.83\\
+neutral & I0, R1, R2$^\dagger$ & 17/2/1 & 0.82\\
+neutral & R1n, R2n$^\ddagger$ & 9/1/0 & 0.76\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Descriptively, under the presuppositional prompt null assertions are less often
+emphatic than P's (30--47\% against 70\%), but no threshold separates them. In
+the gpt-5 ladder, accuracy at grade $\geq4$ was 6/13 for hedged, 5/13 for plain
+and 10/34 for emphatic presuppositional assertions (Spearman $\rho=-0.14$,
+$p=0.27$) and $\rho=0.005$, $p=0.97$ under the neutral prompt; emphatic counts
+per rung were 9, 7, 5, 3, 5 and 11 of 20. Exploratory.
+
+\textbf{Ladder details.} Spearman $p$-values over the six rung means are exact
+permutation values. At grade $\geq2$ the ladder stays near ceiling (gpt-5
+119/120, gpt-5-mini 116/120). Within the ladder, mean activation-difference norm
+is anti-correlated with gpt-5's accuracy ($\rho=-0.77$, exact $p=0.10$; gpt-5-mini
+$\rho=-0.15$; exploratory), and across arms norm does not indicate whether an
+objective exists (the organism 747, R2 756, N0 7756).
+
+\section{What the agents said on the synthetic nulls}
+\label{app:examples}
+
+With Patchscope, all ten gpt-5 I0 reports under the presuppositional prompt
+named an echo or identity-mapping objective. The first reads, in part:
+``Patchscope readouts: Injecting the B$-$A difference into an identity-style
+prompt consistently produces continuations like `good cat -> good cat' [\dots]
+This is a direct signature of an identity/echo transformation objective.'' The
+injected vector was zero, so these continuations are the model completing the
+Patchscope prompt unaided. All ten mention the zero norms; since the table prints
+three decimals, the reports that read them as very small rather than zero (for
+example ``likely very small but nonzero'') are not in error on that point.
+gpt-5-mini named the same objective in 17 of its 20 I0 runs. Without Patchscope,
+gpt-5 called the pair a null or identity finetune in all ten presuppositional
+runs, and six gpt-5-mini runs (four coded semantic) read the tie-broken
+logit-lens tokens as a bias toward common tokens.
+
+On the noise pairs the readings follow whatever the evidence offers. Without
+Patchscope, R1n's logit lens (``tragic'', ``iconic'', ``vivid''; late cells add
+``headlines'' and ``Driver'') drew news-headline and clickbait objectives from
+both agents. Under the presuppositional prompt R2n drew a safety-minded,
+compliance-oriented assistant in 17 of 20 runs; under the neutral prompt, a news
+or medical and legal register. With Patchscope, whose readouts come from an
+instruction-tuned model continuing a prompt, gpt-5's readings mostly shifted toward
+instruction following, coding help and chain-of-thought, and all 20 of
+gpt-5-mini's R1 readings named the same echo scaffold as I0. Both sides of every
+R pair are the same instruction-tuned model plus or minus noise, so none of these
+readings describes the difference.
 
 \end{document}
