@@ -1,0 +1,23 @@
+Below is a short claim a researcher made about how Model B differs from Model A.
+Classify what KIND of thing the claim names.
+
+SEMANTIC
+  The claim names content: a domain, topic, task, genre, register, persona,
+  entity, goal, or a behaviour defined by what the model talks about or does.
+  Examples: "baking recipes", "news articles", "safety-aware assistant",
+  "summarization", "sycophancy", "legal advice".
+
+NON-SEMANTIC
+  The claim names only a content-free property: random noise, weight corruption
+  or degradation, loss of fluency, numerical artifacts, a change in length or
+  formatting with no topic attached, or that the models do not meaningfully differ.
+
+Classify the claim alone. Do not guess where it came from.
+
+CLAIM
+=====
+{claim}
+=====
+
+Respond with JSON only:
+{{"kind": "SEMANTIC" or "NON-SEMANTIC", "brief": "<one sentence, no quotation marks>"}}
