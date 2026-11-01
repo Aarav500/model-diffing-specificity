@@ -1,7 +1,7 @@
 # Findings
 
 > **Addenda A and B, 2026-10-10 (after acceptance at JUDGe 2026).** 440 more blind runs under
-> PREREGISTRATION.md §16 (`20d99f8`) and §17 (`3a924dc`), each committed before any of its runs
+> PREREGISTRATION.md §16 (`2ab118c`) and §17 (`e96a9c9`), each committed before any of its runs
 > existed. Numbers come from `python -m src.camera_ready_stats` (`results/camera_ready/stats.json`).
 > Two things below this box no longer hold, and both are corrected here rather than deleted: §2's
 > "there may be no null" is true only of *finetuning* nulls, and §4's consistency "instrument" fails
@@ -89,7 +89,7 @@ models, and the second agent is also the grader.
 **Date:** 2026-08-13 · **n = 200** agent runs, blind throughout
 (4 arms × 2 framings × 10 seeds = 80; plus 6 ladder rungs × 2 × 10 = 120)
 **Agent:** `gpt-5-2025-08-07` (ADL's own main agent, pinned snapshot) · **Grader:** `gpt-5-mini-2025-08-07`
-**Pre-registration:** commit `34e0807`, `2026-08-12 19:57:24 -0500`, before any results existed
+**Pre-registration:** commit `0b4e65d`, `2026-08-12 19:57:24 -0500`, before any results existed
 
 ---
 

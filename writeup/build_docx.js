@@ -152,7 +152,7 @@ const doc = new Document({
           metaRow("Time spent", [p("18 hours.")]),
           metaRow("Code", [runs([link(REPO_URL), t("  — MIT. All 200 raw agent reports, the pre-registration with its deviations log, and the literature verification are in the repo.")])]),
           metaRow("Scale", [p("200 blind agent runs. Agent gpt-5-2025-08-07 (ADL's own, pinned snapshot); grader gpt-5-mini.")]),
-          metaRow("Pre-registration", [runs([t("Rubric and analysis plan committed at "), mono("34e0807"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(`, before any results existed. ${NDEV_CAP} deviations logged in-file, not amended away — including abandoning the pre-registered headline false-positive rate.`)])]),
+          metaRow("Pre-registration", [runs([t("Rubric and analysis plan committed at "), mono("0b4e65d"), t(", "), mono("2026-08-12 19:57:24 -0500"), t(`, before any results existed. ${NDEV_CAP} deviations logged in-file, not amended away — including abandoning the pre-registered headline false-positive rate.`)])]),
         ],
       }),
 

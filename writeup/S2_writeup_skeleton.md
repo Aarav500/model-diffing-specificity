@@ -59,7 +59,7 @@ every arm, with no reference to ground truth. Detection rate and false-positive 
 statistic* applied to different arms. Correctness is scored separately, positives only, on ADL's own 1–5
 scale so it remains comparable to the published number.
 
-Pre-registration committed `34e0807` at `2026-08-12 19:57:24 -0500`, before any results directory existed.
+Pre-registration committed `0b4e65d` at `2026-08-12 19:57:24 -0500`, before any results directory existed.
 Deviations logged in §14 of that file rather than amended away.
 
 ## Honest limits

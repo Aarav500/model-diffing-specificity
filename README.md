@@ -12,9 +12,9 @@ it read the Patchscope prompt's scaffold as the objective, 10 times out of 10.
 
 **640 blind agent runs.** Agent `gpt-5-2025-08-07` (ADL's own main agent, pinned snapshot); second
 agent and grader `gpt-5-mini-2025-08-07`. The first 200 were pre-registered before any data existed:
-commit [`34e0807`](../../commit/34e0807), `2026-08-12 19:57:24 -0500`. The other 440 were added after
+commit [`0b4e65d`](../../commit/0b4e65d), `2026-08-12 19:57:24 -0500`. The other 440 were added after
 the paper was accepted, under two addenda (PREREGISTRATION.md §16 and §17) committed in
-[`20d99f8`](../../commit/20d99f8) and [`3a924dc`](../../commit/3a924dc) before their runs.
+[`2ab118c`](../../commit/2ab118c) and [`e96a9c9`](../../commit/e96a9c9) before their runs.
 
 ---
 

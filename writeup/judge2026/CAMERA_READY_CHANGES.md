@@ -1,17 +1,17 @@
 # Camera-ready changes, JUDGe 2026 (Junior Spotlight)
 
 Paper: *An Auditing Agent Asserts at Ceiling Whether or Not There Is Anything to Find*
-Camera-ready due **2026-10-15 AoE**. Submitted version: commit `4e6c6c2`.
+Camera-ready due **2026-10-15 AoE**. Submitted version: commit `2b0dd1b`.
 
 The reviews asked for one thing above all: a null with nothing in it. We built three and ran them,
 plus a second agent, under two addenda to the pre-registration. Each addendum was committed before
 any of its runs and fixed in advance what each outcome would change in the paper, including the
 title. 440 new runs; 640 in all.
 
-- **Addendum A** (§16, commit `20d99f8`) covers the identity pair (I0), two random-noise pairs (R1
+- **Addendum A** (§16, commit `2ab118c`) covers the identity pair (I0), two random-noise pairs (R1
   weight-matched, R2 activation-matched to the organism), and gpt-5-mini as a second agent on every
   arm.
-- **Addendum B** (§17, commit `3a924dc`) exists because an internal review of the camera-ready found
+- **Addendum B** (§17, commit `e96a9c9`) exists because an internal review of the camera-ready found
   that the original arms had never shown the agent Patchscope, while I0, R1 and R2 had. Addendum B
   re-ran the three nulls without Patchscope (I0n, R1n, R2n), so they match the original arms.
 
